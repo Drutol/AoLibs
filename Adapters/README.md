@@ -1,0 +1,3 @@
+# AoLibs.Adapters
+
+TODO

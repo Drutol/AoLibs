@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>NavigationLib.Core</id>
+    <version>1.0.0</version>
+    <authors>Piotr Szymczak</authors>
+    <owners>Piotr Szymczak</owners>
+    <projectUrl>https://gitlab.dotconnect.vc/pszymczak/xamarin-navigation</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Crossplatform navigation solution.</description>
+    <releaseNotes>Initial release.</releaseNotes>
+    <copyright>WTFPL</copyright>
+    <tags>Navigation Xamarin</tags>
+  </metadata>
+</package>
