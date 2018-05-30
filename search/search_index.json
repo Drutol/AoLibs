@@ -1,0 +1,139 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "AoLibs\n\n\nSet of various libraries that I happened to write during my Xamarin adventures. They are in final stages of testing in real project. Later on I'll write proper docs and make the code more appropriate for nuget library.\n\n\n\n\nI'm currently writing docs in readmes. They will be visbile in repo and on \nGitHub pages\n\n\n\n\nFeatures\n\n\nLibrary supports \niOS\n and \nAndroid\n projects. It's divided into three parts:\n\n\n\n\nAoLibs.Navigation\n\n\nProvides cross platform navigation utilities.\n\n\n\n\n\n\nAoLibs.Adapters\n\n\nVarious adapters gathering features that require writing platform specific code.\n\n\n\n\n\n\nAoLibs.Utilities\n\n\nCompletly random things that I tend to use in my projects\n\n\n\n\n\n\n\n\nDependencies\n\n\nThese libraries are built against MvvmLight libraries.",
+            "title": "Home"
+        },
+        {
+            "location": "/#aolibs",
+            "text": "Set of various libraries that I happened to write during my Xamarin adventures. They are in final stages of testing in real project. Later on I'll write proper docs and make the code more appropriate for nuget library.   I'm currently writing docs in readmes. They will be visbile in repo and on  GitHub pages",
+            "title": "AoLibs"
+        },
+        {
+            "location": "/#features",
+            "text": "Library supports  iOS  and  Android  projects. It's divided into three parts:   AoLibs.Navigation  Provides cross platform navigation utilities.    AoLibs.Adapters  Various adapters gathering features that require writing platform specific code.    AoLibs.Utilities  Completly random things that I tend to use in my projects",
+            "title": "Features"
+        },
+        {
+            "location": "/#dependencies",
+            "text": "These libraries are built against MvvmLight libraries.",
+            "title": "Dependencies"
+        },
+        {
+            "location": "/installation/",
+            "text": "TODO",
+            "title": "Installation"
+        },
+        {
+            "location": "/installation/#todo",
+            "text": "",
+            "title": "TODO"
+        },
+        {
+            "location": "/navigation/",
+            "text": "Introduction\n\n\nThe goal is to provide lightweight solution for cross-platform navigation.\n\n\nThe main interface you will be using in your shared codebase is \nINavigationManager<TPageIdentifier>\n where \nTPageIdentifier\n is usally a simple enum with all your pages.\n\n\n\n\nBelow I'll descibe shared concepts between Android&iOS. Setup and platofrm specific things are contained in separate pages.\n\n\n\n\nPage providers\n\n\nThe page definitions dictionary takes in pair of \nTPageIdentifier\n which is simple \nenum\n in most cases and instance of class that implements \nIPageProvider<NavigationFragmentBase>\n. There are two implemented as of now:\n\n\n\n\nCachedPageProvider\n\n\nThis provider preserves the state of its page so that when we navigate there it will look the same.\n\n\n\n\n\n\nOneshotPageProvider\n\n\nHere we are providing the page instance just once, each navigation will create new uninitilized page. The use-case of it is to avoid manually cleaning pages like \nRegisterPage\n. I suggest disabling cache in your IoC container for associated ViewModel.\n\n\n\n\n\n\n\n\nNavigation lifecycle events\n\n\nNavigationFragmentBase\n provides following events for you to override:\n\n\npublic virtual void NavigatedTo();\npublic virtual void NavigatedBack();\npublic virtual void NavigatedFrom();\n\n\n\n\n\n\nNavigatedTo\n\n\nIs called when we navigate forward to this fragment.\n\n\neg. SignInPage -> DashboardPage\n\n\nDashboardPage invokes \nNavigatedTo\n\n\n\n\n\n\n\n\n\n\nNavigatedBack\n\n\nCalled when we navigate backwards to the page we have alraedy been on.\n\n\neg. SignInPage <- DashboardPage\n\n\nSignInPage invokes \nNavigatedBack\n\n\n\n\n\n\n\n\n\n\nNavigatedFrom\n\n\nIs called whenever we leave the page.\n\n\n\n\n\n\n\n\nNavigation with arguments\n\n\nIt's possible to invoke navigation with arguments. It allows us to separate ViewModels and avoid communication spaghetti code. \n\n\nINavigationManager<TPageIdentifier>\n allows to pass \nargs\n parameter which is plain \nSystem.Object\n. These arguments will appear in \nNavigationArguments\n property within fragment class.\n\n\nNavigation backstack options\n\n\nThere are defined following naviagtion options:\n\n\npublic enum NavigationBackstackOption\n{\n    AddToBackstack,\n    SetAsRootPage,\n    ClearBackstackToFirstOccurence,\n    NoBackstack,\n    ForceNewPageInstance\n}\n\n\n\n\n\n\nAddToBackstack\n\n\nBasic default option, current page will be added to backstack when navigating.\n\n\n\n\n\n\nSetAsRootPage\n\n\nClears backstack and then navigates to given page essentially making it a root page.\n\n\n\n\n\n\nClearBackstackToFirstOccurence\n\n\nAllows to \"jump\" to page that is already on backstack, let's say you have registration process consisting of multiple pages and once you are done you need to get back to \"Sign in\" page, with this option you can go back multiple pages.\n\n\n\n\n\n\nNoBackstack\n\n\nCurrent page won't be added to backstack on navigation.\n\n\n\n\n\n\nForceNewPageInstance\n\n\nRequests \nIPageProvider\n to recreate page instance before navigating.",
+            "title": "Navigation"
+        },
+        {
+            "location": "/navigation/#introduction",
+            "text": "The goal is to provide lightweight solution for cross-platform navigation.  The main interface you will be using in your shared codebase is  INavigationManager<TPageIdentifier>  where  TPageIdentifier  is usally a simple enum with all your pages.   Below I'll descibe shared concepts between Android&iOS. Setup and platofrm specific things are contained in separate pages.",
+            "title": "Introduction"
+        },
+        {
+            "location": "/navigation/#page-providers",
+            "text": "The page definitions dictionary takes in pair of  TPageIdentifier  which is simple  enum  in most cases and instance of class that implements  IPageProvider<NavigationFragmentBase> . There are two implemented as of now:   CachedPageProvider  This provider preserves the state of its page so that when we navigate there it will look the same.    OneshotPageProvider  Here we are providing the page instance just once, each navigation will create new uninitilized page. The use-case of it is to avoid manually cleaning pages like  RegisterPage . I suggest disabling cache in your IoC container for associated ViewModel.",
+            "title": "Page providers"
+        },
+        {
+            "location": "/navigation/#navigation-lifecycle-events",
+            "text": "NavigationFragmentBase  provides following events for you to override:  public virtual void NavigatedTo();\npublic virtual void NavigatedBack();\npublic virtual void NavigatedFrom();   NavigatedTo  Is called when we navigate forward to this fragment.  eg. SignInPage -> DashboardPage  DashboardPage invokes  NavigatedTo      NavigatedBack  Called when we navigate backwards to the page we have alraedy been on.  eg. SignInPage <- DashboardPage  SignInPage invokes  NavigatedBack      NavigatedFrom  Is called whenever we leave the page.",
+            "title": "Navigation lifecycle events"
+        },
+        {
+            "location": "/navigation/#navigation-with-arguments",
+            "text": "It's possible to invoke navigation with arguments. It allows us to separate ViewModels and avoid communication spaghetti code.   INavigationManager<TPageIdentifier>  allows to pass  args  parameter which is plain  System.Object . These arguments will appear in  NavigationArguments  property within fragment class.",
+            "title": "Navigation with arguments"
+        },
+        {
+            "location": "/navigation/#navigation-backstack-options",
+            "text": "There are defined following naviagtion options:  public enum NavigationBackstackOption\n{\n    AddToBackstack,\n    SetAsRootPage,\n    ClearBackstackToFirstOccurence,\n    NoBackstack,\n    ForceNewPageInstance\n}   AddToBackstack  Basic default option, current page will be added to backstack when navigating.    SetAsRootPage  Clears backstack and then navigates to given page essentially making it a root page.    ClearBackstackToFirstOccurence  Allows to \"jump\" to page that is already on backstack, let's say you have registration process consisting of multiple pages and once you are done you need to get back to \"Sign in\" page, with this option you can go back multiple pages.    NoBackstack  Current page won't be added to backstack on navigation.    ForceNewPageInstance  Requests  IPageProvider  to recreate page instance before navigating.",
+            "title": "Navigation backstack options"
+        },
+        {
+            "location": "/navigation-android/",
+            "text": "Introduction\n\n\nThe idea behind this navigation mechanism is simillar to how WPF/UWP's \n<Frame>\n element works. Namely we are have one root page that hosts all other pages. These pages are managed by libary within this frame.\n\n\nSetup\n\n\nAll pages are hosted as \nFragments\n, I'm assuming using single activity pattern.\nGiven a single android activity with layout:\n\n\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n              android:layout_width=\"match_parent\"\n              android:layout_height=\"match_parent\"\n              android:orientation=\"vertical\">\n\n  <FrameLayout android:layout_width=\"match_parent\"\n               android:layout_height=\"match_parent\"\n               android:id=\"@+id/RootView\" />\n</LinearLayout>\n\n\n\n\nNow we will want to initialize library from code.\nThe \nRootView\n \nFrameLayout\n will be hosting all our pages within itself.\n\n\nprotected override void OnCreate(Bundle savedInstanceState)\n{\n    base.OnCreate(savedInstanceState);\n\n    SetContentView(Resource.Layout.main);\n\n    var pageDefinitions = new Dictionary<PageIndex, IPageProvider<NavigationFragmentBase>>\n    {\n        // cached\n        {PageIndex.WelcomePage, new CachedPageProvider<WelcomePageFragment>()},\n        // oneshots\n        {PageIndex.SignInPage, new OneshotPageProvider<SignInPageFragment>()},\n    };\n\n    var manager = new NavigationManager<PageIndex>(\n        fragmentManager: SupportFragmentManager,\n        rootFrame: RootView,\n        pageDefinitions: pageDefinitions)\n}\n\n\n\n\nNow we can happily use our \nINavigationManager<TPageIdentifier>\n in our ViewModels!\n\n\nAdditional configuration\n\n\nAdding new pages\n\n\nAs we can see there are two pages defined \nWelcomePageFragment\n and \nSignInPageFragment\n. I'm providing base clases for fragments so it's very easy to add new content.\n\n\nType hierarchy:\n* \nINavigationPage\n\n  * \nNavigationFragmentBase\n\n    * \nFragmentBase<TViewModel>\n\n\nNavigationFragmentBase\n inherits from Andoroid's \nFragment\n class and wraps its functionality. Let's say we want to create new page \nSplashPage\n.\n1. Create new class called for example \nSplashPageFragment\n\n2. Make it inherit from \nFragmentBase<TViewModel>\n\n\npublic class SplashPageFragment : FragmentBase<SplashViewModel>\n{\n    public override int LayoutResourceId { get; } = Resource.Layout.splash_page;\n\n    protected override void InitBindings()\n    {\n\n    }\n}\n\n\n\n\n\n\nThere are 2 required elements:\n\n\nLayoutResourceId\n which indicates which layout the fragment is associated with.\n\n\nInitBinings\n method in which we will define our bindings to ViewModel.\n\n\nAdd new entry in \npageDefinitions\n\n\n\n\nTransition animations\n\n\nIf you want to include transition animations when navigating you will want to use \nAction<FragmentTransaction> interceptTransaction\n parameter of \nNavigationManager\n's constructor. It will expose \nFragmentTransaction\n so you change whatever you want before actually commiting new page. For example:\n\n\nprivate void InterceptTransaction(FragmentTransaction fragmentTransaction)\n{\n    fragmentTransaction.SetCustomAnimations(\n        Resource.Animator.animation_slide_bottom,\n        Resource.Animator.animation_fade_out);\n}\n\n\n\n\nViewModel injection\n\n\nThe generic parameter of \nFragmentBase<TViewModel>\n allows you to specify which ViewModel to pull for given fragment. ViewModel will be available in \nViewModel\n property in your fragment.\nThis requires providing implementation of \nIViewModelResolver\n interface which will pull appropriate ViewModels from your IoC for example.\n\n\nprivate class ViewModelResolver : IViewModelResolver\n{\n    public TViewModel Resolve<TViewModel>()\n    {\n        using (var scope = ViewModelLocator.ObtainScope())\n        {\n            return scope.Resolve<TViewModel>();\n        }\n    }\n}\n\n\n\n\nThis \nViewModelResolver\n can be assigned to static property found on \nNavigationFragmentBase\n.\n\n\nNavigationFragmentBase.ViewModelResolver = new ViewModelResolver();\n\n\n\n\nBindings\n\n\nWhen we are talking navigation we are talking bindings lifecycle too. \nFragmentBase\n class handles them too. Since the library is based on MVVMLight library we are using its bindings. \n\n\nYou will want to add all of them to \nBindings\n which is of type \nList<Binding>\n, they will be properly attached and reattached when needed.\n\n\nYou are supposed to add all your bindings in \nInitBindings\n method which is called once per fragment instance or when bindigs need to be recreated.\n\n\nIf you don't have any bindings added to \nBindings\n, yet you don't wat the method to be fired again you can call this constructor:\n\n\npublic NavigationFragmentBase(bool hasNonTrackableBindings = false);\n\n\n\n\nExample:\n\n\nprotected override void InitBindings()\n{\n    Bindings.Add(this.SetBinding(() => ViewModel.Toggle).WhenSourceChanges(() =>\n    {\n        ToggleValue.Text = ViewModel.Toggle ? \"ON\" : \"OFF\";\n    }));\n\n    Bindings.Add(this.SetBinding(() => ViewModel.Value, () => Value.Text));\n}\n\n\n\n\nDisclaimer: \nValue\n and \nToggleValue\n are \nTextViews\n.\n\n\nNotes\n\n\n\n\nThe \nMainActivity\n will have to inherit \nAppCompatActivity\n.",
+            "title": "Android Navigation"
+        },
+        {
+            "location": "/navigation-android/#introduction",
+            "text": "The idea behind this navigation mechanism is simillar to how WPF/UWP's  <Frame>  element works. Namely we are have one root page that hosts all other pages. These pages are managed by libary within this frame.",
+            "title": "Introduction"
+        },
+        {
+            "location": "/navigation-android/#setup",
+            "text": "All pages are hosted as  Fragments , I'm assuming using single activity pattern.\nGiven a single android activity with layout:  <LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n              android:layout_width=\"match_parent\"\n              android:layout_height=\"match_parent\"\n              android:orientation=\"vertical\">\n\n  <FrameLayout android:layout_width=\"match_parent\"\n               android:layout_height=\"match_parent\"\n               android:id=\"@+id/RootView\" />\n</LinearLayout>  Now we will want to initialize library from code.\nThe  RootView   FrameLayout  will be hosting all our pages within itself.  protected override void OnCreate(Bundle savedInstanceState)\n{\n    base.OnCreate(savedInstanceState);\n\n    SetContentView(Resource.Layout.main);\n\n    var pageDefinitions = new Dictionary<PageIndex, IPageProvider<NavigationFragmentBase>>\n    {\n        // cached\n        {PageIndex.WelcomePage, new CachedPageProvider<WelcomePageFragment>()},\n        // oneshots\n        {PageIndex.SignInPage, new OneshotPageProvider<SignInPageFragment>()},\n    };\n\n    var manager = new NavigationManager<PageIndex>(\n        fragmentManager: SupportFragmentManager,\n        rootFrame: RootView,\n        pageDefinitions: pageDefinitions)\n}  Now we can happily use our  INavigationManager<TPageIdentifier>  in our ViewModels!",
+            "title": "Setup"
+        },
+        {
+            "location": "/navigation-android/#additional-configuration",
+            "text": "",
+            "title": "Additional configuration"
+        },
+        {
+            "location": "/navigation-android/#adding-new-pages",
+            "text": "As we can see there are two pages defined  WelcomePageFragment  and  SignInPageFragment . I'm providing base clases for fragments so it's very easy to add new content.  Type hierarchy:\n*  INavigationPage \n  *  NavigationFragmentBase \n    *  FragmentBase<TViewModel>  NavigationFragmentBase  inherits from Andoroid's  Fragment  class and wraps its functionality. Let's say we want to create new page  SplashPage .\n1. Create new class called for example  SplashPageFragment \n2. Make it inherit from  FragmentBase<TViewModel>  public class SplashPageFragment : FragmentBase<SplashViewModel>\n{\n    public override int LayoutResourceId { get; } = Resource.Layout.splash_page;\n\n    protected override void InitBindings()\n    {\n\n    }\n}   There are 2 required elements:  LayoutResourceId  which indicates which layout the fragment is associated with.  InitBinings  method in which we will define our bindings to ViewModel.  Add new entry in  pageDefinitions",
+            "title": "Adding new pages"
+        },
+        {
+            "location": "/navigation-android/#transition-animations",
+            "text": "If you want to include transition animations when navigating you will want to use  Action<FragmentTransaction> interceptTransaction  parameter of  NavigationManager 's constructor. It will expose  FragmentTransaction  so you change whatever you want before actually commiting new page. For example:  private void InterceptTransaction(FragmentTransaction fragmentTransaction)\n{\n    fragmentTransaction.SetCustomAnimations(\n        Resource.Animator.animation_slide_bottom,\n        Resource.Animator.animation_fade_out);\n}",
+            "title": "Transition animations"
+        },
+        {
+            "location": "/navigation-android/#viewmodel-injection",
+            "text": "The generic parameter of  FragmentBase<TViewModel>  allows you to specify which ViewModel to pull for given fragment. ViewModel will be available in  ViewModel  property in your fragment.\nThis requires providing implementation of  IViewModelResolver  interface which will pull appropriate ViewModels from your IoC for example.  private class ViewModelResolver : IViewModelResolver\n{\n    public TViewModel Resolve<TViewModel>()\n    {\n        using (var scope = ViewModelLocator.ObtainScope())\n        {\n            return scope.Resolve<TViewModel>();\n        }\n    }\n}  This  ViewModelResolver  can be assigned to static property found on  NavigationFragmentBase .  NavigationFragmentBase.ViewModelResolver = new ViewModelResolver();",
+            "title": "ViewModel injection"
+        },
+        {
+            "location": "/navigation-android/#bindings",
+            "text": "When we are talking navigation we are talking bindings lifecycle too.  FragmentBase  class handles them too. Since the library is based on MVVMLight library we are using its bindings.   You will want to add all of them to  Bindings  which is of type  List<Binding> , they will be properly attached and reattached when needed.  You are supposed to add all your bindings in  InitBindings  method which is called once per fragment instance or when bindigs need to be recreated.  If you don't have any bindings added to  Bindings , yet you don't wat the method to be fired again you can call this constructor:  public NavigationFragmentBase(bool hasNonTrackableBindings = false);  Example:  protected override void InitBindings()\n{\n    Bindings.Add(this.SetBinding(() => ViewModel.Toggle).WhenSourceChanges(() =>\n    {\n        ToggleValue.Text = ViewModel.Toggle ? \"ON\" : \"OFF\";\n    }));\n\n    Bindings.Add(this.SetBinding(() => ViewModel.Value, () => Value.Text));\n}  Disclaimer:  Value  and  ToggleValue  are  TextViews .",
+            "title": "Bindings"
+        },
+        {
+            "location": "/navigation-android/#notes",
+            "text": "The  MainActivity  will have to inherit  AppCompatActivity .",
+            "title": "Notes"
+        },
+        {
+            "location": "/navigation-ios/",
+            "text": "TODO",
+            "title": "iOS Navigation"
+        },
+        {
+            "location": "/navigation-ios/#todo",
+            "text": "",
+            "title": "TODO"
+        },
+        {
+            "location": "/adapters/",
+            "text": "TODO",
+            "title": "Adapters"
+        },
+        {
+            "location": "/adapters/#todo",
+            "text": "",
+            "title": "TODO"
+        },
+        {
+            "location": "/adapters-android/",
+            "text": "TODO",
+            "title": "Android Adapters"
+        },
+        {
+            "location": "/adapters-android/#todo",
+            "text": "",
+            "title": "TODO"
+        }
+    ]
+}

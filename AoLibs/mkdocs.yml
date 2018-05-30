@@ -1,0 +1,13 @@
+site_name: AoLibs
+
+pages:
+  - Home: index.md
+  - Installation: installation.md
+  - Navigation: navigation.md
+  - Android Navigation: navigation-android.md
+  - iOS Navigation: navigation-ios.md
+  - Adapters: adapters.md
+  - Android Adapters: adapters-android.md
+
+theme:
+  name: material
