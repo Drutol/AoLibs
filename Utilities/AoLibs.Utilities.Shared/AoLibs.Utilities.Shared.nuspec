@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>AoLibs.Utilities.Shared</id>
+    <version>0.1.0</version>
+    <title>AoLibs.Utilities.Shared</title>
+    <authors>Piotr Szymczak (Drutol)</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Various little helpers for Xamarin projects.</description>
+    <releaseNotes>Initial release.</releaseNotes>
+  </metadata>
+</package>

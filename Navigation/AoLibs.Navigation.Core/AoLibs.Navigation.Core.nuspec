@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>AoLibs.Navigation.Core</id>
+    <version>0.1.0</version>
+    <title>AoLibs.Navigation.Core</title>
+    <authors>Piotr Szymczak (Drutol)</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Core logic for cross-platform naviagtion.</description>
+    <releaseNotes>Initial release.</releaseNotes>
+  </metadata>
+</package>

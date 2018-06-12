@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>AoLibs.Navigation.iOS</id>
+    <version>0.1.0</version>
+    <title>AoLibs.Navigation.iOS</title>
+    <authors>Piotr Szymczak (Drutol)</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Implementation of iOS specific navigation unitlities.</description>
+    <releaseNotes>Initial release.</releaseNotes>
+  </metadata>
+</package>

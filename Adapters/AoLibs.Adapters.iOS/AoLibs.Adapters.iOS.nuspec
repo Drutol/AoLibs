@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>AoLibs.Adapters.iOS</id>
+    <version>0.1.0</version>
+    <title>AoLibs.Adapters.iOS</title>
+    <authors>Piotr Szymczak (Drutol)</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Set of adapter classes for android.</description>
+    <releaseNotes>Initial release.</releaseNotes>
+  </metadata>
+</package>
