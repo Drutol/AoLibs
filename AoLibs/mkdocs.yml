@@ -12,5 +12,11 @@ pages:
   - Android Listeners: android-listeners.md
   - AppVariables: app-variables.md
 
+extra_javascript:
+    - js/hljs.js
+
+extra_css:
+    - css/default.css
+
 theme:
   name: material
