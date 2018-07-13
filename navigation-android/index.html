@@ -329,6 +329,42 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../android-recycler-adapters/" title="Android Recycler Adapters" class="md-nav__link">
+      Android Recycler Adapters
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../android-listeners/" title="Android Listeners" class="md-nav__link">
+      Android Listeners
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../app-variables/" title="AppVariables" class="md-nav__link">
+      AppVariables
+    </a>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -465,10 +501,20 @@ The <em>RootView</em> <code>FrameLayout</code> will be hosting all our pages wit
 <h2 id="additional-configuration">Additional configuration</h2>
 <h2 id="adding-new-pages">Adding new pages</h2>
 <p>As we can see there are two pages defined <code>WelcomePageFragment</code> and <code>SignInPageFragment</code>. I'm providing base clases for fragments so it's very easy to add new content.</p>
-<p>Type hierarchy:
-* <code>INavigationPage</code>
-  * <code>NavigationFragmentBase</code>
-    * <code>FragmentBase&lt;TViewModel&gt;</code></p>
+<p>Type hierarchy:</p>
+<ul>
+<li>
+<p><code>INavigationPage</code></p>
+<ul>
+<li>
+<p><code>NavigationFragmentBase</code></p>
+<ul>
+<li><code>FragmentBase&lt;TViewModel&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <p><code>NavigationFragmentBase</code> inherits from Andoroid's <code>Fragment</code> class and wraps its functionality. Let's say we want to create new page <em>SplashPage</em>.
 1. Create new class called for example <code>SplashPageFragment</code>
 2. Make it inherit from <code>FragmentBase&lt;TViewModel&gt;</code></p>

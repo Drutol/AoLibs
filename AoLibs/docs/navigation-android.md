@@ -50,9 +50,13 @@ Now we can happily use our `INavigationManager<TPageIdentifier>` in our ViewMode
 As we can see there are two pages defined `WelcomePageFragment` and `SignInPageFragment`. I'm providing base clases for fragments so it's very easy to add new content.
 
 Type hierarchy:
+
 * `INavigationPage`
-  * `NavigationFragmentBase`
-    * `FragmentBase<TViewModel>`
+
+    * `NavigationFragmentBase`
+
+        * `FragmentBase<TViewModel>`
+
 
 `NavigationFragmentBase` inherits from Andoroid's `Fragment` class and wraps its functionality. Let's say we want to create new page _SplashPage_.
 1. Create new class called for example `SplashPageFragment`

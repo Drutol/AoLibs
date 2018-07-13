@@ -71,7 +71,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#todo" tabindex="1" class="md-skip">
+      <a href="#adapters" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -236,9 +236,66 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Adapters
+      </label>
+    
     <a href="./" title="Adapters" class="md-nav__link md-nav__link--active">
       Adapters
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#provided-adapters" title="Provided adapters" class="md-nav__link">
+    Provided adapters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datacache" title="DataCache" class="md-nav__link">
+    DataCache
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dispatcheradapter" title="DispatcherAdapter" class="md-nav__link">
+    DispatcherAdapter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lifecycleinfoprovider" title="LifecycleInfoProvider" class="md-nav__link">
+    LifecycleInfoProvider
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#settingsprovider" title="SettingsProvider" class="md-nav__link">
+    SettingsProvider
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -251,6 +308,42 @@
   <li class="md-nav__item">
     <a href="../adapters-android/" title="Android Adapters" class="md-nav__link">
       Android Adapters
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../android-recycler-adapters/" title="Android Recycler Adapters" class="md-nav__link">
+      Android Recycler Adapters
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../android-listeners/" title="Android Listeners" class="md-nav__link">
+      Android Listeners
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../app-variables/" title="AppVariables" class="md-nav__link">
+      AppVariables
     </a>
   </li>
 
@@ -272,6 +365,50 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#provided-adapters" title="Provided adapters" class="md-nav__link">
+    Provided adapters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datacache" title="DataCache" class="md-nav__link">
+    DataCache
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dispatcheradapter" title="DispatcherAdapter" class="md-nav__link">
+    DispatcherAdapter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lifecycleinfoprovider" title="LifecycleInfoProvider" class="md-nav__link">
+    LifecycleInfoProvider
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#settingsprovider" title="SettingsProvider" class="md-nav__link">
+    SettingsProvider
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -283,7 +420,36 @@
               
                 
                 
-                <h1 id="todo">TODO</h1>
+                <h1 id="adapters">Adapters</h1>
+<p>The library comes packed with quite a few adapters that will help you avoid writing boilerplate code for platfrom dependednt functionalities.</p>
+<blockquote>
+<p>Adapter is a class which provides same functionality that has to be implemented differently on different platforms.</p>
+</blockquote>
+<h2 id="provided-adapters">Provided adapters</h2>
+<p>Main interfaces which can be used in shared codebase are found in <code>AoLibs.Adapters.Core</code>.</p>
+<ul>
+<li>IClipboardProvider</li>
+<li>IDataCache</li>
+<li>IDispatcherAdapter</li>
+<li>IFileStorageProvider</li>
+<li>ILifecycleInfoProvider</li>
+<li>IMessageBoxProvider</li>
+<li>IPhoneCallAdapter</li>
+<li>IPhotoPickerAdapter</li>
+<li>IPickerAdapter</li>
+<li>ISettingsProvider</li>
+<li>IUriLauncherAdapter</li>
+<li>IVersionProvider</li>
+</ul>
+<p>I'll provide more details on the ones that may be not obvious.</p>
+<h2 id="datacache">DataCache</h2>
+<p>It depends on <code>IFileStorageProvider</code>. Uses Json.NET to serialize given data and save it to file for storage. Object are wrapped in object with timestamp so it's possible to specify for how long this piece of data stays valid.</p>
+<h2 id="dispatcheradapter">DispatcherAdapter</h2>
+<p>Runs action on UI thread... that's it.</p>
+<h2 id="lifecycleinfoprovider">LifecycleInfoProvider</h2>
+<p>Requires manual invocation of methods.</p>
+<h2 id="settingsprovider">SettingsProvider</h2>
+<p>Provides set of methods allowing to storage data in application's settings construct.</p>
                 
                   
                 

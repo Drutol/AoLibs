@@ -1,4 +1,4 @@
-# Introduction
+# Navigation
 
 The goal is to provide lightweight solution for cross-platform navigation.
 
@@ -8,7 +8,7 @@ The main interface you will be using in your shared codebase is `INavigationMana
 
 ## Page providers
 
-The page definitions dictionary takes in pair of `TPageIdentifier` which is simple `enum` in most cases and instance of class that implements `IPageProvider<NavigationFragmentBase>`. There are two implemented as of now:
+The page definitions dictionary takes in pair of `TPageIdentifier` which is simple `enum` in most cases and instance of class that implements `IPageProvider<INavigationPage>`. There are two implemented as of now:
 
 * `CachedPageProvider`
     * This provider preserves the state of its page so that when we navigate there it will look the same.
@@ -17,7 +17,7 @@ The page definitions dictionary takes in pair of `TPageIdentifier` which is simp
 
 ## Navigation lifecycle events
 
-`NavigationFragmentBase` provides following events for you to override:
+`INavigationPage` provides following events for you to override from platform specific class:
 ```cs
 public virtual void NavigatedTo();
 public virtual void NavigatedBack();

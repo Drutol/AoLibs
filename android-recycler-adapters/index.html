@@ -1,0 +1,767 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.5, mkdocs-material-2.9.2">
+    
+    
+      
+        <title>Android Recycler Adapters - AoLibs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.ba0fd1a6.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#recycler-view-adapters" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="AoLibs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                AoLibs
+              </span>
+              <span class="md-header-nav__topic">
+                Android Recycler Adapters
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    AoLibs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../installation/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../navigation/" title="Navigation" class="md-nav__link">
+      Navigation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../navigation-android/" title="Android Navigation" class="md-nav__link">
+      Android Navigation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../navigation-ios/" title="iOS Navigation" class="md-nav__link">
+      iOS Navigation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../adapters/" title="Adapters" class="md-nav__link">
+      Adapters
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../adapters-android/" title="Android Adapters" class="md-nav__link">
+      Android Adapters
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Android Recycler Adapters
+      </label>
+    
+    <a href="./" title="Android Recycler Adapters" class="md-nav__link md-nav__link--active">
+      Android Recycler Adapters
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#simple-setup" title="Simple setup" class="md-nav__link">
+    Simple setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-stretching" title="View Stretching" class="md-nav__link">
+    View Stretching
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#footer" title="Footer" class="md-nav__link">
+    Footer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binding-viewholders" title="Binding ViewHolders" class="md-nav__link">
+    Binding ViewHolders
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adapters-with-multiple-view-types" title="Adapters with multiple view types" class="md-nav__link">
+    Adapters with multiple view types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adapters-with-multiple-view-types-and-footer" title="Adapters with multiple view types and footer" class="md-nav__link">
+    Adapters with multiple view types and footer
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../android-listeners/" title="Android Listeners" class="md-nav__link">
+      Android Listeners
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../app-variables/" title="AppVariables" class="md-nav__link">
+      AppVariables
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#simple-setup" title="Simple setup" class="md-nav__link">
+    Simple setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-stretching" title="View Stretching" class="md-nav__link">
+    View Stretching
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#footer" title="Footer" class="md-nav__link">
+    Footer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binding-viewholders" title="Binding ViewHolders" class="md-nav__link">
+    Binding ViewHolders
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adapters-with-multiple-view-types" title="Adapters with multiple view types" class="md-nav__link">
+    Adapters with multiple view types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adapters-with-multiple-view-types-and-footer" title="Adapters with multiple view types and footer" class="md-nav__link">
+    Adapters with multiple view types and footer
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="recycler-view-adapters">Recycler View Adapters</h1>
+<p>Adapters library contains set of adapters that eliminate need for creating custom adapter classes.</p>
+<p>Applicable types:</p>
+<p>Adapters:</p>
+<p><code>ObservableRecyclerAdapter&lt;TItem, THolder&gt;</code>
+<code>ObservableRecyclerAdapterWithFooter&lt;TItem, THolder, TFooterHolder&gt;</code>
+<code>ObservableRecyclerAdapterWithMultipleViewTypes&lt;TItemBase, THolder&gt;</code>
+<code>ObservableRecyclerAdapterWithMultipleViewTypesAndFooter&lt;TItemBase, THolder, TFooterHolder&gt;</code></p>
+<p>ViewHolder:</p>
+<p><code>BindingViewHolderBase&lt;T&gt;</code></p>
+<p>Utilities:</p>
+<p><code>ItemEntry</code></p>
+<p><code>SpecializedItemEntry&lt;TSpecializedItem, TSpecializedHolder&gt;</code></p>
+<p>These classes provide an easy way to quickly implement recycler views for various scenarios starting from simple list to elaborate lists with various ViewModel bound elements with different layouts. All of provided adapters are utilising events of <code>ObservableCollection&lt;T&gt;</code>.</p>
+<p>The <code>ObservableRecyclerAdapter&lt;TItem, THolder&gt;</code> is base class for all other specialized adapters.</p>
+<h2 id="simple-setup">Simple setup</h2>
+<p>So let's say we want to set-up simple recycler view list. Let's assume we have layout already created with <code>RecyclerView</code> named <em>RecyclerView</em></p>
+<pre><code class="cs">RecyclerView.SetAdapter(
+    adapter: new ObservableRecyclerAdapter&lt;Item, ItemViewHolder&gt;(
+        items: ViewModel.Items, 
+        dataTemplate: DataTemplate,
+        itemTemplate: ItemTemplate,
+        holderFactory: HolderFactory));
+
+private void DataTemplate(Item item, ItemViewHolder holder, int position)
+{
+    holder.SomeTextView.Text = item.SomeTextValue;
+}
+
+private View ItemTemplate(int viewType)
+{
+    return LayoutInflater.Inflate(Resource.Layout.some_item_layout, null);
+}
+
+private ItemViewHolder HolderFactory(ViewGroup parent, int viewType, View view)
+{
+    return new ItemViewHolder(view);
+}
+</code></pre>
+
+<p>We have 3 methods being passed to adapter's constructor:
+<em> <code>DataTemplate</code>
+    * Here we are defining how to display given item in the list, you will receive current item and holder that will have to display it.
+</em> <code>ItemTemplate</code>
+    * Here you should provide view that will be later bound to view holder.
+* <code>HolderFactory</code>
+    * Here we are instantinating holder for our virtualised items. This parameter is optional if your holder has public parameterless constructor and you don't need custom instantination.</p>
+<h2 id="view-stretching">View Stretching</h2>
+<p>Unless specified the views in <code>RecyclerView</code> won't stretch horizontally. I've provided simple utility that takes care of it. </p>
+<pre><code class="cs">RecyclerView.SetAdapter(
+    adapter: new ObservableRecyclerAdapter&lt;Item, ItemViewHolder&gt;(
+        items: ViewModel.Items, 
+        dataTemplate: DataTemplate,
+        itemTemplate: ItemTemplate,
+        holderFactory: HolderFactory) {ApplyLayoutParams = true});
+</code></pre>
+
+<p>In order to use it you just have to set <code>ApplyLayoutParams</code> property to <code>true</code>. Item containers will be assigned with proper <code>RecyclerView.LayoutParams</code> after inflating.</p>
+<h2 id="footer">Footer</h2>
+<p>Adapter with footer is very similar to standard adapter:</p>
+<pre><code class="cs">RecyclerView.SetAdapter(
+    new ObservableRecyclerAdapterWithFooter&lt;Item, ItemViewHolder, FooterHolder&gt;(
+            items: ViewModel.Items, 
+            dataTemplate: DataTemplate, 
+            holderFactory: HolderFactory, 
+            itemTemplate: ItemTemplate,
+            footerDataTemplate: FooterDataTemplate,
+            footerFactory: FooterFactory,
+            footerTemplate: FooterTemplate)
+        {ApplyLayoutParams = true});
+
+...
+
+private View FooterTemplate(int viewType)
+{
+    return LayoutInflater.Inflate(Resource.Layout.some_footer, null);
+}
+
+private FooterHolder FooterFactory(ViewGroup parent, int viewType, View view)
+{
+    return new FooterHolder(view);
+}
+
+private void FooterDataTemplate(Item item, FooterHolder holder, int position)
+{
+    holder.ViewModel = ViewModel;
+}
+</code></pre>
+
+<p>All you have to do is to add 3 more delegates defining footer. Mind you that <code>item</code> argument in <code>FooterDataTemplate</code> is <code>null</code> as there's no item applicable for that position.</p>
+<blockquote>
+<p>Note: If your footer holder inherits from <code>BindingViewHolderBase&lt;TViewModel&gt;</code> the holder won't automatically update bindings, you have to assign your ViewModel manually to footer.</p>
+</blockquote>
+<h2 id="binding-viewholders">Binding ViewHolders</h2>
+<p>As I've previously mentioned it's possbile to easily implement bindings for each list entry.
+All you have to do is to make your ViewHolder inherit from <code>BindingViewHolderBase&lt;TViewModel&gt;</code>.
+For exmaple:</p>
+<pre><code class="cs">private class SomeHolder : BindingViewHolderBase&lt;SomeViewModel&gt;
+{
+    private readonly View _view;
+
+    private TextView _totalPriceLabel;
+
+    public FooterHolder(View view) : base(view)
+    {
+        _view = view;
+    }
+
+    public TextView TotalPriceLabel =&gt; _totalPriceLabel ??
+                                       (_totalPriceLabel = _view.FindViewById&lt;TextView&gt;(Resource.Id.TotalPriceLabel));
+
+    protected override void SetBindings()
+    {
+        Bindings.Add(this.SetBinding(() =&gt; ViewModel.TotalOrderPrice, () =&gt; TotalPriceLabel.Text)
+            .ConvertSourceToTarget(arg =&gt; arg.ToString(&quot;C&quot;)));
+    }
+}
+</code></pre>
+
+<p>This view holder will make you implement <code>SetBindings</code> methods which works exactly the same as in Fragment's bindings. ViewModel swapping and bindings detaching will all be handled by the library.</p>
+<h2 id="adapters-with-multiple-view-types">Adapters with multiple view types</h2>
+<p>This is where the fun starts. We have this lovely class <code>ObservableRecyclerAdapterWithMultipleViewTypes&lt;TItemBase, THolder&gt;</code> which is inheriting from <code>ObservableRecyclerAdapter&lt;TItemBase,THolder&gt;</code>.
+Notice that there's no longer <code>TItem</code> but <code>TItemBase</code> that means we will provide list of various elements. You can go for <code>object</code> here but I encourage to make your models share same even empty interface for cleanliness sake. </p>
+<p>The constructor has changed too: <code>ObservableRecyclerAdapterWithMultipleViewTypes(Dictionary&lt;Type, IItemEntry&gt; templates,IList&lt;TItemBase&gt; items)</code> we will have to provide a definition of view per item.</p>
+<pre><code class="cs">RecyclerView.SetAdapter(
+new ObservableRecyclerAdapterWithMultipleViewTypes&lt;IFriendListItem,
+        RecyclerView.ViewHolder&gt;(
+        new Dictionary&lt;Type, ObservableRecyclerAdapterWithMultipleViewTypes&lt;IFriendListItem,
+            RecyclerView.ViewHolder&gt;.IItemEntry&gt;
+        {
+            {
+                typeof(FriendListHeaderItem),
+                new ObservableRecyclerAdapterWithMultipleViewTypes&lt;IFriendListItem,
+                    RecyclerView.ViewHolder&gt;.SpecializedItemEntry&lt;FriendListHeaderItem,
+                    SectionViewHolder&gt;
+                {
+                    SpecializedHolderFactory = HeaderHolderFactory,
+                    ItemTemplate = HeaderItemTemplate,
+                    SpecializedDataTemplate = HeaderDataTemplate
+                }
+            },
+            {
+                typeof(InviteFriendItemViewModel),
+                new ObservableRecyclerAdapterWithMultipleViewTypes&lt;IFriendListItem,
+                    RecyclerView.ViewHolder&gt;.SpecializedItemEntry&lt;InviteFriendItemViewModel,
+                    FriendViewHolder&gt;
+                {
+                    SpecializedHolderFactory = ItemHolderFactory,
+                    ItemTemplate = ItemTemplate,
+                    SpecializedDataTemplate = ItemDataTemplate
+                }
+            }
+        }, ViewModel.Friends)
+    {ApplyLayoutParams = true});
+</code></pre>
+
+<p>It may look intimidating at first but it's not that bad. Essentially we are providing pairs of <code>Type</code> and <code>IItemEntry</code> implementations that are found in the library.</p>
+<p><code>IFriendListItem</code> is our <code>TItemBase</code>
+<code>TViewHolder</code> will usually be simple <code>RecyclerView.ViewHolder</code></p>
+<p>Let's take a closer look on view-type definiton.</p>
+<pre><code class="cs">{
+    typeof(InviteFriendItemViewModel),
+    new ObservableRecyclerAdapterWithMultipleViewTypes&lt;IFriendListItem,
+        RecyclerView.ViewHolder&gt;.SpecializedItemEntry&lt;InviteFriendItemViewModel,
+        FriendViewHolder&gt;
+    {
+        SpecializedHolderFactory = ItemHolderFactory,
+        ItemTemplate = ItemTemplate,
+        SpecializedDataTemplate = ItemDataTemplate
+    }
+}
+</code></pre>
+
+<p>First thing we provide is our concrete type that is contained within the items to display, easy enough.
+Now comes the second part, <code>ObservableRecyclerAdapterWithMultipleViewTypes</code> has inner classes:
+<em> <code>SpecializedItemEntry</code>
+</em> <code>ItemEntry</code>
+They are used to define the views. <code>SpecializedItemEntry</code> is an evolution of <code>ItemEntry</code> that handles type casting so we don't have to do it manually each time.</p>
+<pre><code class="cs">public class SpecializedItemEntry&lt;TSpecializedItem, TSpecializedHolder&gt; : IItemEntry
+    where TSpecializedItem : TItemBase
+    where TSpecializedHolder : THolder
+</code></pre>
+
+<p>Instead of getting <code>TItemBase</code> and <code>THolder</code> passed to our <code>DataTemplate</code> we will be getting solid instances of <code>InviteFriendItemViewModel</code> and <code>FriendViewHolder</code>. If you wish to do the casting manuall you can use <code>ItemEntry</code>.</p>
+<blockquote>
+<p>Don't use <code>HolderFactory</code> and <code>DataTemplate</code> properties in <code>SpecializedItemEntry</code> and use <code>SpecializedHolderFactory</code> and <code>SpecializedDataTemplate</code> properties. Exception will be thrown otherwise.</p>
+</blockquote>
+<pre><code class="cs">{
+    typeof(RestaurantPageMenuItemViewModel),
+    new ObservableRecyclerAdapterWithMultipleViewTypes&lt;
+            RestaurantPageViewModel.IRestaurantMenuItem, RecyclerView.ViewHolder&gt;.ItemEntry
+        {
+            ItemTemplate = MenuItemTemplate,
+            DataTemplate = MenuDataTemplate,
+            HolderFactory = MenuHolderFactory
+        }
+}
+</code></pre>
+
+<p>Of course you can use your friend <code>BindingViewHolderBase&lt;TViewModel&gt;</code> to achieve bindings per list item too!</p>
+<h2 id="adapters-with-multiple-view-types-and-footer">Adapters with multiple view types and footer</h2>
+<p>The ultimate form, handles just like <code>ObservableRecyclerAdapterWithMultipleViewTypes</code> with addition of 3 delegates like in <code>ObservableRecyclerAdapterWithFooter</code>. </p>
+<pre><code class="cs">RecyclerView.SetAdapter(
+    new ObservableRecyclerAdapterWithMultipleViewTypesAndFooter&lt;ReceiptPresentPageViewModel.IReceiptItem
+        , RecyclerView.ViewHolder, FooterViewHolder&gt;(
+        new Dictionary&lt;Type, ObservableRecyclerAdapterWithMultipleViewTypes&lt;
+            ReceiptPresentPageViewModel.IReceiptItem, RecyclerView.ViewHolder&gt;.IItemEntry&gt;
+        {
+            {
+                typeof(ReceiptHeaderItem),
+                new ObservableRecyclerAdapterWithMultipleViewTypes&lt;
+                        ReceiptPresentPageViewModel.IReceiptItem, RecyclerView.ViewHolder&gt;.
+                    SpecializedItemEntry&lt;ReceiptHeaderItem, HeaderViewHolder&gt;
+                    {
+                        SpecializedHolderFactory = HeaderHolderFactory,
+                        ItemTemplate = HeaderItemTemplate,
+                        SpecializedDataTemplate = HeaderDataTemplate
+                    }
+            },
+            {
+                typeof(ReceiptOrderedDishItemViewModel),
+                new ObservableRecyclerAdapterWithMultipleViewTypes&lt;
+                        ReceiptPresentPageViewModel.IReceiptItem, RecyclerView.ViewHolder&gt;.
+                    SpecializedItemEntry&lt;ReceiptOrderedDishItemViewModel, OrderedDishViewHolder&gt;
+                    {
+                        SpecializedHolderFactory = OrderedDishHolderFactory,
+                        ItemTemplate = OrderedDishItemTemplate,
+                        SpecializedDataTemplate = OrderedDishDataTemplate
+                    }
+            },
+            {
+                typeof(ReceiptOrderSectionFooterItem),
+                new ObservableRecyclerAdapterWithMultipleViewTypes&lt;
+                        ReceiptPresentPageViewModel.IReceiptItem, RecyclerView.ViewHolder&gt;.
+                    SpecializedItemEntry&lt;ReceiptOrderSectionFooterItem, SectionFooterViewHolder&gt;
+                    {
+                        SpecializedHolderFactory = SectionFooterHolderFactory,
+                        ItemTemplate = SectionFooterItemTemplate,
+                        SpecializedDataTemplate = SectionFooterDataTemplate
+                    }
+            }
+        }, 
+        ViewModel.CurrentReceipt, 
+        FooterDataTemplate, 
+        FooterFactory, 
+        FooterTemplate)
+    {
+        ApplyLayoutParams = true
+    });
+</code></pre>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../adapters-android/" title="Android Adapters" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Android Adapters
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../android-listeners/" title="Android Listeners" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Android Listeners
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.a59e2a89.js"></script>
+      
+      <script>app.initialize({version:"0.17.5",url:{base:".."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

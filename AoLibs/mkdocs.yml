@@ -8,6 +8,9 @@ pages:
   - iOS Navigation: navigation-ios.md
   - Adapters: adapters.md
   - Android Adapters: adapters-android.md
+  - Android Recycler Adapters: android-recycler-adapters.md
+  - Android Listeners: android-listeners.md
+  - AppVariables: app-variables.md
 
 theme:
   name: material
