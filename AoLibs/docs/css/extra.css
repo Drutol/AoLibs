@@ -1,0 +1,119 @@
+:root {
+    --section-header-size: 1.8rem;
+    --section-inner-left-margin : 2rem;
+}
+
+/*
+    Header
+*/
+
+.md-header {
+    background: #159957 !important;
+    background-image: linear-gradient(120deg, #155799, #159957) !important;
+}
+
+/* .md-sidebar__inner .md-nav__title.md-nav__title--site {
+    background: #159957 !important;
+    background-image: linear-gradient(120deg, #155799, #159957) !important;
+}  */
+
+.md-header-nav__button.md-logo i {
+    display: none;
+} 
+
+.md-header-nav__button.md-logo {
+    margin-top: -.5rem;
+}
+
+.md-header-nav__button.md-logo::after {
+    content: "蒼";
+    font-size: 3.5rem;
+} 
+
+.md-nav__button.md-logo i {
+    display: none;
+} 
+
+.md-nav__button.md-logo {
+    margin-top: -.5rem;
+}
+
+.md-nav__button.md-logo::after {
+    content: "蒼";
+    font-size: 4rem;
+} 
+
+/*
+    Navmenu
+*/
+
+/* Home */
+
+.md-nav.md-nav--primary .md-nav__list li:nth-child(1) a {
+    font-size: var(--section-header-size);
+}
+
+.md-nav.md-nav--primary .md-nav__list li:nth-child(2) a {
+    margin-left: var(--section-inner-left-margin);
+}
+
+.md-nav.md-nav--primary .md-nav__list li:nth-child(3) a {
+    margin-left: var(--section-inner-left-margin);
+}
+
+/* Navigation */
+
+.md-nav.md-nav--primary .md-nav__list li:nth-child(4) a {
+    font-size: var(--section-header-size);
+}
+
+.md-nav.md-nav--primary .md-nav__list li:nth-child(5) a {
+    margin-left: var(--section-inner-left-margin);
+}
+
+.md-nav.md-nav--primary .md-nav__list li:nth-child(6) a {
+    margin-left: var(--section-inner-left-margin);
+}
+
+/* Adapters */
+
+.md-nav.md-nav--primary .md-nav__list li:nth-child(7) a {
+    font-size: var(--section-header-size);
+}
+
+.md-nav.md-nav--primary .md-nav__list li:nth-child(8) a {
+    margin-left: var(--section-inner-left-margin);
+}
+
+.md-nav.md-nav--primary .md-nav__list li:nth-child(9) a {
+    margin-left: var(--section-inner-left-margin);
+}
+    
+.md-nav.md-nav--primary .md-nav__list li:nth-child(10) a {
+    margin-left: var(--section-inner-left-margin);
+}
+
+/* Utilities */
+
+.md-nav.md-nav--primary .md-nav__list li:nth-child(11) a {
+    font-size: var(--section-header-size);
+}
+
+.md-nav.md-nav--primary .md-nav__list li:nth-child(12) a {
+    margin-left: var(--section-inner-left-margin);
+}
+
+.md-nav.md-nav--primary .md-nav__list li:nth-child(13) a {
+    margin-left: var(--section-inner-left-margin);
+}
+
+/*
+    Other
+*/
+
+article h2::before {
+    font-family: 'Material Icons';
+    content: "chevron_right" !important;
+    display: inline !important;
+    vertical-align: -.5rem;
+}

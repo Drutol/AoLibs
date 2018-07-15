@@ -6,20 +6,20 @@ Applicable types:
 
 Adapters:
 
-`ObservableRecyclerAdapter<TItem, THolder>`
-`ObservableRecyclerAdapterWithFooter<TItem, THolder, TFooterHolder>`
-`ObservableRecyclerAdapterWithMultipleViewTypes<TItemBase, THolder>`
-`ObservableRecyclerAdapterWithMultipleViewTypesAndFooter<TItemBase, THolder, TFooterHolder>`
+* `ObservableRecyclerAdapter<TItem, THolder>`
+* `ObservableRecyclerAdapterWithFooter<TItem, THolder, TFooterHolder>`
+* `ObservableRecyclerAdapterWithMultipleViewTypes<TItemBase, THolder>`
+* `ObservableRecyclerAdapterWithMultipleViewTypesAndFooter<TItemBase, THolder, TFooterHolder>`
 
 ViewHolder:
 
-`BindingViewHolderBase<T>`
+* `BindingViewHolderBase<T>`
 
 Utilities:
 
-`ItemEntry`
+* `ItemEntry`
 
-`SpecializedItemEntry<TSpecializedItem, TSpecializedHolder>`
+* `SpecializedItemEntry<TSpecializedItem, TSpecializedHolder>`
 
 These classes provide an easy way to quickly implement recycler views for various scenarios starting from simple list to elaborate lists with various ViewModel bound elements with different layouts. All of provided adapters are utilising events of `ObservableCollection<T>`.
 
@@ -54,6 +54,7 @@ private ItemViewHolder HolderFactory(ViewGroup parent, int viewType, View view)
 ```
 
 We have 3 methods being passed to adapter's constructor:
+
 * `DataTemplate`
 	* Here we are defining how to display given item in the list, you will receive current item and holder that will have to display it.
 * `ItemTemplate`
@@ -208,6 +209,7 @@ Let's take a closer look on view-type definiton.
 
 First thing we provide is our concrete type that is contained within the items to display, easy enough.
 Now comes the second part, `ObservableRecyclerAdapterWithMultipleViewTypes` has inner classes:
+
 * `SpecializedItemEntry`
 * `ItemEntry`
 They are used to define the views. `SpecializedItemEntry` is an evolution of `ItemEntry` that handles type casting so we don't have to do it manually each time.
@@ -218,9 +220,9 @@ public class SpecializedItemEntry<TSpecializedItem, TSpecializedHolder> : IItemE
     where TSpecializedHolder : THolder
 ```
 
-Instead of getting `TItemBase` and `THolder` passed to our `DataTemplate` we will be getting solid instances of `InviteFriendItemViewModel` and `FriendViewHolder`. If you wish to do the casting manuall you can use `ItemEntry`.
+Instead of getting `TItemBase` and `THolder` passed to our `DataTemplate` we will be getting solid instances of `InviteFriendItemViewModel` and `FriendViewHolder`. If you wish to do the casting manually you can use `ItemEntry`.
 
-> Don't use `HolderFactory` and `DataTemplate` properties in `SpecializedItemEntry` and use `SpecializedHolderFactory` and `SpecializedDataTemplate` properties. Exception will be thrown otherwise.
+> Don't use `HolderFactory` and `DataTemplate` properties in `SpecializedItemEntry` and use `SpecializedHolderFactory` and `SpecializedDataTemplate` properties instead. Exception will be thrown otherwise.
 
 ```cs
 {

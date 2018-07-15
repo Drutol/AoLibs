@@ -58,6 +58,8 @@
     
       <link rel="stylesheet" href="../css/default.css">
     
+      <link rel="stylesheet" href="../css/extra.css">
+    
     
   </head>
   
@@ -184,6 +186,18 @@
   <li class="md-nav__item">
     <a href="../installation/" title="Installation" class="md-nav__link">
       Installation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../about/" title="About" class="md-nav__link">
+      About
     </a>
   </li>
 
@@ -339,8 +353,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../android-listeners/" title="Android Listeners" class="md-nav__link">
-      Android Listeners
+    <a href="../app-variables/" title="AppVariables" class="md-nav__link">
+      AppVariables
     </a>
   </li>
 
@@ -351,8 +365,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../app-variables/" title="AppVariables" class="md-nav__link">
-      AppVariables
+    <a href="../utilities/" title="Utilities" class="md-nav__link">
+      Utilities
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../utilities-android/" title="Android Utilities" class="md-nav__link">
+      Android Utilities
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../android-listeners/" title="Android Listeners" class="md-nav__link">
+      Android Listeners
     </a>
   </li>
 
@@ -440,15 +478,25 @@
 <p>Adapters library contains set of adapters that eliminate need for creating custom adapter classes.</p>
 <p>Applicable types:</p>
 <p>Adapters:</p>
-<p><code>ObservableRecyclerAdapter&lt;TItem, THolder&gt;</code>
-<code>ObservableRecyclerAdapterWithFooter&lt;TItem, THolder, TFooterHolder&gt;</code>
-<code>ObservableRecyclerAdapterWithMultipleViewTypes&lt;TItemBase, THolder&gt;</code>
-<code>ObservableRecyclerAdapterWithMultipleViewTypesAndFooter&lt;TItemBase, THolder, TFooterHolder&gt;</code></p>
+<ul>
+<li><code>ObservableRecyclerAdapter&lt;TItem, THolder&gt;</code></li>
+<li><code>ObservableRecyclerAdapterWithFooter&lt;TItem, THolder, TFooterHolder&gt;</code></li>
+<li><code>ObservableRecyclerAdapterWithMultipleViewTypes&lt;TItemBase, THolder&gt;</code></li>
+<li><code>ObservableRecyclerAdapterWithMultipleViewTypesAndFooter&lt;TItemBase, THolder, TFooterHolder&gt;</code></li>
+</ul>
 <p>ViewHolder:</p>
-<p><code>BindingViewHolderBase&lt;T&gt;</code></p>
+<ul>
+<li><code>BindingViewHolderBase&lt;T&gt;</code></li>
+</ul>
 <p>Utilities:</p>
+<ul>
+<li>
 <p><code>ItemEntry</code></p>
+</li>
+<li>
 <p><code>SpecializedItemEntry&lt;TSpecializedItem, TSpecializedHolder&gt;</code></p>
+</li>
+</ul>
 <p>These classes provide an easy way to quickly implement recycler views for various scenarios starting from simple list to elaborate lists with various ViewModel bound elements with different layouts. All of provided adapters are utilising events of <code>ObservableCollection&lt;T&gt;</code>.</p>
 <p>The <code>ObservableRecyclerAdapter&lt;TItem, THolder&gt;</code> is base class for all other specialized adapters.</p>
 <h2 id="simple-setup">Simple setup</h2>
@@ -476,13 +524,21 @@ private ItemViewHolder HolderFactory(ViewGroup parent, int viewType, View view)
 }
 </code></pre>
 
-<p>We have 3 methods being passed to adapter's constructor:
-<em> <code>DataTemplate</code>
-    * Here we are defining how to display given item in the list, you will receive current item and holder that will have to display it.
-</em> <code>ItemTemplate</code>
-    * Here you should provide view that will be later bound to view holder.
-* <code>HolderFactory</code>
-    * Here we are instantinating holder for our virtualised items. This parameter is optional if your holder has public parameterless constructor and you don't need custom instantination.</p>
+<p>We have 3 methods being passed to adapter's constructor:</p>
+<ul>
+<li><code>DataTemplate</code><ul>
+<li>Here we are defining how to display given item in the list, you will receive current item and holder that will have to display it.</li>
+</ul>
+</li>
+<li><code>ItemTemplate</code><ul>
+<li>Here you should provide view that will be later bound to view holder.</li>
+</ul>
+</li>
+<li><code>HolderFactory</code><ul>
+<li>Here we are instantinating holder for our virtualised items. This parameter is optional if your holder has public parameterless constructor and you don't need custom instantination.</li>
+</ul>
+</li>
+</ul>
 <h2 id="view-stretching">View Stretching</h2>
 <p>Unless specified the views in <code>RecyclerView</code> won't stretch horizontally. I've provided simple utility that takes care of it. </p>
 <pre><code class="cs">RecyclerView.SetAdapter(
@@ -610,18 +666,20 @@ new ObservableRecyclerAdapterWithMultipleViewTypes&lt;IFriendListItem,
 </code></pre>
 
 <p>First thing we provide is our concrete type that is contained within the items to display, easy enough.
-Now comes the second part, <code>ObservableRecyclerAdapterWithMultipleViewTypes</code> has inner classes:
-<em> <code>SpecializedItemEntry</code>
-</em> <code>ItemEntry</code>
-They are used to define the views. <code>SpecializedItemEntry</code> is an evolution of <code>ItemEntry</code> that handles type casting so we don't have to do it manually each time.</p>
+Now comes the second part, <code>ObservableRecyclerAdapterWithMultipleViewTypes</code> has inner classes:</p>
+<ul>
+<li><code>SpecializedItemEntry</code></li>
+<li><code>ItemEntry</code>
+They are used to define the views. <code>SpecializedItemEntry</code> is an evolution of <code>ItemEntry</code> that handles type casting so we don't have to do it manually each time.</li>
+</ul>
 <pre><code class="cs">public class SpecializedItemEntry&lt;TSpecializedItem, TSpecializedHolder&gt; : IItemEntry
     where TSpecializedItem : TItemBase
     where TSpecializedHolder : THolder
 </code></pre>
 
-<p>Instead of getting <code>TItemBase</code> and <code>THolder</code> passed to our <code>DataTemplate</code> we will be getting solid instances of <code>InviteFriendItemViewModel</code> and <code>FriendViewHolder</code>. If you wish to do the casting manuall you can use <code>ItemEntry</code>.</p>
+<p>Instead of getting <code>TItemBase</code> and <code>THolder</code> passed to our <code>DataTemplate</code> we will be getting solid instances of <code>InviteFriendItemViewModel</code> and <code>FriendViewHolder</code>. If you wish to do the casting manually you can use <code>ItemEntry</code>.</p>
 <blockquote>
-<p>Don't use <code>HolderFactory</code> and <code>DataTemplate</code> properties in <code>SpecializedItemEntry</code> and use <code>SpecializedHolderFactory</code> and <code>SpecializedDataTemplate</code> properties. Exception will be thrown otherwise.</p>
+<p>Don't use <code>HolderFactory</code> and <code>DataTemplate</code> properties in <code>SpecializedItemEntry</code> and use <code>SpecializedHolderFactory</code> and <code>SpecializedDataTemplate</code> properties instead. Exception will be thrown otherwise.</p>
 </blockquote>
 <pre><code class="cs">{
     typeof(RestaurantPageMenuItemViewModel),
@@ -721,13 +779,13 @@ They are used to define the views. <code>SpecializedItemEntry</code> is an evolu
           </a>
         
         
-          <a href="../android-listeners/" title="Android Listeners" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../app-variables/" title="AppVariables" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Android Listeners
+                AppVariables
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

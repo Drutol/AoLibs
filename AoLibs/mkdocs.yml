@@ -3,20 +3,24 @@ site_name: AoLibs
 pages:
   - Home: index.md
   - Installation: installation.md
+  - About: about.md
   - Navigation: navigation.md
   - Android Navigation: navigation-android.md
   - iOS Navigation: navigation-ios.md
   - Adapters: adapters.md
   - Android Adapters: adapters-android.md
   - Android Recycler Adapters: android-recycler-adapters.md
-  - Android Listeners: android-listeners.md
   - AppVariables: app-variables.md
+  - Utilities: utilities.md
+  - Android Utilities: utilities-android.md
+  - Android Listeners: android-listeners.md
 
 extra_javascript:
     - js/hljs.js
 
 extra_css:
     - css/default.css
+    - css/extra.css
 
 theme:
   name: material

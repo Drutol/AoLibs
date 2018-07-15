@@ -58,6 +58,8 @@
     
       <link rel="stylesheet" href="../css/default.css">
     
+      <link rel="stylesheet" href="../css/extra.css">
+    
     
   </head>
   
@@ -72,6 +74,10 @@
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#android-listeners" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
     
     
       <header class="md-header" data-md-component="header">
@@ -190,6 +196,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../navigation/" title="Navigation" class="md-nav__link">
       Navigation
     </a>
@@ -260,18 +278,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" title="Android Listeners" class="md-nav__link md-nav__link--active">
-      Android Listeners
+  <li class="md-nav__item">
+    <a href="../app-variables/" title="AppVariables" class="md-nav__link">
+      AppVariables
     </a>
-    
   </li>
 
     
@@ -281,9 +292,42 @@
 
 
   <li class="md-nav__item">
-    <a href="../app-variables/" title="AppVariables" class="md-nav__link">
-      AppVariables
+    <a href="../utilities/" title="Utilities" class="md-nav__link">
+      Utilities
     </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../utilities-android/" title="Android Utilities" class="md-nav__link">
+      Android Utilities
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="Android Listeners" class="md-nav__link md-nav__link--active">
+      Android Listeners
+    </a>
+    
   </li>
 
     
@@ -294,15 +338,48 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>Android Listeners</h1>
-                
-                
+                <h1 id="android-listeners">Android Listeners</h1>
+<p>Set of various listeners that are accepting delegates to native Android callback classes.</p>
+<ul>
+<li><code>DateSetListener : DatePickerDialog.IOnDateSetListener</code></li>
+<li><code>GenericMotionListener :  View.IOnGenericMotionListener</code></li>
+<li><code>OnCheckedListener : RadioGroup.IOnCheckedChangeListener</code></li>
+<li><code>OnClickListener : View.IOnClickListener</code></li>
+<li><code>OnEditorActionListener : TextView.IOnEditorActionListener</code></li>
+<li><code>OnItemClickListener&lt;T&gt; : AdapterView.IOnItemClickListener</code><ul>
+<li>Expects the item to be wrapped with <code>JavaObjectWrapper&lt;T&gt;</code> withing <code>Tag</code> property.</li>
+</ul>
+</li>
+<li><code>OnLongClickListener : View.IOnLongClickListener</code></li>
+<li><code>OnScrollListener : AbsListView.IOnScrollListener</code></li>
+<li><code>OnTextEnterListener : ITextWatcher</code><ul>
+<li>If EditText can be multiline this listner will detect wheter the user presses "Enter" on their keyboard.</li>
+</ul>
+</li>
+<li><code>OnTouchListener : View.IOnTouchListener</code></li>
+<li><code>ScrollListener : AbsListView.IOnScrollChangeListener</code></li>
+</ul>
                 
                   
                 
@@ -323,7 +400,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../android-recycler-adapters/" title="Android Recycler Adapters" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../utilities-android/" title="Android Utilities" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -332,25 +409,11 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Android Recycler Adapters
+                Android Utilities
               </span>
             </div>
           </a>
         
-        
-          <a href="../app-variables/" title="AppVariables" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                AppVariables
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>
