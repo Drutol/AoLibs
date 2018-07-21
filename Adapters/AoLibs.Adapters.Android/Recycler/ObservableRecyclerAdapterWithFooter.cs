@@ -4,9 +4,17 @@ using Android.Views;
 
 namespace AoLibs.Adapters.Android.Recycler
 {
+    /// <summary>
+    /// Recycler adapter that work the same way as <see cref="ObservableRecyclerAdapter{TItem,THolder}"/> but with addition of footer.
+    /// </summary>
+    /// <typeparam name="TItem"></typeparam>
+    /// <typeparam name="THolder"></typeparam>
+    /// <typeparam name="TFooterHolder"></typeparam>
     public class
-        ObservableRecyclerAdapterWithFooter<TItem, THolder, TFooterHolder> : ObservableRecyclerAdapter<TItem, THolder>
-        where THolder : RecyclerView.ViewHolder where TFooterHolder : RecyclerView.ViewHolder
+        ObservableRecyclerAdapterWithFooter<TItem, THolder, TFooterHolder> 
+        : ObservableRecyclerAdapter<TItem, THolder>
+        where THolder : RecyclerView.ViewHolder 
+        where TFooterHolder : RecyclerView.ViewHolder
     {
         private const int NormalItem = 0;
         private const int FooterItem = 1;
@@ -48,8 +56,7 @@ namespace AoLibs.Adapters.Android.Recycler
             if (viewType == FooterItem)
             {
                 var view = _footerTemplate(viewType);
-                if(ApplyLayoutParams)
-                    view.LayoutParameters = new RecyclerView.LayoutParams(-1, -2);
+                view.LayoutParameters = GetLayoutParameters(view);
                 return _footerFactory(parent, viewType, view);
             }
             return base.OnCreateViewHolder(parent, viewType);

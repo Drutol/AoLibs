@@ -41,9 +41,8 @@ namespace AoLibs.Adapters.iOS
                 }
                 return text.ToString();
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine(e);
                 return null;
             }
 
@@ -62,10 +61,9 @@ namespace AoLibs.Adapters.iOS
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine(e);
-                return default(byte[]);
+                return null;
             }
         }
 

@@ -9,7 +9,6 @@ using AoLibs.Adapters.Core;
 
 namespace AoLibs.Adapters.Android
 {
-    [Preserve(AllMembers = true)]
     public class MessageBoxProvider : MessageBoxProviderBase
     {
         private readonly IContextProvider _contextProvider;

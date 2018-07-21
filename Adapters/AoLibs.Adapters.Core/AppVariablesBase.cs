@@ -9,7 +9,6 @@ using Newtonsoft.Json;
 
 namespace AoLibs.Adapters.Core
 {
-    [Preserve(AllMembers = true)]
     public abstract class AppVariablesBase
     {
         private readonly ISyncStorage _syncStorage;

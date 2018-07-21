@@ -5,6 +5,9 @@ using Android.Views;
 
 namespace AoLibs.Adapters.Android.Recycler
 {
+    /// <summary>
+    /// Base nongeneric class for <see cref="BindingViewHolderBase{T}"/>. Utility class used by the library.
+    /// </summary>
     public abstract class BindingViewHolderNonGenericBase : RecyclerView.ViewHolder
     {
         public BindingViewHolderNonGenericBase(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)

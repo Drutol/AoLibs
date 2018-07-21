@@ -8,14 +8,12 @@ using AoLibs.Adapters.Core.Interfaces;
 
 namespace AoLibs.Adapters.Android
 {
-    [Preserve(AllMembers = true)]
     public class PhotoPickerAdapter : IPhotoPickerAdapter
     {
         private const int TakePhotoRequestId = 12;
 
         private readonly IContextProvider _contextProvider;
         private readonly IOnActivityResultProvider _activityResultProvider;
-        private TaskCompletionSource<(int RequestCode, Result ResultCode, Intent Data)> _takePhotoCompletionSource;
 
         public PhotoPickerAdapter(IContextProvider contextProvider, IOnActivityResultProvider activityResultProvider)
         {

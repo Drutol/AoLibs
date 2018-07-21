@@ -5,7 +5,6 @@ using AoLibs.Adapters.Core.Interfaces;
 
 namespace AoLibs.Adapters.Android
 {
-    [Preserve(AllMembers = true)]
     public class PhoneCallAdapter : IPhoneCallAdapter
     {
         private readonly IContextProvider _contextProvider;

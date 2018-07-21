@@ -12,6 +12,11 @@ using Android.Widget;
 
 namespace NavigationLib.Android.Navigation
 {
+    /// <summary>
+    /// Fragment that will fire <see cref="NavigationFragmentBase.NavigatedTo"/> whenever <see cref="View"/> is created for this fragment.
+    /// Useful when for example ViewPager's tabs have their own ViewModels.
+    /// </summary>
+    /// <typeparam name="TViewModel"></typeparam>
     public abstract class ChildFragmentBase<TViewModel> : FragmentBase<TViewModel> where TViewModel : class
     {
         public ChildFragmentBase(bool hasNonTrackableBindings = false) : base(hasNonTrackableBindings)

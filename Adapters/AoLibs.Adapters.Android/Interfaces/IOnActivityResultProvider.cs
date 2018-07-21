@@ -3,7 +3,11 @@ using Android.Content;
 
 namespace AoLibs.Adapters.Android.Interfaces
 {
-    public interface IOnActivityResultProvider : IOnActivityEvent<(int RequestCode, Result ResultCode, Intent Data)>
+    /// <summary>
+    /// Can be used to easily await activity result event. See <see cref="AndroidCallbacklAsyncWrapperExtension.Await{T}"/> for handy usage.
+    /// </summary>
+    public interface IOnActivityResultProvider 
+        : IOnActivityEvent<(int RequestCode, Result ResultCode, Intent Data)>
     {
        
     }

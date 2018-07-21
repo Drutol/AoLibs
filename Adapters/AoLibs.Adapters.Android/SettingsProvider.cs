@@ -6,7 +6,6 @@ using AoLibs.Adapters.Core.Interfaces;
 
 namespace AoLibs.Adapters.Android
 {
-    [Preserve(AllMembers = true)]
     public class SettingsProvider : ISettingsProvider
     {
         private static ISharedPreferences _preferenceManager;

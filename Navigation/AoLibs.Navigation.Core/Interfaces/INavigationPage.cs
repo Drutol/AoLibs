@@ -4,7 +4,13 @@ namespace AoLibs.Navigation.Core.Interfaces
 {
     public interface INavigationPage
     {        
+        /// <summary>
+        /// Assigned TPageIdentifier.
+        /// </summary>
         object PageIdentifier { get; set; }
+        /// <summary>
+        /// Current navigation arguments.
+        /// </summary>
         object NavigationArguments { set; }
 
         /// <summary>
@@ -19,9 +25,5 @@ namespace AoLibs.Navigation.Core.Interfaces
         /// Called when we leave given page.
         /// </summary>
         void NavigatedFrom();
-        /// <summary>
-        /// Allows to delegate semaphore that will be release when navigation completes.
-        /// </summary>
-        SemaphoreSlim ObtainNavigationSemaphore();
     }
 }

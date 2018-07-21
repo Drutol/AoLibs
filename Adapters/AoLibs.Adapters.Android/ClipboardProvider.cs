@@ -4,8 +4,7 @@ using Android.Runtime;
 using AoLibs.Adapters.Core.Interfaces;
 
 namespace AoLibs.Adapters.Android
-{
-    [Preserve(AllMembers = true)]
+{   
     public class ClipboardProvider : IClipboardProvider
     {
         public void SetText(string text)

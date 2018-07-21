@@ -12,7 +12,6 @@ using File = Java.IO.File;
 
 namespace AoLibs.Adapters.Android
 {
-    [Preserve(AllMembers = true)]
     public class FileStorageProvider : IFileStorageProvider
     {
         private readonly string _rootPath;
@@ -51,12 +50,10 @@ namespace AoLibs.Adapters.Android
                 }
                 return text.ToString();
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine(e);
                 return null;
             }
-
         }
 
         public async Task<byte[]> ReadBytesAsync(string path)
@@ -72,15 +69,11 @@ namespace AoLibs.Adapters.Android
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine(e);
-                return default(byte[]);
+                return default;
             }
-
         }
-
-        
 
         public void WriteText(string path, string text)
         {

@@ -6,7 +6,6 @@ using AoLibs.Adapters.Core.Interfaces;
 
 namespace AoLibs.Adapters.Android
 {
-    [Preserve(AllMembers = true)]
     public class UriLauncherAdapter : IUriLauncherAdapter
     {
         public void LaunchUri(Uri uri)

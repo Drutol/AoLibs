@@ -10,6 +10,5 @@ namespace AoLibs.Adapters.iOS
         {
             UIKit.UIApplication.SharedApplication.OpenUrl(new NSUrl(uri.ToString()));
         }
-
     }
 }

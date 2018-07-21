@@ -1,9 +1,8 @@
 ﻿using System;
-using GalaSoft.MvvmLight;
 
 namespace AoLibs.Navigation.iOS.Navigation
 {
-    public abstract class MvvmTabBarController<TViewModel> : TabBarViewControllerBase where TViewModel : ViewModelBase
+    public abstract class MvvmTabBarController<TViewModel> : TabBarViewControllerBase where TViewModel : class
     {
         public MvvmTabBarController(IntPtr handle) : base(handle)
         {

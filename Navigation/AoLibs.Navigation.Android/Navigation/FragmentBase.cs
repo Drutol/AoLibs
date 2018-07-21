@@ -5,6 +5,10 @@ using GalaSoft.MvvmLight.Ioc;
 
 namespace NavigationLib.Android.Navigation
 {
+    /// <summary>
+    /// Base fragment class which fetches given ViewModel automatically.
+    /// </summary>
+    /// <typeparam name="TViewModel"></typeparam>
     public abstract class FragmentBase<TViewModel> : NavigationFragmentBase where TViewModel : class
     {
         public FragmentBase(bool hasNonTrackableBindings = false) : base(hasNonTrackableBindings)

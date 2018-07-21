@@ -75,7 +75,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApiEventAsyncWrapperExtension.cs" />
+    <Compile Include="AndroidCallbacklAsyncWrapperExtension.cs" />
     <Compile Include="Interfaces\IOnActivityEvent.cs" />
     <Compile Include="Interfaces\IOnNewIntentProvider.cs" />
     <Compile Include="PhoneCallAdapter.cs" />

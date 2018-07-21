@@ -63,11 +63,7 @@ namespace AoLibs.Adapters.Android
                     semaphore.Release();
                 }
             };
-            //if (resetText != null)
-            //{
-            //    dpd.SetButton((int)DialogButtonType.Neutral, "Reset",
-            //        (sender, args) => ViewModel.ResetStartDateCommand.Execute(null));
-            //}
+
             dpd.SetButton((int)DialogButtonType.Positive,okText, (sender, args) => semaphore.Release());
             dpd.SetButton((int)DialogButtonType.Negative,cancelText, (sender, args) => semaphore.Release());
             dpd.CancelEvent += (sender, args) => semaphore.Release();            

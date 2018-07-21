@@ -18,8 +18,7 @@ namespace AoLibs.Adapters.iOS
             else
                 NSUserDefaults.StandardUserDefaults.SetString(value, key);
         }
-
-
+   
         public bool? GetBool(string key)
         {
             try

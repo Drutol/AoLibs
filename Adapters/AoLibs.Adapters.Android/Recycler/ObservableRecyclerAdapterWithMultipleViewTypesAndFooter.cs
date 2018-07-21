@@ -7,7 +7,8 @@ namespace AoLibs.Adapters.Android.Recycler
 {
     public class
         ObservableRecyclerAdapterWithMultipleViewTypesAndFooter<TItemBase, THolder, TFooterHolder> :
-            ObservableRecyclerAdapterWithMultipleViewTypes<TItemBase, THolder> where THolder : RecyclerView.ViewHolder
+            ObservableRecyclerAdapterWithMultipleViewTypes<TItemBase, THolder> 
+        where THolder : RecyclerView.ViewHolder
         where TFooterHolder : RecyclerView.ViewHolder
     {
         private const int FooterItem = 1;
@@ -46,8 +47,7 @@ namespace AoLibs.Adapters.Android.Recycler
             if (viewType == FooterItem)
             {
                 var view = _footerTemplate(viewType);
-                if (ApplyLayoutParams)
-                    view.LayoutParameters = new RecyclerView.LayoutParams(-1, -2);
+                view.LayoutParameters = GetLayoutParameters(view);
                 return _footerFactory(parent, viewType, view);
             }
 

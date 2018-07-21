@@ -2,7 +2,11 @@
 
 namespace AoLibs.Adapters.Android.Interfaces
 {
-    public interface IOnNewIntentProvider : IOnActivityEvent<Intent>
+    /// <summary>
+    /// Can be used to easily await new intent. See <see cref="AndroidCallbacklAsyncWrapperExtension.Await{T}"/> for handy usage.
+    /// </summary>
+    public interface IOnNewIntentProvider :
+        IOnActivityEvent<Intent>
     {
         
     }
