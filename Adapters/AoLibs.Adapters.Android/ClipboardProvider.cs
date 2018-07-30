@@ -4,7 +4,10 @@ using Android.Runtime;
 using AoLibs.Adapters.Core.Interfaces;
 
 namespace AoLibs.Adapters.Android
-{   
+{
+    /// <summary>
+    /// Provides basic clipboard functionality.
+    /// </summary>
     public class ClipboardProvider : IClipboardProvider
     {
         public void SetText(string text)

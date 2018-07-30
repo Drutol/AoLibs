@@ -4,6 +4,9 @@ using AoLibs.Adapters.Core.Interfaces;
 
 namespace AoLibs.Adapters.Android
 {
+    /// <summary>
+    /// Provides basic information about platform and package version.
+    /// </summary>
     public class VersionProvider : IVersionProvider
     {
         private static string _currentVersion;

@@ -12,6 +12,9 @@ using AoLibs.Adapters.Core.Interfaces;
 
 namespace AoLibs.Adapters.Android
 {
+    /// <summary>
+    /// Class that presents system picker allowing user to choose from given collection of items.
+    /// </summary>
     public class PickerAdapter : IPickerAdapter
     {
         private readonly IContextProvider _contextProvider;
@@ -121,7 +124,6 @@ namespace AoLibs.Adapters.Android
             {
                 _callback = callback;
             }
-
 
             public void OnDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
             {

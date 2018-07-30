@@ -84,7 +84,6 @@
     <Compile Include="FileStorageProvider.cs" />
     <Compile Include="Interfaces\IContextProvider.cs" />
     <Compile Include="Interfaces\IOnActivityResultProvider.cs" />
-    <Compile Include="LifecycleProvider.cs" />
     <Compile Include="MessageBoxProvider.cs" />
     <Compile Include="PhotoPickerAdapter.cs" />
     <Compile Include="PickerAdapter.cs" />

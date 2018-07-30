@@ -9,6 +9,10 @@ using AoLibs.Adapters.Core;
 
 namespace AoLibs.Adapters.Android
 {
+    /// <summary>
+    /// Provides functionality of presenting message boxes,
+    /// additionally allows to streamline display of any loaders you may happen to have.
+    /// </summary>
     public class MessageBoxProvider : MessageBoxProviderBase
     {
         private readonly IContextProvider _contextProvider;

@@ -4,6 +4,9 @@ using AoLibs.Adapters.Core.Excpetions;
 
 namespace AoLibs.Adapters.Core.Interfaces
 {
+    /// <summary>
+    /// Defines interface of utlity allowing to easily store serialized data in form of JSON files.
+    /// </summary>
     public interface IDataCache
     {
         /// <summary>

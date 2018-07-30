@@ -5,6 +5,9 @@ using AoLibs.Adapters.Core.Interfaces;
 
 namespace AoLibs.Adapters.Android
 {
+    /// <summary>
+    /// Simple adapter allowing to call given number.
+    /// </summary>
     public class PhoneCallAdapter : IPhoneCallAdapter
     {
         private readonly IContextProvider _contextProvider;

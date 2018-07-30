@@ -8,9 +8,15 @@ using AoLibs.Adapters.Core.Interfaces;
 
 namespace AoLibs.Adapters.Android
 {
+    /// <summary>
+    /// Class that allows to obtain image that user is asked to choose.
+    /// </summary>
     public class PhotoPickerAdapter : IPhotoPickerAdapter
     {
-        private const int TakePhotoRequestId = 12;
+        /// <summary>
+        /// Specifies with what code will be the intent launched.
+        /// </summary>
+        public static int TakePhotoRequestId { get; set; } = 12;
 
         private readonly IContextProvider _contextProvider;
         private readonly IOnActivityResultProvider _activityResultProvider;
@@ -21,13 +27,13 @@ namespace AoLibs.Adapters.Android
             _activityResultProvider = activityResultProvider;           
         }
 
-        public async Task<byte[]> PickPhoto()
+        public async Task<byte[]> PickPhoto(string pickerTitle)
         {
             var intent = new Intent();
             intent.SetType("image/*");
             intent.SetAction(Intent.ActionGetContent);
             intent.SetFlags(ActivityFlags.GrantReadUriPermission);
-            _contextProvider.CurrentContext.StartActivityForResult(Intent.CreateChooser(intent, "Select Picture"),TakePhotoRequestId);
+            _contextProvider.CurrentContext.StartActivityForResult(Intent.CreateChooser(intent, pickerTitle),TakePhotoRequestId);
 
             var (_, _, data) = await _activityResultProvider.Await();
             

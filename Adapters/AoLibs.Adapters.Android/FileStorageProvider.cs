@@ -12,6 +12,9 @@ using File = Java.IO.File;
 
 namespace AoLibs.Adapters.Android
 {
+    /// <summary>
+    /// Provides functionality regarding reading and writing from filesystem.
+    /// </summary>
     public class FileStorageProvider : IFileStorageProvider
     {
         private readonly string _rootPath;
@@ -28,7 +31,7 @@ namespace AoLibs.Adapters.Android
                 finalPath = Path.Combine(finalPath, pathPiece);
 
             if (!finalPath.Split('/').Last().Contains('.'))
-                finalPath += ".dat";
+                finalPath += ".data";
 
             return finalPath;
         }

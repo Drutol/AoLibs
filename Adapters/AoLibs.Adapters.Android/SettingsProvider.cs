@@ -6,6 +6,9 @@ using AoLibs.Adapters.Core.Interfaces;
 
 namespace AoLibs.Adapters.Android
 {
+    /// <summary>
+    /// Provides simple facade over underlying <see cref="PreferenceManager"/>
+    /// </summary>
     public class SettingsProvider : ISettingsProvider
     {
         private static ISharedPreferences _preferenceManager;

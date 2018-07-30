@@ -4,6 +4,9 @@ using AoLibs.Adapters.Core.Interfaces;
 
 namespace AoLibs.Adapters.Android
 {
+    /// <summary>
+    /// Allows to invoke given delegate on UI thread.
+    /// </summary>
     public class DispatcherAdapter : IDispatcherAdapter
     {
         private readonly IContextProvider _contextProvider;

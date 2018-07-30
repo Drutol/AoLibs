@@ -58,7 +58,6 @@
     <Compile Include="SettingsProvider.cs" />
     <Compile Include="UriLauncherAdapter.cs" />
     <Compile Include="VersionProvider.cs" />
-    <Compile Include="LifecycleInfoProvider.cs" />
     <Compile Include="PickerAdapter.cs" />
     <Compile Include="PhotoPickerAdapter.cs" />
   </ItemGroup>

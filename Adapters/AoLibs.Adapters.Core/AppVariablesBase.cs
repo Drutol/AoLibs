@@ -9,11 +9,17 @@ using Newtonsoft.Json;
 
 namespace AoLibs.Adapters.Core
 {
+    /// <summary>
+    /// Base class for user defined AppVariables classes.
+    /// </summary>
     public abstract class AppVariablesBase
     {
         private readonly ISyncStorage _syncStorage;
         private readonly IAsyncStorage _asyncStorage;
 
+        /// <summary>
+        /// Lists all found attributes on given properties.
+        /// </summary>
         public IReadOnlyCollection<VariableAttribute> Attributes { get; internal set; }
 
         /// <summary>
@@ -42,6 +48,9 @@ namespace AoLibs.Adapters.Core
             public int ExpirationTime { get; set; } = -1;
         }
 
+        /// <summary>
+        /// Interface used by <see cref="AppVariablesBase"/> to store items in asynchronous manner, on filesystem for example.
+        /// </summary>
         public interface IAsyncStorage
         {
             Task SetAsync<T>(T data, string key, VariableAttribute attr);
@@ -49,6 +58,9 @@ namespace AoLibs.Adapters.Core
             Task Reset(string key, VariableAttribute attr);
         }
 
+        /// <summary>
+        /// Interface used by <see cref="AppVariablesBase"/> to store items in synchronous manner, in application settings for example.
+        /// </summary>
         public interface ISyncStorage
         {
             void SetValue<T>(T data, string key, VariableAttribute attr);
@@ -124,7 +136,9 @@ namespace AoLibs.Adapters.Core
             }
         }
 
-        [Preserve(AllMembers = true)]
+        /// <summary>
+        /// Base utility class for <see cref="Holder{T}"/>
+        /// </summary>
         public class HolderBase
         {
             internal static AppVariablesBase _parent;
@@ -176,6 +190,9 @@ namespace AoLibs.Adapters.Core
                     await _parent._asyncStorage.Reset(_propName, _attribute);
             }
 
+            /// <summary>
+            /// Reads or writes value using <see cref="ISyncStorage"/>
+            /// </summary>
             public T Value
             {
                 get
@@ -195,6 +212,9 @@ namespace AoLibs.Adapters.Core
                 }
             }
 
+            /// <summary>
+            /// Reads value using <see cref="IAsyncStorage"/>
+            /// </summary>
             public Task<T> GetAsync()
             {
                 if (_parent._asyncStorage == null)
@@ -206,6 +226,9 @@ namespace AoLibs.Adapters.Core
                 return _parent._asyncStorage.GetAsync<T>(_propName, _attribute);
             }
 
+            /// <summary>
+            /// Writes value using <see cref="IAsyncStorage"/>
+            /// </summary>
             public async Task SetAsync(T data)
             {
                 if (_parent._asyncStorage == null)
@@ -222,6 +245,9 @@ namespace AoLibs.Adapters.Core
             }
         }
 
+        /// <summary>
+        /// Initializes all properties marked with <see cref="VariableAttribute"/>
+        /// </summary>
         private AppVariablesBase()
         {
             HolderBase._parent = this;
