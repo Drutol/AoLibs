@@ -2,22 +2,22 @@
     "docs": [
         {
             "location": "/",
-            "text": "AoLibs\n\n\nSet of various libraries that I happened to write during my Xamarin adventures. They are in final stages of testing in real project. Later on I'll write proper docs and make the code more appropriate for nuget library.\n\n\n\n\nI'm currently writing docs in readmes. They will be visbile in repo and on \nGitHub pages\n\n\n\n\nFeatures\n\n\nLibrary supports \niOS\n and \nAndroid\n projects. It's divided into three parts:\n\n\n\n\nAoLibs.Navigation\n\n\nProvides cross platform navigation utilities.\n\n\n\n\n\n\nAoLibs.Adapters\n\n\nVarious adapters gathering features that require writing platform specific code.\n\n\n\n\n\n\nAoLibs.Utilities\n\n\nCompletly random things that I tend to use in my projects\n\n\n\n\n\n\n\n\nDependencies\n\n\nThese libraries are built against MvvmLight libraries.",
+            "text": "AoLibs\n\n\nSet of various libraries that I happened to write during my Xamarin adventures. They are devised mainly for my own use but I took an effort to properly document them so that my co-workers or any other people I happen to develop with had easier time using these goodies.\n\n\n\n\nNote\n\n\nI'm primarily developing on Android that's why Android side of thigs is better thought out and much richer than iOS counterpart. While all iOS thing should work they could certainly use an improvement.\n\n\n\n\nFeel free to use this code in whatever way you see fit.\n\n\nFeatures\n\n\nLibrary supports \niOS\n and \nAndroid\n projects. It's divided into three parts:\n\n\n\n\n AoLibs.Navigation\n\n\nProvides cross platform navigation solution.\n\n\n\n\n\n\n AoLibs.Adapters\n\n\nVarious adapters gathering features that require writing platform specific code.\n\n\n\n\n\n\n AoLibs.Utilities\n\n\nCompletly random things that I tend to use in my projects.\n\n\n\n\n\n\n\n\nDependencies\n\n\n\n\nInfo\n\n\nThese libraries are built using MvvmLight libraries.\nNewtonsoft.Json is used for JSON serialization.",
             "title": "Home"
         },
         {
             "location": "/#aolibs",
-            "text": "Set of various libraries that I happened to write during my Xamarin adventures. They are in final stages of testing in real project. Later on I'll write proper docs and make the code more appropriate for nuget library.   I'm currently writing docs in readmes. They will be visbile in repo and on  GitHub pages",
+            "text": "Set of various libraries that I happened to write during my Xamarin adventures. They are devised mainly for my own use but I took an effort to properly document them so that my co-workers or any other people I happen to develop with had easier time using these goodies.   Note  I'm primarily developing on Android that's why Android side of thigs is better thought out and much richer than iOS counterpart. While all iOS thing should work they could certainly use an improvement.   Feel free to use this code in whatever way you see fit.",
             "title": "AoLibs"
         },
         {
             "location": "/#features",
-            "text": "Library supports  iOS  and  Android  projects. It's divided into three parts:   AoLibs.Navigation  Provides cross platform navigation utilities.    AoLibs.Adapters  Various adapters gathering features that require writing platform specific code.    AoLibs.Utilities  Completly random things that I tend to use in my projects",
+            "text": "Library supports  iOS  and  Android  projects. It's divided into three parts:    AoLibs.Navigation  Provides cross platform navigation solution.     AoLibs.Adapters  Various adapters gathering features that require writing platform specific code.     AoLibs.Utilities  Completly random things that I tend to use in my projects.",
             "title": "Features"
         },
         {
             "location": "/#dependencies",
-            "text": "These libraries are built against MvvmLight libraries.",
+            "text": "Info  These libraries are built using MvvmLight libraries.\nNewtonsoft.Json is used for JSON serialization.",
             "title": "Dependencies"
         },
         {
@@ -32,8 +32,23 @@
         },
         {
             "location": "/about/",
-            "text": "",
+            "text": "About\n\n\nWelcome to About page! Nothing really important here...\n\n\n\n\nInfo\n\n\nIf you are curious about the origin of AoLibs... well that's because I really like this kanji which happen to read like \"Ao\"\n\n\n\u84bc\n\n\nIt means \"blue\"... but can also mean \"green\"... strange right? Hence the theme of upper header bar. From blue to green ^^ Japanese is for sure strange language.\n\n\n\n\nAuthors\n\n\nThere's only 1 to be honest. Check out my GitHub account if you want to get in touch!\n\n\nRelated projects\n\n\nTo be announced, there are 2 currently in development.",
             "title": "About"
+        },
+        {
+            "location": "/about/#about",
+            "text": "Welcome to About page! Nothing really important here...   Info  If you are curious about the origin of AoLibs... well that's because I really like this kanji which happen to read like \"Ao\"  \u84bc  It means \"blue\"... but can also mean \"green\"... strange right? Hence the theme of upper header bar. From blue to green ^^ Japanese is for sure strange language.",
+            "title": "About"
+        },
+        {
+            "location": "/about/#authors",
+            "text": "There's only 1 to be honest. Check out my GitHub account if you want to get in touch!",
+            "title": "Authors"
+        },
+        {
+            "location": "/about/#related-projects",
+            "text": "To be announced, there are 2 currently in development.",
+            "title": "Related projects"
         },
         {
             "location": "/navigation/",
@@ -112,13 +127,23 @@
         },
         {
             "location": "/navigation-ios/",
-            "text": "TODO",
+            "text": "iOS Navigation\n\n\nIntroduction\n\n\nIt was certainly a challenge to bend native iOS navigation to match with overall concept and Android's capabilities. Finally I have achieved the freedom of managing the naviagrion stack however I see fit from shared code.\n\n\nTodo",
             "title": "iOS Navigation"
+        },
+        {
+            "location": "/navigation-ios/#ios-navigation",
+            "text": "",
+            "title": "iOS Navigation"
+        },
+        {
+            "location": "/navigation-ios/#introduction",
+            "text": "It was certainly a challenge to bend native iOS navigation to match with overall concept and Android's capabilities. Finally I have achieved the freedom of managing the naviagrion stack however I see fit from shared code.",
+            "title": "Introduction"
         },
         {
             "location": "/navigation-ios/#todo",
             "text": "",
-            "title": "TODO"
+            "title": "Todo"
         },
         {
             "location": "/adapters/",

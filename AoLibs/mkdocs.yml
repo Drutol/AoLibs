@@ -24,3 +24,18 @@ extra_css:
 
 theme:
   name: material
+
+markdown_extensions:
+    - admonition
+    - pymdownx.tasklist:
+        custom_checkbox: true
+
+copyright: 'Copyright &copy; 2018 Piotr Szymczak'
+
+repo_name: 'Drutol/AoLibs'
+repo_url: 'https://github.com/Drutol/AoLibs'
+
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/Drutol/AoLibs'
