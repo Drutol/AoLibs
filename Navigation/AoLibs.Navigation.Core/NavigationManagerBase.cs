@@ -5,20 +5,32 @@ using AoLibs.Navigation.Core.Interfaces;
 
 namespace AoLibs.Navigation.Core
 {
+    /// <summary>
+    /// Base class for NavigationMangers providing all basic functionality. It is used as a doorway to mechanisms below, it is capable of managing a number of various stacks.
+    /// </summary>
+    /// <typeparam name="TPage"></typeparam>
+    /// <typeparam name="TPageIdentifier"></typeparam>
     public abstract class NavigationManagerBase<TPage, TPageIdentifier> :
         IParentNavigationManager<TPage, TPageIdentifier>,
         INavigationManager<TPageIdentifier>
         where TPage : class, INavigationPage
     {    
-
         private readonly Dictionary<Stack<BackstackEntry<TPage>>, StackManager<TPage, TPageIdentifier>> _stackManagers =
             new Dictionary<Stack<BackstackEntry<TPage>>, StackManager<TPage, TPageIdentifier>>();
 
         private readonly IStackResolver<TPage, TPageIdentifier> _stackResolver;
 
+        /// <summary>
+        /// Event for when navigation occurs on any stack.
+        /// </summary>
         public event EventHandler<TPageIdentifier> Navigated;
+        /// <summary>
+        /// Event for when back navigation occurs.
+        /// </summary>
         public event EventHandler<EventArgs> WentBack;
-
+        /// <summary>
+        /// Navigation interceptor.
+        /// </summary>
         public NaviagtionInterceptor<TPageIdentifier> Interceptor { get; set; }
 
         protected NavigationManagerBase(Dictionary<TPageIdentifier, IPageProvider<TPage>> pageDefinitions,
@@ -122,9 +134,7 @@ namespace AoLibs.Navigation.Core
 
         public virtual void NotifyPagePushed(TPage page) { }
 
-        public virtual void NotifyPagePushedWithoutBackstack(TPage page) { }
-
-        
+        public virtual void NotifyPagePushedWithoutBackstack(TPage page) { }     
 
         private StackManager<TPage, TPageIdentifier> ResolveStackManager(TPageIdentifier pageIdentifier)
         {

@@ -7,7 +7,6 @@ namespace AoLibs.Utilities.Shared
     {
         public delegate bool CompareDelegate<in T>(T x, T y);
 
-        [Preserve(AllMembers = true)]
         public class DiffResult<T>
         {
             internal DiffResult()

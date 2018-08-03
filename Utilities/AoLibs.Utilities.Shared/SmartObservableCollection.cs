@@ -32,6 +32,10 @@ namespace AoLibs.Utilities.Shared
 
         }
 
+        /// <summary>
+        /// Adds range of items without unnecessary collection updates. One update is issued when whole collection updates.
+        /// </summary>
+        /// <param name="range"></param>
         public void AddRange(IEnumerable<T> range)
         {
             // get out if no new items

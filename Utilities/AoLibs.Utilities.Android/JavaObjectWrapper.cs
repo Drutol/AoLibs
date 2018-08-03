@@ -1,5 +1,11 @@
-﻿namespace AoLibs.Utilities.Android
+﻿using Android.Views;
+
+namespace AoLibs.Utilities.Android
 {
+    /// <summary>
+    /// Allows to wrap object with Java's one. Handy for assigning <see cref="View.Tag"/>
+    /// </summary>
+    /// <typeparam name="TObj"></typeparam>
     public class JavaObjectWrapper<TObj> : Java.Lang.Object
     {
         public TObj Instance { get; }

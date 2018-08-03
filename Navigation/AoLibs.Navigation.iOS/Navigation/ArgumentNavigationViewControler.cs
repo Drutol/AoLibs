@@ -8,8 +8,6 @@ namespace AoLibs.Navigation.iOS.Navigation
 {
     public class ArgumentNavigationViewControler : UIViewController, INavigationPage, INativeNavigationPage
     {
-        private SemaphoreSlim _navigationSemaphore;
-
         private event EventHandler NativeBackNavigation;
 
         event EventHandler INativeNavigationPage.NativeBackNavigation
@@ -53,18 +51,6 @@ namespace AoLibs.Navigation.iOS.Navigation
             if(IsMovingFromParentViewController || IsBeingDismissed)
                 NativeBackNavigation?.Invoke(this,EventArgs.Empty);
             base.ViewWillDisappear(animated);
-        }
-
-        public override void ViewDidAppear(bool animated)
-        {
-            base.ViewDidAppear(animated);
-            _navigationSemaphore?.Release();
-        }
-
-        public SemaphoreSlim ObtainNavigationSemaphore()
-        {
-            _navigationSemaphore = new SemaphoreSlim(0);
-            return _navigationSemaphore;
         }
     }
 }

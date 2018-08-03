@@ -7,6 +7,10 @@ using GalaSoft.MvvmLight.Helpers;
 
 namespace AoLibs.Utilities.Android
 {
+    /// <summary>
+    /// Old helper for collection views like <see cref="ListView"/> or <see cref="GridView"/>. Using RecyclerView is highly encouraged with provided adapters.
+    /// </summary>
+    [Obsolete("Use RecyclerView for best results. ListView and GridView are not reliable view controls.")]
     public static class FlingCollectionsHelper
     {
         public class FlingAdapterRegistration : IDisposable
@@ -100,12 +104,12 @@ namespace AoLibs.Utilities.Android
         }
 
         public static FlingAdapterRegistration<TViewHolder> InjectFlingAdapter<T, TViewHolder>(
-            this AbsListView container, IList<T> items, 
+            this AbsListView container, IList<T> items,
             Func<View, TViewHolder> holderFactory,
             Func<int, View> containerTemplate,
-            Action<View, int, T, TViewHolder> dataTemplateBasic,             
+            Action<View, int, T, TViewHolder> dataTemplateBasic,
             Action<View, int, T, TViewHolder> dataTemplateFling,
-            Action<View, int, T, TViewHolder> dataTemplateFull,        
+            Action<View, int, T, TViewHolder> dataTemplateFull,
             View footer = null, bool skipBugFix = false, Action onScrolled = null) where T : class
         {
             var registration = new FlingAdapterRegistration<TViewHolder>(container);
@@ -151,32 +155,31 @@ namespace AoLibs.Utilities.Android
                 });
             }
 
-                container.Adapter = items.GetAdapter((i, arg2, arg3) =>
+            container.Adapter = items.GetAdapter((i, arg2, arg3) =>
+            {
+                TViewHolder holder;
+                View root = null;
+                if (arg3 == null)
                 {
-                    TViewHolder holder;
-                    View root = null;
-                    if (arg3 == null)
-                    {
-                        root = containerTemplate(i);
-                        registration.ViewHolders[root] = holder = holderFactory(root);
-                    }
-                    else
-                    {
-                        root = arg3;
-                        holder = registration.ViewHolders[root];
-                    }
-                    root.Tag = arg2.Wrap();
-                    dataTemplateBasic.Invoke(root, i, arg2, holder);
-                    if (registration.FlingState)
-                        dataTemplateFling(root, i, arg2, holder);
-                    else
-                        dataTemplateFull(root, i, arg2, holder);
-                    return root;
-                });
-           
+                    root = containerTemplate(i);
+                    registration.ViewHolders[root] = holder = holderFactory(root);
+                }
+                else
+                {
+                    root = arg3;
+                    holder = registration.ViewHolders[root];
+                }
+
+                root.Tag = arg2.Wrap();
+                dataTemplateBasic.Invoke(root, i, arg2, holder);
+                if (registration.FlingState)
+                    dataTemplateFling(root, i, arg2, holder);
+                else
+                    dataTemplateFull(root, i, arg2, holder);
+                return root;
+            });
+
             return registration;
         }
-
- 
     }
 }

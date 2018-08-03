@@ -6,6 +6,12 @@ namespace AoLibs.Utilities.Shared
     {
         private static readonly string[] SizeSuffixes = {"B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"};
 
+        /// <summary>
+        /// Converts byte count to nice formatted string with using one of following suffixes:
+        /// "B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static string GetHumanReadableBytesLength(long value)
         {
             if (value < 0)
@@ -20,7 +26,7 @@ namespace AoLibs.Utilities.Shared
             var mag = (int) Math.Log(value, 1024);
             var adjustedSize = (decimal) value / (1L << (mag * 10));
 
-            return string.Format("{0:n1} {1}", adjustedSize, SizeSuffixes[mag]);
+            return $"{adjustedSize:n1} {SizeSuffixes[mag]}";
         }
     }
 }

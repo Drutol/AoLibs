@@ -7,15 +7,21 @@ using Debug = System.Diagnostics.Debug;
 
 namespace AoLibs.Utilities.Android
 {
+    /// <summary>
+    /// Utility class that listens to current memory usage of the app. So you can react early to any memory shortages.
+    /// </summary>
     public class MemoryWatcher
     {
-        public long TotalRam { get; set; }
-        public bool DisplayDebugMessages { get; set; } = true;
-        public float MemoryWarningThresholdInPercent { get; set; } = 7.5f;
-        public event EventHandler<float> MemoryWarning;
-
-
         private Timer _memoryCheckTimer;
+
+        public long TotalRam { get; }
+        public bool DisplayDebugMessages { get; } = true;
+        public float MemoryWarningThresholdInPercent { get; } = 7.5f;
+
+        /// <summary>
+        /// Called whenever free percentage of memory falls below <see cref="MemoryWarningThresholdInPercent"/>
+        /// </summary>
+        public event EventHandler<float> MemoryWarning;
 
         #region Singleton
 
@@ -28,6 +34,9 @@ namespace AoLibs.Utilities.Android
             TotalRam = memoryInfo.TotalMem / (1024 * 1024);
         }
 
+        /// <summary>
+        /// Obtains and initializes new <see cref="MemoryWatcher"/>
+        /// </summary>
         public static MemoryWatcher Watcher { get; } = new MemoryWatcher();
 
         #endregion
@@ -49,9 +58,6 @@ namespace AoLibs.Utilities.Android
             if (percentAvailable <= MemoryWarningThresholdInPercent)
             {
                 MemoryWarning?.Invoke(this,percentAvailable);
-                Runtime.GetRuntime().Gc();
-                Pause();
-                Resume(TimeSpan.FromSeconds(10));
             }
         }
 
@@ -66,6 +72,5 @@ namespace AoLibs.Utilities.Android
             if(_memoryCheckTimer == null)
                 CreateTimer(dueTime ?? TimeSpan.Zero);
         }
-
     }
 }

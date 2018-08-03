@@ -13,21 +13,7 @@ namespace AoLibs.Adapters.iOS
     {
         public async Task<DateTime?> ShowDatePicker(DateTime startingDate, string okText, string cancelText = null)
         {
-            var semaphore = new SemaphoreSlim(0);
-            DateTime? returnValue = null;
-
-            //TODO: commented - reference not found.
-            //var dialog = new DatePickerDialog();
-                
-            //dialog.Show(string.Empty, okText, cancelText, UIDatePickerMode.Date, time =>
-            //{
-            //    returnValue = time;
-            //    semaphore.Release();
-            //}, DateTime.Now);
-
-            //await semaphore.WaitAsync();
-            
-            return returnValue;
+            throw new NotImplementedException();
         }
 
         public async Task<int?> ShowItemsPicker(IEnumerable<string> items, int selectedIndex, string title, string cancelText, string okText)

@@ -59,7 +59,6 @@
     <Compile Include="UriLauncherAdapter.cs" />
     <Compile Include="VersionProvider.cs" />
     <Compile Include="PickerAdapter.cs" />
-    <Compile Include="PhotoPickerAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AoLibs.Adapters.Core\AoLibs.Adapters.Core.csproj">

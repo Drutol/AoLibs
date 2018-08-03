@@ -11,7 +11,6 @@ namespace AoLibs.Navigation.Core
         private readonly Stack<BackstackEntry<TPage>> _stack;
         private NavigationBackstackOption? _currentBackstackOption;
 
-
         public StackManager(Stack<BackstackEntry<TPage>> stack, IParentNavigationManager<TPage, TPageIdentifier> navigationManager)
         {
             _stack = stack;
