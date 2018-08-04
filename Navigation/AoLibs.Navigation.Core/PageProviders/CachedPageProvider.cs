@@ -9,7 +9,7 @@ namespace AoLibs.Navigation.Core.PageProviders
     /// <typeparam name="TPage"></typeparam>
     public class CachedPageProvider<TPage> : IPageProvider<TPage> where TPage : class, INavigationPage
     {
-        private readonly Func<TPage> _factory;
+        protected Func<TPage> Factory { get; set; }
         private TPage _page;
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace AoLibs.Navigation.Core.PageProviders
         /// <param name="factory">Optional factory to reinstantinate the page if need araises. <see cref="Activator.CreateInstance{T}"/> will be used if null.</param>
         public CachedPageProvider(TPage instance, Func<TPage> factory = null)
         {
-            _factory = factory ?? Activator.CreateInstance<TPage>;
+            Factory = factory ?? Activator.CreateInstance<TPage>;
             Page = instance;
         }
 
@@ -35,7 +35,7 @@ namespace AoLibs.Navigation.Core.PageProviders
         /// </summary>
         public void ForceReinstantination()
         {
-            Page = _factory();
+            Page = Factory();
             Page.PageIdentifier = PageIdentifier;
         }
 
@@ -53,13 +53,13 @@ namespace AoLibs.Navigation.Core.PageProviders
             {
                 if (_page == null)
                 {
-                    _page = _factory();
+                    _page = Factory();
                     _page.PageIdentifier = PageIdentifier;
                 }
 
                 return _page;
             }
-            private set => _page = value;
+            protected set => _page = value;
         }
 
         /// <summary>

@@ -9,7 +9,7 @@ namespace AoLibs.Navigation.Core.PageProviders
     /// <typeparam name="TPage"></typeparam>
     public class OneshotPageProvider<TPage> : IPageProvider<TPage> where TPage : INavigationPage
     {
-        private readonly Func<TPage> _factory;
+        protected Func<TPage> Factory { get; set; }
 
         /// <summary>
         /// Creates provicer with specified factory method.
@@ -17,7 +17,7 @@ namespace AoLibs.Navigation.Core.PageProviders
         /// <param name="factory">Facotry used to build actual page.</param>
         public OneshotPageProvider(Func<TPage> factory)
         {
-            _factory = new Func<TPage>(() =>
+            Factory = new Func<TPage>(() =>
             {
                 var page = factory.Invoke();
                 page.PageIdentifier = PageIdentifier;
@@ -30,7 +30,7 @@ namespace AoLibs.Navigation.Core.PageProviders
         /// </summary>
         public OneshotPageProvider()
         {
-            _factory = new Func<TPage>(() =>
+            Factory = new Func<TPage>(() =>
             {
                 var page = Activator.CreateInstance<TPage>();
                 page.PageIdentifier = PageIdentifier;
@@ -53,7 +53,7 @@ namespace AoLibs.Navigation.Core.PageProviders
         /// <summary>
         /// Actual instance of held page.
         /// </summary>
-        public TPage Page => _factory.Invoke();
+        public TPage Page => Factory.Invoke();
 
         /// <summary>
         /// Current TPageIdentifier hidden beyond <see cref="Object"/>

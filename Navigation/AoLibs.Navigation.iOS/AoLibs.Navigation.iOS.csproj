@@ -46,16 +46,16 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Navigation\ArgumentNavigationTabBarController.cs" />
-    <Compile Include="Navigation\ArgumentNavigationViewControler.cs" />
+    <Compile Include="Navigation\Attributes\StoryboardViewControllerAttribute.cs" />
+    <Compile Include="Navigation\Controllers\ArgumentNavigationTabBarViewController.cs" />
+    <Compile Include="Navigation\Controllers\ArgumentNavigationViewControler.cs" />
     <Compile Include="Navigation\INativeNavigationPage.cs" />
-    <Compile Include="Navigation\MvvmViewController.cs" />
     <Compile Include="Navigation\NavigationManager.cs" />
-    <Compile Include="Navigation\PopupViewController.cs" />
-    <Compile Include="Navigation\ViewControllerBase.cs" />
+    <Compile Include="Navigation\Controllers\ViewControllerBase.cs" />
+    <Compile Include="Navigation\Providers\StoryboardCachedPageProvider.cs" />
+    <Compile Include="Navigation\Providers\StoryboardOneshotPageProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Navigation\MvvmTabBarController.cs" />
-    <Compile Include="Navigation\TabBarViewControllerBase.cs" />
+    <Compile Include="Navigation\Controllers\TabBarViewControllerBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AoLibs.Navigation.Core\AoLibs.Navigation.Core.csproj">
