@@ -13,7 +13,7 @@ namespace AoLibs.Adapters.Core.Interfaces
         /// Allows user to pick one from given selection of items.
         /// </summary>
         /// <param name="items">Collection of choices.</param>
-        /// <param name="selectedIndex">Initally selected item index.</param>
+        /// <param name="selectedIndex">Initally selected item index. -1 to select none.</param>
         /// <param name="title">Title of the picker.</param>
         /// <param name="cancelText">Text on cancel button.</param>
         /// <param name="okText">Text on ok button.</param>

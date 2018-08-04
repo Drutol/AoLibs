@@ -17,6 +17,7 @@ namespace AoLibs.Navigation.Core.PageProviders
         /// </summary>
         public CachedPageProvider()
         {
+            Factory = Activator.CreateInstance<TPage>;
         }
 
         /// <summary>

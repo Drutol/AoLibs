@@ -1,5 +1,8 @@
 ﻿namespace AoLibs.Adapters.Core.Interfaces
 {
+    /// <summary>
+    /// Defines on which platform the app is running.
+    /// </summary>
     public enum PlatformType
     {
         Android,
