@@ -14,6 +14,7 @@ pages:
   - Utilities: utilities.md
   - Android Utilities: utilities-android.md
   - Android Listeners: android-listeners.md
+  - Android Layout to C#: android-layout-to-cs.md
 
 extra_javascript:
     - js/hljs.js

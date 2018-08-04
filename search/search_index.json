@@ -329,6 +329,21 @@
             "location": "/android-listeners/#android-listeners",
             "text": "Set of various listeners that are accepting delegates to native Android callback classes.   DateSetListener : DatePickerDialog.IOnDateSetListener  GenericMotionListener :  View.IOnGenericMotionListener  OnCheckedListener : RadioGroup.IOnCheckedChangeListener  OnClickListener : View.IOnClickListener  OnEditorActionListener : TextView.IOnEditorActionListener  OnItemClickListener<T> : AdapterView.IOnItemClickListener  Expects the item to be wrapped with  JavaObjectWrapper<T>  withing  Tag  property.    OnLongClickListener : View.IOnLongClickListener  OnScrollListener : AbsListView.IOnScrollListener  OnTextEnterListener : ITextWatcher  If EditText can be multiline this listner will detect wheter the user presses \"Enter\" on their keyboard.    OnTouchListener : View.IOnTouchListener  ScrollListener : AbsListView.IOnScrollChangeListener",
             "title": "Android Listeners"
+        },
+        {
+            "location": "/android-layout-to-cs/",
+            "text": "Android Layout to CSharp\n\n\nI've built little application that is able to convert android layout defined in xml to C# code referencing controls with given ID.\n\n\n\n\nInfo\n\n\nYou can find repo here: \nhttps://github.com/Drutol/AndroidLayoutToCSharp\n\n\n\n\nFinally you receive code to copy&paste:\n\n\n#region Views\n\nprivate FrameLayout _rootView;\n\npublic FrameLayout RootView => _rootView ?? (_rootView = FindViewById<FrameLayout>(Resource.Id.RootView));\n\n#endregion\n\n\n\n\nIt's built as an UWP app for Windows 10. Manual compilation and deployment required.\n\n\nFeatures\n\n\nIt's capable of\n\n\n\n\n Generating general \"code-behind\" for all controls marked with \nandroid:id\n\n\n Recursively going through all files in specified folder in order to find controls added with \n<include>\n directive.\n\n\n Generating code for ViewHolders.\n\n\n Filtering IDs based on whether the ID starts with upper or lower character.\n\n\nUseful for IDs that are only used by layout in \nConstraitLayout\n scenarios for example.",
+            "title": "Android Layout to C#"
+        },
+        {
+            "location": "/android-layout-to-cs/#android-layout-to-csharp",
+            "text": "I've built little application that is able to convert android layout defined in xml to C# code referencing controls with given ID.   Info  You can find repo here:  https://github.com/Drutol/AndroidLayoutToCSharp   Finally you receive code to copy&paste:  #region Views\n\nprivate FrameLayout _rootView;\n\npublic FrameLayout RootView => _rootView ?? (_rootView = FindViewById<FrameLayout>(Resource.Id.RootView));\n\n#endregion  It's built as an UWP app for Windows 10. Manual compilation and deployment required.",
+            "title": "Android Layout to CSharp"
+        },
+        {
+            "location": "/android-layout-to-cs/#features",
+            "text": "It's capable of    Generating general \"code-behind\" for all controls marked with  android:id   Recursively going through all files in specified folder in order to find controls added with  <include>  directive.   Generating code for ViewHolders.   Filtering IDs based on whether the ID starts with upper or lower character.  Useful for IDs that are only used by layout in  ConstraitLayout  scenarios for example.",
+            "title": "Features"
         }
     ]
 }

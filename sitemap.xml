@@ -2,67 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>/</loc>
-     <lastmod>2018-08-03</lastmod>
+     <lastmod>2018-08-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/installation/</loc>
-     <lastmod>2018-08-03</lastmod>
+     <lastmod>2018-08-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/about/</loc>
-     <lastmod>2018-08-03</lastmod>
+     <lastmod>2018-08-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/navigation/</loc>
-     <lastmod>2018-08-03</lastmod>
+     <lastmod>2018-08-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/navigation-android/</loc>
-     <lastmod>2018-08-03</lastmod>
+     <lastmod>2018-08-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/navigation-ios/</loc>
-     <lastmod>2018-08-03</lastmod>
+     <lastmod>2018-08-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/adapters/</loc>
-     <lastmod>2018-08-03</lastmod>
+     <lastmod>2018-08-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/adapters-android/</loc>
-     <lastmod>2018-08-03</lastmod>
+     <lastmod>2018-08-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/android-recycler-adapters/</loc>
-     <lastmod>2018-08-03</lastmod>
+     <lastmod>2018-08-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/app-variables/</loc>
-     <lastmod>2018-08-03</lastmod>
+     <lastmod>2018-08-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/utilities/</loc>
-     <lastmod>2018-08-03</lastmod>
+     <lastmod>2018-08-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/utilities-android/</loc>
-     <lastmod>2018-08-03</lastmod>
+     <lastmod>2018-08-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/android-listeners/</loc>
-     <lastmod>2018-08-03</lastmod>
+     <lastmod>2018-08-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/android-layout-to-cs/</loc>
+     <lastmod>2018-08-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
