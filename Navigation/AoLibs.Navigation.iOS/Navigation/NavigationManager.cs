@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using AoLibs.Navigation.Core;
 using AoLibs.Navigation.Core.Interfaces;
+using AoLibs.Navigation.Core.PageProviders;
+using AoLibs.Navigation.iOS.Navigation.Attributes;
+using AoLibs.Navigation.iOS.Navigation.Providers;
 using UIKit;
 
 namespace AoLibs.Navigation.iOS.Navigation
@@ -22,6 +26,70 @@ namespace AoLibs.Navigation.iOS.Navigation
         ) : base(pageDefinitions, stackResolver)
         {
             _navigationController = navigationController;
+        }
+
+        public NavigationManager(UINavigationController navigationController,
+            IStackResolver<INavigationPage, TPageIdentifier> stackResolver = null) : base(stackResolver)
+        {
+            _navigationController = navigationController;
+
+            var types = Assembly.GetCallingAssembly().GetTypes();
+
+            foreach (var type in types)
+            {
+                var attr = type.GetTypeInfo().GetCustomAttribute<NavigationPageAttribute>();
+
+                if (attr != null)
+                {
+                    IPageProvider<INavigationPage> providerType = null;
+
+                    if (string.IsNullOrEmpty(attr.StoryboardName))
+                    {
+                        switch (attr.Type)
+                        {
+                            case NavigationPageAttribute.PageProvider.Cached:
+                                providerType = ObtainProviderFromType(typeof(CachedPageProvider<>));
+                                break;
+                            case NavigationPageAttribute.PageProvider.Oneshot:
+                                providerType = ObtainProviderFromType(typeof(OneshotPageProvider<>));
+                                break;
+                            default:
+                                throw new ArgumentOutOfRangeException();
+                        }
+                    }
+                    else
+                    {
+                        if(string.IsNullOrEmpty(attr.ViewControllerIdentifier))
+                        {
+                            switch (attr.Type)
+                            {
+                                case NavigationPageAttribute.PageProvider.Cached:
+                                    providerType = ObtainProviderFromType(typeof(StoryboardCachedPageProvider<>),true);
+                                    break;
+                                case NavigationPageAttribute.PageProvider.Oneshot:
+                                    providerType = ObtainProviderFromType(typeof(StoryboardCachedPageProvider<>),true);
+                                    break;
+                                default:
+                                    throw new ArgumentOutOfRangeException();
+                            }
+                        }
+                    }
+
+                    PageDefinitions.Add((TPageIdentifier)(object)attr.Page, providerType);
+                }
+              
+                IPageProvider<INavigationPage> ObtainProviderFromType(Type providerType, bool isStoryboard = false)
+                {
+                    return (IPageProvider<INavigationPage>) providerType.MakeGenericType(type)
+                        .GetConstructor(isStoryboard ? new[] {typeof(NavigationPageAttribute)} : new Type[] { })
+                        .Invoke(isStoryboard ? new object[] {attr} : null);
+                }
+            }
+
+            foreach (var pageDefinition in PageDefinitions)
+            {
+                pageDefinition.Value.PageIdentifier = pageDefinition.Key;
+            }
         }
 
         public override void CommitPageTransaction(INavigationPage page)

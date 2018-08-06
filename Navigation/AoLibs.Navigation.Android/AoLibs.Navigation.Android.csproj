@@ -95,6 +95,7 @@
     <Compile Include="Navigation\FragmentBase.cs" />
     <Compile Include="Navigation\NavigationFragmentBase.cs" />
     <Compile Include="Navigation\NavigationManager.cs" />
+    <Compile Include="Navigation\NavigationPageAttribute.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

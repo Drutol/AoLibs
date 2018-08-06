@@ -9,12 +9,14 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using AoLibs.Sample.Shared;
 using AoLibs.Sample.Shared.ViewModels;
 using AoLibs.Utilities.Android;
 using NavigationLib.Android.Navigation;
 
 namespace AoLibs.Sample.Android.Fragments
 {
+    [NavigationPage(Type = NavigationPageAttribute.PageProvider.Cached, Page = (int) PageIndex.PageA)]
     public class TestPageAFragment : FragmentBase<TestViewModelA>
     {
         public override int LayoutResourceId { get; } = Resource.Layout.test_page_a;
@@ -41,7 +43,8 @@ namespace AoLibs.Sample.Android.Fragments
 
         public Button ButtonShow => _buttonShow ?? (_buttonShow = FindViewById<Button>(Resource.Id.ButtonShow));
 
-        public Button ButtonNavigate => _buttonNavigate ?? (_buttonNavigate = FindViewById<Button>(Resource.Id.ButtonNavigate));
+        public Button ButtonNavigate =>
+            _buttonNavigate ?? (_buttonNavigate = FindViewById<Button>(Resource.Id.ButtonNavigate));
 
         #endregion
     }

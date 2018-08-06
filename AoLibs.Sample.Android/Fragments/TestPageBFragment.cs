@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using AoLibs.Sample.Shared;
 using AoLibs.Sample.Shared.NavArgs;
 using AoLibs.Sample.Shared.ViewModels;
 using AoLibs.Utilities.Android;
@@ -17,6 +18,7 @@ using NavigationLib.Android.Navigation;
 
 namespace AoLibs.Sample.Android.Fragments
 {
+    [NavigationPage(Type = NavigationPageAttribute.PageProvider.Oneshot, Page = (int)PageIndex.PageB)]
     public class TestPageBFragment : FragmentBase<TestViewModelB>
     {
         public override int LayoutResourceId { get; } = Resource.Layout.test_page_b;

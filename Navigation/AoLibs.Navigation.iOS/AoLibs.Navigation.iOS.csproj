@@ -46,7 +46,7 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Navigation\Attributes\StoryboardViewControllerAttribute.cs" />
+    <Compile Include="Navigation\Attributes\NavigationPageAttribute.cs" />
     <Compile Include="Navigation\Controllers\ArgumentNavigationTabBarViewController.cs" />
     <Compile Include="Navigation\Controllers\ArgumentNavigationViewControler.cs" />
     <Compile Include="Navigation\INativeNavigationPage.cs" />

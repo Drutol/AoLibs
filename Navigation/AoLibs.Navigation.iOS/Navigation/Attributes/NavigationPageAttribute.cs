@@ -13,8 +13,18 @@ namespace AoLibs.Navigation.iOS.Navigation.Attributes
     /// Used by <see cref="StoryboardOneshotPageProvider{TPage}"/> and <see cref="StoryboardCachedPageProvider{TPage}"/> to instantinate ViewController.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class)]
-    public class StoryboardViewControllerAttribute : Attribute
+    public class NavigationPageAttribute : Attribute
     {
+        public enum PageProvider
+        {
+            Cached,
+            Oneshot,
+        }
+
+        public Enum Page { get; set; }
+        public PageProvider Type { get; set; }
+
+        
         public string StoryboardName { get; set; }
         public string ViewControllerIdentifier { get; set; }
     }

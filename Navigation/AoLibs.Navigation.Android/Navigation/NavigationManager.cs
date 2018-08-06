@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using Android.App;
 using Android.OS;
 using Android.Views;
 using AoLibs.Navigation.Core;
 using AoLibs.Navigation.Core.Interfaces;
+using AoLibs.Navigation.Core.PageProviders;
 using Debug = System.Diagnostics.Debug;
 using FragmentManager = Android.Support.V4.App.FragmentManager;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
@@ -43,6 +45,53 @@ namespace NavigationLib.Android.Navigation
             _fragmentManager = fragmentManager;
             _rootFrame = rootFrame;
             _interceptTransaction = interceptTransaction;
+        }
+
+        public NavigationManager(FragmentManager fragmentManager, ViewGroup rootFrame,
+            IStackResolver<NavigationFragmentBase, TPageIdentifier> stackResolver = null,
+            Action<FragmentTransaction> interceptTransaction = null) : base(stackResolver)
+        {
+            _fragmentManager = fragmentManager;
+            _rootFrame = rootFrame;
+            _interceptTransaction = interceptTransaction;
+
+            var types = Assembly.GetCallingAssembly().GetTypes();
+
+            foreach (var type in types)
+            {
+                var attr = type.GetTypeInfo().GetCustomAttribute<NavigationPageAttribute>();
+
+                if (attr != null)
+                {
+                    IPageProvider<NavigationFragmentBase> provider = null;
+
+                    switch (attr.Type)
+                    {
+                        case NavigationPageAttribute.PageProvider.Cached:
+                            provider = ObtainProviderFromType(typeof(CachedPageProvider<>));
+                            break;
+                        case NavigationPageAttribute.PageProvider.Oneshot:
+                            provider = ObtainProviderFromType(typeof(OneshotPageProvider<>));
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+
+                    PageDefinitions.Add((TPageIdentifier)(object)attr.Page, provider);
+                }
+
+                IPageProvider<NavigationFragmentBase> ObtainProviderFromType(Type providerType)
+                {
+                    return (IPageProvider<NavigationFragmentBase>)providerType.MakeGenericType(type)
+                        .GetConstructor(new Type[] { })
+                        .Invoke(null);
+                }
+            }
+
+            foreach (var pageDefinition in PageDefinitions)
+            {
+                pageDefinition.Value.PageIdentifier = pageDefinition.Key;
+            }
         }
 
         public override void CommitPageTransaction(NavigationFragmentBase page)

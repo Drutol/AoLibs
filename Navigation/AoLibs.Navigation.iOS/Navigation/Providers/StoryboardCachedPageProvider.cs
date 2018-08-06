@@ -14,12 +14,12 @@ namespace AoLibs.Navigation.iOS.Navigation.Providers
     public class StoryboardCachedPageProvider<TPage> : CachedPageProvider<TPage> where TPage : class, INavigationPage
     {
         /// <summary>
-        /// Builds ViewController based on data contained in <see cref="StoryboardViewControllerAttribute"/> attached to <see cref="TPage"/>.
+        /// Builds ViewController based on data contained in <see cref="NavigationPageAttribute"/> attached to <see cref="TPage"/>.
         /// <see cref="UIStoryboard.FromName"/> and <see cref="UIStoryboard.InstantiateInitialViewController"/> or <see cref="UIStoryboard.InstantiateViewController"/> is used to create the controller.
         /// </summary>
         public StoryboardCachedPageProvider()
         {
-            var attr = typeof(TPage).GetTypeInfo().GetCustomAttribute<StoryboardViewControllerAttribute>();
+            var attr = typeof(TPage).GetTypeInfo().GetCustomAttribute<NavigationPageAttribute>();
             SetUpFactory(attr.StoryboardName, attr.ViewControllerIdentifier);
         }
 

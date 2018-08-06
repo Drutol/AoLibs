@@ -34,18 +34,17 @@ namespace AoLibs.Sample.Android
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
 
-            var pageDefinitions = new Dictionary<PageIndex, IPageProvider<NavigationFragmentBase>>
-            {
-                // cached
-                {PageIndex.PageA, new CachedPageProvider<TestPageAFragment>()},
-                // oneshots
-                {PageIndex.PageB, new OneshotPageProvider<TestPageBFragment>()},
-            };
+            //var pageDefinitions = new Dictionary<PageIndex, IPageProvider<NavigationFragmentBase>>
+            //{
+            //    // cached
+            //    {PageIndex.PageA, new CachedPageProvider<TestPageAFragment>()},
+            //    // oneshots
+            //    {PageIndex.PageB, new OneshotPageProvider<TestPageBFragment>()},
+            //};
 
             var manager = new NavigationManager<PageIndex>(
                 SupportFragmentManager,
-                RootView,
-                pageDefinitions);
+                RootView);
 
             NavigationFragmentBase.ViewModelResolver = new ViewModelResolver();
 

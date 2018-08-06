@@ -25,12 +25,17 @@ namespace AoLibs.Navigation.iOS.Navigation.Providers
         }
 
         /// <summary>
-        /// Builds ViewController based on data contained in <see cref="StoryboardViewControllerAttribute"/> attached to <see cref="TPage"/>.
+        /// Builds ViewController based on data contained in <see cref="NavigationPageAttribute"/> attached to <see cref="TPage"/>.
         /// <see cref="UIStoryboard.FromName"/> and <see cref="UIStoryboard.InstantiateInitialViewController"/> or <see cref="UIStoryboard.InstantiateViewController"/> is used to create the controller.
         /// </summary>
-        public StoryboardOneshotPageProvider()
+        public StoryboardOneshotPageProvider() 
+            : this(typeof(TPage).GetTypeInfo().GetCustomAttribute<NavigationPageAttribute>())
         {
-            var attr = typeof(TPage).GetTypeInfo().GetCustomAttribute<StoryboardViewControllerAttribute>();
+            
+        }
+
+        public StoryboardOneshotPageProvider(NavigationPageAttribute attr)
+        {
             SetUpFactory(attr.StoryboardName, attr.ViewControllerIdentifier);
         }
 

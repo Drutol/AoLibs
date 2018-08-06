@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using AoLibs.Navigation.Core.Interfaces;
 
 namespace AoLibs.Navigation.Core
@@ -43,6 +44,12 @@ namespace AoLibs.Navigation.Core
             {
                 pageDefinition.Value.PageIdentifier = pageDefinition.Key;
             }
+        }
+
+        protected NavigationManagerBase(IStackResolver<TPage, TPageIdentifier> stackResolver = null)
+        {
+            _stackResolver = stackResolver ?? new DefaultStackResolver();
+            PageDefinitions = new Dictionary<TPageIdentifier, IPageProvider<TPage>>();
         }
 
         public void Navigate(TPageIdentifier page, object args = null)
