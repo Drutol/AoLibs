@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using AoLibs.Adapters.Core.Excpetions;
 using AoLibs.Adapters.Core.Interfaces;
 using Newtonsoft.Json;
 
+[assembly: InternalsVisibleTo("AoLibs.Adapters.Test")]
 namespace AoLibs.Adapters.Core
 {
     /// <summary>
@@ -11,7 +13,7 @@ namespace AoLibs.Adapters.Core
     /// </summary>
     public class DataCache : IDataCache
     {
-        class TimedHolder<T>
+        internal class TimedHolder<T>
         {
             public T Value { get; set; }
             public DateTime CreatedAt { get; set; }
