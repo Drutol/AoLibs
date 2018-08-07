@@ -44,9 +44,8 @@ namespace AoLibs.Sample.Android
 
             var manager = new NavigationManager<PageIndex>(
                 SupportFragmentManager,
-                RootView);
-
-            NavigationFragmentBase.ViewModelResolver = new ViewModelResolver();
+                RootView, 
+                new ViewModelResolver());
 
             //usually you would do it in Application class but for showcase sake I will skip that
             InitializationRoutines.Initialize(builder =>

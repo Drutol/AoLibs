@@ -34,26 +34,47 @@ namespace NavigationLib.Android.Navigation
         /// <param name="fragmentManager">Fragment manager of main activity.</param>
         /// <param name="rootFrame">The view which will be used as the one being replaced with new Views</param>
         /// <param name="pageDefinitions">The dictionary defining pages.</param>
+        /// <param name="viewModelResolver">Class used to resolve ViewModels for pages derived from <see cref="FragmentBase{TViewModel}"/></param>
         /// <param name="stackResolver">Class allowing to differentiate to which stack given indentigier belongs.</param>
         /// <param name="interceptTransaction">Delegate allowing to modify <see cref="FragmentTransaction"/> before commiting.</param>
-        public NavigationManager(FragmentManager fragmentManager, ViewGroup rootFrame,
+        public NavigationManager(
+            FragmentManager fragmentManager,
+            ViewGroup rootFrame,
             Dictionary<TPageIdentifier, IPageProvider<NavigationFragmentBase>> pageDefinitions,
+            IViewModelResolver viewModelResolver = null,
             IStackResolver<NavigationFragmentBase, TPageIdentifier> stackResolver = null,
-            Action<FragmentTransaction> interceptTransaction = null) : base(pageDefinitions,
-            stackResolver)
+            Action<FragmentTransaction> interceptTransaction = null) 
+            : base(pageDefinitions, stackResolver)
         {
             _fragmentManager = fragmentManager;
             _rootFrame = rootFrame;
             _interceptTransaction = interceptTransaction;
+
+            NavigationFragmentBase.ViewModelResolver = viewModelResolver;
         }
 
-        public NavigationManager(FragmentManager fragmentManager, ViewGroup rootFrame,
+        /// <summary>
+        /// Creates new navigation manager.
+        /// To gather page definitions it searches for classes marked with <see cref="NavigationPageAttribute"/> from <see cref="Assembly.GetCallingAssembly"/>
+        /// </summary>
+        /// <param name="fragmentManager">Fragment manager of main activity.</param>
+        /// <param name="rootFrame">The view which will be used as the one being replaced with new Views</param>
+        /// <param name="viewModelResolver">Class used to resolve ViewModels for pages derived from <see cref="FragmentBase{TViewModel}"/></param>
+        /// <param name="stackResolver">Class allowing to differentiate to which stack given indentigier belongs.</param>
+        /// <param name="interceptTransaction">Delegate allowing to modify <see cref="FragmentTransaction"/> before commiting.</param>
+        public NavigationManager(
+            FragmentManager fragmentManager, 
+            ViewGroup rootFrame,
+            IViewModelResolver viewModelResolver = null,
             IStackResolver<NavigationFragmentBase, TPageIdentifier> stackResolver = null,
-            Action<FragmentTransaction> interceptTransaction = null) : base(stackResolver)
+            Action<FragmentTransaction> interceptTransaction = null)
+            : base(stackResolver)
         {
             _fragmentManager = fragmentManager;
             _rootFrame = rootFrame;
             _interceptTransaction = interceptTransaction;
+
+            NavigationFragmentBase.ViewModelResolver = viewModelResolver;
 
             var types = Assembly.GetCallingAssembly().GetTypes();
 

@@ -3,7 +3,7 @@ using UIKit;
 
 namespace AoLibs.Adapters.iOS
 {
-    public class ClipboardProvicer : IClipboardProvider
+    public class ClipboardProvider : IClipboardProvider
     {
         public void SetText(string text)
         {

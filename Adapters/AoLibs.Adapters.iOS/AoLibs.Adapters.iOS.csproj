@@ -49,7 +49,7 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClipboardProvicer.cs" />
+    <Compile Include="ClipboardProvider.cs" />
     <Compile Include="DispatcherAdapter.cs" />
     <Compile Include="FileStorageProvider.cs" />
     <Compile Include="MessageBoxProvider.cs" />

@@ -7,31 +7,59 @@ using AoLibs.Navigation.Core;
 using AoLibs.Navigation.Core.Interfaces;
 using AoLibs.Navigation.Core.PageProviders;
 using AoLibs.Navigation.iOS.Navigation.Attributes;
+using AoLibs.Navigation.iOS.Navigation.Controllers;
 using AoLibs.Navigation.iOS.Navigation.Providers;
 using UIKit;
 
 namespace AoLibs.Navigation.iOS.Navigation
-{
-    public class
-        NavigationManager<TPageIdentifier> : NavigationManagerBase<INavigationPage, TPageIdentifier>
+{   
+    /// <summary>
+    /// Class that fulfills the purpose of executing actual navigation transactions.
+    /// </summary>
+    /// <typeparam name="TPageIdentifier"></typeparam>
+    public class NavigationManager<TPageIdentifier> : NavigationManagerBase<INavigationPage, TPageIdentifier>
     {
         private readonly UINavigationController _navigationController;
         private TaskCompletionSource<INavigationPage> _naviagtionCompletionSource;
 
-        public bool Intercepting => _naviagtionCompletionSource != null && !_naviagtionCompletionSource.Task.IsCompleted;
+        private bool Intercepting => _naviagtionCompletionSource != null && !_naviagtionCompletionSource.Task.IsCompleted;
 
-        public NavigationManager(UINavigationController navigationController,
+        /// <summary>
+        /// Creates new navigation manager.
+        /// </summary>
+        /// <param name="navigationController">Root navigation controller.</param>
+        /// <param name="pageDefinitions">The dictionary defining pages.</param>
+        /// <param name="viewModelResolver">Class used to resolve ViewModels for pages like <see cref="ViewControllerBase{TViewModel}"/> and <see cref="TabBarViewControllerBase{TViewModel}"/></param>
+        /// <param name="stackResolver">Class allowing to differentiate to which stack given indentigier belongs.</param>
+        public NavigationManager(
+            UINavigationController navigationController,
             Dictionary<TPageIdentifier, IPageProvider<INavigationPage>> pageDefinitions,
+            IViewModelResolver viewModelResolver,
             IStackResolver<INavigationPage, TPageIdentifier> stackResolver = null
         ) : base(pageDefinitions, stackResolver)
         {
             _navigationController = navigationController;
+
+            ArgumentNavigationViewControler.ViewModelResolver = viewModelResolver;
+            ArgumentNavigationTabBarViewController.ViewModelResolver = viewModelResolver;
         }
 
-        public NavigationManager(UINavigationController navigationController,
+        /// <summary>
+        /// Creates new navigation manager.
+        /// To gather page definitions it searches for classes marked with <see cref="NavigationPageAttribute"/> from <see cref="Assembly.GetCallingAssembly"/>
+        /// </summary>
+        /// <param name="navigationController">Root navigation controller.</param>
+        /// <param name="viewModelResolver"></param>
+        /// <param name="stackResolver">Class allowing to differentiate to which stack given indentigier belongs.</param>
+        public NavigationManager(
+            UINavigationController navigationController,
+            IViewModelResolver viewModelResolver,
             IStackResolver<INavigationPage, TPageIdentifier> stackResolver = null) : base(stackResolver)
         {
             _navigationController = navigationController;
+
+            ArgumentNavigationViewControler.ViewModelResolver = viewModelResolver;
+            ArgumentNavigationTabBarViewController.ViewModelResolver = viewModelResolver;
 
             var types = Assembly.GetCallingAssembly().GetTypes();
 
@@ -45,7 +73,7 @@ namespace AoLibs.Navigation.iOS.Navigation
 
                     if (string.IsNullOrEmpty(attr.StoryboardName))
                     {
-                        switch (attr.Type)
+                        switch (attr.PageProviderType)
                         {
                             case NavigationPageAttribute.PageProvider.Cached:
                                 providerType = ObtainProviderFromType(typeof(CachedPageProvider<>));
@@ -61,7 +89,7 @@ namespace AoLibs.Navigation.iOS.Navigation
                     {
                         if(string.IsNullOrEmpty(attr.ViewControllerIdentifier))
                         {
-                            switch (attr.Type)
+                            switch (attr.PageProviderType)
                             {
                                 case NavigationPageAttribute.PageProvider.Cached:
                                     providerType = ObtainProviderFromType(typeof(StoryboardCachedPageProvider<>),true);
@@ -105,7 +133,7 @@ namespace AoLibs.Navigation.iOS.Navigation
         private void OnNativeBackNavigation(object sender, EventArgs eventArgs)
         {
             var page = sender as INavigationPage;
-            PopFromBackStackFromExternal((Enum)page.PageIdentifier);
+            PopFromBackStackFromExternal((TPageIdentifier)page.PageIdentifier);
         }
 
         public override void NotifyPagePopped(INavigationPage targetPage)

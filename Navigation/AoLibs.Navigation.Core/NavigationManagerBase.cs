@@ -15,20 +15,26 @@ namespace AoLibs.Navigation.Core
         IParentNavigationManager<TPage, TPageIdentifier>,
         INavigationManager<TPageIdentifier>
         where TPage : class, INavigationPage
-    {    
+    {
         private readonly Dictionary<Stack<BackstackEntry<TPage>>, StackManager<TPage, TPageIdentifier>> _stackManagers =
             new Dictionary<Stack<BackstackEntry<TPage>>, StackManager<TPage, TPageIdentifier>>();
 
         private readonly IStackResolver<TPage, TPageIdentifier> _stackResolver;
 
+        public Dictionary<TPageIdentifier, IPageProvider<TPage>> PageDefinitions { get; }
+
+        public abstract void CommitPageTransaction(TPage page);
+
         /// <summary>
         /// Event for when navigation occurs on any stack.
         /// </summary>
         public event EventHandler<TPageIdentifier> Navigated;
+
         /// <summary>
         /// Event for when back navigation occurs.
         /// </summary>
-        public event EventHandler<EventArgs> WentBack;
+        public event EventHandler<TPageIdentifier> WentBack;
+
         /// <summary>
         /// Navigation interceptor.
         /// </summary>
@@ -56,7 +62,7 @@ namespace AoLibs.Navigation.Core
         {
             if (Interceptor != null)
                 page = Interceptor(page);
-            Navigated?.Invoke(this,page);
+            Navigated?.Invoke(this, page);
             ResolveStackManager(page).Navigate(page, args);
         }
 
@@ -68,89 +74,106 @@ namespace AoLibs.Navigation.Core
             ResolveStackManager(page).Navigate(page, backstackOption, args);
         }
 
-        public void AddActionToBackstack(TPageIdentifier currentPage,Action action)
+        public void AddActionToBackstack(Action action)
+        {
+            _stackManagers.First().Value.AddActionToBackstack(action);
+        }
+
+        public void AddActionToBackstack(TPageIdentifier currentPage, Action action)
         {
             ResolveStackManager(currentPage).AddActionToBackstack(action);
         }
 
         public void GoBack(object args = null)
         {
-            foreach (var stackManager in _stackManagers)
-            {
-                WentBack?.Invoke(this, EventArgs.Empty);
-                stackManager.Value.GoBack(args);
-            }
+            var result = _stackManagers.First().Value.GoBack(args);
+            if(result.WentBack)
+                WentBack?.Invoke(this, result.TargetPage);
         }
 
-        public void GoBack(Enum stackIdentifier, object args = null)
+        public void GoBack(TPageIdentifier stackIdentifier, object args = null)
         {
             var result = ResolveStackManager(stackIdentifier).GoBack(args);
-            if (!result.Equals(default(TPageIdentifier)))
-            {
-                Navigated?.Invoke(this,result);
-            }
-
+            if(result.WentBack)
+                WentBack?.Invoke(this, result.TargetPage);
         }
 
-        public void PopFromBackStackFromExternal(Enum stackIdentifier)
+        public void PopFromBackstack()
         {
-            ResolveStackManager(stackIdentifier).PopFromBackstackExternal(stackIdentifier);
+            _stackManagers.First().Value.PopFromBackstack();
         }
 
-        public bool PopActionFromBackStack(Enum stackIdentifier)
+        public void PopFromBackstack(TPageIdentifier stackIdentifier)
         {
-           return ResolveStackManager(stackIdentifier).PopActionFromBackstack();
+            ResolveStackManager(stackIdentifier).PopFromBackstack();
+        }
+
+        public bool PopActionFromBackStack()
+        {
+            return _stackManagers.First().Value.PopActionFromBackstack();
+        }
+
+        public bool PopActionFromBackStack(TPageIdentifier stackIdentifier)
+        {
+            return ResolveStackManager(stackIdentifier).PopActionFromBackstack();
         }
 
         public void ClearBackStack()
         {
-            foreach (var stackManager in _stackManagers)
-                stackManager.Value.ClearBackStack();
+            _stackManagers.First().Value.ClearBackStack();
         }
 
-        public void ClearBackStack(Enum stackIdentifier)
+        public void ClearBackStack(TPageIdentifier stackIdentifier)
         {
             ResolveStackManager(stackIdentifier).ClearBackStack();
+        }
+
+        public void PopFromBackStackFromExternal(TPageIdentifier pageIdentifier)
+        {
+            ResolveStackManager(pageIdentifier).PopFromBackstackExternal(pageIdentifier);
         }
 
         public bool OnBackRequested()
         {
             var result = _stackManagers.First().Value.OnBackRequested();
-            if (!result.current.Equals(default(TPageIdentifier)))
-            {
-                Navigated?.Invoke(this, result.current);
-            }
-
-            return result.handled;
+            if(result.WentBack)
+                WentBack?.Invoke(this, result.TargetPage);
+            
+            return result.WentBack;
         }
 
-        public bool OnBackRequested(Enum stackIdentifier)
+        public bool OnBackRequested(TPageIdentifier stackIdentifier)
         {
-            return ResolveStackManager(stackIdentifier).OnBackRequested().handled;
+            var result = ResolveStackManager(stackIdentifier).OnBackRequested();
+            if(result.WentBack)
+                WentBack?.Invoke(this, result.TargetPage);
+
+            return result.WentBack;
         }
 
-        public Dictionary<TPageIdentifier, IPageProvider<TPage>> PageDefinitions { get; }
+        public virtual void NotifyPagePopped(INavigationPage targetPage)
+        {
+        }
 
-        public abstract void CommitPageTransaction(TPage page);
+        public virtual void NotifyPagesPopped(IEnumerable<TPage> pages)
+        {
+        }
 
-        public virtual void NotifyPagePopped(INavigationPage targetPage) { }
+        public virtual void NotifyStackCleared()
+        {
+        }
 
-        public virtual void NotifyPagesPopped(IEnumerable<TPage> pages) { }
+        public virtual void NotifyPagePushed(TPage page)
+        {
+        }
 
-        public virtual void NotifyStackCleared() { }
-
-        public virtual void NotifyPagePushed(TPage page) { }
-
-        public virtual void NotifyPagePushedWithoutBackstack(TPage page) { }     
+        public virtual void NotifyPagePushedWithoutBackstack(TPage page)
+        {
+        }
 
         private StackManager<TPage, TPageIdentifier> ResolveStackManager(TPageIdentifier pageIdentifier)
         {
             return ResolveStackManager(_stackResolver.ResolveStackForIdentifier(pageIdentifier));
-        }
-
-        private StackManager<TPage, TPageIdentifier> ResolveStackManager(Enum stackIdentifier)
-        {
-            return ResolveStackManager(_stackResolver.ResolveStackForTag(stackIdentifier));      
         }
 
         private StackManager<TPage, TPageIdentifier> ResolveStackManager(TaggedStack<BackstackEntry<TPage>> stack)

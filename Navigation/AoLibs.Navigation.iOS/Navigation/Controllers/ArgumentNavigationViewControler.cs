@@ -7,7 +7,7 @@ namespace AoLibs.Navigation.iOS.Navigation.Controllers
 {
     public class ArgumentNavigationViewControler : UIViewController, INavigationPage, INativeNavigationPage
     {
-        public static IViewModelResolver ViewModelResolver { get; set; }
+        internal static IViewModelResolver ViewModelResolver { get; set; }
 
         private event EventHandler NativeBackNavigation;
 

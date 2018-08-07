@@ -30,7 +30,7 @@ namespace NavigationLib.Android.Navigation
         /// <summary>
         /// Allows <see cref="FragmentBase{TViewModel}"/> to resolve ViewModels automatically.
         /// </summary>
-        public static IViewModelResolver ViewModelResolver { get; set; }
+        internal static IViewModelResolver ViewModelResolver { get; set; }
 
         protected List<Binding> Bindings = new List<Binding>();
         protected View RootView { get; private set; }

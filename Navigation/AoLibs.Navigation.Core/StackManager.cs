@@ -93,7 +93,7 @@ namespace AoLibs.Navigation.Core
             _stack.Push(new BackstackEntry<TPage> {OnBackNavigation = action});
         }
 
-        public TPageIdentifier GoBack(object args = null)
+        public (bool WentBack, TPageIdentifier TargetPage) GoBack(object args = null)
         {
             _currentBackstackOption = null;
 
@@ -105,7 +105,7 @@ namespace AoLibs.Navigation.Core
             if (oldFragment.Page == null)
             {
                 oldFragment.OnBackNavigation.Invoke();
-                return default;
+                return (false,default);
             }
             else
             {
@@ -128,7 +128,7 @@ namespace AoLibs.Navigation.Core
                     CurrentFragment.NavigatedBack();
                 }
 
-                return (TPageIdentifier)CurrentFragment.PageIdentifier;
+                return (true, (TPageIdentifier) CurrentFragment.PageIdentifier);
             }
         }
 
@@ -138,11 +138,11 @@ namespace AoLibs.Navigation.Core
             _navigationManager.NotifyStackCleared();
         }
 
-        public (bool handled, TPageIdentifier current) OnBackRequested()
+        public (bool WentBack, TPageIdentifier TargetPage) OnBackRequested()
         {
             if (_stack.Count == 0)
                 return (false,default);
-            return (true, GoBack());
+            return GoBack();
         }
 
         public void PopFromBackstack()
@@ -161,7 +161,7 @@ namespace AoLibs.Navigation.Core
             return false;
         }
 
-        public void PopFromBackstackExternal(Enum stackIdentifier)
+        public void PopFromBackstackExternal(TPageIdentifier stackIdentifier)
         {
             if (_stack.Count > 0 && _stack.Peek().Page.PageIdentifier.Equals(stackIdentifier))
                 _stack.Pop();
