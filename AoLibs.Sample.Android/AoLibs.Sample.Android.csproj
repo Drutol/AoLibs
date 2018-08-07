@@ -108,32 +108,32 @@
     <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Adapters\AoLibs.Adapters.Android\AoLibs.Adapters.Android.csproj">
+    <ProjectReference Include="..\AoLibs.Adapters.Android\AoLibs.Adapters.Android.csproj">
       <Project>{9072a3c7-a429-4f79-a0ab-224c8afe6aa2}</Project>
       <Name>AoLibs.Adapters.Android</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Adapters\AoLibs.Adapters.Core\AoLibs.Adapters.Core.csproj">
-      <Project>{ec45abed-b0f0-497d-aaee-430a2842808a}</Project>
+    <ProjectReference Include="..\AoLibs.Adapters.Core\AoLibs.Adapters.Core.csproj">
+      <Project>{2d9542d8-3768-45c8-88d0-2a405f1752c0}</Project>
       <Name>AoLibs.Adapters.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AoLibs.Navigation.Android\AoLibs.Navigation.Android.csproj">
+      <Project>{9dfc65f1-1d85-48a2-b02d-88e6ac444978}</Project>
+      <Name>AoLibs.Navigation.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AoLibs.Navigation.Core\AoLibs.Navigation.Core.csproj">
+      <Project>{50fc724f-6c81-42f0-b09a-ce8792e25510}</Project>
+      <Name>AoLibs.Navigation.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\AoLibs.Sample.Shared\AoLibs.Sample.Shared.csproj">
       <Project>{40efa5fb-28b6-4976-8da9-e1d88302023d}</Project>
       <Name>AoLibs.Sample.Shared</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Navigation\AoLibs.Navigation.Android\AoLibs.Navigation.Android.csproj">
-      <Project>{9dfc65f1-1d85-48a2-b02d-88e6ac444978}</Project>
-      <Name>AoLibs.Navigation.Android</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Navigation\AoLibs.Navigation.Core\AoLibs.Navigation.Core.csproj">
-      <Project>{dd2affea-b220-4a5d-ae30-418fbb1e2f87}</Project>
-      <Name>AoLibs.Navigation.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Utilities\AoLibs.Utilities.Android\AoLibs.Utilities.Android.csproj">
+    <ProjectReference Include="..\AoLibs.Utilities.Android\AoLibs.Utilities.Android.csproj">
       <Project>{e565f491-f6f0-4ce5-b155-e3696004142e}</Project>
       <Name>AoLibs.Utilities.Android</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Utilities\AoLibs.Utilities.Shared\AoLibs.Utilities.Shared.csproj">
-      <Project>{a5088458-5876-4a49-846b-f2d4b16e6f8a}</Project>
+    <ProjectReference Include="..\AoLibs.Utilities.Shared\AoLibs.Utilities.Shared.csproj">
+      <Project>{7fc542d2-9880-4129-9f4b-949c054a64ca}</Project>
       <Name>AoLibs.Utilities.Shared</Name>
     </ProjectReference>
   </ItemGroup>

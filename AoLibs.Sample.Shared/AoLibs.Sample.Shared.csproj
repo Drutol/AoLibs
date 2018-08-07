@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -10,9 +10,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Adapters\AoLibs.Adapters.Core\AoLibs.Adapters.Core.csproj" />
-    <ProjectReference Include="..\Navigation\AoLibs.Navigation.Core\AoLibs.Navigation.Core.csproj" />
-    <ProjectReference Include="..\Utilities\AoLibs.Utilities.Shared\AoLibs.Utilities.Shared.csproj" />
+    <ProjectReference Include="..\AoLibs.Adapters.Core\AoLibs.Adapters.Core.csproj" />
+    <ProjectReference Include="..\AoLibs.Navigation.Core\AoLibs.Navigation.Core.csproj" />
+    <ProjectReference Include="..\AoLibs.Utilities.Shared\AoLibs.Utilities.Shared.csproj" />
   </ItemGroup>
+
 
 </Project>
