@@ -18,7 +18,7 @@ using NavigationLib.Android.Navigation;
 
 namespace AoLibs.Sample.Android.Fragments
 {
-    [NavigationPage(Type = NavigationPageAttribute.PageProvider.Oneshot, Page = (int)PageIndex.PageB)]
+    [NavigationPage((int)PageIndex.PageB,NavigationPageAttribute.PageProvider.Oneshot)]
     public class TestPageBFragment : FragmentBase<TestViewModelB>
     {
         public override int LayoutResourceId { get; } = Resource.Layout.test_page_b;

@@ -23,13 +23,24 @@ namespace AoLibs.Navigation.iOS.Navigation.Attributes
         }
 
         /// <summary>
+        /// Initializes new page attribute.
+        /// </summary>
+        /// <param name="page">Integer value of your TPageIdentifier enum.</param>
+        /// <param name="pageProvider">Indicates whether to use <see cref="CachedPageProvider{TPage}"/> or <see cref="OneshotPageProvider{TPage}"/> when creating page entries.</param>
+        public NavigationPageAttribute(int page, PageProvider pageProvider)
+        {
+            Page = page;
+            PageProviderType = pageProvider;
+        }
+
+        /// <summary>
         /// Integer value of your TPageIdentifier enum.
         /// </summary>
-        public int Page { get; set; }
+        public int Page { get;  }
         /// <summary>
         /// Indicates whether to use <see cref="CachedPageProvider{TPage}"/> or <see cref="OneshotPageProvider{TPage}"/> when creating page entries.
         /// </summary>
-        public PageProvider PageProviderType { get; set; }
+        public PageProvider PageProviderType { get;  }
 
         /// <summary>
         /// Allows to specify the name of the storyboard that will be used for ViewController instantination. 

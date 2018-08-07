@@ -29,7 +29,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{044230
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoLibs.Sample.Android", "AoLibs.Sample.Android\AoLibs.Sample.Android.csproj", "{35898AC2-F5B9-4703-B2C4-99DA1145FCB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoLibs.Sample.Shared", "AoLibs.Sample.Shared\AoLibs.Sample.Shared.csproj", "{40EFA5FB-28B6-4976-8DA9-E1D88302023D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AoLibs.Sample.Shared", "AoLibs.Sample.Shared\AoLibs.Sample.Shared.csproj", "{40EFA5FB-28B6-4976-8DA9-E1D88302023D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{E8A60658-28C1-46ED-8F6A-325E05C79558}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

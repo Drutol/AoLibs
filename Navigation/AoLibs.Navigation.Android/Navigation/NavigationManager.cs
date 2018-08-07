@@ -86,7 +86,7 @@ namespace NavigationLib.Android.Navigation
                 {
                     IPageProvider<NavigationFragmentBase> provider = null;
 
-                    switch (attr.Type)
+                    switch (attr.PageProviderType)
                     {
                         case NavigationPageAttribute.PageProvider.Cached:
                             provider = ObtainProviderFromType(typeof(CachedPageProvider<>));
