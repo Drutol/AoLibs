@@ -136,7 +136,7 @@ namespace AoLibs.Navigation.iOS.Navigation
             PopFromBackStackFromExternal((TPageIdentifier)page.PageIdentifier);
         }
 
-        public override void NotifyPagePopped(INavigationPage targetPage)
+        public override void NotifyPagePopped(INavigationPage poppedPage)
         {
             //just pop and be happy
             _navigationController.PopViewController(true);

@@ -11,7 +11,7 @@ namespace AoLibs.Navigation.Core.Interfaces
         /// <summary>
         /// Current navigation arguments.
         /// </summary>
-        object NavigationArguments { set; }
+        object NavigationArguments { get; set; }
 
         /// <summary>
         /// Called when we navigate to this page going forward.

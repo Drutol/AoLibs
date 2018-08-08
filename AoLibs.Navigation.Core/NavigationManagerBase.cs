@@ -151,7 +151,7 @@ namespace AoLibs.Navigation.Core
             return result.WentBack;
         }
 
-        public virtual void NotifyPagePopped(INavigationPage targetPage)
+        public virtual void NotifyPagePopped(INavigationPage poppedPage)
         {
         }
 

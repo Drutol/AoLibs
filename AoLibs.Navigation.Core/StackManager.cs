@@ -63,7 +63,7 @@ namespace AoLibs.Navigation.Core
                 var poppedPages = new List<TPage>();
                 var top = _stack.Pop();
                 var provider = _navigationManager.PageDefinitions[page];
-                while (top.Page.GetType() != provider.PageType)
+                while (!top.Page.PageIdentifier.Equals(provider.PageIdentifier))
                 {
                     if(top.Page != null)
                         poppedPages.Add(top.Page);
@@ -123,9 +123,8 @@ namespace AoLibs.Navigation.Core
                 }
                 else
                 {
-                    CurrentFragment = oldFragment.Page;
-
-                    _navigationManager.NotifyPagePopped(oldFragment.Page);
+                    _navigationManager.NotifyPagePopped(CurrentFragment);
+                    CurrentFragment = oldFragment.Page;                   
                     _navigationManager.CommitPageTransaction(oldFragment.Page);
                                    
                     CurrentFragment.NavigatedBack();
@@ -150,7 +149,11 @@ namespace AoLibs.Navigation.Core
 
         public void PopFromBackstack()
         {
-            _stack.Pop();
+            var entry = _stack.Pop();
+            if (entry.Page != null)
+            {
+                _navigationManager.NotifyPagePopped(entry.Page);
+            }
         }
 
         public bool PopActionFromBackstack()

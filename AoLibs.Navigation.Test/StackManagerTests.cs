@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using AoLibs.Navigation.Core;
 using AoLibs.Navigation.Core.Interfaces;
 using AoLibs.Navigation.Core.PageProviders;
@@ -38,7 +39,7 @@ namespace AoLibs.Navigation.Test
                         {
                             _pageA = CreateNavigationPage(PageIndex.PageA);
                             return _pageA.Object;
-                        })
+                        }) {PageIdentifier = PageIndex.PageA}
                 },
                 {
                     PageIndex.PageB,
@@ -48,7 +49,7 @@ namespace AoLibs.Navigation.Test
                         {
                             _pageB = CreateNavigationPage(PageIndex.PageB);
                             return _pageB.Object;
-                        })
+                        }) {PageIdentifier = PageIndex.PageB}
                 },
             };
 
@@ -79,7 +80,118 @@ namespace AoLibs.Navigation.Test
             _pageB.Verify(page => page.NavigatedTo(), Times.Once);
             _pageB.Verify(page => page.NavigatedFrom(), Times.Once);
             _pageA.Verify(page => page.NavigatedBack(), Times.Once);
+            _navigationManager.Verify(manager =>
+                manager.NotifyPagePopped(It.Is<INavigationPage>(page => page == _pageB.Object)));
         }
+
+        [Fact]
+        public void TestNavigationWithArguments()
+        {
+            //Arrange
+            var navArg = new { Hello = "Test" };
+            //Act
+            _stackManager.Navigate(PageIndex.PageA,navArg);
+            _stackManager.Navigate(PageIndex.PageB);
+            //Asset
+            _pageA.VerifySet(page => page.NavigationArguments = navArg, Times.Once);
+            _pageB.VerifySet(page => page.NavigationArguments = null, Times.Never);
+        }
+
+        [Fact]
+        public void TestNavigationWithArgumentsWhenGoingBack()
+        {
+            //Arrange
+            var navArg = new { Hello = "Test" };
+            //Act
+            _stackManager.Navigate(PageIndex.PageA);
+            _stackManager.Navigate(PageIndex.PageB);
+            _stackManager.GoBack(navArg);
+            //Asset
+            _pageA.VerifySet(page => page.NavigationArguments = navArg, Times.Once);
+            _pageB.VerifySet(page => page.NavigationArguments = null, Times.Never);
+            _navigationManager.Verify(manager =>
+                manager.NotifyPagePopped(It.Is<INavigationPage>(page => page == _pageB.Object)));
+        }
+
+        [Theory]
+        [InlineData(NavigationBackstackOption.ClearBackstackToFirstOccurence)]
+        [InlineData(NavigationBackstackOption.ForceNewPageInstance)]
+        [InlineData(NavigationBackstackOption.NoBackstack)]
+        [InlineData(NavigationBackstackOption.SetAsRootPage)]
+        public void TestNavigationWithBackstackOptions(NavigationBackstackOption backstackOption)
+        {
+            //Arrange
+            var savedPageB = _pageB;
+            //Act
+            _stackManager.Navigate(PageIndex.PageA);
+            _stackManager.Navigate(PageIndex.PageA);
+            _stackManager.Navigate(PageIndex.PageB);         
+            _stackManager.Navigate(PageIndex.PageA);
+            _stackManager.Navigate(PageIndex.PageA);
+            _stackManager.Navigate(PageIndex.PageB, backstackOption);
+
+            var pageList = _stack.Select(entry => (PageIndex)entry.Page.PageIdentifier).ToList();
+            switch (backstackOption)
+            {
+                case NavigationBackstackOption.SetAsRootPage:
+                    Assert.Equal(new PageIndex[0], pageList);
+                    _navigationManager.Verify(manager => manager.NotifyStackCleared(), Times.Once);
+                    break;
+                case NavigationBackstackOption.ClearBackstackToFirstOccurence:
+                    _navigationManager
+                        .Verify(manager => manager
+                            .NotifyPagesPopped(It.Is<IEnumerable<INavigationPage>>(
+                                pages => pages.ToArray()[0] == _pageA.Object && pages.Count() == 1)), Times.Once);
+                    Assert.Equal(new[] {PageIndex.PageA, PageIndex.PageA}, pageList);
+                    break;
+                case NavigationBackstackOption.NoBackstack:
+                    Assert.Equal(new[] {PageIndex.PageA, PageIndex.PageB, PageIndex.PageA, PageIndex.PageA}, pageList);                  
+                    break;
+                case NavigationBackstackOption.ForceNewPageInstance:
+                    Assert.NotEqual(_pageDefinitions[PageIndex.PageB].Page, savedPageB.Object);
+                    break;
+            }
+        }
+
+        [Fact]
+        public void TestNavigationWithActionOnBack()
+        {
+            //Arrage
+            var called = false;
+            var action = new Action(() => called = true);
+            //Act
+            _stackManager.AddActionToBackstack(action);
+            _stackManager.GoBack();
+            //Assert
+            Assert.True(called);
+        }
+
+        [Fact]
+        public void TestPoppingFromBackstack()
+        {
+            //Act
+            _stackManager.Navigate(PageIndex.PageA);
+            _stackManager.AddActionToBackstack(() => {});
+            _stackManager.Navigate(PageIndex.PageB);
+            //Assert&Act ^^
+            Assert.False(_stackManager.PopActionFromBackstack());
+            _stackManager.GoBack();
+            Assert.True(_stackManager.PopActionFromBackstack());
+        }
+
+        [Fact]
+        public void TestClearingBackstack()
+        {
+            //Act
+            _stackManager.Navigate(PageIndex.PageA);
+            _stackManager.Navigate(PageIndex.PageA);
+            _stackManager.Navigate(PageIndex.PageA);
+            _stackManager.ClearBackStack();
+            //Assert
+            Assert.True(_stack.Count == 0);
+            _navigationManager.Verify(manager => manager.NotifyStackCleared(),Times.Once);
+        }
+        
 
         private Mock<INavigationPage> CreateNavigationPage(PageIndex page)
         {
