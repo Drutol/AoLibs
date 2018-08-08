@@ -39,6 +39,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AoLibs.Utilities.Shared", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AoLibs.Adapters.Test", "AoLibs.Adapters.Test\AoLibs.Adapters.Test.csproj", "{B8197322-F4BF-4D96-987F-7ADC8D40F616}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoLibs.Navigation.Test", "AoLibs.Navigation.Test\AoLibs.Navigation.Test.csproj", "{51793179-E71A-497A-96E4-7BCD71912201}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,10 @@ Global
 		{B8197322-F4BF-4D96-987F-7ADC8D40F616}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8197322-F4BF-4D96-987F-7ADC8D40F616}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8197322-F4BF-4D96-987F-7ADC8D40F616}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51793179-E71A-497A-96E4-7BCD71912201}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51793179-E71A-497A-96E4-7BCD71912201}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51793179-E71A-497A-96E4-7BCD71912201}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51793179-E71A-497A-96E4-7BCD71912201}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,6 +116,7 @@ Global
 		{E565F491-F6F0-4CE5-B155-E3696004142E} = {162B8D28-0774-4DAC-A46A-F6D101EB572B}
 		{7FC542D2-9880-4129-9F4B-949C054A64CA} = {162B8D28-0774-4DAC-A46A-F6D101EB572B}
 		{B8197322-F4BF-4D96-987F-7ADC8D40F616} = {7A65DF28-C1BB-4B2E-B0A5-661BE9A8DB7B}
+		{51793179-E71A-497A-96E4-7BCD71912201} = {E8A60658-28C1-46ED-8F6A-325E05C79558}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B52CBBB5-4296-4A0E-B4E5-9BDDF0EC98D3}

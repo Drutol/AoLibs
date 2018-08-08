@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using AoLibs.Navigation.Core.Interfaces;
 
+[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
+[assembly: InternalsVisibleTo("AoLibs.Navigation.Test")]
 namespace AoLibs.Navigation.Core
 {
     internal class StackManager<TPage, TPageIdentifier> where TPage : class, INavigationPage
