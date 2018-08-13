@@ -9,15 +9,18 @@ namespace AoLibs.Utilities.Android.Views
 {
     public class ScrollableSwipeToRefreshLayout : SwipeRefreshLayout
     {
-        public ScrollableSwipeToRefreshLayout(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
+        public ScrollableSwipeToRefreshLayout(IntPtr javaReference, JniHandleOwnership transfer)
+            : base(javaReference, transfer)
         {
         }
 
-        public ScrollableSwipeToRefreshLayout(Context context) : base(context)
+        public ScrollableSwipeToRefreshLayout(Context context)
+            : base(context)
         {
         }
 
-        public ScrollableSwipeToRefreshLayout(Context context, IAttributeSet attrs) : base(context, attrs)
+        public ScrollableSwipeToRefreshLayout(Context context, IAttributeSet attrs)
+            : base(context, attrs)
         {
         }
 
@@ -26,7 +29,7 @@ namespace AoLibs.Utilities.Android.Views
 
         public override bool CanChildScrollUp()
         {
-            if(ScrollingView != null)
+            if (ScrollingView != null)
                 return ScrollingView.CanScrollVertically(-1);
             return !CanRefresh;
         }

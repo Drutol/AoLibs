@@ -9,8 +9,8 @@ namespace AoLibs.Navigation.Core
     /// <summary>
     /// Base class for NavigationMangers providing all basic functionality. It is used as a doorway to mechanisms below, it is capable of managing a number of various stacks.
     /// </summary>
-    /// <typeparam name="TPage"></typeparam>
-    /// <typeparam name="TPageIdentifier"></typeparam>
+    /// <typeparam name="TPage">Actual navigation class.</typeparam>
+    /// <typeparam name="TPageIdentifier">Enum defining pages.</typeparam>
     public abstract class NavigationManagerBase<TPage, TPageIdentifier> :
         IParentNavigationManager<TPage, TPageIdentifier>,
         INavigationManager<TPageIdentifier>
@@ -36,11 +36,12 @@ namespace AoLibs.Navigation.Core
         public event EventHandler<TPageIdentifier> WentBack;
 
         /// <summary>
-        /// Navigation interceptor.
+        /// Gets or sets navigation interceptor.
         /// </summary>
         public NaviagtionInterceptor<TPageIdentifier> Interceptor { get; set; }
 
-        protected NavigationManagerBase(Dictionary<TPageIdentifier, IPageProvider<TPage>> pageDefinitions,
+        protected NavigationManagerBase(
+            Dictionary<TPageIdentifier, IPageProvider<TPage>> pageDefinitions,
             IStackResolver<TPage, TPageIdentifier> stackResolver = null)
         {
             _stackResolver = stackResolver ?? new DefaultStackResolver();
@@ -87,14 +88,14 @@ namespace AoLibs.Navigation.Core
         public void GoBack(object args = null)
         {
             var result = _stackManagers.First().Value.GoBack(args);
-            if(result.WentBack)
+            if (result.WentBack)
                 WentBack?.Invoke(this, result.TargetPage);
         }
 
         public void GoBack(TPageIdentifier stackIdentifier, object args = null)
         {
             var result = ResolveStackManager(stackIdentifier).GoBack(args);
-            if(result.WentBack)
+            if (result.WentBack)
                 WentBack?.Invoke(this, result.TargetPage);
         }
 
@@ -136,16 +137,16 @@ namespace AoLibs.Navigation.Core
         public bool OnBackRequested()
         {
             var result = _stackManagers.First().Value.OnBackRequested();
-            if(result.WentBack)
+            if (result.WentBack)
                 WentBack?.Invoke(this, result.TargetPage);
-            
+
             return result.WentBack;
         }
 
         public bool OnBackRequested(TPageIdentifier stackIdentifier)
         {
             var result = ResolveStackManager(stackIdentifier).OnBackRequested();
-            if(result.WentBack)
+            if (result.WentBack)
                 WentBack?.Invoke(this, result.TargetPage);
 
             return result.WentBack;

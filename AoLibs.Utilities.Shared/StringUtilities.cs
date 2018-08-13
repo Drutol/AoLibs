@@ -23,8 +23,13 @@ namespace AoLibs.Utilities.Shared
             var d = new int[n + 1, m + 1];
 
             // initialize the top and right of the table to 0, 1, 2, ...
-            for (var i = 0; i <= n; d[i, 0] = i++) ;
-            for (var j = 1; j <= m; d[0, j] = j++) ;
+            for (var i = 0; i <= n; d[i, 0] = i++)
+            {
+            }
+
+            for (var j = 1; j <= m; d[0, j] = j++)
+            {
+            }
 
             for (var i = 1; i <= n; i++)
             {
@@ -37,6 +42,7 @@ namespace AoLibs.Utilities.Shared
                     d[i, j] = Math.Min(Math.Min(min1, min2), min3);
                 }
             }
+
             return d[n, m];
         }
     }

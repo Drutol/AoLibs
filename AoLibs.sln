@@ -39,7 +39,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AoLibs.Utilities.Shared", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AoLibs.Adapters.Test", "AoLibs.Adapters.Test\AoLibs.Adapters.Test.csproj", "{B8197322-F4BF-4D96-987F-7ADC8D40F616}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoLibs.Navigation.Test", "AoLibs.Navigation.Test\AoLibs.Navigation.Test.csproj", "{51793179-E71A-497A-96E4-7BCD71912201}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AoLibs.Navigation.Test", "AoLibs.Navigation.Test\AoLibs.Navigation.Test.csproj", "{51793179-E71A-497A-96E4-7BCD71912201}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{24921143-6019-4D5F-89E3-A9E3E8CAF1C1}"
+	ProjectSection(SolutionItems) = preProject
+		StyleCopEnforcerRuleSet.ruleset = StyleCopEnforcerRuleSet.ruleset
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

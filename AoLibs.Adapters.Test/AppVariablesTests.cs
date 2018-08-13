@@ -12,20 +12,20 @@ namespace AoLibs.Adapters.Test
 {
     public class AppVariablesTests
     {
-        class TestData
+        private class TestData
         {
             public string Hello { get; set; } = "Test";
         }
 
-        class TestAppVariables : AppVariablesBase
+        private class TestAppVariables : AppVariablesBase
         {
-            public TestAppVariables(ISettingsProvider settingsProvider, IDataCache dataCache = null) : base(
-                settingsProvider, dataCache)
+            public TestAppVariables(ISettingsProvider settingsProvider, IDataCache dataCache = null) 
+                : base(settingsProvider, dataCache)
             {
             }
 
-            public TestAppVariables(ISyncStorage syncStorage, IAsyncStorage asyncStorage = null) : base(syncStorage,
-                asyncStorage)
+            public TestAppVariables(ISyncStorage syncStorage, IAsyncStorage asyncStorage = null) 
+                : base(syncStorage, asyncStorage)
             {
             }
 
@@ -39,14 +39,14 @@ namespace AoLibs.Adapters.Test
         [Fact]
         public async Task TestAppVariablesSavingAndLoading()
         {
-            //Arrange
+            // Arrange
             var settingsMock = new Mock<ISettingsProvider>();
             var filestorageMock = new Mock<IFileStorageProvider>();
 
             var dataCache = new DataCache(filestorageMock.Object);
             var appVariables = new TestAppVariables(settingsMock.Object, dataCache);
 
-            //Act
+            // Act
             var emptyData = appVariables.TestData.Value;
             appVariables.TestData.Value = new TestData {Hello = "Test"};
             var readData = appVariables.TestData.Value;
@@ -55,7 +55,7 @@ namespace AoLibs.Adapters.Test
             await appVariables.TestData2.SetAsync(new TestData {Hello = "Test"});
             var readAsyncData = await appVariables.TestData2.GetAsync();
 
-            //Assert
+            // Assert
             Assert.Null(emptyData);
             Assert.NotNull(readData);
             settingsMock.Verify(
@@ -74,12 +74,12 @@ namespace AoLibs.Adapters.Test
         [Fact]
         public async Task TestAppVariablesWithoutAsyncStorage()
         {
-            //Arrange
+            // Arrange
             var settingsMock = new Mock<ISettingsProvider>();
 
             var appVariables = new TestAppVariables(settingsMock.Object, null);
 
-            //Act
+            // Act
             var emptyData = appVariables.TestData.Value;
             appVariables.TestData.Value = new TestData {Hello = "Test"};
             var readData = appVariables.TestData.Value;
@@ -91,7 +91,7 @@ namespace AoLibs.Adapters.Test
 
             var emptyAsyncData = appVariables.TestData2.Value;
 
-            //Assert
+            // Assert
             Assert.Null(emptyData);
             Assert.NotNull(readData);
             settingsMock.Verify(
@@ -106,7 +106,7 @@ namespace AoLibs.Adapters.Test
         [Fact]
         public async Task TestAppVariablesExpiredData()
         {
-            //Arrange
+            // Arrange
             var settingsMock = new Mock<ISettingsProvider>();
             var filestorageMock = new Mock<IFileStorageProvider>();
 
@@ -119,19 +119,15 @@ namespace AoLibs.Adapters.Test
             filestorageMock.Setup(provider => provider.ReadTextAsync(It.IsAny<string>()))
                 .Returns(() => Task.FromResult(savedJson));
 
-            //Act
-
+            // Act
             await appVariables.TestData.SetAsync(new TestData());
             var readDataBeforeExpiration = await appVariables.TestData.GetAsync();
             await Task.Delay(1100);
             var readDataAfterExpiration = await appVariables.TestData.GetAsync();
 
-            //Assert
-
+            // Assert
             Assert.NotNull(readDataBeforeExpiration);
             Assert.Null(readDataAfterExpiration);
-
         }
-
     }
 }

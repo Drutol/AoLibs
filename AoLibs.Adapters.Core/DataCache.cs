@@ -44,10 +44,10 @@ namespace AoLibs.Adapters.Core
                     throw new DataExpiredException($"Data stored in {path} is expired as per provided expiration time {expiration}");
 
                 return holder.Value;
-            }
-            catch (Exception e) when(!(e is DataExpiredException)) //file not exists or malformed
+            } // file not exists or malformed
+            catch (Exception e) when(!(e is DataExpiredException)) 
             {
-                return default(T);
+                return default;
             }
         }
 

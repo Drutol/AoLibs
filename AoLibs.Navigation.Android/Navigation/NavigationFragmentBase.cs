@@ -20,19 +20,22 @@ namespace NavigationLib.Android.Navigation
     public abstract class NavigationFragmentBase : Fragment, INavigationPage
     {
         /// <summary>
-        /// Used to indicate whether this fragment went through whole initialization procedure.
-        /// </summary>
-        private bool _initialized;
-        /// <summary>
         /// Specifies if bindings should be recreated if none have been added.
         /// </summary>
         private readonly bool _hasNonTrackableBindings;
+
         /// <summary>
+        /// Gets or sets the resolver.
         /// Allows <see cref="FragmentBase{TViewModel}"/> to resolve ViewModels automatically.
         /// </summary>
         internal static IViewModelResolver ViewModelResolver { get; set; }
 
-        protected List<Binding> Bindings = new List<Binding>();
+        /// <summary>
+        /// Used to indicate whether this fragment went through whole initialization procedure.
+        /// </summary>
+        private bool _initialized;
+
+        protected List<Binding> Bindings { get; } = new List<Binding>();
         protected View RootView { get; private set; }
 
         public NavigationFragmentBase(bool hasNonTrackableBindings = false)
@@ -42,10 +45,12 @@ namespace NavigationLib.Android.Navigation
 
         /// <inheritdoc />
         public object PageIdentifier { get; set; }
+
         /// <inheritdoc />
         public object NavigationArguments { get; set; }
 
         /// <summary>
+        /// Gets the layot Id.
         /// Defines which resource Id use to inflate the view.
         /// </summary>
         public abstract int LayoutResourceId { get; }
@@ -93,14 +98,17 @@ namespace NavigationLib.Android.Navigation
         protected abstract void InitBindings();
 
         /// <summary>
-        /// Utility shorthand to application's Theme.
+        /// Gets application's Theme.
         /// </summary>
         public Resources.Theme Theme => Activity.Theme;
 
         /// <summary>
         /// Utility shorthand to FindViewById on current view.
         /// </summary>
-        protected T FindViewById<T>(int id) where T : View
+        /// <param name="id">View Id.</param>
+        /// <typeparam name="T">The type od the View behind the Id.</typeparam>
+        protected T FindViewById<T>(int id)
+            where T : View
         {            
             return RootView.FindViewById<T>(id);
         }
@@ -115,7 +123,7 @@ namespace NavigationLib.Android.Navigation
         {         
             if (RootView == null)
                 RootView = inflater.Inflate(LayoutResourceId, container, false);
-            if (!_initialized || (!Bindings.Any() && !_hasNonTrackableBindings)) //if bindings are present for this view we won't generate new ones, if it's first creation we have to do this anyway
+            if (!_initialized || (!Bindings.Any() && !_hasNonTrackableBindings)) // if bindings are present for this view we won't generate new ones, if it's first creation we have to do this anyway
                 InitBindings();
 
             _initialized = true;

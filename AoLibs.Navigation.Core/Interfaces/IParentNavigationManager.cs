@@ -2,7 +2,8 @@
 
 namespace AoLibs.Navigation.Core.Interfaces
 {
-    internal interface IParentNavigationManager<TPage, TPageIdentifier> where TPage : INavigationPage
+    internal interface IParentNavigationManager<TPage, TPageIdentifier> 
+        where TPage : INavigationPage
     {
         Dictionary<TPageIdentifier, IPageProvider<TPage>> PageDefinitions { get; }
         void CommitPageTransaction(TPage page);

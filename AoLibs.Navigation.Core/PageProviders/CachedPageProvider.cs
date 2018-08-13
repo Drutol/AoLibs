@@ -6,13 +6,14 @@ namespace AoLibs.Navigation.Core.PageProviders
     /// <summary>
     /// Page provider that will cache the page it is responsible for.
     /// </summary>
-    /// <typeparam name="TPage"></typeparam>
+    /// <typeparam name="TPage">The type of concrete naviagtion component.</typeparam>
     public class CachedPageProvider<TPage> : IPageProvider<TPage> where TPage : class, INavigationPage
     {
         protected Func<TPage> Factory { get; set; }
         private TPage _page;
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="CachedPageProvider{TPage}"/> class.
         /// Creates new instance, the page will be created using <see cref="Activator.CreateInstance{T}"/>, be sure it can be instantinated this way.
         /// </summary>
         public CachedPageProvider()
@@ -21,6 +22,7 @@ namespace AoLibs.Navigation.Core.PageProviders
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="CachedPageProvider{TPage}"/> class.
         /// Creates new instance setting up the provider with provided page.
         /// </summary>
         /// <param name="instance">Page to be used by provider.</param>

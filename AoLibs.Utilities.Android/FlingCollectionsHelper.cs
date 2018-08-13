@@ -13,59 +13,16 @@ namespace AoLibs.Utilities.Android
     [Obsolete("Use RecyclerView for best results. ListView and GridView are not reliable view controls.")]
     public static class FlingCollectionsHelper
     {
-        public class FlingAdapterRegistration : IDisposable
-        {
-            private readonly AbsListView _view;
-            public bool FlingState { get; set; }
-
-            public FlingAdapterRegistration(AbsListView view)
-            {
-                _view = view;
-            }
-
-            public void Dispose()
-            {
-                ClearFlingAdapter();
-            }
-
-            public void ClearFlingAdapter()
-            {
-                _view.SetOnScrollListener(null);
-                _view.Adapter = null;
-            }
-        }
-
-        public class FlingAdapterRegistration<TViewHolder> : IDisposable
-        {
-            private readonly AbsListView _view;
-            public bool FlingState { get; set; }
-            public Dictionary<View, TViewHolder> ViewHolders { get; set; } = new Dictionary<View, TViewHolder>();
-
-            public FlingAdapterRegistration(AbsListView view)
-            {
-                _view = view;
-            }
-
-            public void Dispose()
-            {
-                ClearFlingAdapter();
-            }
-
-            public void ClearFlingAdapter()
-            {
-                ViewHolders.Clear();
-                ViewHolders = null;
-                _view.SetOnScrollListener(null);
-                _view.Adapter = null;
-            }
-        }
-
-        public static FlingAdapterRegistration InjectFlingAdapter<T>(this AbsListView container, IList<T> items,
+        public static FlingAdapterRegistration InjectFlingAdapter<T>(
+            this AbsListView container,
+            IList<T> items,
             Func<int, View> containerTemplate,
             Action<View, int, T> dataTemplateBasic,
             Action<View, int, T> dataTemplateFling,
             Action<View, int, T> dataTemplateFull,
-            View footer = null, bool skipBugFix = false) where T : class
+            View footer = null, 
+            bool skipBugFix = false) 
+            where T : class
         {
             var registration = new FlingAdapterRegistration(container);
 
@@ -99,18 +56,21 @@ namespace AoLibs.Utilities.Android
                 return root;
             });
 
-
             return registration;
         }
 
         public static FlingAdapterRegistration<TViewHolder> InjectFlingAdapter<T, TViewHolder>(
-            this AbsListView container, IList<T> items,
+            this AbsListView container,
+            IList<T> items,
             Func<View, TViewHolder> holderFactory,
             Func<int, View> containerTemplate,
             Action<View, int, T, TViewHolder> dataTemplateBasic,
             Action<View, int, T, TViewHolder> dataTemplateFling,
             Action<View, int, T, TViewHolder> dataTemplateFull,
-            View footer = null, bool skipBugFix = false, Action onScrolled = null) where T : class
+            View footer = null,
+            bool skipBugFix = false,
+            Action onScrolled = null) 
+            where T : class
         {
             var registration = new FlingAdapterRegistration<TViewHolder>(container);
             if (onScrolled == null)
@@ -181,5 +141,52 @@ namespace AoLibs.Utilities.Android
 
             return registration;
         }
+
+        public class FlingAdapterRegistration : IDisposable
+        {
+            private readonly AbsListView _view;
+            public bool FlingState { get; set; }
+
+            public FlingAdapterRegistration(AbsListView view)
+            {
+                _view = view;
+            }
+
+            public void Dispose()
+            {
+                ClearFlingAdapter();
+            }
+
+            public void ClearFlingAdapter()
+            {
+                _view.SetOnScrollListener(null);
+                _view.Adapter = null;
+            }
+        }
+
+        public class FlingAdapterRegistration<TViewHolder> : IDisposable
+        {
+            private readonly AbsListView _view;
+            public bool FlingState { get; set; }
+            public Dictionary<View, TViewHolder> ViewHolders { get; set; } = new Dictionary<View, TViewHolder>();
+
+            public FlingAdapterRegistration(AbsListView view)
+            {
+                _view = view;
+            }
+
+            public void Dispose()
+            {
+                ClearFlingAdapter();
+            }
+
+            public void ClearFlingAdapter()
+            {
+                ViewHolders.Clear();
+                ViewHolders = null;
+                _view.SetOnScrollListener(null);
+                _view.Adapter = null;
+            }
+        }     
     }
 }

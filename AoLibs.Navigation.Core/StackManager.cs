@@ -6,58 +6,61 @@ using AoLibs.Navigation.Core.Interfaces;
 
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
 [assembly: InternalsVisibleTo("AoLibs.Navigation.Test")]
+
 namespace AoLibs.Navigation.Core
 {
-    internal class StackManager<TPage, TPageIdentifier> where TPage : class, INavigationPage
+    internal class StackManager<TPage, TPageIdentifier>
+        where TPage : class, INavigationPage
     {
         private readonly IParentNavigationManager<TPage, TPageIdentifier> _navigationManager;
         private readonly Stack<BackstackEntry<TPage>> _stack;
         private NavigationBackstackOption? _currentBackstackOption;
 
-        public StackManager(Stack<BackstackEntry<TPage>> stack, IParentNavigationManager<TPage, TPageIdentifier> navigationManager)
+        public StackManager(
+            Stack<BackstackEntry<TPage>> stack,
+            IParentNavigationManager<TPage, TPageIdentifier> navigationManager)
         {
             _stack = stack;
             _navigationManager = navigationManager;
         }
 
-        public TPage CurrentFragment { get; set; }
+        public TPage CurrentFragment { get; private set; }
 
         public void Navigate(TPageIdentifier page, object args = null)
         {
             bool addToBackstack = CurrentFragment != null &&
                                   _currentBackstackOption != NavigationBackstackOption.NoBackstack;
-            //add to backstack if needed
+            // add to backstack if needed
             if (addToBackstack)
                 _stack.Push(new BackstackEntry<TPage> {Page = CurrentFragment});
-                
+
             _currentBackstackOption = null;
 
-            //obtain new page and push naviagtion arguments
+            // obtain new page and push naviagtion arguments
             var newFragment = _navigationManager.PageDefinitions[page].Page;
 
             if (args != null)
                 newFragment.NavigationArguments = args;
 
-            //do actual naviagtion
+            // do actual naviagtion
             if (addToBackstack || CurrentFragment == null)
                 _navigationManager.NotifyPagePushed(newFragment);
             else
                 _navigationManager.NotifyPagePushedWithoutBackstack(newFragment);
             _navigationManager.CommitPageTransaction(newFragment);
-            
-            
-            //if there was previous page notify about navigating from
+
+            // if there was previous page notify about navigating from
             CurrentFragment?.NavigatedFrom();
 
             CurrentFragment = newFragment;
 
-            //notify new page about navigation
+            // notify new page about navigation
             CurrentFragment.NavigatedTo();
         }
 
         public void Navigate(TPageIdentifier page, NavigationBackstackOption backstackOption, object args = null)
         {
-            //We gotta clean all entries on backstack until we find the desired one
+            // We gotta clean all entries on backstack until we find the desired one
             if (backstackOption == NavigationBackstackOption.ClearBackstackToFirstOccurence)
             {
                 var poppedPages = new List<TPage>();
@@ -65,16 +68,17 @@ namespace AoLibs.Navigation.Core
                 var provider = _navigationManager.PageDefinitions[page];
                 while (!top.Page.PageIdentifier.Equals(provider.PageIdentifier))
                 {
-                    if(top.Page != null)
+                    if (top.Page != null)
                         poppedPages.Add(top.Page);
                     if (!_stack.Any())
                         break;
                     top = _stack.Pop();
                 }
+
                 CurrentFragment?.NavigatedFrom();
                 _navigationManager.NotifyPagesPopped(poppedPages);
                 CurrentFragment = null;
-            } //before navigation new page instance will be created
+            } // before navigation new page instance will be created
             else if (backstackOption == NavigationBackstackOption.ForceNewPageInstance)
             {
                 _navigationManager.PageDefinitions[page].ForceReinstantination();
@@ -88,7 +92,7 @@ namespace AoLibs.Navigation.Core
             }
 
             _currentBackstackOption = backstackOption;
-            Navigate(page, args);          
+            Navigate(page, args);
         }
 
         public void AddActionToBackstack(Action action)
@@ -108,7 +112,7 @@ namespace AoLibs.Navigation.Core
             if (oldFragment.Page == null)
             {
                 oldFragment.OnBackNavigation.Invoke();
-                return (false,default);
+                return (false, default);
             }
             else
             {
@@ -124,9 +128,9 @@ namespace AoLibs.Navigation.Core
                 else
                 {
                     _navigationManager.NotifyPagePopped(CurrentFragment);
-                    CurrentFragment = oldFragment.Page;                   
+                    CurrentFragment = oldFragment.Page;
                     _navigationManager.CommitPageTransaction(oldFragment.Page);
-                                   
+
                     CurrentFragment.NavigatedBack();
                 }
 
@@ -143,7 +147,7 @@ namespace AoLibs.Navigation.Core
         public (bool WentBack, TPageIdentifier TargetPage) OnBackRequested()
         {
             if (_stack.Count == 0)
-                return (false,default);
+                return (false, default);
             return GoBack();
         }
 

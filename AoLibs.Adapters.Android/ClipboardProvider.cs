@@ -13,7 +13,7 @@ namespace AoLibs.Adapters.Android
         public void SetText(string text)
         {
             var clipboard = (ClipboardManager)Application.Context.GetSystemService(Context.ClipboardService);
-            var clip = ClipData.NewPlainText("", text);
+            var clip = ClipData.NewPlainText(string.Empty, text);
             clipboard.PrimaryClip = clip;
         }
     }

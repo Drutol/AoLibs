@@ -18,7 +18,7 @@ namespace AoLibs.Navigation.iOS.Navigation.Controllers
         {
             add
             {
-                if(NativeBackNavigation == null)
+                if (NativeBackNavigation == null)
                     this.NativeBackNavigation += value;
             }
             remove => this.NativeBackNavigation -= value;
@@ -35,12 +35,12 @@ namespace AoLibs.Navigation.iOS.Navigation.Controllers
 
         public virtual void NavigatedBack()
         {
-            
+
         }
 
         public virtual void NavigatedFrom()
         {
-            
+
         }
 
         public override void ViewWillDisappear(bool animated)

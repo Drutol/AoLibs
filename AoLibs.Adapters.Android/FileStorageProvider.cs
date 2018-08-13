@@ -51,6 +51,7 @@ namespace AoLibs.Adapters.Android
                         text.Append(line);
                     }
                 }
+
                 return text.ToString();
             }
             catch (Exception)

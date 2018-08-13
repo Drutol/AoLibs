@@ -23,7 +23,8 @@ namespace AoLibs.Sample.Shared.ViewModels
         private readonly AppVariables _appVariables;
         private UserResponse _userResponse;
 
-        public TestViewModelA(IEnumerable<ISomeFancyProvider> fancyProviders,
+        public TestViewModelA(
+            IEnumerable<ISomeFancyProvider> fancyProviders,
             IMessageBoxProvider messageBoxProvider,
             IPickerAdapter pickerAdapter,
             INavigationManager<PageIndex> navigationManager,
@@ -35,12 +36,14 @@ namespace AoLibs.Sample.Shared.ViewModels
             _navigationManager = navigationManager;
             _appVariables = appVariables;
 
-            ShowLastFanciedThingCommand = new RelayCommand(async () =>
-            {
-                await _messageBoxProvider.ShowMessageBoxOkAsync("The thing you fancy!",
-                    $"You fancied: {_appVariables.UserResponse.Value.FancyThing}\nAt {_appVariables.UserResponse.Value.DateTime}",
-                    "Yeah, that's fancy.");
-            }, () => UserResponse != null);
+            ShowLastFanciedThingCommand = new RelayCommand(
+                async () =>
+                {
+                    await _messageBoxProvider.ShowMessageBoxOkAsync(
+                        "The thing you fancy!",
+                        $"You fancied: {_appVariables.UserResponse.Value.FancyThing}\nAt {_appVariables.UserResponse.Value.DateTime}",
+                        "Yeah, that's fancy.");
+                }, () => UserResponse != null);
         }
 
         public void NavigatedTo()
@@ -84,9 +87,8 @@ namespace AoLibs.Sample.Shared.ViewModels
         });
 
         public RelayCommand NavigateSomewhereElseCommand =>
-            new RelayCommand(() => _navigationManager.Navigate(PageIndex.PageB, new PageBNavArgs
-            {
-                Message = "Hello!"
-            }));
+            new RelayCommand(() => _navigationManager.Navigate(
+                PageIndex.PageB,
+                new PageBNavArgs {Message = "Hello!"}));
     }
 }

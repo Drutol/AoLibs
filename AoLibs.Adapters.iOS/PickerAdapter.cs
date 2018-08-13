@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 using AoLibs.Adapters.Core.Interfaces;
 using UIKit;
 
-//using DT.iOS.DatePickerDialog;
-
 namespace AoLibs.Adapters.iOS
 {
     public class PickerAdapter : IPickerAdapter

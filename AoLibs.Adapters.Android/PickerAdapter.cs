@@ -56,8 +56,12 @@ namespace AoLibs.Adapters.Android
         {
             var semaphore = new SemaphoreSlim(0);
             DateTime? selectedDate = null;
-            var dpd = new ListenableDatePickerDialog(_contextProvider.CurrentContext, new DateSetListener(tuple => { }),
-                startingDate.Year, startingDate.Month - 1, startingDate.Day)
+            var dpd = new ListenableDatePickerDialog(
+                _contextProvider.CurrentContext,
+                new DateSetListener(tuple => { }),
+                startingDate.Year, 
+                startingDate.Month - 1,
+                startingDate.Day)
             {
                 Callback = tuple =>
                 {

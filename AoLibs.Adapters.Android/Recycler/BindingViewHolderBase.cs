@@ -15,16 +15,16 @@ namespace AoLibs.Adapters.Android.Recycler
         protected List<Binding> Bindings { get; } = new List<Binding>();
 
         /// <summary>
-        /// Creates new binding ViewHolder.
+        /// Initializes a new instance of the <see cref="BindingViewHolderBase{T}"/> class.
         /// </summary>
         /// <param name="view">The view the holder is associated with.</param>
-        public BindingViewHolderBase(View view) : base(view)
+        public BindingViewHolderBase(View view) 
+            : base(view)
         {
-
         }
 
         /// <summary>
-        /// Currently associated ViewModel.
+        /// Gets or sets associated ViewModel.
         /// Setting new instance will cause all bindings to rewired towards new one.
         /// </summary>
         public T ViewModel

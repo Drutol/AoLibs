@@ -7,7 +7,8 @@ namespace AoLibs.Navigation.iOS.Navigation.Controllers
     {
         public TViewModel ViewModel { get; protected set; }
 
-        public TabBarViewControllerBase(IntPtr handle) : base(handle)
+        public TabBarViewControllerBase(IntPtr handle) 
+            : base(handle)
         {
             ViewModel = ViewModelResolver?.Resolve<TViewModel>();
         }    

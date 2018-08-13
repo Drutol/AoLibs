@@ -13,7 +13,7 @@ namespace AoLibs.Adapters.Test
 {
     public class DataCacheTests
     {
-        class TestData
+        private class TestData
         {
             public string Hello { get; set; } = "Test";
         }
@@ -21,7 +21,7 @@ namespace AoLibs.Adapters.Test
         [Fact]
         public async Task TestDataCacheDataSavingAndRetrieving()
         {
-            //Arrange
+            // Arrange
             var filestorageMock = new Mock<IFileStorageProvider>();
             var savedJson = string.Empty;
             filestorageMock.Setup(provider => provider.WriteText(It.IsAny<string>(), It.IsAny<string>()))
@@ -31,11 +31,11 @@ namespace AoLibs.Adapters.Test
 
             var dataCache = new DataCache(filestorageMock.Object);
             var testSaveData = new TestData { Hello = "Test" };
-            //Act
+            // Act
             dataCache.SaveData("test.json", testSaveData);
             var retrievedSaveTestData = await dataCache.RetrieveData<TestData>("test.json");
 
-            //Assert
+            // Assert
             filestorageMock.Verify(provider => provider
                 .WriteText(
                     It.Is<string>(s => s == "test.json"),
@@ -51,7 +51,7 @@ namespace AoLibs.Adapters.Test
         [Fact]
         public async Task TestDataCacheExpiredDataRetrieveing()
         {
-            //Arrange
+            // Arrange
             var filestorageMock = new Mock<IFileStorageProvider>();
             var savedJson = string.Empty;
             filestorageMock.Setup(provider => provider.WriteText(It.IsAny<string>(), It.IsAny<string>()))
@@ -62,11 +62,11 @@ namespace AoLibs.Adapters.Test
             var dataCache = new DataCache(filestorageMock.Object);
             var testSaveData = new TestData { Hello = "Test" };
 
-            //Act
+            // Act
             dataCache.SaveData("test.json", testSaveData);
             await Task.Delay(10);
 
-            //Assert
+            // Assert
             await Assert.ThrowsAsync<DataExpiredException>(async () =>
                 await dataCache.RetrieveData<TestData>("test.json", TimeSpan.FromMilliseconds(1)));
         }

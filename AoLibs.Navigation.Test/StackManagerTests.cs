@@ -59,21 +59,21 @@ namespace AoLibs.Navigation.Test
         [Fact]
         public void TestBasicNavigation()
         {
-            //Act
-            _stackManager.Navigate(PageIndex.PageA); //initial navigation
+            // Act
+            _stackManager.Navigate(PageIndex.PageA); // initial navigation
             _stackManager.Navigate(PageIndex.PageB);
-            //Assert
+            // Assert
             Assert.Equal(PageIndex.PageA, _stack.Peek().Page.PageIdentifier);
         }
 
         [Fact]
         public void TestBasicBackwardsNavigation()
         {
-            //Act
-            _stackManager.Navigate(PageIndex.PageA); //initial navigation
+            // Act
+            _stackManager.Navigate(PageIndex.PageA); // initial navigation
             _stackManager.Navigate(PageIndex.PageB);
             _stackManager.GoBack();
-            //Assert
+            // Assert
             Assert.True(_stack.Count == 0);
             _pageA.Verify(page => page.NavigatedTo(), Times.Once);
             _pageA.Verify(page => page.NavigatedFrom(), Times.Once);
@@ -87,12 +87,12 @@ namespace AoLibs.Navigation.Test
         [Fact]
         public void TestNavigationWithArguments()
         {
-            //Arrange
+            // Arrange
             var navArg = new { Hello = "Test" };
-            //Act
+            // Act
             _stackManager.Navigate(PageIndex.PageA,navArg);
             _stackManager.Navigate(PageIndex.PageB);
-            //Asset
+            // Asset
             _pageA.VerifySet(page => page.NavigationArguments = navArg, Times.Once);
             _pageB.VerifySet(page => page.NavigationArguments = null, Times.Never);
         }
@@ -100,13 +100,13 @@ namespace AoLibs.Navigation.Test
         [Fact]
         public void TestNavigationWithArgumentsWhenGoingBack()
         {
-            //Arrange
+            // Arrange
             var navArg = new { Hello = "Test" };
-            //Act
+            // Act
             _stackManager.Navigate(PageIndex.PageA);
             _stackManager.Navigate(PageIndex.PageB);
             _stackManager.GoBack(navArg);
-            //Asset
+            // Asset
             _pageA.VerifySet(page => page.NavigationArguments = navArg, Times.Once);
             _pageB.VerifySet(page => page.NavigationArguments = null, Times.Never);
             _navigationManager.Verify(manager =>
@@ -120,9 +120,9 @@ namespace AoLibs.Navigation.Test
         [InlineData(NavigationBackstackOption.SetAsRootPage)]
         public void TestNavigationWithBackstackOptions(NavigationBackstackOption backstackOption)
         {
-            //Arrange
+            // Arrange
             var savedPageB = _pageB;
-            //Act
+            // Act
             _stackManager.Navigate(PageIndex.PageA);
             _stackManager.Navigate(PageIndex.PageA);
             _stackManager.Navigate(PageIndex.PageB);         
@@ -139,9 +139,9 @@ namespace AoLibs.Navigation.Test
                     break;
                 case NavigationBackstackOption.ClearBackstackToFirstOccurence:
                     _navigationManager
-                        .Verify(manager => manager
-                            .NotifyPagesPopped(It.Is<IEnumerable<INavigationPage>>(
-                                pages => pages.ToArray()[0] == _pageA.Object && pages.Count() == 1)), Times.Once);
+                        .Verify(
+                            manager => manager.NotifyPagesPopped(It.Is<IEnumerable<INavigationPage>>(pages =>
+                                pages.ToArray()[0] == _pageA.Object && pages.Count() == 1)), Times.Once);
                     Assert.Equal(new[] {PageIndex.PageA, PageIndex.PageA}, pageList);
                     break;
                 case NavigationBackstackOption.NoBackstack:
@@ -156,24 +156,24 @@ namespace AoLibs.Navigation.Test
         [Fact]
         public void TestNavigationWithActionOnBack()
         {
-            //Arrage
+            // Arrage
             var called = false;
             var action = new Action(() => called = true);
-            //Act
+            // Act
             _stackManager.AddActionToBackstack(action);
             _stackManager.GoBack();
-            //Assert
+            // Assert
             Assert.True(called);
         }
 
         [Fact]
         public void TestPoppingFromBackstack()
         {
-            //Act
+            // Act
             _stackManager.Navigate(PageIndex.PageA);
             _stackManager.AddActionToBackstack(() => {});
             _stackManager.Navigate(PageIndex.PageB);
-            //Assert&Act ^^
+            // Assert&Act ^^
             Assert.False(_stackManager.PopActionFromBackstack());
             _stackManager.GoBack();
             Assert.True(_stackManager.PopActionFromBackstack());
@@ -182,17 +182,16 @@ namespace AoLibs.Navigation.Test
         [Fact]
         public void TestClearingBackstack()
         {
-            //Act
+            // Act
             _stackManager.Navigate(PageIndex.PageA);
             _stackManager.Navigate(PageIndex.PageA);
             _stackManager.Navigate(PageIndex.PageA);
             _stackManager.ClearBackStack();
-            //Assert
+            // Assert
             Assert.True(_stack.Count == 0);
             _navigationManager.Verify(manager => manager.NotifyStackCleared(),Times.Once);
         }
         
-
         private Mock<INavigationPage> CreateNavigationPage(PageIndex page)
         {
             var mock = new Mock<INavigationPage>();

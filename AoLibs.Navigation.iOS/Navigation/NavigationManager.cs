@@ -12,20 +12,21 @@ using AoLibs.Navigation.iOS.Navigation.Providers;
 using UIKit;
 
 namespace AoLibs.Navigation.iOS.Navigation
-{   
+{
     /// <summary>
     /// Class that fulfills the purpose of executing actual navigation transactions.
     /// </summary>
-    /// <typeparam name="TPageIdentifier"></typeparam>
+    /// <typeparam name="TPageIdentifier">Enum defining the pages.</typeparam>
     public class NavigationManager<TPageIdentifier> : NavigationManagerBase<INavigationPage, TPageIdentifier>
     {
         private readonly UINavigationController _navigationController;
         private TaskCompletionSource<INavigationPage> _naviagtionCompletionSource;
 
-        private bool Intercepting => _naviagtionCompletionSource != null && !_naviagtionCompletionSource.Task.IsCompleted;
+        private bool Intercepting =>
+            _naviagtionCompletionSource != null && !_naviagtionCompletionSource.Task.IsCompleted;
 
         /// <summary>
-        /// Creates new navigation manager.
+        /// Initializes a new instance of the <see cref="NavigationManager{TPageIdentifier}"/> class.
         /// </summary>
         /// <param name="navigationController">Root navigation controller.</param>
         /// <param name="pageDefinitions">The dictionary defining pages.</param>
@@ -35,8 +36,8 @@ namespace AoLibs.Navigation.iOS.Navigation
             UINavigationController navigationController,
             Dictionary<TPageIdentifier, IPageProvider<INavigationPage>> pageDefinitions,
             IViewModelResolver viewModelResolver,
-            IStackResolver<INavigationPage, TPageIdentifier> stackResolver = null
-        ) : base(pageDefinitions, stackResolver)
+            IStackResolver<INavigationPage, TPageIdentifier> stackResolver = null)
+            : base(pageDefinitions, stackResolver)
         {
             _navigationController = navigationController;
 
@@ -45,16 +46,17 @@ namespace AoLibs.Navigation.iOS.Navigation
         }
 
         /// <summary>
-        /// Creates new navigation manager.
+        /// Initializes a new instance of the <see cref="NavigationManager{TPageIdentifier}"/> class.
         /// To gather page definitions it searches for classes marked with <see cref="NavigationPageAttribute"/> from <see cref="Assembly.GetCallingAssembly"/>
         /// </summary>
         /// <param name="navigationController">Root navigation controller.</param>
-        /// <param name="viewModelResolver"></param>
+        /// <param name="viewModelResolver">Resolver to assign proper ViewModel instances.</param>
         /// <param name="stackResolver">Class allowing to differentiate to which stack given indentigier belongs.</param>
         public NavigationManager(
             UINavigationController navigationController,
             IViewModelResolver viewModelResolver,
-            IStackResolver<INavigationPage, TPageIdentifier> stackResolver = null) : base(stackResolver)
+            IStackResolver<INavigationPage, TPageIdentifier> stackResolver = null)
+            : base(stackResolver)
         {
             _navigationController = navigationController;
 
@@ -87,15 +89,15 @@ namespace AoLibs.Navigation.iOS.Navigation
                     }
                     else
                     {
-                        if(string.IsNullOrEmpty(attr.ViewControllerIdentifier))
+                        if (string.IsNullOrEmpty(attr.ViewControllerIdentifier))
                         {
                             switch (attr.PageProviderType)
                             {
                                 case NavigationPageAttribute.PageProvider.Cached:
-                                    providerType = ObtainProviderFromType(typeof(StoryboardCachedPageProvider<>),true);
+                                    providerType = ObtainProviderFromType(typeof(StoryboardCachedPageProvider<>), true);
                                     break;
                                 case NavigationPageAttribute.PageProvider.Oneshot:
-                                    providerType = ObtainProviderFromType(typeof(StoryboardCachedPageProvider<>),true);
+                                    providerType = ObtainProviderFromType(typeof(StoryboardCachedPageProvider<>), true);
                                     break;
                                 default:
                                     throw new ArgumentOutOfRangeException();
@@ -103,9 +105,9 @@ namespace AoLibs.Navigation.iOS.Navigation
                         }
                     }
 
-                    PageDefinitions.Add((TPageIdentifier)(object)attr.Page, providerType);
+                    PageDefinitions.Add((TPageIdentifier) (object) attr.Page, providerType);
                 }
-              
+
                 IPageProvider<INavigationPage> ObtainProviderFromType(Type providerType, bool isStoryboard = false)
                 {
                     return (IPageProvider<INavigationPage>) providerType.MakeGenericType(type)
@@ -122,23 +124,22 @@ namespace AoLibs.Navigation.iOS.Navigation
 
         public override void CommitPageTransaction(INavigationPage page)
         {
-            //instead of navigating there directly we are forwarding this naviagtion to awaiting handler method
-            //or just ignore it given the circumstances
+            // instead of navigating there directly we are forwarding this naviagtion to awaiting handler method
+            // or just ignore it given the circumstances
             _naviagtionCompletionSource?.TrySetResult(page);
-            if(page is INativeNavigationPage nativePage)
+            if (page is INativeNavigationPage nativePage)
                 nativePage.NativeBackNavigation += OnNativeBackNavigation;
-            
         }
 
         private void OnNativeBackNavigation(object sender, EventArgs eventArgs)
         {
             var page = sender as INavigationPage;
-            PopFromBackStackFromExternal((TPageIdentifier)page.PageIdentifier);
+            PopFromBackStackFromExternal((TPageIdentifier) page.PageIdentifier);
         }
 
         public override void NotifyPagePopped(INavigationPage poppedPage)
         {
-            //just pop and be happy
+            // just pop and be happy
             _navigationController.PopViewController(true);
         }
 
@@ -146,43 +147,43 @@ namespace AoLibs.Navigation.iOS.Navigation
         {
             for (int i = 0; i <= pages.Count() + 1; i++)
             {
-				_navigationController.PopViewController(false);
+                _navigationController.PopViewController(false);
             }
         }
 
         public override void NotifyPagePushed(INavigationPage page)
         {
-            //we are just pushing new page, not trickery required
-            if(!Intercepting)
+            // we are just pushing new page, not trickery required
+            if (!Intercepting)
                 _navigationController.PushViewController((UIViewController) page, true);
         }
 
         public override void NotifyPagePushedWithoutBackstack(INavigationPage page)
         {
-            //first we copy current stack
+            // first we copy current stack
             var viewControllers = _navigationController.ViewControllers;
-            //we have the page we are pushing so we pass on intercepting and replace last page with new one
-            viewControllers[viewControllers.Length-1] = (UIViewController)page;
-            //after navigation is completed we silently remove previous page
+            // we have the page we are pushing so we pass on intercepting and replace last page with new one
+            viewControllers[viewControllers.Length - 1] = (UIViewController) page;
+            // after navigation is completed we silently remove previous page
             _navigationController.SetViewControllers(viewControllers, true);
         }
 
         public override async void NotifyStackCleared()
         {
-            //first we will prepare new stack
+            // first we will prepare new stack
             var viewControllers = new UIViewController[1];
-            //then after creating new stack we will wait for CommitPageTransation to know where we need to navigate
+            // then after creating new stack we will wait for CommitPageTransation to know where we need to navigate
             _naviagtionCompletionSource = new TaskCompletionSource<INavigationPage>();
-            var targetController = await _naviagtionCompletionSource.Task;           
+            var targetController = await _naviagtionCompletionSource.Task;
             viewControllers[0] = (UIViewController) targetController;
-            //now check if appropriate instance is already on stack      
+            // now check if appropriate instance is already on stack      
             var controllerPresentOnStack = _navigationController.ViewControllers.FirstOrDefault(controller =>
                 (controller as INavigationPage).PageIdentifier.Equals(targetController.PageIdentifier));
-            if (controllerPresentOnStack != null)   
-                viewControllers[0] = controllerPresentOnStack;              
-           
-            //and set new root
-            _navigationController.SetViewControllers(viewControllers,true);
+            if (controllerPresentOnStack != null)
+                viewControllers[0] = controllerPresentOnStack;
+
+            // and set new root
+            _navigationController.SetViewControllers(viewControllers, true);
         }
     }
 }

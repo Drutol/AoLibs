@@ -18,14 +18,15 @@ namespace AoLibs.Adapters.Android.Recycler
     public class ObservableRecyclerAdapter<TItem, THolder> : RecyclerView.Adapter
         where THolder : RecyclerView.ViewHolder
     {
-        private ConstructorInfo _holderConstructor;
-
-        private IList<TItem> _dataSource;
-        private INotifyCollectionChanged _notifier;
         /// <summary>
         /// Cache for automatic <see cref="BindingViewHolderBase{T}.ViewModel"/> property assignment.
         /// </summary>
         private readonly Dictionary<Type, PropertyInfo> _holderPropertyInfos = new Dictionary<Type, PropertyInfo>();
+
+        private ConstructorInfo _holderConstructor;
+
+        private IList<TItem> _dataSource;
+        private INotifyCollectionChanged _notifier;
 
         /// <summary>
         /// Delegate which specifies how to fill-in the view with data contained within appropriate <see cref="TItem"/> instance.
@@ -72,36 +73,44 @@ namespace AoLibs.Adapters.Android.Recycler
         /// Defines how to bind collection item to view.
         /// </summary>
         public DataTemplateDelegate<THolder> DataTemplate { get; set; }
+
         /// <summary>
         /// Defines how to create ViewHolder, can be left null if your ViewHolder has public constructor with one <see cref="View"/> argument.
         /// </summary>
         public HolderFactoryDelegate<THolder> HolderFactory { get; set; }
+
         /// <summary>
         /// Defines how to inflate layout for cell.
         /// </summary>
         public ItemTemplateDelegate ItemTemplate { get; set; }
 
         /// <summary>
-        /// After inflating <see cref="View"/> assigns <see cref="ViewGroup.LayoutParams.MatchParent"/> width layout paramter.
+        /// Gets or sets value indicating whether to
+        /// after inflating <see cref="View"/> assign <see cref="ViewGroup.LayoutParams.MatchParent"/> width layout paramter.
         /// </summary>
         public bool StretchContentHorizonatally { get; set; }
+
         /// <summary>
-        /// After inflating <see cref="View"/> assigns <see cref="ViewGroup.LayoutParams.MatchParent"/> height layout paramter.
+        /// Gets or sets value indicating whether to
+        /// after inflating <see cref="View"/> assigns <see cref="ViewGroup.LayoutParams.MatchParent"/> height layout paramter.
         /// </summary>
         public bool StretchContentVertically { get; set; }
+
         /// <summary>
         /// Checks if given ViewHolder type is assignable from <see cref="BindingViewHolderBase{T}"/> if it is, automatically assigns current collection item to <see cref="BindingViewHolderBase{T}.ViewModel"/> in order to trigger binding. 
         /// </summary>
         public bool IsAutomaticViewModelBindingEnabled { get; set; }
 
         /// <summary>
-        /// Creates new adapter instance.
+        /// Initializes a new instance of the <see cref="ObservableRecyclerAdapter{TItem, THolder}"/> class.
         /// </summary>
         /// <param name="items">Backing data for the adapter.</param>
         /// <param name="dataTemplate">View binding definition.</param>
         /// <param name="itemTemplate">View inflation definition.</param>
         /// <param name="holderFactory">If not assigned make sure your ViewHolder has public constructo with <see cref="View"/> argument.</param>
-        public ObservableRecyclerAdapter(IList<TItem> items, DataTemplateDelegate<THolder> dataTemplate,
+        public ObservableRecyclerAdapter(
+            IList<TItem> items, 
+            DataTemplateDelegate<THolder> dataTemplate,
             ItemTemplateDelegate itemTemplate,
             HolderFactoryDelegate<THolder> holderFactory = null)
         {

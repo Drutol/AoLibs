@@ -5,11 +5,12 @@ namespace AoLibs.Navigation.Core.Interfaces
     public interface INavigationPage
     {        
         /// <summary>
-        /// Assigned TPageIdentifier.
+        /// Gets or sets TPageIdentifier.
         /// </summary>
         object PageIdentifier { get; set; }
+
         /// <summary>
-        /// Current navigation arguments.
+        /// Gets or sets current navigation arguments.
         /// </summary>
         object NavigationArguments { get; set; }
 
@@ -17,10 +18,12 @@ namespace AoLibs.Navigation.Core.Interfaces
         /// Called when we navigate to this page going forward.
         /// </summary>
         void NavigatedTo();
+
         /// <summary>
         /// Called when we navigate to this page by going back.
         /// </summary>
         void NavigatedBack();
+
         /// <summary>
         /// Called when we leave given page.
         /// </summary>

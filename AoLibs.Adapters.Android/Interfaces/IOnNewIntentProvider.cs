@@ -7,7 +7,6 @@ namespace AoLibs.Adapters.Android.Interfaces
     /// </summary>
     public interface IOnNewIntentProvider :
         IOnActivityEvent<Intent>
-    {
-        
+    {    
     }
 }

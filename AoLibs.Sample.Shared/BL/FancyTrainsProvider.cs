@@ -7,6 +7,6 @@ namespace AoLibs.Sample.Shared.BL
 {
     public class FancyTrainsProvider : ISomeFancyProvider
     {
-        public string SomethingFancy { get; } = "🎉🎉 TRAINS 🎉🎉"; //who doesn't like trains right? :D
+        public string SomethingFancy { get; } = "🎉🎉 TRAINS 🎉🎉"; // who doesn't like trains right? :D
     }
 }

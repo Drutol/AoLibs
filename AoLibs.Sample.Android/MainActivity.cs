@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using Android.App;
-using Android.Widget;
 using Android.OS;
 using Android.Support.V4.App;
 using Android.Support.V7.App;
+using Android.Widget;
 using AoLibs.Adapters.Android;
 using AoLibs.Adapters.Android.Interfaces;
 using AoLibs.Adapters.Core.Interfaces;
@@ -34,20 +34,20 @@ namespace AoLibs.Sample.Android
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
 
-            //var pageDefinitions = new Dictionary<PageIndex, IPageProvider<NavigationFragmentBase>>
-            //{
-            //    // cached
-            //    {PageIndex.PageA, new CachedPageProvider<TestPageAFragment>()},
-            //    // oneshots
-            //    {PageIndex.PageB, new OneshotPageProvider<TestPageBFragment>()},
-            //};
+            ////var pageDefinitions = new Dictionary<PageIndex, IPageProvider<NavigationFragmentBase>>
+            ////{
+            ////    // cached
+            ////    {PageIndex.PageA, new CachedPageProvider<TestPageAFragment>()},
+            ////    // oneshots
+            ////    {PageIndex.PageB, new OneshotPageProvider<TestPageBFragment>()},
+            ////};
 
             var manager = new NavigationManager<PageIndex>(
                 SupportFragmentManager,
                 RootView, 
                 new ViewModelResolver());
 
-            //usually you would do it in Application class but for showcase sake I will skip that
+            // usually you would do it in Application class but for showcase sake I will skip that
             InitializationRoutines.Initialize(builder =>
             {
                 builder.RegisterType<ClipboardProvider>().As<IClipboardProvider>().SingleInstance();
@@ -68,12 +68,12 @@ namespace AoLibs.Sample.Android
             ViewModelLocator.MainViewModel.Initialize();
         }
 
-        class ContextProvider : IContextProvider
+        private class ContextProvider : IContextProvider
         {
             public Activity CurrentContext => Instance;
         }
 
-        class ViewModelResolver : IViewModelResolver
+        private class ViewModelResolver : IViewModelResolver
         {
             public TViewModel Resolve<TViewModel>()
             {
@@ -93,4 +93,3 @@ namespace AoLibs.Sample.Android
         #endregion
     }
 }
-

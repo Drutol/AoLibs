@@ -14,6 +14,7 @@ namespace AoLibs.Navigation.iOS.Navigation.Providers
     public class StoryboardCachedPageProvider<TPage> : CachedPageProvider<TPage> where TPage : class, INavigationPage
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="StoryboardCachedPageProvider{TPage}"/> class.
         /// Builds ViewController based on data contained in <see cref="NavigationPageAttribute"/> attached to <see cref="TPage"/>.
         /// <see cref="UIStoryboard.FromName"/> and <see cref="UIStoryboard.InstantiateInitialViewController"/> or <see cref="UIStoryboard.InstantiateViewController"/> is used to create the controller.
         /// </summary>
@@ -24,6 +25,7 @@ namespace AoLibs.Navigation.iOS.Navigation.Providers
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="StoryboardCachedPageProvider{TPage}"/> class.
         /// Builds ViewController from given string parameters.
         /// <see cref="UIStoryboard.FromName"/> and <see cref="UIStoryboard.InstantiateInitialViewController"/> or <see cref="UIStoryboard.InstantiateViewController"/> is used to create the controller.
         /// </summary>
@@ -34,10 +36,15 @@ namespace AoLibs.Navigation.iOS.Navigation.Providers
             SetUpFactory(storyboardName, viewControllerIdentifier);
         }
 
-        ///<inheritdoc cref="CachedPageProvider{TPage}"/>
-        public StoryboardCachedPageProvider(TPage instance, Func<TPage> factory = null) : base(instance, factory)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CachedPageProvider{TPage}"/> class.
+        /// Creates new instance setting up the provider with provided page.
+        /// </summary>
+        /// <param name="instance">Page to be used by provider.</param>
+        /// <param name="factory">Optional factory to reinstantinate the page if need araises. <see cref="Activator.CreateInstance{T}"/> will be used if null.</param>
+        public StoryboardCachedPageProvider(TPage instance, Func<TPage> factory = null) 
+            : base(instance, factory)
         {
-
         }
 
         private void SetUpFactory(string storyboardName, string viewControllerIdentifier)

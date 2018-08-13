@@ -28,8 +28,6 @@ namespace AoLibs.Utilities.Android.Views
             }));
         }
 
-    
-
         public static bool IsKeyboardVisibile(View rootView)
         {
             var r = new Rect();
@@ -58,36 +56,57 @@ namespace AoLibs.Utilities.Android.Views
         /// <summary>
         /// Sets margins. All provided values are to be provided in dp.
         /// </summary>
+        /// <param name="view">The view.</param>
+        /// <param name="l">Left margin in dp.</param>
+        /// <param name="t">Top margin in dp.</param>
+        /// <param name="r">Right margin in dp.</param>
+        /// <param name="b">Bottom margin in dp.</param>
         public static void SetMargins(this View view, float l, float t, float r, float b)
         {
             var param = view.LayoutParameters as ViewGroup.MarginLayoutParams;
-            param.SetMargins(DimensionsHelper.DpToPx(l), DimensionsHelper.DpToPx(t), DimensionsHelper.DpToPx(r),
+            param.SetMargins(
+                DimensionsHelper.DpToPx(l),
+                DimensionsHelper.DpToPx(t),
+                DimensionsHelper.DpToPx(r),
                 DimensionsHelper.DpToPx(b));
             view.LayoutParameters = param;
-        }          
-        
+        }
+
         /// <summary>
         /// Sets margins. All provided values are to be provided in dp.
         /// </summary>
+        /// <param name="view">The view.</param>
+        /// <param name="uniform">Uniform value for all margins.</param>
         public static void SetMargins(this View view, float uniform)
         {
             SetMargins(view,uniform,uniform,uniform,uniform);
-        }       
-        
+        }
+
         /// <summary>
         /// Sets margins. All provided values are to be provided in dp.
         /// </summary>
+        /// <param name="view">The view.</param>
+        /// <param name="horizontal">Left and right margins in dp.</param>
+        /// <param name="vertical">Top and bottom margins in dp.</param>
         public static void SetMargins(this View view, float horizontal, float vertical)
         {
             SetMargins(view,horizontal,vertical,horizontal,vertical);
-        }       
-        
+        }
+
         /// <summary>
         /// Sets padding. All provided values are to be provided in dp.
         /// </summary>
+        /// <param name="view">The view.</param>
+        /// <param name="l">Left padding in dp.</param>
+        /// <param name="t">Top padding in dp.</param>
+        /// <param name="r">Right padding in dp.</param>
+        /// <param name="b">Bottom padding in dp.</param>
         public static void SetPadding(this View view, float l, float t, float r, float b)
         {
-            view.SetPadding(DimensionsHelper.DpToPx(l), DimensionsHelper.DpToPx(t), DimensionsHelper.DpToPx(r),
+            view.SetPadding(
+                DimensionsHelper.DpToPx(l),
+                DimensionsHelper.DpToPx(t),
+                DimensionsHelper.DpToPx(r),
                 DimensionsHelper.DpToPx(b));
         }
     }

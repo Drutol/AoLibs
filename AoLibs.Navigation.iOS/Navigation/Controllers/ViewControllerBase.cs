@@ -27,7 +27,7 @@ namespace AoLibs.Navigation.iOS.Navigation.Controllers
         }
     
         public override void ViewDidLoad()
-		{
+        {
             base.ViewDidLoad();
             SetCommands();
             SetStyles();

@@ -17,10 +17,13 @@ namespace AoLibs.Adapters.Android.Recycler
         private readonly HolderFactoryDelegate<TFooterHolder> _footerFactory;
         private readonly ItemTemplateDelegate _footerTemplate;
 
-        public ObservableRecyclerAdapterWithMultipleViewTypesAndFooter(Dictionary<Type, IItemEntry> templates,
-            IList<TItemBase> items, DataTemplateDelegate<TFooterHolder> footerDataTemplate,
-            HolderFactoryDelegate<TFooterHolder> footerFactory, ItemTemplateDelegate footerTemplate) : base(templates,
-            items)
+        public ObservableRecyclerAdapterWithMultipleViewTypesAndFooter(
+            Dictionary<Type, IItemEntry> templates,
+            IList<TItemBase> items,
+            DataTemplateDelegate<TFooterHolder> footerDataTemplate,
+            HolderFactoryDelegate<TFooterHolder> footerFactory, 
+            ItemTemplateDelegate footerTemplate) 
+            : base(templates, items)
         {
             _footerDataTemplate = footerDataTemplate;
             _footerFactory = footerFactory;

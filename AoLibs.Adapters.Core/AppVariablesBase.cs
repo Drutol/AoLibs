@@ -246,6 +246,7 @@ namespace AoLibs.Adapters.Core
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="AppVariablesBase"/> class.
         /// Initializes all properties marked with <see cref="VariableAttribute"/>
         /// </summary>
         private AppVariablesBase()
@@ -263,12 +264,13 @@ namespace AoLibs.Adapters.Core
                 {
                     attributes.Add(attr);
                     var holder = prop.GetValue(this);
-                    if (holder == null) //default value not provided, we have to create instance
+                    // default value not provided, we have to create instance
+                    if (holder == null) 
                     {
                         prop.SetValue(this, Activator.CreateInstance(prop.PropertyType,
                             new object[] {prop.Name, attr}));
-                    }
-                    else //we have value but we have to fill missing data
+                    } // we have value but we have to fill missing data
+                    else 
                     {
                         var typeInfo = holder.GetType().GetTypeInfo();
                         typeInfo.GetDeclaredField("_propName")

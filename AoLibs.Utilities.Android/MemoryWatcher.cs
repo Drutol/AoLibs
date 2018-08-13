@@ -12,6 +12,14 @@ namespace AoLibs.Utilities.Android
     /// </summary>
     public class MemoryWatcher
     {
+        /// <summary>
+        /// Gets and initializes new <see cref="MemoryWatcher"/>
+        /// </summary>
+        /// <value>
+        /// And initializes new <see cref="MemoryWatcher"/>
+        /// </value>
+        public static MemoryWatcher Watcher { get; } = new MemoryWatcher();
+
         private Timer _memoryCheckTimer;
 
         public long TotalRam { get; }
@@ -34,11 +42,6 @@ namespace AoLibs.Utilities.Android
             TotalRam = memoryInfo.TotalMem / (1024 * 1024);
         }
 
-        /// <summary>
-        /// Obtains and initializes new <see cref="MemoryWatcher"/>
-        /// </summary>
-        public static MemoryWatcher Watcher { get; } = new MemoryWatcher();
-
         #endregion
 
         private void CreateTimer(TimeSpan dueTime)
@@ -48,13 +51,15 @@ namespace AoLibs.Utilities.Android
 
         private void OnMemoryCheck(object state)
         {
-
             var available = Runtime.GetRuntime().MaxMemory();
             var used = Runtime.GetRuntime().TotalMemory();
 
             float percentAvailable = 100f * (1f - ((float)used / available));
-            if(DisplayDebugMessages)
+            if (DisplayDebugMessages)
+            {
                 Debug.WriteLine($">>>> MEMORY {used}/{available}  percent free: ({percentAvailable}%) <<<<");
+            }
+
             if (percentAvailable <= MemoryWarningThresholdInPercent)
             {
                 MemoryWarning?.Invoke(this,percentAvailable);
@@ -69,8 +74,10 @@ namespace AoLibs.Utilities.Android
 
         public void Resume(TimeSpan? dueTime)
         {
-            if(_memoryCheckTimer == null)
+            if (_memoryCheckTimer == null)
+            {
                 CreateTimer(dueTime ?? TimeSpan.Zero);
+            }
         }
     }
 }

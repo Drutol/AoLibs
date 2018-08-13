@@ -11,7 +11,7 @@ namespace AoLibs.Utilities.Shared
     /// <summary>
     /// Observable collection with <see cref="M:AoLibs.Utilities.Shared.SmartObservableCollection`1.AddRange(System.Collections.Generic.IEnumerable{`0})" /> which will add elements without raising an update with every insert.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">The type of the items.</typeparam>
     public class SmartObservableCollection<T> : ObservableCollection<T>
     {
         private volatile bool _isObserving;
@@ -24,18 +24,17 @@ namespace AoLibs.Utilities.Shared
 
         public SmartObservableCollection()
         {
-
         }
 
-        public SmartObservableCollection(IEnumerable<T> source) : base(source)
+        public SmartObservableCollection(IEnumerable<T> source) 
+            : base(source)
         {
-
         }
 
         /// <summary>
         /// Adds range of items without unnecessary collection updates. One update is issued when whole collection updates.
         /// </summary>
-        /// <param name="range"></param>
+        /// <param name="range">The range of items to add.</param>
         public void AddRange(IEnumerable<T> range)
         {
             // get out if no new items
@@ -53,22 +52,23 @@ namespace AoLibs.Utilities.Shared
             {
                 Add(item);
             }
+
             IsObserving = true;
 
             // fire the events
             OnPropertyChanged(new PropertyChangedEventArgs("Count"));
             OnPropertyChanged(new PropertyChangedEventArgs("Item[]"));
-            //OnCollectionChanged(new NotifyCollectionChangedEventArgs(action: NotifyCollectionChangedAction.Reset));
             try
             {
-                OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, newItems,
+                OnCollectionChanged(new NotifyCollectionChangedEventArgs(
+                    NotifyCollectionChangedAction.Add,
+                    newItems,
                     newStartingIndex));
             }
-            catch (Exception) //it'll resolve some crashes hopefully
+            catch (Exception)
             {
                 OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
             }
-
         }
 
         protected override void OnCollectionChanged(NotifyCollectionChangedEventArgs e)

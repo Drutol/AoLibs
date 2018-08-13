@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Android.Widget;
 
 namespace AoLibs.Utilities.Android.Listeners

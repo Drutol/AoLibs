@@ -8,7 +8,6 @@ namespace AoLibs.Adapters.Android.Interfaces
     /// </summary>
     public interface IOnActivityResultProvider 
         : IOnActivityEvent<(int RequestCode, Result ResultCode, Intent Data)>
-    {
-       
+    {       
     }
 }

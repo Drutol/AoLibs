@@ -5,31 +5,19 @@ namespace AoLibs.Utilities.Shared
 {
     public static class DiffUtility
     {
-        public delegate bool CompareDelegate<in T>(T x, T y);
-
-        public class DiffResult<T>
-        {
-            internal DiffResult()
-            {
-
-            }
-
-            public IEnumerable<T> Added { get; internal set; }
-            public IEnumerable<T> Removed { get; internal set; }
-            public IEnumerable<T> Unmodified { get; internal set; }
-            public IEnumerable<T> Modified { get; internal set; }
-        }
-
         /// <summary>
         /// Performs diff on two <see cref="IEnumerable{T}"/> Provides Additions, Removals, Specifies which items were modified and which stayed as is.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">The Type of the items.</typeparam>
         /// <param name="first">Original collection.</param>
         /// <param name="other">Updated collection.</param>
         /// <param name="referenceComparer">Delegate allowing to match items representing same entities, by Ids for example.</param>
         /// <param name="equalityComparer">Comparer that will be used to determine item's equality.</param>
-        public static DiffResult<T> Diff<T>(this IEnumerable<T> first, IEnumerable<T> other,
-            CompareDelegate<T> referenceComparer, IEqualityComparer<T> equalityComparer)
+        public static DiffResult<T> Diff<T>(
+            this IEnumerable<T> first,
+            IEnumerable<T> other,
+            CompareDelegate<T> referenceComparer,
+            IEqualityComparer<T> equalityComparer)
         {
             return Diff(first, other, referenceComparer, equalityComparer.Equals);
         }
@@ -37,20 +25,18 @@ namespace AoLibs.Utilities.Shared
         /// <summary>
         /// Performs diff on two <see cref="IEnumerable{T}"/> Provides Additions, Removals, Specifies which items were modified and which stayed as is.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">The type of items in the collection.</typeparam>
         /// <param name="first">Original collection.</param>
         /// <param name="other">Updated collection.</param>
         /// <param name="referenceComparer">Delegate allowing to match items representing same entities, by Ids for example.</param>
         /// <param name="equalityComparer">Delegate that specifies custom equality logic, <see cref="object.Equals(object)"/> will be used otherwise.</param>
         public static DiffResult<T> Diff<T>(this IEnumerable<T> first, IEnumerable<T> other,  CompareDelegate<T> referenceComparer, CompareDelegate<T> equalityComparer = null)
-        {
-     
-            
-            //if comparer wasn't provided we use standard Equals
+        {             
+            // if comparer wasn't provided we use standard Equals
             if (equalityComparer is null)
                 equalityComparer = (x, y) => x.Equals(y);
 
-            //evaluate enumerables
+            // evaluate enumerables
             var firstList = first.ToList();
             var otherList = other.ToList();
 
@@ -61,8 +47,7 @@ namespace AoLibs.Utilities.Shared
                 Modified = ProcessModifications(firstList, otherList, referenceComparer, equalityComparer),
                 Unmodified = ProcessUnmodifiedItems(firstList, otherList, referenceComparer, equalityComparer),
             };
-            
-            
+                     
             return result;
         }
 
@@ -98,6 +83,20 @@ namespace AoLibs.Utilities.Shared
                 if (equalityComparer(item, matchingItem))
                     yield return matchingItem;
             }
+        }
+
+        public delegate bool CompareDelegate<in T>(T x, T y);
+
+        public class DiffResult<T>
+        {
+            internal DiffResult()
+            {
+            }
+
+            public IEnumerable<T> Added { get; internal set; }
+            public IEnumerable<T> Removed { get; internal set; }
+            public IEnumerable<T> Unmodified { get; internal set; }
+            public IEnumerable<T> Modified { get; internal set; }
         }
     }
 }

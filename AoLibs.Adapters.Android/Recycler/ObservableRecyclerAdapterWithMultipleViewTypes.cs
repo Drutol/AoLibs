@@ -11,12 +11,12 @@ namespace AoLibs.Adapters.Android.Recycler
     /// <summary>
     /// Recycler adapter that work the same way as <see cref="ObservableRecyclerAdapter{TItem,THolder}"/> but offers funcionality of defining <see cref="View"/> per <see cref="Type"/>.
     /// </summary>
-    /// <typeparam name="TItemBase">Base of the items found in the collection. Can be <see cref="Object"/> but I encourage to create separate (empty evn) interfaces for item groups.</typeparam>
-    /// <typeparam name="THolder"></typeparam>
+    /// <typeparam name="TItemBase">Base of the items found in the collection. Can be <see cref="object"/> but I encourage to create separate (empty evn) interfaces for item groups.</typeparam>
+    /// <typeparam name="THolder">Base type for holders.</typeparam>
     /// <inheritdoc/>
     public class
-        ObservableRecyclerAdapterWithMultipleViewTypes<TItemBase, THolder> : ObservableRecyclerAdapter<TItemBase,
-            THolder> where THolder : RecyclerView.ViewHolder
+        ObservableRecyclerAdapterWithMultipleViewTypes<TItemBase, THolder> : ObservableRecyclerAdapter<TItemBase,THolder> 
+        where THolder : RecyclerView.ViewHolder
     {
         private readonly Dictionary<Type, IItemEntry> _templates;
 
@@ -26,14 +26,19 @@ namespace AoLibs.Adapters.Android.Recycler
         public interface IItemEntry
         {        
             /// <summary>
+            /// Gets or sets the data template.
             /// Defines how to bind collection item to view.
             /// </summary>
             DataTemplateDelegate<THolder> DataTemplate { get; set; }
+
             /// <summary>
+            /// Gets or sets the holder facorty.
             /// Defines how to create ViewHolder, can be left null if your ViewHolder has public constructor with one <see cref="View"/> argument.
             /// </summary>
             HolderFactoryDelegate<THolder> HolderFactory { get; set; }
+
             /// <summary>
+            /// Gets or sets the item template.
             /// Defines how to inflate layout for cell.
             /// </summary>
             ItemTemplateDelegate ItemTemplate { get; set; }
@@ -53,8 +58,10 @@ namespace AoLibs.Adapters.Android.Recycler
 
             /// <inheritdoc />
             public DataTemplateDelegate<THolder> DataTemplate { get; set; }
+
             /// <inheritdoc />
             public HolderFactoryDelegate<THolder> HolderFactory { get; set; }
+
             /// <inheritdoc />
             public ItemTemplateDelegate ItemTemplate { get; set; }
 
@@ -78,8 +85,8 @@ namespace AoLibs.Adapters.Android.Recycler
         /// Implementation of <see cref="IItemEntry"/> that alows to specify concrete types for <see cref="TItemBase"/> and <see cref="THolder"/>.
         /// This way we are avoiding manual casting in the delegate methods such as <see cref="DataTemplateDelegate{THolder}"/>
         /// </summary>
-        /// <typeparam name="TSpecializedItem"></typeparam>
-        /// <typeparam name="TSpecializedHolder"></typeparam>
+        /// <typeparam name="TSpecializedItem">Concrete Type of the model.</typeparam>
+        /// <typeparam name="TSpecializedHolder">Concrete type of the holder.</typeparam>
         public class SpecializedItemEntry<TSpecializedItem, TSpecializedHolder> : IItemEntry
             where TSpecializedItem : TItemBase
             where TSpecializedHolder : THolder
@@ -126,8 +133,10 @@ namespace AoLibs.Adapters.Android.Recycler
             public HolderFactoryDelegate<THolder> HolderFactory
             {
                 get => _holderFactory ?? (_holderFactory =
-                           (parent, viewtype, view) => SpecializedHolderFactory(parent,
-                               viewtype, view));
+                           (parent, viewtype, view) => SpecializedHolderFactory(
+                               parent,
+                               viewtype,
+                               view));
                 set => throw new InvalidOperationException("Use Specialized factory or base class instead.");
             }
 
@@ -143,10 +152,10 @@ namespace AoLibs.Adapters.Android.Recycler
         }
 
         /// <summary>
-        /// Creates new adapter instance with given definitions.
+        /// Initializes a new instance of the <see cref="ObservableRecyclerAdapterWithMultipleViewTypes{TItemBase, THolder}"/> class.
         /// </summary>
         /// <param name="templates">Disctionary of pairs defining how to display given typoe of item.</param>
-        /// <param name="items"></param>
+        /// <param name="items">The collection of items to display.</param>
         public ObservableRecyclerAdapterWithMultipleViewTypes(
             Dictionary<Type, IItemEntry> templates,
             IList<TItemBase> items)

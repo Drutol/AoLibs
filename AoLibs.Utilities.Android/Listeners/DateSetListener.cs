@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Android.Widget;
 
 namespace AoLibs.Utilities.Android.Listeners
@@ -14,7 +14,6 @@ namespace AoLibs.Utilities.Android.Listeners
         {
             _callback = callback;
         }
-
 
         public void OnDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
         {
