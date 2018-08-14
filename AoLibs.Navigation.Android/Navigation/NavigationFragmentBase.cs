@@ -18,17 +18,17 @@ namespace NavigationLib.Android.Navigation
     /// Base class for library managed pages.
     /// </summary>
     public abstract class NavigationFragmentBase : Fragment, INavigationPage
-    {
-        /// <summary>
-        /// Specifies if bindings should be recreated if none have been added.
-        /// </summary>
-        private readonly bool _hasNonTrackableBindings;
-
+    {        
         /// <summary>
         /// Gets or sets the resolver.
         /// Allows <see cref="FragmentBase{TViewModel}"/> to resolve ViewModels automatically.
         /// </summary>
         internal static IViewModelResolver ViewModelResolver { get; set; }
+
+        /// <summary>
+        /// Specifies if bindings should be recreated if none have been added.
+        /// </summary>
+        private readonly bool _hasNonTrackableBindings;
 
         /// <summary>
         /// Used to indicate whether this fragment went through whole initialization procedure.
@@ -70,7 +70,6 @@ namespace NavigationLib.Android.Navigation
         /// </summary>
         public virtual void NavigatedTo()
         {
-
         }
 
         /// <summary>
@@ -78,21 +77,18 @@ namespace NavigationLib.Android.Navigation
         /// That is when we went to next page and going back to this one.
         /// </summary>
         public virtual void NavigatedBack()
-        {
-            
+        {        
         }
 
         /// <summary>
         /// Called whenever this page is left.
         /// </summary>
         public virtual void NavigatedFrom()
-        {
-            
+        {         
         }
 
         protected virtual void Init(Bundle savedInstanceState)
-        {
-            
+        {         
         }
 
         protected abstract void InitBindings();

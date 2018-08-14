@@ -1,7 +1,7 @@
 ﻿using AoLibs.Adapters.Core.Interfaces;
 using UIKit;
 
-namespace AoLibs.Adapters.iOS
+namespace AoLibs.Adapters.IOS
 {
     public class ClipboardProvider : IClipboardProvider
     {

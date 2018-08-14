@@ -19,14 +19,13 @@ namespace AoLibs.Adapters.Core
 
         public IDisposable ObtainLoaderLifetime(string title, string content) => new LoaderLifetimeManager(this,title,content);
 
-        class LoaderLifetimeManager : IDisposable
+        private class LoaderLifetimeManager : IDisposable
         {
             private readonly MessageBoxProviderBase _parent;
 
             public LoaderLifetimeManager(MessageBoxProviderBase parent)
             {
-                _parent = parent;
-                
+                _parent = parent;              
             }
 
             public LoaderLifetimeManager(MessageBoxProviderBase parent, string title, string content)

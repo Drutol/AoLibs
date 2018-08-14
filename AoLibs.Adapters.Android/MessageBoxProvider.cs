@@ -20,7 +20,7 @@ namespace AoLibs.Adapters.Android
         public event EventHandler<(string title,string content)> ShowLoadingPopupRequest;
         public event EventHandler HideLoadingPopupRequest;
 
-        class DialogDissmissListener : Java.Lang.Object, IDialogInterfaceOnDismissListener
+        private class DialogDissmissListener : Java.Lang.Object, IDialogInterfaceOnDismissListener
         {
             private readonly Action _action;
 
@@ -35,7 +35,7 @@ namespace AoLibs.Adapters.Android
             }
         }
 
-        class DialogCancelListener : Java.Lang.Object, IDialogInterfaceOnCancelListener
+        private class DialogCancelListener : Java.Lang.Object, IDialogInterfaceOnCancelListener
         {
             private readonly Action _action;
 
@@ -49,7 +49,6 @@ namespace AoLibs.Adapters.Android
                 _action.Invoke();
             }
         }
-
 
         public MessageBoxProvider(IContextProvider contextProvider)
         {

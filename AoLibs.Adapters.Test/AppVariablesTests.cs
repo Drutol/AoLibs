@@ -102,7 +102,6 @@ namespace AoLibs.Adapters.Test
             Assert.Null(emptyAsyncData);
         }
 
-
         [Fact]
         public async Task TestAppVariablesExpiredData()
         {

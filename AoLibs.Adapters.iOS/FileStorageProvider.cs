@@ -17,7 +17,6 @@ namespace AoLibs.Adapters.iOS
             foreach (var pathPiece in path.Split('/').ToArray())
                 finalPath = Path.Combine(finalPath, pathPiece);
 
-
             return finalPath;
         }
 
@@ -39,13 +38,13 @@ namespace AoLibs.Adapters.iOS
                         text.Append(await reader.ReadLineAsync());
                     }
                 }
+
                 return text.ToString();
             }
             catch (Exception)
             {
                 return null;
             }
-
         }
 
         public async Task<byte[]> ReadBytesAsync(string path)
@@ -130,10 +129,10 @@ namespace AoLibs.Adapters.iOS
                     Directory.CreateDirectory(dirPath);
                 }
             }
+
             path = ResolvePath(path);
 
             return path;
         }
-
     }
 }

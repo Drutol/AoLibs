@@ -7,9 +7,9 @@ namespace AoLibs.Adapters.Core.Excpetions
     /// </summary>
     public class DataExpiredException : Exception
     {
-        public DataExpiredException(string message) : base(message)
-        {
-            
+        public DataExpiredException(string message) 
+            : base(message)
+        {          
         }
     }
 }

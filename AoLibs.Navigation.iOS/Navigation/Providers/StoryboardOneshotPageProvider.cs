@@ -11,10 +11,11 @@ using UIKit;
 
 namespace AoLibs.Navigation.iOS.Navigation.Providers
 {
-    public class StoryboardOneshotPageProvider<TPage> : OneshotPageProvider<TPage> where TPage : class, INavigationPage
+    public class StoryboardOneshotPageProvider<TPage> : OneshotPageProvider<TPage> 
+        where TPage : class, INavigationPage
     {
         /// <summary>
-        /// Builds ViewController from given string parameters.
+        /// Initializes a new instance of the <see cref="StoryboardOneshotPageProvider{TPage}"/> class.
         /// <see cref="UIStoryboard.FromName"/> and <see cref="UIStoryboard.InstantiateInitialViewController"/> or <see cref="UIStoryboard.InstantiateViewController"/> is used to create the controller.
         /// </summary>
         /// <param name="storyboardName">Name of the storyboard file.</param>
@@ -25,13 +26,13 @@ namespace AoLibs.Navigation.iOS.Navigation.Providers
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="StoryboardOneshotPageProvider{TPage}"/> class.
         /// Builds ViewController based on data contained in <see cref="NavigationPageAttribute"/> attached to <see cref="TPage"/>.
         /// <see cref="UIStoryboard.FromName"/> and <see cref="UIStoryboard.InstantiateInitialViewController"/> or <see cref="UIStoryboard.InstantiateViewController"/> is used to create the controller.
         /// </summary>
         public StoryboardOneshotPageProvider() 
             : this(typeof(TPage).GetTypeInfo().GetCustomAttribute<NavigationPageAttribute>())
-        {
-            
+        {            
         }
 
         public StoryboardOneshotPageProvider(NavigationPageAttribute attr)

@@ -32,3 +32,5 @@ using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element must begin with upper-case letter", Justification = "<Pending>", Scope = "namespace", Target = "~N:AoLibs.Navigation.iOS.Navigation.Controllers")]
 [assembly: SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element must begin with upper-case letter", Justification = "iOS is iOS...", Scope = "namespace", Target = "~N:AoLibs.Navigation.iOS.Navigation")]
+[assembly: SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element must begin with upper-case letter", Justification = "<Pending>", Scope = "namespace", Target = "~N:AoLibs.Navigation.iOS.Navigation.Attributes")]
+[assembly: SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element must begin with upper-case letter", Justification = "<Pending>", Scope = "namespace", Target = "~N:AoLibs.Navigation.iOS.Navigation.Providers")]

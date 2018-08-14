@@ -10,18 +10,21 @@ using UIKit;
 
 namespace AoLibs.Navigation.iOS.Navigation.Controllers
 {
-    public abstract class ViewControllerBase<TViewModel> : ArgumentNavigationViewControler where TViewModel : class
+    public abstract class ViewControllerBase<TViewModel> : ArgumentNavigationViewControler 
+        where TViewModel : class
     {
         protected List<Binding> Bindings { get; } = new List<Binding>();
 
         public TViewModel ViewModel { get; protected set; }
 
-        protected ViewControllerBase(IntPtr handle) : base(handle)
+        protected ViewControllerBase(IntPtr handle) 
+            : base(handle)
         {
             ViewModel = ViewModelResolver?.Resolve<TViewModel>();
         }
 
-        protected ViewControllerBase(string name, NSBundle p) : base(name, p)
+        protected ViewControllerBase(string name, NSBundle p) 
+            : base(name, p)
         {
             ViewModel = ViewModelResolver?.Resolve<TViewModel>();
         }

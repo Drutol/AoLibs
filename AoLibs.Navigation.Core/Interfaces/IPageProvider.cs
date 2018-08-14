@@ -2,7 +2,8 @@
 
 namespace AoLibs.Navigation.Core.Interfaces
 {
-    public interface IPageProvider<out T> where T : INavigationPage
+    public interface IPageProvider<out T> 
+        where T : INavigationPage
     {  
         Type PageType { get; }
         T Page { get; }

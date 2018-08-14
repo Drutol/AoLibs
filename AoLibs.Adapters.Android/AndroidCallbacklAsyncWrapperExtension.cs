@@ -22,10 +22,10 @@ namespace AoLibs.Adapters.Android
         /// <summary>
         /// Awaits for given callback to be fired.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="activityEvent"></param>
-        /// <param name="cancellationToken"></param>
-        /// <returns></returns>
+        /// <typeparam name="T">The type of awaited data.</typeparam>
+        /// <param name="activityEvent">The interface providing given data.</param>
+        /// <param name="cancellationToken">Token for cancelling waiting.</param>
+        /// <returns>Data from the callback.</returns>
         public static async Task<T> Await<T>(
             this IOnActivityEvent<T> activityEvent,
             CancellationToken cancellationToken = default)

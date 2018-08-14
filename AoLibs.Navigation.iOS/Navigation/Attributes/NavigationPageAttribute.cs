@@ -23,7 +23,7 @@ namespace AoLibs.Navigation.iOS.Navigation.Attributes
         }
 
         /// <summary>
-        /// Initializes new page attribute.
+        /// Initializes a new instance of the <see cref="NavigationPageAttribute"/> class.
         /// </summary>
         /// <param name="page">Integer value of your TPageIdentifier enum.</param>
         /// <param name="pageProvider">Indicates whether to use <see cref="CachedPageProvider{TPage}"/> or <see cref="OneshotPageProvider{TPage}"/> when creating page entries.</param>
@@ -34,21 +34,35 @@ namespace AoLibs.Navigation.iOS.Navigation.Attributes
         }
 
         /// <summary>
-        /// Integer value of your TPageIdentifier enum.
+        /// Gets integer value of specified TPageIdentifier enum.
         /// </summary>
-        public int Page { get;  }
-        /// <summary>
-        /// Indicates whether to use <see cref="CachedPageProvider{TPage}"/> or <see cref="OneshotPageProvider{TPage}"/> when creating page entries.
-        /// </summary>
-        public PageProvider PageProviderType { get;  }
+        /// <value>
+        /// Integer value of specified TPageIdentifier enum.
+        /// </value>
+        public int Page { get; }
 
         /// <summary>
-        /// Allows to specify the name of the storyboard that will be used for ViewController instantination. 
+        /// Gets which provider to use, <see cref="CachedPageProvider{TPage}"/> or <see cref="OneshotPageProvider{TPage}"/> when creating page entries.
         /// </summary>
-        public string StoryboardName { get; set; }
+        /// <value>
+        /// Which provider to use, <see cref="CachedPageProvider{TPage}"/> or <see cref="OneshotPageProvider{TPage}"/> when creating page entries.
+        /// </value>
+        public PageProvider PageProviderType { get; }
+
         /// <summary>
-        /// Specifies the name of ViewController associated with the page given that there are multiple ViewContollers defined within storyboad. Leave default if there's only initial ViewController.
+        /// Gets or sets the name of the storyboard that will be used for ViewController instantination. 
         /// </summary>
+        /// <value>
+        /// The name of the storyboard that will be used for ViewController instantination.
+        /// </value>
+        public string StoryboardName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of ViewController associated with the page given that there are multiple ViewContollers defined within storyboad. Leave default if there's only initial ViewController.
+        /// </summary>
+        /// <value>
+        /// The name of ViewController associated with the page given that there are multiple ViewContollers defined within storyboad. Leave default if there's only initial ViewController.
+        /// </value>
         public string ViewControllerIdentifier { get; set; }
     }
 }

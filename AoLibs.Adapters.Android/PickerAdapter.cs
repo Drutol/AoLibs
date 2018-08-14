@@ -79,38 +79,44 @@ namespace AoLibs.Adapters.Android
             await semaphore.WaitAsync();
             dpd.Dismiss();
             return selectedDate;
-
         }
 
-        class ListenableDatePickerDialog : DatePickerDialog
+       private class ListenableDatePickerDialog : DatePickerDialog
         {
             public Action<(int year, int monthOfYear, int dayOfMonth)> Callback { get; set; }
 
-            public ListenableDatePickerDialog(Context context, EventHandler<DateSetEventArgs> callBack, int year, int monthOfYear, int dayOfMonth) : base(context, callBack, year, monthOfYear, dayOfMonth)
+            public ListenableDatePickerDialog(Context context, EventHandler<DateSetEventArgs> callBack, int year, int monthOfYear, int dayOfMonth) 
+                : base(context, callBack, year, monthOfYear, dayOfMonth)
             {
             }
 
-            public ListenableDatePickerDialog(Context context, int theme, EventHandler<DateSetEventArgs> callBack, int year, int monthOfYear, int dayOfMonth) : base(context, theme, callBack, year, monthOfYear, dayOfMonth)
+            public ListenableDatePickerDialog(Context context, int theme, EventHandler<DateSetEventArgs> callBack, int year, int monthOfYear, int dayOfMonth) 
+                : base(context, theme, callBack, year, monthOfYear, dayOfMonth)
             {
             }
 
-            protected ListenableDatePickerDialog(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
+            protected ListenableDatePickerDialog(IntPtr javaReference, JniHandleOwnership transfer) 
+                : base(javaReference, transfer)
             {
             }
 
-            public ListenableDatePickerDialog(Context context) : base(context)
+            public ListenableDatePickerDialog(Context context) 
+                : base(context)
             {
             }
 
-            public ListenableDatePickerDialog(Context context, IOnDateSetListener listener, int year, int month, int dayOfMonth) : base(context, listener, year, month, dayOfMonth)
+            public ListenableDatePickerDialog(Context context, IOnDateSetListener listener, int year, int month, int dayOfMonth) 
+                : base(context, listener, year, month, dayOfMonth)
             {
             }
 
-            public ListenableDatePickerDialog(Context context, int themeResId) : base(context, themeResId)
+            public ListenableDatePickerDialog(Context context, int themeResId) 
+                : base(context, themeResId)
             {
             }
 
-            public ListenableDatePickerDialog(Context context, int themeResId, IOnDateSetListener listener, int year, int monthOfYear, int dayOfMonth) : base(context, themeResId, listener, year, monthOfYear, dayOfMonth)
+            public ListenableDatePickerDialog(Context context, int themeResId, IOnDateSetListener listener, int year, int monthOfYear, int dayOfMonth) 
+                : base(context, themeResId, listener, year, monthOfYear, dayOfMonth)
             {
             }
 
@@ -120,7 +126,7 @@ namespace AoLibs.Adapters.Android
             }
         }
 
-        class DateSetListener : Java.Lang.Object, global::Android.App.DatePickerDialog.IOnDateSetListener
+        private class DateSetListener : Java.Lang.Object, global::Android.App.DatePickerDialog.IOnDateSetListener
         {
             private Action<(int year, int monthOfYear, int dayOfMonth)> _callback;
 

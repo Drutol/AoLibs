@@ -7,7 +7,8 @@ namespace AoLibs.Navigation.Core.PageProviders
     /// Page provider that will cache the page it is responsible for.
     /// </summary>
     /// <typeparam name="TPage">The type of concrete naviagtion component.</typeparam>
-    public class CachedPageProvider<TPage> : IPageProvider<TPage> where TPage : class, INavigationPage
+    public class CachedPageProvider<TPage> : IPageProvider<TPage> 
+        where TPage : class, INavigationPage
     {
         protected Func<TPage> Factory { get; set; }
         private TPage _page;
@@ -43,12 +44,12 @@ namespace AoLibs.Navigation.Core.PageProviders
         }
 
         /// <summary>
-        /// The actual type of held page.
+        /// Gets actual type of held page.
         /// </summary>
         public Type PageType { get; } = typeof(TPage);
 
         /// <summary>
-        /// Actual instance of held page.
+        /// Gets or sets instance of held page.
         /// </summary>
         public TPage Page
         {
@@ -62,11 +63,12 @@ namespace AoLibs.Navigation.Core.PageProviders
 
                 return _page;
             }
+
             protected set => _page = value;
         }
 
         /// <summary>
-        /// Current TPageIdentifier hidden beyond <see cref="Object"/>
+        /// Gets or sets current TPageIdentifier hidden beyond <see cref="object"/>
         /// </summary>
         public object PageIdentifier { get; set; }
     }

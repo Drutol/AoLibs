@@ -19,14 +19,14 @@ namespace AoLibs.Navigation.iOS.Navigation.Controllers
             add
             {
                 if (NativeBackNavigation == null)
-                    this.NativeBackNavigation += value;
+                    NativeBackNavigation += value;
             }
-            remove => this.NativeBackNavigation -= value;
+            remove => NativeBackNavigation -= value;
         }
 
-        protected ArgumentNavigationTabBarViewController(IntPtr handle) : base(handle)
+        protected ArgumentNavigationTabBarViewController(IntPtr handle) 
+            : base(handle)
         {
-
         }
 
         public virtual void NavigatedTo()
@@ -35,12 +35,10 @@ namespace AoLibs.Navigation.iOS.Navigation.Controllers
 
         public virtual void NavigatedBack()
         {
-
         }
 
         public virtual void NavigatedFrom()
         {
-
         }
 
         public override void ViewWillDisappear(bool animated)

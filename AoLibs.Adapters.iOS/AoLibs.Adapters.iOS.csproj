@@ -53,6 +53,7 @@
     <Compile Include="ClipboardProvider.cs" />
     <Compile Include="DispatcherAdapter.cs" />
     <Compile Include="FileStorageProvider.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="MessageBoxProvider.cs" />
     <Compile Include="PhoneCallAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

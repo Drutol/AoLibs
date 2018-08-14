@@ -19,38 +19,37 @@ namespace AoLibs.Navigation.iOS.Navigation.Controllers
             add
             {
                 if (NativeBackNavigation == null)
-                    this.NativeBackNavigation += value;
+                    NativeBackNavigation += value;
             }
-            remove => this.NativeBackNavigation -= value;
+            remove => NativeBackNavigation -= value;
         }
 
-        protected ArgumentNavigationViewControler(IntPtr handle) : base(handle)
+        protected ArgumentNavigationViewControler(IntPtr handle) 
+            : base(handle)
         {
         }
 
-        protected ArgumentNavigationViewControler(string name, NSBundle p) : base(name, p)
+        protected ArgumentNavigationViewControler(string name, NSBundle p)
+            : base(name, p)
         {
         }
 
         public virtual void NavigatedTo()
         {
-
         }
 
         public virtual void NavigatedBack()
         {
-            
         }
 
         public virtual void NavigatedFrom()
         {
-            
         }
 
         public override void ViewWillDisappear(bool animated)
         {
-            if(IsMovingFromParentViewController || IsBeingDismissed)
-                NativeBackNavigation?.Invoke(this,EventArgs.Empty);
+            if (IsMovingFromParentViewController || IsBeingDismissed)
+                NativeBackNavigation?.Invoke(this, EventArgs.Empty);
             base.ViewWillDisappear(animated);
         }
     }

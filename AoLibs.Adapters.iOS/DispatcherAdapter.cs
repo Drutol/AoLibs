@@ -11,5 +11,4 @@ namespace AoLibs.Adapters.iOS
             UIApplication.SharedApplication.InvokeOnMainThread(action);
         }
     }
-
 }

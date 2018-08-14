@@ -29,6 +29,7 @@ namespace AoLibs.Adapters.Core
         /// <summary>
         /// Reads the data from given path and deserializes it taking given expirationTime in consideration.
         /// </summary>
+        /// <typeparam name="T">Data Type to retireve.</typeparam>
         /// <param name="path">Path to the file. Can be just filename.</param>
         /// <param name="expiration">Specifies how much time could have passed since last write.</param>
         /// <returns>Deserialized data or default if file does not exist or is malformed.</returns>
@@ -54,6 +55,7 @@ namespace AoLibs.Adapters.Core
         /// <summary>
         /// Saves data in fire and forget manner.
         /// </summary>
+        /// <typeparam name="T">Type of data to save.</typeparam>
         /// <param name="path">Path to the file. Can be just filename.</param>
         /// <param name="data">The data to store.</param>
         public async void SaveData<T>(string path, T data)
@@ -64,6 +66,7 @@ namespace AoLibs.Adapters.Core
         /// <summary>
         /// Saves data in asynchronous matter.
         /// </summary>
+        /// <typeparam name="T">Type of data to save.</typeparam>
         /// <param name="path">Path to the file. Can be just filename.</param>
         /// <param name="data">The data to store.</param>
         public async Task SaveDataAsync<T>(string path, T data)
@@ -80,7 +83,6 @@ namespace AoLibs.Adapters.Core
         /// Clears storage.
         /// </summary>
         /// <param name="path">File to remove.</param>
-        /// <returns></returns>
         public async Task Clear(string path)
         {
             _fileStorageProvider.RemoveFile(path);

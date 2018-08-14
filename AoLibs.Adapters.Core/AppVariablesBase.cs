@@ -18,7 +18,7 @@ namespace AoLibs.Adapters.Core
         private readonly IAsyncStorage _asyncStorage;
 
         /// <summary>
-        /// Lists all found attributes on given properties.
+        /// Gets list of all found attributes on given properties.
         /// </summary>
         public IReadOnlyCollection<VariableAttribute> Attributes { get; internal set; }
 
@@ -31,17 +31,17 @@ namespace AoLibs.Adapters.Core
         public class VariableAttribute : Attribute
         {
             /// <summary>
-            /// Don't store in persistent cache.
+            /// Gets or sets a value indicating whether to store in persistent cache.
             /// </summary>
             public bool MemoryOnly { get; set; }
 
             /// <summary>
-            /// Store variable using specified key, by default property name will be used.
+            /// Gets or sets key that will be used to save the file, by default property name will be used.
             /// </summary>
             public string CustomKey { get; set; }
 
             /// <summary>
-            /// Time in seconds describing how long data is valid since last write.
+            /// Gets or sets time* in seconds describing how long data is valid since last write.
             /// By default only supported in async calls when calling <see cref="AppVariablesBase"/> 
             /// contructor with <see cref="IDataCache"/>. Provide custom <see cref="ISyncStorage"/> to consume this attribute.
             /// </summary>
@@ -87,7 +87,8 @@ namespace AoLibs.Adapters.Core
 
             public void SetValue<T>(T value, string prop, VariableAttribute attr)
             {
-                _settingsProvider.SetString(prop,
+                _settingsProvider.SetString(
+                    prop,
                     value == null ? null : JsonConvert.SerializeObject(value));
             }
         }
@@ -96,7 +97,7 @@ namespace AoLibs.Adapters.Core
         {
             private readonly IDataCache _dataCache;
 
-            class TimestampWrapper<T>
+            private class TimestampWrapper<T>
             {
                 public TimestampWrapper(T data)
                 {
@@ -121,12 +122,13 @@ namespace AoLibs.Adapters.Core
             {
                 try
                 {
-                    return await _dataCache.RetrieveData<T>(key,
+                    return await _dataCache.RetrieveData<T>(
+                        key,
                         attr.ExpirationTime > 0 ? (TimeSpan?) TimeSpan.FromSeconds(attr.ExpirationTime) : null);
                 }
                 catch (DataExpiredException)
                 {
-                    return default(T);
+                    return default;
                 }
             }
 
@@ -141,16 +143,19 @@ namespace AoLibs.Adapters.Core
         /// </summary>
         public class HolderBase
         {
+#pragma warning disable SA1401 // Fields must be private
             internal static AppVariablesBase _parent;
+#pragma warning restore SA1401 // Fields must be private
         }
 
         /// <summary>
         /// Class that holds stored data. Cannot be inherited. 
         /// If not instantinated it will be automatically created by underlying mechanisms.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">The wrapped type.</typeparam>
         [Preserve(AllMembers = true)]
-        public sealed class Holder<T> : HolderBase where T : class
+        public sealed class Holder<T> : HolderBase 
+            where T : class
         {
             public event EventHandler<T> ValueChanged;
 
@@ -191,7 +196,7 @@ namespace AoLibs.Adapters.Core
             }
 
             /// <summary>
-            /// Reads or writes value using <see cref="ISyncStorage"/>
+            /// Gets or sets value using <see cref="ISyncStorage"/>
             /// </summary>
             public T Value
             {
@@ -218,10 +223,15 @@ namespace AoLibs.Adapters.Core
             public Task<T> GetAsync()
             {
                 if (_parent._asyncStorage == null)
+                {
                     throw new InvalidOperationException(
                         "You can call async methods only after providing async storage interface in AppVariablesBase.");
+                }
+
                 if (_attribute.MemoryOnly)
+                {
                     return Task.FromResult(_value);
+                }
 
                 return _parent._asyncStorage.GetAsync<T>(_propName, _attribute);
             }
@@ -229,11 +239,15 @@ namespace AoLibs.Adapters.Core
             /// <summary>
             /// Writes value using <see cref="IAsyncStorage"/>
             /// </summary>
+            /// <param name="data">Data to save.</param>
             public async Task SetAsync(T data)
             {
                 if (_parent._asyncStorage == null)
+                {
                     throw new InvalidOperationException(
                         "You can call async methods only after providing async storage interface in AppVariablesBase.");
+                }
+
                 if (_attribute.MemoryOnly)
                 {
                     _value = data;
@@ -267,7 +281,8 @@ namespace AoLibs.Adapters.Core
                     // default value not provided, we have to create instance
                     if (holder == null) 
                     {
-                        prop.SetValue(this, Activator.CreateInstance(prop.PropertyType,
+                        prop.SetValue(this, Activator.CreateInstance(
+                            prop.PropertyType,
                             new object[] {prop.Name, attr}));
                     } // we have value but we have to fill missing data
                     else 
@@ -286,12 +301,14 @@ namespace AoLibs.Adapters.Core
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="AppVariablesBase"/> class.
         /// Initialize with default <see cref="ISyncStorage"/> where <see cref="ISettingsProvider"/> is underlaying storage layer.
         /// Async methods of <see cref="Holder{T}"/> will be unavailable and throw <see cref="InvalidOperationException"/>
         /// </summary>
-        /// <param name="settingsProvider"></param>
-        /// <param name="dataCache"></param>
-        protected AppVariablesBase(ISettingsProvider settingsProvider, IDataCache dataCache = null) : this()
+        /// <param name="settingsProvider">Settings provider.</param>
+        /// <param name="dataCache">Data cache.</param>
+        protected AppVariablesBase(ISettingsProvider settingsProvider, IDataCache dataCache = null) 
+            : this()
         {
             if (dataCache != null)
                 _asyncStorage = new DefaultAsyncStorage(dataCache);
@@ -299,11 +316,12 @@ namespace AoLibs.Adapters.Core
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="AppVariablesBase"/> class.
         /// Initialize with custom implementations of <see cref="ISyncStorage"/> and optionally <see cref="IAsyncStorage"/>.
         /// Not providing <see cref="IAsyncStorage"/> will result in <see cref="InvalidOperationException"/> when accessing async methods of <see cref="Holder{T}"/>
         /// </summary>
-        /// <param name="syncStorage"></param>
-        /// <param name="asyncStorage"></param>
+        /// <param name="syncStorage">Synchonous storage used when calling <see cref="Holder{T}.Value"/></param>
+        /// <param name="asyncStorage">Asynchonous storage.</param>
         protected AppVariablesBase(ISyncStorage syncStorage, IAsyncStorage asyncStorage = null)
         {
             _syncStorage = syncStorage;
@@ -311,4 +329,3 @@ namespace AoLibs.Adapters.Core
         }
     }
 }
-

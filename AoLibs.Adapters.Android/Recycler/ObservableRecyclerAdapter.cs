@@ -31,7 +31,7 @@ namespace AoLibs.Adapters.Android.Recycler
         /// <summary>
         /// Delegate which specifies how to fill-in the view with data contained within appropriate <see cref="TItem"/> instance.
         /// </summary>
-        /// <typeparam name="THolder"></typeparam>
+        /// <typeparam name="THolder">The view holder.</typeparam>
         /// <param name="item">Current item to get data from.</param>
         /// <param name="holder">Holder containing references to <see cref="View"/> instances.</param>
         /// <param name="position">Current adapter position.</param>
@@ -41,62 +41,67 @@ namespace AoLibs.Adapters.Android.Recycler
         /// Delegate that creates holder based on given arguments.
         /// </summary>
         /// <typeparam name="T">Holder type.</typeparam>
-        /// <param name="parent"></param>
-        /// <param name="viewType"></param>
+        /// <param name="parent">Parent view group.</param>
+        /// <param name="viewType">Item view type.</param>
         /// <param name="view">Current view we are creating holder for.</param>
-        /// <returns></returns>
+        /// <returns>The view holder.</returns>
         public delegate T HolderFactoryDelegate<out T>(ViewGroup parent, int viewType, View view);
 
         /// <summary>
         /// Delegate which provides inflated <see cref="View"/>.
         /// </summary>
-        /// <param name="viewType"></param>
-        /// <returns></returns>
+        /// <param name="viewType">Item type.</param>
+        /// <returns>The view.</returns>
         public delegate View ItemTemplateDelegate(int viewType);
 
         /// <summary>
         /// Special delegate that specifies more concrete types for <see cref="TItem"/> and <see cref="THolder"/> generic types.
         /// Used by <see cref="ObservableRecyclerAdapterWithMultipleViewTypes{TItemBase,THolder}.SpecializedItemEntry{TSpecializedItem,TSpecializedHolder}"/>
         /// </summary>
-        /// <typeparam name="TSpecializedHolder"></typeparam>
-        /// <typeparam name="TSpecializedItem"></typeparam>
-        /// <param name="item"></param>
-        /// <param name="holder"></param>
-        /// <param name="position"></param>
+        /// <typeparam name="TSpecializedHolder">Concrete Type derived from <see cref="THolder"/></typeparam>
+        /// <typeparam name="TSpecializedItem">Concrete Type derived from <see cref="TItem"/></typeparam>
+        /// <param name="item">Currrent item to bind.</param>
+        /// <param name="holder">View holder assigned with new item.</param>
+        /// <param name="position">Position of the item on the list.</param>
         public delegate void SpecializedDataTemplateDelegate<in TSpecializedHolder, in TSpecializedItem>(
             TSpecializedItem item,
             TSpecializedHolder holder,
             int position)
-            where TSpecializedHolder : THolder where TSpecializedItem : TItem;
+            where TSpecializedHolder : THolder 
+            where TSpecializedItem : TItem;
 
         /// <summary>
+        /// Gets or sets data template.
         /// Defines how to bind collection item to view.
         /// </summary>
         public DataTemplateDelegate<THolder> DataTemplate { get; set; }
 
         /// <summary>
+        /// Gets or sets holder factory.
         /// Defines how to create ViewHolder, can be left null if your ViewHolder has public constructor with one <see cref="View"/> argument.
         /// </summary>
         public HolderFactoryDelegate<THolder> HolderFactory { get; set; }
 
         /// <summary>
+        /// Gets or sets item template.
         /// Defines how to inflate layout for cell.
         /// </summary>
         public ItemTemplateDelegate ItemTemplate { get; set; }
 
         /// <summary>
-        /// Gets or sets value indicating whether to
+        /// Gets or sets a value indicating whether to
         /// after inflating <see cref="View"/> assign <see cref="ViewGroup.LayoutParams.MatchParent"/> width layout paramter.
         /// </summary>
         public bool StretchContentHorizonatally { get; set; }
 
         /// <summary>
-        /// Gets or sets value indicating whether to
+        /// Gets or sets a value indicating whether to
         /// after inflating <see cref="View"/> assigns <see cref="ViewGroup.LayoutParams.MatchParent"/> height layout paramter.
         /// </summary>
         public bool StretchContentVertically { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether to automatically bind ViewModel.
         /// Checks if given ViewHolder type is assignable from <see cref="BindingViewHolderBase{T}"/> if it is, automatically assigns current collection item to <see cref="BindingViewHolderBase{T}.ViewModel"/> in order to trigger binding. 
         /// </summary>
         public bool IsAutomaticViewModelBindingEnabled { get; set; }
@@ -123,11 +128,10 @@ namespace AoLibs.Adapters.Android.Recycler
 
         internal ObservableRecyclerAdapter()
         {
-
         }
 
         /// <summary>
-        /// Current collection that adapter grabs its data from.
+        /// Gets or sets urrent collection that adapter grabs its data from.
         /// </summary>
         public IList<TItem> DataSource
         {
@@ -193,7 +197,7 @@ namespace AoLibs.Adapters.Android.Recycler
         /// <summary>
         /// Detaches bindings from <see cref="BindingViewHolderBase{T}"/>
         /// </summary>
-        /// <param name="holder"></param>
+        /// <param name="holder">The recycled view.</param>
         public override void OnViewRecycled(Object holder)
         {
             if (holder is BindingViewHolderNonGenericBase bindingHolder)            
@@ -203,10 +207,10 @@ namespace AoLibs.Adapters.Android.Recycler
         /// <summary>
         /// Tries to find appropriate constructor for ViewHolder.
         /// </summary>
-        /// <param name="viewGroup"></param>
-        /// <param name="viewType"></param>
-        /// <param name="view"></param>
-        /// <returns></returns>
+        /// <param name="viewGroup">Parent view group.</param>
+        /// <param name="viewType">View type.</param>
+        /// <param name="view">The view.</param>
+        /// <returns>ViewHolder instasnce.</returns>
         /// <exception cref="ArgumentException">Thrown when <see cref="THolder"/> is missing constructor with single <see cref="View"/> argument.</exception>
         private THolder DefaultHolderFactory(ViewGroup viewGroup, int viewType, View view)
         {
@@ -235,6 +239,7 @@ namespace AoLibs.Adapters.Android.Recycler
                         NotifyItemInserted(e.NewStartingIndex + i);
                     }
                 }
+
                     break;
                 case NotifyCollectionChangedAction.Remove:
                 {
@@ -244,6 +249,7 @@ namespace AoLibs.Adapters.Android.Recycler
                         NotifyItemRemoved(e.OldStartingIndex + i);
                     }
                 }
+
                     break;
                 default:
                     NotifyDataSetChanged();

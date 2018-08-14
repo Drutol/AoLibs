@@ -6,15 +6,16 @@ namespace AoLibs.Navigation.Core.PageProviders
     /// <summary>
     /// Provider which will recreate the bage instance whnever it is requested so every time we start with clean state.
     /// </summary>
-    /// <typeparam name="TPage"></typeparam>
-    public class OneshotPageProvider<TPage> : IPageProvider<TPage> where TPage : INavigationPage
+    /// <typeparam name="TPage">Type of page on target platfrom.</typeparam>
+    public class OneshotPageProvider<TPage> : IPageProvider<TPage> 
+        where TPage : INavigationPage
     {
         protected Func<TPage> Factory { get; set; }
 
         /// <summary>
-        /// Creates provicer with specified factory method.
+        /// Initializes a new instance of the <see cref="OneshotPageProvider{TPage}"/> class.
         /// </summary>
-        /// <param name="factory">Facotry used to build actual page.</param>
+        /// <param name="factory">Factory used to build actual page.</param>
         public OneshotPageProvider(Func<TPage> factory)
         {
             Factory = new Func<TPage>(() =>
@@ -26,7 +27,8 @@ namespace AoLibs.Navigation.Core.PageProviders
         }
 
         /// <summary>
-        /// Creates provider instance. <see cref="Activator.CreateInstance{T}"/> will be used for instantination.
+        /// Initializes a new instance of the <see cref="OneshotPageProvider{TPage}"/> class.
+        /// <see cref="Activator.CreateInstance{T}"/> will be used for instantination.
         /// </summary>
         public OneshotPageProvider()
         {
@@ -46,17 +48,17 @@ namespace AoLibs.Navigation.Core.PageProviders
         }
 
         /// <summary>
-        /// The actual type of held page.
+        /// Gets actual type of held page.
         /// </summary>
-        /// 
         public Type PageType { get; } = typeof(TPage);
+
         /// <summary>
-        /// Actual instance of held page.
+        /// Gets instance of held page.
         /// </summary>
         public TPage Page => Factory.Invoke();
 
         /// <summary>
-        /// Current TPageIdentifier hidden beyond <see cref="Object"/>
+        /// Gets or sets TPageIdentifier hidden beyond <see cref="object"/>
         /// </summary>
         public object PageIdentifier { get; set; }
     }

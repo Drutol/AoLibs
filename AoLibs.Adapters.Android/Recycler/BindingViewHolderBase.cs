@@ -32,6 +32,11 @@ namespace AoLibs.Adapters.Android.Recycler
             get => _viewModel;            
             set
             {
+                if (_viewModel != null)
+                {
+                    PreviousViewModel = _viewModel;
+                }
+
                 _viewModel = value;
                 foreach (var binding in Bindings)               
                     binding.Detach();
@@ -39,6 +44,12 @@ namespace AoLibs.Adapters.Android.Recycler
                 SetBindings();
             }
         }
+
+        /// <summary>
+        /// Gets or sets the ViewModel that was assigned before current one.
+        /// Will be null if there was previous one.
+        /// </summary>
+        public T PreviousViewModel { get; set; }
 
         /// <summary>
         /// Detaches all registered bindings.

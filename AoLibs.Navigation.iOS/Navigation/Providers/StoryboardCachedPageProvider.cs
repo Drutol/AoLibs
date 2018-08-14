@@ -11,7 +11,8 @@ using UIKit;
 
 namespace AoLibs.Navigation.iOS.Navigation.Providers
 {
-    public class StoryboardCachedPageProvider<TPage> : CachedPageProvider<TPage> where TPage : class, INavigationPage
+    public class StoryboardCachedPageProvider<TPage> : CachedPageProvider<TPage> 
+        where TPage : class, INavigationPage
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="StoryboardCachedPageProvider{TPage}"/> class.
@@ -37,7 +38,7 @@ namespace AoLibs.Navigation.iOS.Navigation.Providers
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CachedPageProvider{TPage}"/> class.
+        /// Initializes a new instance of the <see cref="StoryboardCachedPageProvider{TPage}"/> class.
         /// Creates new instance setting up the provider with provided page.
         /// </summary>
         /// <param name="instance">Page to be used by provider.</param>

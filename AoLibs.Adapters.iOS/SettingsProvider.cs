@@ -30,6 +30,7 @@ namespace AoLibs.Adapters.iOS
             {
                 return null;
             }
+
             return NSUserDefaults.StandardUserDefaults.BoolForKey(key);
         }
 
@@ -37,7 +38,6 @@ namespace AoLibs.Adapters.iOS
         {
             NSUserDefaults.StandardUserDefaults.SetBool(value, key);
         }
-
 
         public int? GetInt(string key)
         {
@@ -50,6 +50,7 @@ namespace AoLibs.Adapters.iOS
             {
                 return null;
             }
+
             return (int)NSUserDefaults.StandardUserDefaults.IntForKey(key);
         }
 
@@ -57,7 +58,6 @@ namespace AoLibs.Adapters.iOS
         {
             NSUserDefaults.StandardUserDefaults.SetInt(value, key);
         }
-
 
         public long? GetLong(string key)
         {
@@ -70,6 +70,7 @@ namespace AoLibs.Adapters.iOS
             {
                 return null;
             }
+
             return long.Parse(NSUserDefaults.StandardUserDefaults.StringForKey(key));
         }
 
@@ -77,7 +78,6 @@ namespace AoLibs.Adapters.iOS
         {
             NSUserDefaults.StandardUserDefaults.SetString(value.ToString(), key);
         }
-
 
         public double? GetDouble(string key)
         {
@@ -90,6 +90,7 @@ namespace AoLibs.Adapters.iOS
             {
                 return null;
             }
+
             return (double)NSUserDefaults.StandardUserDefaults.DoubleForKey(key);
         }
 
