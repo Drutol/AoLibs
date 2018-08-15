@@ -83,7 +83,7 @@ namespace AoLibs.Sample.Android
                 }
             }
         }
-
+        
         #region Views
 
         private FrameLayout _rootView;

@@ -267,7 +267,7 @@ namespace AoLibs.Adapters.Core
         {
             HolderBase._parent = this;
 
-            var props = this.GetType().GetRuntimeProperties()
+            var props = GetType().GetRuntimeProperties()
                 .Where(info => info.PropertyType.GetGenericTypeDefinition() == typeof(Holder<>));
             var attributes = new List<VariableAttribute>();
             foreach (var prop in props)
