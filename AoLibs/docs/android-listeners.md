@@ -12,7 +12,7 @@ Set of various listeners that are accepting delegates to native Android callback
 * `OnLongClickListener : View.IOnLongClickListener`
 * `OnScrollListener : AbsListView.IOnScrollListener`
 * `OnTextEnterListener : ITextWatcher`
-    * If EditText can be multiline this listner will detect wheter the user presses "Enter" on their keyboard.
+    * If EditText can be multiline this listener will detect whether the user presses "Enter" on their keyboard.
 * `OnTouchListener : View.IOnTouchListener`
 * `ScrollListener : AbsListView.IOnScrollChangeListener`
 

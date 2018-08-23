@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-0.17.5, mkdocs-material-2.9.2">
+      <meta name="generator" content="mkdocs-1.0.1, mkdocs-material-3.0.3">
     
     
       
@@ -40,7 +40,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.ba0fd1a6.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.451f80e5.css">
       
       
     
@@ -94,7 +94,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#navigation" tabindex="1" class="md-skip">
+      <a href="../#navigation" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -199,11 +199,11 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <span class="md-nav__button md-logo">
+    <a href=".." title="AoLibs" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
-    </span>
+    </a>
     AoLibs
   </label>
   
@@ -323,6 +323,13 @@
         <li class="md-nav__item">
   <a href="#navigation-backstack-options" title="Navigation backstack options" class="md-nav__link">
     Navigation backstack options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attribute-based-navigation" title="Attribute based navigation" class="md-nav__link">
+    Attribute based navigation
   </a>
   
 </li>
@@ -506,6 +513,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#attribute-based-navigation" title="Attribute based navigation" class="md-nav__link">
+    Attribute based navigation
+  </a>
+  
+</li>
+      
       
       
       
@@ -527,10 +541,11 @@
                 
                 <h1 id="navigation">Navigation</h1>
 <p>The goal is to provide lightweight solution for cross-platform navigation.</p>
-<p>The main interface you will be using in your shared codebase is <code>INavigationManager&lt;TPageIdentifier&gt;</code> where <code>TPageIdentifier</code> is usally a simple enum with all your pages.</p>
-<blockquote>
-<p>Below I'll descibe shared concepts between Android&amp;iOS. Setup and platofrm specific things are contained in separate pages.</p>
-</blockquote>
+<p>The main interface you will be using in your shared codebase is <code>INavigationManager&lt;TPageIdentifier&gt;</code> where <code>TPageIdentifier</code> is usually a simple enum with all your pages.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Below I'll describe shared concepts between Android and iOS. Setup and platform specific things are contained in separate pages.</p>
+</div>
 <h2 id="page-providers">Page providers</h2>
 <p>The page definitions dictionary takes in pair of <code>TPageIdentifier</code> which is simple <code>enum</code> in most cases and instance of class that implements <code>IPageProvider&lt;INavigationPage&gt;</code>. There are two implemented as of now:</p>
 <ul>
@@ -539,7 +554,7 @@
 </ul>
 </li>
 <li><code>OneshotPageProvider</code><ul>
-<li>Here we are providing the page instance just once, each navigation will create new uninitilized page. The use-case of it is to avoid manually cleaning pages like <em>RegisterPage</em>. I suggest disabling cache in your IoC container for associated ViewModel.</li>
+<li>Here we are providing the page instance just once, each navigation will create new uninitialized page. The use-case of it is to avoid manually cleaning pages like <em>RegisterPage</em>. I suggest disabling cache in your IoC container for associated ViewModel.</li>
 </ul>
 </li>
 </ul>
@@ -560,7 +575,7 @@ public virtual void NavigatedFrom();
 </ul>
 </li>
 <li>NavigatedBack<ul>
-<li>Called when we navigate backwards to the page we have alraedy been on.<ul>
+<li>Called when we navigate backwards to the page we have already been on.<ul>
 <li>eg. SignInPage &lt;- DashboardPage</li>
 <li>SignInPage invokes <code>NavigatedBack</code></li>
 </ul>
@@ -576,7 +591,7 @@ public virtual void NavigatedFrom();
 <p>It's possible to invoke navigation with arguments. It allows us to separate ViewModels and avoid communication spaghetti code. </p>
 <p><code>INavigationManager&lt;TPageIdentifier&gt;</code> allows to pass <code>args</code> parameter which is plain <code>System.Object</code>. These arguments will appear in <code>NavigationArguments</code> property within fragment class.</p>
 <h2 id="navigation-backstack-options">Navigation backstack options</h2>
-<p>There are defined following naviagtion options:</p>
+<p>There are defined following navigation options:</p>
 <pre><code class="cs">public enum NavigationBackstackOption
 {
     AddToBackstack,
@@ -609,6 +624,25 @@ public virtual void NavigatedFrom();
 </ul>
 </li>
 </ul>
+<h2 id="attribute-based-navigation">Attribute based navigation</h2>
+<p>When creating instance of <code>INavigationManager</code> there's a constructor overload that doesn't require you to pass dictionary mapping pages to providers.
+This constructor will search for all types from calling assembly via <code>Assembly.GetCallingAssembly()</code> and search for classes marked with <code>NavigationPageAttribute</code>.
+This attribute differs in Android vs iOS implementation but in its shared part it specifies:</p>
+<ul>
+<li><code>PageProviderType</code><ul>
+<li>Specifies whether to use <code>OneshotPageProvider</code> or <code>CachedPageProvider</code></li>
+</ul>
+</li>
+<li><code>Page</code><ul>
+<li>Specifies the integer value of an enum specified as <em>PageIndex</em></li>
+</ul>
+</li>
+</ul>
+<pre><code class="cs">
+[NavigationPage((int) PageIndex.PageA, NavigationPageAttribute.PageProvider.Cached)]
+public class TestPageAFragment : FragmentBase&lt;TestViewModelA&gt;
+
+</code></pre>
                 
                   
                 
@@ -691,9 +725,9 @@ public virtual void NavigatedFrom();
       
     </div>
     
-      <script src="../assets/javascripts/application.a59e2a89.js"></script>
+      <script src="../assets/javascripts/application.583bbe55.js"></script>
       
-      <script>app.initialize({version:"0.17.5",url:{base:".."}})</script>
+      <script>app.initialize({version:"1.0.1",url:{base:".."}})</script>
       
         <script src="../js/hljs.js"></script>
       

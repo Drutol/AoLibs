@@ -1,6 +1,6 @@
 # Adapters
 
-The library comes packed with quite a few adapters that will help you avoid writing boilerplate code for platfrom dependednt functionalities.
+The library comes packed with quite a few adapters that will help you avoid writing boilerplate code for platform dependent functionalities.
 
 > Adapter is a class which provides same functionality that has to be implemented differently on different platforms.
 

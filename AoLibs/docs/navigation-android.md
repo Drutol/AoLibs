@@ -1,6 +1,6 @@
 ## Introduction
 
-The idea behind this navigation mechanism is simillar to how WPF/UWP's `<Frame>` element works. Namely we are have one root page that hosts all other pages. These pages are managed by libary within this frame.
+The idea behind this navigation mechanism is similar to how WPF/UWP's `<Frame>` element works. Namely we are have one root page that hosts all other pages. These pages are managed by library within this frame.
 
 ## Setup
 
@@ -58,7 +58,7 @@ Type hierarchy:
         * `FragmentBase<TViewModel>`
 
 
-`NavigationFragmentBase` inherits from Andoroid's `Fragment` class and wraps its functionality. Let's say we want to create new page _SplashPage_.
+`NavigationFragmentBase` inherits from Android's `Fragment` class and wraps its functionality. Let's say we want to create new page _SplashPage_.
 1. Create new class called for example `SplashPageFragment`
 2. Make it inherit from `FragmentBase<TViewModel>`
 ```cs
@@ -79,7 +79,7 @@ public class SplashPageFragment : FragmentBase<SplashViewModel>
 
 ## Transition animations
 
-If you want to include transition animations when navigating you will want to use `Action<FragmentTransaction> interceptTransaction` parameter of `NavigationManager`'s constructor. It will expose `FragmentTransaction` so you change whatever you want before actually commiting new page. For example:
+If you want to include transition animations when navigating you will want to use `Action<FragmentTransaction> interceptTransaction` parameter of `NavigationManager`'s constructor. It will expose `FragmentTransaction` so you change whatever you want before actually committing new page. For example:
 ```cs
 private void InterceptTransaction(FragmentTransaction fragmentTransaction)
 {
@@ -119,7 +119,7 @@ You will want to add all of them to `Bindings` which is of type `List<Binding>`,
 
 You are supposed to add all your bindings in `InitBindings` method which is called once per fragment instance or when bindigs need to be recreated.
 
-If you don't have any bindings added to `Bindings`, yet you don't wat the method to be fired again you can call this constructor:
+If you don't have any bindings added to `Bindings`, yet you don't want the method to be fired again you can call this constructor:
 ```cs
 public NavigationFragmentBase(bool hasNonTrackableBindings = false);
 ```

@@ -31,7 +31,7 @@ Single property of type `Holder<T>` marked with `VariableAttribute` takes care o
 
 ## Holder
 
-Wrapper that allows the library to intraface with your data in "managed" way, it allows you to write the values to files or app settings via underlying implementations of `ISyncStorage` and `IAsyncStorage`. Out of the box it can handle `ISettingsProvider` as `ISyncStorage` and `IDataCache` as `IAsyncStorage`.
+Wrapper that allows the library to interface with your data in "managed" way, it allows you to write the values to files or app settings via underlying implementations of `ISyncStorage` and `IAsyncStorage`. Out of the box it can handle `ISettingsProvider` as `ISyncStorage` and `IDataCache` as `IAsyncStorage`.
 
 Your data is cached in memory and not read every time you request it.
 

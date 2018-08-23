@@ -21,7 +21,7 @@ Utilities:
 
 * `SpecializedItemEntry<TSpecializedItem, TSpecializedHolder>`
 
-These classes provide an easy way to quickly implement recycler views for various scenarios starting from simple list to elaborate lists with various ViewModel bound elements with different layouts. All of provided adapters are utilising events of `ObservableCollection<T>`.
+These classes provide an easy way to quickly implement recycler views for various scenarios starting from simple list to elaborate lists with various ViewModel bound elements with different layouts. All of provided adapters are utilizing events of `ObservableCollection<T>`.
 
 The `ObservableRecyclerAdapter<TItem, THolder>` is base class for all other specialized adapters.
 
@@ -60,7 +60,7 @@ We have 3 methods being passed to adapter's constructor:
 * `ItemTemplate`
 	* Here you should provide view that will be later bound to view holder.
 * `HolderFactory`
-	* Here we are instantinating holder for our virtualised items. This parameter is optional if your holder has public parameterless constructor and you don't need custom instantination.
+	* Here we are instantiating holder for our virtualized items. This parameter is optional if your holder has public parameterless constructor and you don't need custom instantiation.
 
 ## View Stretching
 
@@ -117,9 +117,9 @@ All you have to do is to add 3 more delegates defining footer. Mind you that `it
 
 ## Binding ViewHolders
 
-As I've previously mentioned it's possbile to easily implement bindings for each list entry.
+As I've previously mentioned it's possible to easily implement bindings for each list entry.
 All you have to do is to make your ViewHolder inherit from `BindingViewHolderBase<TViewModel>`.
-For exmaple:
+For example:
 
 ```cs
 private class SomeHolder : BindingViewHolderBase<SomeViewModel>
@@ -191,7 +191,7 @@ It may look intimidating at first but it's not that bad. Essentially we are prov
 `IFriendListItem` is our `TItemBase`
 `TViewHolder` will usually be simple `RecyclerView.ViewHolder`
 
-Let's take a closer look on view-type definiton.
+Let's take a closer look on view-type definition.
 
 ```cs
 {

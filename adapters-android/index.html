@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-0.17.5, mkdocs-material-2.9.2">
+      <meta name="generator" content="mkdocs-1.0.1, mkdocs-material-3.0.3">
     
     
       
@@ -40,7 +40,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.ba0fd1a6.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.451f80e5.css">
       
       
     
@@ -94,7 +94,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#todo" tabindex="1" class="md-skip">
+      <a href="../#android-adapters" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -199,11 +199,11 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <span class="md-nav__button md-logo">
+    <a href=".." title="AoLibs" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
-    </span>
+    </a>
     AoLibs
   </label>
   
@@ -329,9 +329,58 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Android Adapters
+      </label>
+    
     <a href="./" title="Android Adapters" class="md-nav__link md-nav__link--active">
       Android Adapters
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#icontextprovider" title="IContextProvider" class="md-nav__link">
+    IContextProvider
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ionactivityevent" title="IOnActivityEvent" class="md-nav__link">
+    IOnActivityEvent
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asyncwrapperextension" title="AsyncWrapperExtension" class="md-nav__link">
+    AsyncWrapperExtension
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -425,6 +474,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#icontextprovider" title="IContextProvider" class="md-nav__link">
+    IContextProvider
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ionactivityevent" title="IOnActivityEvent" class="md-nav__link">
+    IOnActivityEvent
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asyncwrapperextension" title="AsyncWrapperExtension" class="md-nav__link">
+    AsyncWrapperExtension
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -438,7 +523,56 @@
                   <a href="https://github.com/Drutol/AoLibs/edit/master/docs/adapters-android.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="todo">TODO</h1>
+                <h1 id="android-adapters">Android Adapters</h1>
+<h2 id="icontextprovider">IContextProvider</h2>
+<p>Some adapters require context to work, that's why they are accepting <code>IContextProvider</code> argument. 
+You should provide your own implementation depending on your architecture.</p>
+<p>For example:</p>
+<pre><code class="cs">private class ContextProvider : IContextProvider
+{
+    public Activity CurrentContext =&gt; MainActivity.Instance;
+}
+</code></pre>
+
+<h2 id="ionactivityevent">IOnActivityEvent</h2>
+<p>Is a mechanism that helps wrapping activity callbacks and delegating them in a more streamlined way.</p>
+<p>Let's consider:</p>
+<pre><code class="cs">public class MainActivity : AppCompatActivity, IOnNewIntentProvider
+{
+
+    ...
+
+    protected override void OnNewIntent(Intent intent)
+    {
+        base.OnNewIntent(intent);
+        _activityNewIntentEventHandler.Invoke(this, intent);
+    }
+
+    event EventHandler&lt;Intent&gt; IOnActivityEvent&lt;Intent&gt;.Received
+    {
+        add =&gt; _activityNewIntentEventHandler += value;
+        remove =&gt; _activityNewIntentEventHandler -= value;
+    }
+}
+</code></pre>
+
+<p>Where <code>IOnNewIntentProvider</code> derives from <code>IOnActivityEvent&lt;T&gt;</code>.</p>
+<p>You are required to manually provide delegation of given event like above. Then you can register them like so for example:</p>
+<pre><code class="cs">containerBuilder.Register(ctx =&gt; MainActivity.Instance)
+                .As&lt;IOnActivityResultProvider&gt;()
+                ...
+                .As&lt;IOnNewIntentProvider&gt;();
+</code></pre>
+
+<h3 id="asyncwrapperextension">AsyncWrapperExtension</h3>
+<p>While the whole thing with <code>IOnActivityEvent&lt;T&gt;</code> may look cumbersome at first, it for sure saved me quite a bit of time later on.
+There's <code>AndroidCallbacklAsyncWrapperExtension</code> class which contains extension method:</p>
+<pre><code class="cs">public static async Task&lt;T&gt; Await&lt;T&gt;(
+    this IOnActivityEvent&lt;T&gt; activityEvent,
+    CancellationToken cancellationToken = default)
+</code></pre>
+
+<p>It lets you <em>await</em> callbacks without writing devious logic every time.</p>
                 
                   
                 
@@ -521,9 +655,9 @@
       
     </div>
     
-      <script src="../assets/javascripts/application.a59e2a89.js"></script>
+      <script src="../assets/javascripts/application.583bbe55.js"></script>
       
-      <script>app.initialize({version:"0.17.5",url:{base:".."}})</script>
+      <script>app.initialize({version:"1.0.1",url:{base:".."}})</script>
       
         <script src="../js/hljs.js"></script>
       

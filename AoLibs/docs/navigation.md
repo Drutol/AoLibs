@@ -2,9 +2,10 @@
 
 The goal is to provide lightweight solution for cross-platform navigation.
 
-The main interface you will be using in your shared codebase is `INavigationManager<TPageIdentifier>` where `TPageIdentifier` is usally a simple enum with all your pages.
+The main interface you will be using in your shared codebase is `INavigationManager<TPageIdentifier>` where `TPageIdentifier` is usually a simple enum with all your pages.
 
-> Below I'll descibe shared concepts between Android&iOS. Setup and platofrm specific things are contained in separate pages.
+!!! example
+    Below I'll describe shared concepts between Android and iOS. Setup and platform specific things are contained in separate pages.
 
 ## Page providers
 
@@ -13,7 +14,7 @@ The page definitions dictionary takes in pair of `TPageIdentifier` which is simp
 * `CachedPageProvider`
     * This provider preserves the state of its page so that when we navigate there it will look the same.
 * `OneshotPageProvider`
-    * Here we are providing the page instance just once, each navigation will create new uninitilized page. The use-case of it is to avoid manually cleaning pages like _RegisterPage_. I suggest disabling cache in your IoC container for associated ViewModel.
+    * Here we are providing the page instance just once, each navigation will create new uninitialized page. The use-case of it is to avoid manually cleaning pages like _RegisterPage_. I suggest disabling cache in your IoC container for associated ViewModel.
 
 ## Navigation lifecycle events
 
@@ -28,7 +29,7 @@ public virtual void NavigatedFrom();
         * eg. SignInPage -> DashboardPage
         * DashboardPage invokes `NavigatedTo`
 * NavigatedBack
-    * Called when we navigate backwards to the page we have alraedy been on.
+    * Called when we navigate backwards to the page we have already been on.
         * eg. SignInPage <- DashboardPage
         * SignInPage invokes `NavigatedBack`
 * NavigatedFrom
@@ -42,7 +43,7 @@ It's possible to invoke navigation with arguments. It allows us to separate View
 
 ## Navigation backstack options
 
-There are defined following naviagtion options:
+There are defined following navigation options:
 ```cs
 public enum NavigationBackstackOption
 {
@@ -63,3 +64,21 @@ public enum NavigationBackstackOption
     * Current page won't be added to backstack on navigation.
 * `ForceNewPageInstance`
     * Requests `IPageProvider` to recreate page instance before navigating.
+
+## Attribute based navigation
+
+When creating instance of `INavigationManager` there's a constructor overload that doesn't require you to pass dictionary mapping pages to providers.
+This constructor will search for all types from calling assembly via `Assembly.GetCallingAssembly()` and search for classes marked with `NavigationPageAttribute`.
+This attribute differs in Android vs iOS implementation but in its shared part it specifies:
+
+* `PageProviderType`
+    * Specifies whether to use `OneshotPageProvider` or `CachedPageProvider`
+* `Page`
+    * Specifies the integer value of an enum specified as *PageIndex*
+
+```cs
+
+[NavigationPage((int) PageIndex.PageA, NavigationPageAttribute.PageProvider.Cached)]
+public class TestPageAFragment : FragmentBase<TestViewModelA>
+
+```
