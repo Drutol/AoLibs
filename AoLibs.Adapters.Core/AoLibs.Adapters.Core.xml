@@ -1,0 +1,369 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AoLibs.Adapters.Core</name>
+    </assembly>
+    <members>
+        <member name="T:AoLibs.Adapters.Core.AppVariablesBase">
+            <summary>
+            Base class for user defined AppVariables classes.
+            </summary>
+        </member>
+        <member name="P:AoLibs.Adapters.Core.AppVariablesBase.Attributes">
+            <summary>
+            Gets list of all found attributes on given properties.
+            </summary>
+        </member>
+        <member name="T:AoLibs.Adapters.Core.AppVariablesBase.VariableAttribute">
+            <summary>
+            Attribute that marks property of type <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.Holder`1"/> as variable for persistent data storage.
+            Marked property is required to have both setter and getter. 
+            Properties of type different than <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.Holder`1"/> will be ignored.
+            </summary>
+        </member>
+        <member name="P:AoLibs.Adapters.Core.AppVariablesBase.VariableAttribute.MemoryOnly">
+            <summary>
+            Gets or sets a value indicating whether to store in persistent cache.
+            </summary>
+        </member>
+        <member name="P:AoLibs.Adapters.Core.AppVariablesBase.VariableAttribute.CustomKey">
+            <summary>
+            Gets or sets key that will be used to save the file, by default property name will be used.
+            </summary>
+        </member>
+        <member name="P:AoLibs.Adapters.Core.AppVariablesBase.VariableAttribute.ExpirationTime">
+            <summary>
+            Gets or sets time* in seconds describing how long data is valid since last write.
+            By default only supported in async calls when calling <see cref="T:AoLibs.Adapters.Core.AppVariablesBase"/> 
+            contructor with <see cref="T:AoLibs.Adapters.Core.Interfaces.IDataCache"/>. Provide custom <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.ISyncStorage"/> to consume this attribute.
+            </summary>
+        </member>
+        <member name="T:AoLibs.Adapters.Core.AppVariablesBase.IAsyncStorage">
+            <summary>
+            Interface used by <see cref="T:AoLibs.Adapters.Core.AppVariablesBase"/> to store items in asynchronous manner, on filesystem for example.
+            </summary>
+        </member>
+        <member name="T:AoLibs.Adapters.Core.AppVariablesBase.ISyncStorage">
+            <summary>
+            Interface used by <see cref="T:AoLibs.Adapters.Core.AppVariablesBase"/> to store items in synchronous manner, in application settings for example.
+            </summary>
+        </member>
+        <member name="T:AoLibs.Adapters.Core.AppVariablesBase.HolderBase">
+            <summary>
+            Base utility class for <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.Holder`1"/>
+            </summary>
+        </member>
+        <member name="T:AoLibs.Adapters.Core.AppVariablesBase.Holder`1">
+            <summary>
+            Class that holds stored data. Cannot be inherited. 
+            If not instantinated it will be automatically created by underlying mechanisms.
+            </summary>
+            <typeparam name="T">The wrapped type.</typeparam>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.AppVariablesBase.Holder`1.Reset">
+            <summary>
+            Clears both memory storage and <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.ISyncStorage"/>
+            </summary>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.AppVariablesBase.Holder`1.ResetAsync">
+            <summary>
+            Clears both memory storage and <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.IAsyncStorage"/>
+            </summary>
+        </member>
+        <member name="P:AoLibs.Adapters.Core.AppVariablesBase.Holder`1.Value">
+            <summary>
+            Gets or sets value using <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.ISyncStorage"/>
+            </summary>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.AppVariablesBase.Holder`1.GetAsync">
+            <summary>
+            Reads value using <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.IAsyncStorage"/>
+            </summary>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.AppVariablesBase.Holder`1.SetAsync(`0)">
+            <summary>
+            Writes value using <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.IAsyncStorage"/>
+            </summary>
+            <param name="data">Data to save.</param>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.AppVariablesBase.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AoLibs.Adapters.Core.AppVariablesBase"/> class.
+            Initializes all properties marked with <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.VariableAttribute"/>
+            </summary>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.AppVariablesBase.#ctor(AoLibs.Adapters.Core.Interfaces.ISettingsProvider,AoLibs.Adapters.Core.Interfaces.IDataCache)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AoLibs.Adapters.Core.AppVariablesBase"/> class.
+            Initialize with default <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.ISyncStorage"/> where <see cref="T:AoLibs.Adapters.Core.Interfaces.ISettingsProvider"/> is underlaying storage layer.
+            Async methods of <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.Holder`1"/> will be unavailable and throw <see cref="T:System.InvalidOperationException"/>
+            </summary>
+            <param name="settingsProvider">Settings provider.</param>
+            <param name="dataCache">Data cache.</param>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.AppVariablesBase.#ctor(AoLibs.Adapters.Core.AppVariablesBase.ISyncStorage,AoLibs.Adapters.Core.AppVariablesBase.IAsyncStorage)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AoLibs.Adapters.Core.AppVariablesBase"/> class.
+            Initialize with custom implementations of <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.ISyncStorage"/> and optionally <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.IAsyncStorage"/>.
+            Not providing <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.IAsyncStorage"/> will result in <see cref="T:System.InvalidOperationException"/> when accessing async methods of <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.Holder`1"/>
+            </summary>
+            <param name="syncStorage">Synchonous storage used when calling <see cref="P:AoLibs.Adapters.Core.AppVariablesBase.Holder`1.Value"/></param>
+            <param name="asyncStorage">Asynchonous storage.</param>
+        </member>
+        <member name="T:AoLibs.Adapters.Core.DataCache">
+            <summary>
+            Utility class allowing to quickly store data within filesystem.
+            </summary>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.DataCache.RetrieveData``1(System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            Reads the data from given path and deserializes it taking given expirationTime in consideration.
+            </summary>
+            <typeparam name="T">Data Type to retireve.</typeparam>
+            <param name="path">Path to the file. Can be just filename.</param>
+            <param name="expiration">Specifies how much time could have passed since last write.</param>
+            <returns>Deserialized data or default if file does not exist or is malformed.</returns>
+            <exception cref="T:AoLibs.Adapters.Core.Excpetions.DataExpiredException"> Thrown when data is expired.</exception>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.DataCache.SaveData``1(System.String,``0)">
+            <summary>
+            Saves data in fire and forget manner.
+            </summary>
+            <typeparam name="T">Type of data to save.</typeparam>
+            <param name="path">Path to the file. Can be just filename.</param>
+            <param name="data">The data to store.</param>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.DataCache.SaveDataAsync``1(System.String,``0)">
+            <summary>
+            Saves data in asynchronous matter.
+            </summary>
+            <typeparam name="T">Type of data to save.</typeparam>
+            <param name="path">Path to the file. Can be just filename.</param>
+            <param name="data">The data to store.</param>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.DataCache.Clear(System.String)">
+            <summary>
+            Clears storage.
+            </summary>
+            <param name="path">File to remove.</param>
+        </member>
+        <member name="T:AoLibs.Adapters.Core.Excpetions.DataExpiredException">
+            <summary>
+            Exception that signifies that the data stored is older than specified maximum.
+            </summary>
+        </member>
+        <member name="T:AoLibs.Adapters.Core.Interfaces.IClipboardProvider">
+            <summary>
+            Provides basic clipboard functionality.
+            </summary>
+        </member>
+        <member name="T:AoLibs.Adapters.Core.Interfaces.IDataCache">
+            <summary>
+            Defines interface of utlity allowing to easily store serialized data in form of JSON files.
+            </summary>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IDataCache.RetrieveData``1(System.String,System.Nullable{System.TimeSpan})">
+            <summary>
+            Reads file and deserializes given data.
+            Returns default value of <see cref="!:T"/> when file doesn't exist.
+            </summary>
+            <typeparam name="T">The type of data to retieve.</typeparam>
+            <param name="path">Path delimeted with "/" with filename at the end. Root is default platfrom's AppData folder.</param>
+            <param name="expiration">If data was stored for longer than given period <see cref="T:AoLibs.Adapters.Core.Excpetions.DataExpiredException"/> will be thrown.</param>
+            <exception cref="T:AoLibs.Adapters.Core.Excpetions.DataExpiredException">Thrown when expiration exceeds specified time.</exception>
+            <returns>Deserialized data.</returns>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IDataCache.SaveData``1(System.String,``0)">
+            <summary>
+            Serializes data and stores in in file.
+            </summary>
+            <typeparam name="T">Type of data to save.</typeparam>
+            <param name="path">Path delimeted with "/" with filename at the end. Root is default platfrom's AppData folder.</param>
+            <param name="data">Data to store.</param>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IDataCache.SaveDataAsync``1(System.String,``0)">
+            <summary>
+            Serializes data and stores in in file.
+            </summary>
+            <typeparam name="T">Type of data to save.</typeparam>
+            <param name="path">Path delimeted with "/" with filename at the end. Root is default platfrom's AppData folder.</param>
+            <param name="data">Data to store.</param>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IDataCache.Clear(System.String)">
+            <summary>
+            Remove file.
+            </summary>
+            <param name="path">The path of the file.</param>
+        </member>
+        <member name="T:AoLibs.Adapters.Core.Interfaces.IDispatcherAdapter">
+            <summary>
+            Allows to invoke given delegate on UI thread.
+            </summary>
+        </member>
+        <member name="T:AoLibs.Adapters.Core.Interfaces.IFileStorageProvider">
+            <summary>
+            Provides functionality regarding reading and writing from filesystem.
+            </summary>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IFileStorageProvider.ReadTextAsync(System.String)">
+            <summary>
+            Reads text from given file.
+            </summary>
+            <param name="path">Path to the file.</param>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IFileStorageProvider.ReadBytesAsync(System.String)">
+            <summary>
+            Reads bytes from given file.
+            </summary>
+            <param name="path">Path to the file.</param>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IFileStorageProvider.WriteText(System.String,System.String)">
+            <summary>
+            Throws exceptions.
+            </summary>
+            <param name="path">Path to the file.</param>
+            <param name="text">Text to save.</param>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IFileStorageProvider.WriteTextAsync(System.String,System.String)">
+            <summary>
+            Throws exceptions.
+            </summary>
+            <param name="path">Path to the file.</param>
+            <param name="text">Text to save.</param>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IFileStorageProvider.WriteBytes(System.String,System.Byte[])">
+            <summary>
+            Throws exceptions.
+            </summary>
+            <param name="path">Path to the file.</param>
+            <param name="bytes">Bytes to save.</param>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IFileStorageProvider.WriteBytesAsync(System.String,System.Byte[])">
+            <summary>
+            Throws exceptions.
+            </summary>
+            <param name="path">Path to the file.</param>
+            <param name="bytes">Bytes to save.</param>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IFileStorageProvider.RemoveFile(System.String)">
+            <summary>
+            Removes files at the specified path.
+            </summary>
+            <param name="path">Path to the file.</param>
+        </member>
+        <member name="T:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider">
+            <summary>
+            Provides functionality of presenting message boxes,
+            additionally allows to streamline display of any loaders you may happen to have.
+            </summary>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowMessageBoxWithInputAsync(System.String,System.String,System.String,System.String)">
+            <summary>
+            Shows dialog allowing user to make an action.
+            </summary>
+            <param name="title">Title of the dialog.</param>
+            <param name="content">Content of the dialog.</param>
+            <param name="positiveText">Content on the button representing YES response.</param>
+            <param name="negativeText">Content on the button representing NO response.</param>
+            <returns>
+            If user pressed YES then true else false.
+            </returns>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowMessageBoxOkAsync(System.String,System.String,System.String)">
+            <summary>
+            Shows message box with only action being OK action.
+            </summary>
+            <param name="title">Title of the dialog.</param>
+            <param name="content">Content of the dialog.</param>
+            <param name="neutralText">Content on the button representing YES response.</param>
+        </member>
+        <member name="P:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.LoaderLifetime">
+            <summary>
+            Gets disposable wrapper on the loader lifetime so you can use it in using block convenintly.
+            Invokes <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowLoadingPopup(System.String,System.String)"/> and <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.HideLoadingDialog"/>
+            </summary>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ObtainLoaderLifetime(System.String,System.String)">
+            <summary>
+            Provides disposable wrapper on the loader lifetime so you can use it in using block convenintly.
+            Invokes <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowLoadingPopup(System.String,System.String)"/> and <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.HideLoadingDialog"/>. Customizatble version of <see cref="P:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.LoaderLifetime"/>
+            </summary>
+            <param name="title">Title of the loader.</param>
+            <param name="content">Content of the loader.</param>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowLoadingPopup(System.String,System.String)">
+            <summary>
+            Informs the provider to send signal to present your custom loading dialog.
+            </summary>
+            <param name="title">Title of the loader.</param>
+            <param name="content">Content of the loader.</param>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.HideLoadingDialog">
+            <summary>
+            Informs the provider to send signal to hide your custom loading dialog.
+            </summary>
+        </member>
+        <member name="T:AoLibs.Adapters.Core.Interfaces.IPhoneCallAdapter">
+            <summary>
+            Simple adapter allowing to call given number.
+            </summary>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IPhoneCallAdapter.Call(System.String)">
+            <summary>
+            Presents system controls for calling with given number filled in.
+            </summary>
+            <param name="telephoneNumber">Telephone number.</param>
+        </member>
+        <member name="T:AoLibs.Adapters.Core.Interfaces.IPickerAdapter">
+            <summary>
+            Class that presents system picker allowing user to choose from given collection of items.
+            </summary>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IPickerAdapter.ShowItemsPicker(System.Collections.Generic.IEnumerable{System.String},System.Int32,System.String,System.String,System.String)">
+            <summary>
+            Allows user to pick one from given selection of items.
+            </summary>
+            <param name="items">Collection of choices.</param>
+            <param name="selectedIndex">Initally selected item index. -1 to select none.</param>
+            <param name="title">Title of the picker.</param>
+            <param name="cancelText">Text on cancel button.</param>
+            <param name="okText">Text on ok button.</param>
+            <returns>Returns index of selected item, if cancelled returens null.</returns>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IPickerAdapter.ShowDatePicker(System.DateTime,System.String,System.String)">
+            <summary>
+            Presents user with date picker.
+            </summary>
+            <param name="startingDate">Initialy set date.</param>
+            <param name="okText">Text on ok button.</param>
+            <param name="cancelText">Text on cancel button.</param>
+            <returns>Returns selected date or null if cancelled.</returns>
+        </member>
+        <member name="T:AoLibs.Adapters.Core.Interfaces.ISettingsProvider">
+            <summary>
+            Provides simple facade over underlying <see cref="!:PreferenceManager"/>
+            </summary>
+        </member>
+        <member name="T:AoLibs.Adapters.Core.Interfaces.IUriLauncherAdapter">
+            <summary>
+            Allows to launch Uri.
+            </summary>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IUriLauncherAdapter.LaunchUri(System.Uri)">
+            <summary>
+            Launches given Uri.
+            </summary>
+            <param name="uri">Uri.</param>
+        </member>
+        <member name="T:AoLibs.Adapters.Core.Interfaces.PlatformType">
+            <summary>
+            Defines on which platform the app is running.
+            </summary>
+        </member>
+        <member name="T:AoLibs.Adapters.Core.MessageBoxProviderBase">
+            <summary>
+            Base class for MessageBoxProviders, addiditonnaly allows to obtain "Lifetime" object of your loader so it can be conviniently used in using statement.
+            </summary>
+        </member>
+    </members>
+</doc>

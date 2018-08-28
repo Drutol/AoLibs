@@ -10,7 +10,7 @@ namespace AoLibs.Adapters.Core.Interfaces
         /// <summary>
         /// Launches given Uri.
         /// </summary>
-        /// <param name="uri"></param>
+        /// <param name="uri">Uri.</param>
         void LaunchUri(Uri uri);
     }
 }

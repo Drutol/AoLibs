@@ -14,7 +14,7 @@ namespace AoLibs.Adapters.Android
     public class PhotoPickerAdapter : IPhotoPickerAdapter
     {
         /// <summary>
-        /// Specifies with what code will be the intent launched.
+        /// Gets or sets what code will be the intent launched with.
         /// </summary>
         public static int TakePhotoRequestId { get; set; } = 12;
 

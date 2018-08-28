@@ -20,6 +20,7 @@ namespace AoLibs.Adapters.Core.Interfaces
         /// If user pressed YES then true else false.
         /// </returns>
         Task<bool> ShowMessageBoxWithInputAsync(string title, string content, string positiveText, string negativeText);
+        
         /// <summary>
         /// Shows message box with only action being OK action.
         /// </summary>
@@ -29,20 +30,26 @@ namespace AoLibs.Adapters.Core.Interfaces
         Task ShowMessageBoxOkAsync(string title, string content, string neutralText);
 
         /// <summary>
-        /// Provides disposable wrapper on the loader lifetime so you can use it in using block convenintly.
+        /// Gets disposable wrapper on the loader lifetime so you can use it in using block convenintly.
         /// Invokes <see cref="ShowLoadingPopup"/> and <see cref="HideLoadingDialog"/>
         /// </summary>
         IDisposable LoaderLifetime { get; }
+       
         /// <summary>
         /// Provides disposable wrapper on the loader lifetime so you can use it in using block convenintly.
         /// Invokes <see cref="ShowLoadingPopup"/> and <see cref="HideLoadingDialog"/>. Customizatble version of <see cref="LoaderLifetime"/>
         /// </summary>
+        /// <param name="title">Title of the loader.</param>
+        /// <param name="content">Content of the loader.</param>
         IDisposable ObtainLoaderLifetime(string title, string content);
 
         /// <summary>
         /// Informs the provider to send signal to present your custom loading dialog.
         /// </summary>
+        /// <param name="title">Title of the loader.</param>
+        /// <param name="content">Content of the loader.</param>
         void ShowLoadingPopup(string title = null, string content = null);
+        
         /// <summary>
         /// Informs the provider to send signal to hide your custom loading dialog.
         /// </summary>

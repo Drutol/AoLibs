@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AoLibs.Utilities.Shared</name>
+    </assembly>
+    <members>
+        <member name="M:AoLibs.Utilities.Shared.DiffUtility.Diff``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},AoLibs.Utilities.Shared.DiffUtility.CompareDelegate{``0},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Performs diff on two <see cref="T:System.Collections.Generic.IEnumerable`1"/> Provides Additions, Removals, Specifies which items were modified and which stayed as is.
+            </summary>
+            <typeparam name="T">The Type of the items.</typeparam>
+            <param name="first">Original collection.</param>
+            <param name="other">Updated collection.</param>
+            <param name="referenceComparer">Delegate allowing to match items representing same entities, by Ids for example.</param>
+            <param name="equalityComparer">Comparer that will be used to determine item's equality.</param>
+        </member>
+        <member name="M:AoLibs.Utilities.Shared.DiffUtility.Diff``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},AoLibs.Utilities.Shared.DiffUtility.CompareDelegate{``0},AoLibs.Utilities.Shared.DiffUtility.CompareDelegate{``0})">
+            <summary>
+            Performs diff on two <see cref="T:System.Collections.Generic.IEnumerable`1"/> Provides Additions, Removals, Specifies which items were modified and which stayed as is.
+            </summary>
+            <typeparam name="T">The type of items in the collection.</typeparam>
+            <param name="first">Original collection.</param>
+            <param name="other">Updated collection.</param>
+            <param name="referenceComparer">Delegate allowing to match items representing same entities, by Ids for example.</param>
+            <param name="equalityComparer">Delegate that specifies custom equality logic, <see cref="M:System.Object.Equals(System.Object)"/> will be used otherwise.</param>
+        </member>
+        <member name="M:AoLibs.Utilities.Shared.FileSizeUtility.GetHumanReadableBytesLength(System.Int64)">
+            <summary>
+            Converts byte count to nice formatted string with using one of following suffixes:
+            "B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"
+            </summary>
+            <param name="value">Number of bytes.</param>
+        </member>
+        <member name="T:AoLibs.Utilities.Shared.SmartObservableCollection`1">
+            <inheritdoc />
+            <summary>
+            Observable collection with <see cref="M:AoLibs.Utilities.Shared.SmartObservableCollection`1.AddRange(System.Collections.Generic.IEnumerable{`0})" /> which will add elements without raising an update with every insert.
+            </summary>
+            <typeparam name="T">The type of the items.</typeparam>
+        </member>
+        <member name="M:AoLibs.Utilities.Shared.SmartObservableCollection`1.AddRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Adds range of items without unnecessary collection updates. One update is issued when whole collection updates.
+            </summary>
+            <param name="range">The range of items to add.</param>
+        </member>
+    </members>
+</doc>

@@ -25,7 +25,7 @@ namespace NavigationLib.Android.Navigation
         }
 
         /// <summary>
-        /// Initializes new page attribute.
+        /// Initializes a new instance of the <see cref="NavigationPageAttribute"/> class.
         /// </summary>
         /// <param name="page">Integer value of your TPageIdentifier enum.</param>
         /// <param name="pageProvider">Indicates whether to use <see cref="CachedPageProvider{TPage}"/> or <see cref="OneshotPageProvider{TPage}"/> when creating page entries.</param>
@@ -36,11 +36,12 @@ namespace NavigationLib.Android.Navigation
         }
 
         /// <summary>
-        /// Integer value of your TPageIdentifier enum.
+        /// Gets integer value of your TPageIdentifier enum.
         /// </summary>
         public int Page { get; }
+        
         /// <summary>
-        /// Indicates whether to use <see cref="CachedPageProvider{TPage}"/> or <see cref="OneshotPageProvider{TPage}"/> when creating page entries.
+        /// Gets value indicating whether to use <see cref="CachedPageProvider{TPage}"/> or <see cref="OneshotPageProvider{TPage}"/> when creating page entries.
         /// </summary>
         public PageProvider PageProviderType { get; }
     }

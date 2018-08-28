@@ -8,7 +8,7 @@ namespace AoLibs.Adapters.Android.Interfaces
     public interface IContextProvider
     {
         /// <summary>
-        /// Current activity.
+        /// Gets current activity.
         /// </summary>
         Activity CurrentContext { get; }
     }

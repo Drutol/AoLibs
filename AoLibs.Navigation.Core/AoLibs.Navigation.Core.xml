@@ -1,0 +1,321 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AoLibs.Navigation.Core</name>
+    </assembly>
+    <members>
+        <member name="T:AoLibs.Navigation.Core.BackstackEntry`1">
+            <summary>
+            Represents an item in navigation backstack. It can be either <see cref="T:System.Action"/> or <see cref="!:TPage"/>
+            </summary>
+            <typeparam name="TPage">Type of page on target platform.</typeparam>
+        </member>
+        <member name="T:AoLibs.Navigation.Core.NaviagtionInterceptor`1">
+            <summary>
+            Delegate allowing to intercept navigation before actual commit.
+            </summary>
+            <typeparam name="TPageIdentifier">Page enum type.</typeparam>
+            <param name="targetPage">Page that is the target of navigation.</param>
+        </member>
+        <member name="E:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.Navigated">
+            <summary>
+            Event for when navigation occurs. The argument is the destination page.
+            </summary>
+        </member>
+        <member name="E:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.WentBack">
+            <summary>
+            Event for when back navigation occurs. The argument is the desitnation page.
+            </summary>
+        </member>
+        <member name="P:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.Interceptor">
+            <summary>
+            Gets or sets delegate to intercept navigation and change target page in advance.
+            </summary>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.Navigate(`0,System.Object)">
+            <summary>
+            Navigates to page with <see cref="F:AoLibs.Navigation.Core.NavigationBackstackOption.AddToBackstack" /> option.
+            </summary>
+            <param name="page">Target page.</param>
+            <param name="args">Navigation argument.</param>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.Navigate(`0,AoLibs.Navigation.Core.NavigationBackstackOption,System.Object)">
+            <summary>
+            Navigates to page with given options.
+            </summary>
+            <param name="page">Target page.</param>
+            <param name="backstackOption">Navigation option.</param>
+            <param name="args">Navigation argument.</param>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.AddActionToBackstack(System.Action)">
+            <summary>
+            Adds artificial action to next back navigation. Could be used for popups for example.
+            </summary>
+            <param name="action">Action to perform on back press.</param>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.AddActionToBackstack(`0,System.Action)">
+            <summary>
+                Adds artificial action to next back navigation. Could be used for popups for example.
+            </summary>
+            <param name="stackIdentifier">Stack identifier.</param>
+            <param name="action">Action to perform on back press.</param>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.GoBack(System.Object)">
+            <summary>
+            Goes back on all backstacks.
+            </summary>
+            <param name="args">Navigation arguments.</param>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.GoBack(`0,System.Object)">
+            <summary>
+            Goes back on given stack.
+            </summary>
+            <param name="stackIdentifier">Stack identifier.</param>
+            <param name="args">Navigation arguments.</param>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.PopFromBackstack">
+            <summary>
+            Pops topmost entry on main (first) navigation stack.
+            </summary>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.PopFromBackstack(`0)">
+            <summary>
+            Pops topmost entry on navigation stack.
+            </summary>
+            <param name="stackIdentifier">Page associated with desired backstack.</param>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.PopFromBackStackFromExternal(`0)">
+            <summary>
+            Pops page when the page was removed from stack by extranal source, like native iOS navigation.
+            </summary>
+            <param name="pageIdentifier">The page that was popped.</param>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.PopActionFromBackStack">
+            <summary>
+            Removes topmost action from main (first) backstack, if there was one returns true, false otherwise.
+            </summary>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.PopActionFromBackStack(`0)">
+            <summary>
+            Removes topmost action from backstack, if there was one returns true, false otherwise.
+            </summary>
+            <param name="stackIdentifier">Stack identifier.</param>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.OnBackRequested">
+            <summary>
+            Returns false if main (first) back stack is empty and back naviagtion sould be handled by app framework.
+            </summary>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.OnBackRequested(`0)">
+            <summary>
+            Returns false if back stack is empty and back naviagtion sould be handled by app framework.
+            </summary>
+            <param name="stackIdentifier">Stack identifier.</param>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.ClearBackStack">
+            <summary>
+            Clears whole main (first) backstack
+            </summary>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.ClearBackStack(`0)">
+            <summary>
+            Clears whole backstack of indicated stack.
+            </summary>
+            <param name="stackIdentifier">Stack identifier.</param>
+        </member>
+        <member name="P:AoLibs.Navigation.Core.Interfaces.INavigationPage.PageIdentifier">
+            <summary>
+            Gets or sets TPageIdentifier.
+            </summary>
+        </member>
+        <member name="P:AoLibs.Navigation.Core.Interfaces.INavigationPage.NavigationArguments">
+            <summary>
+            Gets or sets current navigation arguments.
+            </summary>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationPage.NavigatedTo">
+            <summary>
+            Called when we navigate to this page going forward.
+            </summary>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationPage.NavigatedBack">
+            <summary>
+            Called when we navigate to this page by going back.
+            </summary>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationPage.NavigatedFrom">
+            <summary>
+            Called when we leave given page.
+            </summary>
+        </member>
+        <member name="T:AoLibs.Navigation.Core.Interfaces.IStackResolver`2">
+            <summary>
+            Interface used to allow resolve proper navigation stack for given page identifier.
+            </summary>
+            <typeparam name="TPage">The page type used on the target platofrm.</typeparam>
+            <typeparam name="TPageIdentifier">Enum defining the pages.</typeparam>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.IStackResolver`2.ResolveStackForIdentifier(`1)">
+            <summary>
+            Resolves stack for given <see cref="!:TPageIdentifier"/>
+            </summary>
+            <param name="identifier">Page related to desired stack.</param>
+            <returns>Found stack</returns>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.IStackResolver`2.ResolveStackForTag(System.Enum)">
+            <summary>
+            Resolves stack for given <see cref="T:System.Enum"/> which should be <see cref="!:TPageIdentifier"/>
+            </summary>
+            <param name="tag">Tag associated with wanted stack.</param>
+            <returns>Found stack</returns>
+        </member>
+        <member name="T:AoLibs.Navigation.Core.Interfaces.IViewModelResolver">
+            <summary>
+            Interface used to provide ViewModels for injection to actual <see cref="T:AoLibs.Navigation.Core.Interfaces.INavigationPage"/> instances.
+            </summary>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.IViewModelResolver.Resolve``1">
+            <summary>
+            Resolves for instance of <see cref="!:TViewModel"/>
+            </summary>
+            <typeparam name="TViewModel">ViewModel</typeparam>
+        </member>
+        <member name="F:AoLibs.Navigation.Core.NavigationBackstackOption.AddToBackstack">
+            <summary>
+                Adds page to backstack as usual.
+            </summary>
+        </member>
+        <member name="F:AoLibs.Navigation.Core.NavigationBackstackOption.SetAsRootPage">
+            <summary>
+                Clears backstack and sets given page as root.
+            </summary>
+        </member>
+        <member name="F:AoLibs.Navigation.Core.NavigationBackstackOption.ClearBackstackToFirstOccurence">
+            <summary>
+                Backstack will be cleared until page of given type is found. Upon failure this page will be root of naviagtion
+                stack.
+            </summary>
+        </member>
+        <member name="F:AoLibs.Navigation.Core.NavigationBackstackOption.NoBackstack">
+            <summary>
+                Page won't be pushed on backstack.
+            </summary>
+        </member>
+        <member name="F:AoLibs.Navigation.Core.NavigationBackstackOption.ForceNewPageInstance">
+            <summary>
+                Ensures that page will not preserve its saved state.
+            </summary>
+        </member>
+        <member name="T:AoLibs.Navigation.Core.NavigationManagerBase`2">
+            <summary>
+            Base class for NavigationMangers providing all basic functionality. It is used as a doorway to mechanisms below, it is capable of managing a number of various stacks.
+            </summary>
+            <typeparam name="TPage">Actual navigation class.</typeparam>
+            <typeparam name="TPageIdentifier">Enum defining pages.</typeparam>
+        </member>
+        <member name="E:AoLibs.Navigation.Core.NavigationManagerBase`2.Navigated">
+            <summary>
+            Event for when navigation occurs on any stack.
+            </summary>
+        </member>
+        <member name="E:AoLibs.Navigation.Core.NavigationManagerBase`2.WentBack">
+            <summary>
+            Event for when back navigation occurs.
+            </summary>
+        </member>
+        <member name="P:AoLibs.Navigation.Core.NavigationManagerBase`2.Interceptor">
+            <summary>
+            Gets or sets navigation interceptor.
+            </summary>
+        </member>
+        <member name="T:AoLibs.Navigation.Core.PageProviders.CachedPageProvider`1">
+            <summary>
+            Page provider that will cache the page it is responsible for.
+            </summary>
+            <typeparam name="TPage">The type of concrete naviagtion component.</typeparam>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.PageProviders.CachedPageProvider`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AoLibs.Navigation.Core.PageProviders.CachedPageProvider`1"/> class.
+            Creates new instance, the page will be created using <see cref="M:System.Activator.CreateInstance``1"/>, be sure it can be instantinated this way.
+            </summary>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.PageProviders.CachedPageProvider`1.#ctor(`0,System.Func{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:AoLibs.Navigation.Core.PageProviders.CachedPageProvider`1"/> class.
+            Creates new instance setting up the provider with provided page.
+            </summary>
+            <param name="instance">Page to be used by provider.</param>
+            <param name="factory">Optional factory to reinstantinate the page if need araises. <see cref="M:System.Activator.CreateInstance``1"/> will be used if null.</param>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.PageProviders.CachedPageProvider`1.ForceReinstantination">
+            <summary>
+            Creates new page instance in place of the old one.
+            </summary>
+        </member>
+        <member name="P:AoLibs.Navigation.Core.PageProviders.CachedPageProvider`1.PageType">
+            <summary>
+            Gets actual type of held page.
+            </summary>
+        </member>
+        <member name="P:AoLibs.Navigation.Core.PageProviders.CachedPageProvider`1.Page">
+            <summary>
+            Gets or sets instance of held page.
+            </summary>
+        </member>
+        <member name="P:AoLibs.Navigation.Core.PageProviders.CachedPageProvider`1.PageIdentifier">
+            <summary>
+            Gets or sets current TPageIdentifier hidden beyond <see cref="T:System.Object"/>
+            </summary>
+        </member>
+        <member name="T:AoLibs.Navigation.Core.PageProviders.OneshotPageProvider`1">
+            <summary>
+            Provider which will recreate the bage instance whnever it is requested so every time we start with clean state.
+            </summary>
+            <typeparam name="TPage">Type of page on target platfrom.</typeparam>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.PageProviders.OneshotPageProvider`1.#ctor(System.Func{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:AoLibs.Navigation.Core.PageProviders.OneshotPageProvider`1"/> class.
+            </summary>
+            <param name="factory">Factory used to build actual page.</param>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.PageProviders.OneshotPageProvider`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AoLibs.Navigation.Core.PageProviders.OneshotPageProvider`1"/> class.
+            <see cref="M:System.Activator.CreateInstance``1"/> will be used for instantination.
+            </summary>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.PageProviders.OneshotPageProvider`1.ForceReinstantination">
+            <summary>
+            Obsolete in this implementation.
+            </summary>
+        </member>
+        <member name="P:AoLibs.Navigation.Core.PageProviders.OneshotPageProvider`1.PageType">
+            <summary>
+            Gets actual type of held page.
+            </summary>
+        </member>
+        <member name="P:AoLibs.Navigation.Core.PageProviders.OneshotPageProvider`1.Page">
+            <summary>
+            Gets instance of held page.
+            </summary>
+        </member>
+        <member name="P:AoLibs.Navigation.Core.PageProviders.OneshotPageProvider`1.PageIdentifier">
+            <summary>
+            Gets or sets TPageIdentifier hidden beyond <see cref="T:System.Object"/>
+            </summary>
+        </member>
+        <member name="T:AoLibs.Navigation.Core.TaggedStack`1">
+            <summary>
+            Stack with added Tag property.
+            </summary>
+            <typeparam name="T">Type of items.</typeparam>
+        </member>
+        <member name="P:AoLibs.Navigation.Core.TaggedStack`1.Tag">
+            <summary>
+            Gets or sets the tag.
+            </summary>
+        </member>
+    </members>
+</doc>

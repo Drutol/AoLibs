@@ -16,7 +16,7 @@ namespace NavigationLib.Android.Navigation
     /// <summary>
     /// Class that fulfills the purpose of executing actual navigation transactions.
     /// </summary>
-    /// <typeparam name="TPageIdentifier"></typeparam>
+    /// <typeparam name="TPageIdentifier">Page enum type.</typeparam>
     public class NavigationManager<TPageIdentifier> : NavigationManagerBase<NavigationFragmentBase, TPageIdentifier>
     {
         private readonly FragmentManager _fragmentManager;
@@ -24,12 +24,12 @@ namespace NavigationLib.Android.Navigation
         private readonly Action<FragmentTransaction> _interceptTransaction;
 
         /// <summary>
-        /// If the navigation fails, should an exception be thrown.
+        /// Gets or sets a value indicating whether failed navigation should throw an exception.
         /// </summary>
         public bool ThrowOnNavigationException { get; set; } = true;
 
         /// <summary>
-        /// Creates new naviagtion manager.
+        /// Initializes a new instance of the <see cref="NavigationManager{TPageIdentifier}"/> class.
         /// </summary>
         /// <param name="fragmentManager">Fragment manager of main activity.</param>
         /// <param name="rootFrame">The view which will be used as the one being replaced with new Views</param>
@@ -54,7 +54,7 @@ namespace NavigationLib.Android.Navigation
         }
 
         /// <summary>
-        /// Creates new navigation manager.
+        /// Initializes a new instance of the <see cref="NavigationManager{TPageIdentifier}"/> class.
         /// To gather page definitions it searches for classes marked with <see cref="NavigationPageAttribute"/> from <see cref="Assembly.GetCallingAssembly"/>
         /// </summary>
         /// <param name="fragmentManager">Fragment manager of main activity.</param>

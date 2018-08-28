@@ -8,8 +8,7 @@
         /// <summary>
         /// Resolves for instance of <see cref="TViewModel"/>
         /// </summary>
-        /// <typeparam name="TViewModel"></typeparam>
-        /// <returns></returns>
+        /// <typeparam name="TViewModel">ViewModel</typeparam>
         TViewModel Resolve<TViewModel>();
     }
 }
