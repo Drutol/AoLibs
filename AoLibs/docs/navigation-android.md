@@ -4,6 +4,8 @@ The idea behind this navigation mechanism is similar to how WPF/UWP's `<Frame>` 
 
 ## Setup
 
+### Layout
+
 All pages are hosted as `Fragments`, I'm assuming using single activity pattern.
 Given a single android activity with layout:
 ```xml
@@ -17,6 +19,9 @@ Given a single android activity with layout:
                android:id="@+id/RootView" />
 </LinearLayout>
 ```
+
+### Manager
+
 Now we will want to initialize library from code.
 The _RootView_ `FrameLayout` will be hosting all our pages within itself.
 
@@ -41,11 +46,29 @@ protected override void OnCreate(Bundle savedInstanceState)
         pageDefinitions: pageDefinitions)
 }
 ```
+
+!!! hint
+    You can also used attribute based navigation. See more [here](/navigation/#attribute-based-navigation).
+
+### Back navigation forwarding
+
+One last thing left to do is to give the library the way to know that user pressed back button. Given that `App.Current.NavigationManager` is the instance of our freshly created navigation manager we can override `OnBackPressed()` in `MainActivity` like so:
+```cs
+public override void OnBackPressed()
+{
+    if (!App.Current.NavigationManager.OnBackRequested())
+    {
+        MoveTaskToBack(true);
+    }
+}
+```
+If `OnBackRequested()` returns true it means that the navigation was handled by the library, if not then it means that there's nothing on backstack.
+
 Now we can happily use our `INavigationManager<TPageIdentifier>` in our ViewModels!
 
 ## Additional configuration
 
-## Adding new pages
+### Adding new pages
 
 As we can see there are two pages defined `WelcomePageFragment` and `SignInPageFragment`. I'm providing base clases for fragments so it's very easy to add new content.
 
@@ -77,7 +100,7 @@ public class SplashPageFragment : FragmentBase<SplashViewModel>
   * `InitBinings` method in which we will define our bindings to ViewModel.
 4. Add new entry in `pageDefinitions`
 
-## Transition animations
+### Transition animations
 
 If you want to include transition animations when navigating you will want to use `Action<FragmentTransaction> interceptTransaction` parameter of `NavigationManager`'s constructor. It will expose `FragmentTransaction` so you change whatever you want before actually committing new page. For example:
 ```cs
@@ -89,7 +112,7 @@ private void InterceptTransaction(FragmentTransaction fragmentTransaction)
 }
 ```
 
-## ViewModel injection
+### ViewModel injection
 
 The generic parameter of `FragmentBase<TViewModel>` allows you to specify which ViewModel to pull for given fragment. ViewModel will be available in `ViewModel` property in your fragment.
 This requires providing implementation of `IViewModelResolver` interface which will pull appropriate ViewModels from your IoC for example.
@@ -106,12 +129,9 @@ private class ViewModelResolver : IViewModelResolver
 }
 ```
 
-This `ViewModelResolver` can be assigned to static property found on `NavigationFragmentBase`.
-```cs
-NavigationFragmentBase.ViewModelResolver = new ViewModelResolver();
-```
+This `ViewModelResolver` can be passed to `NavigationManager`'s constructor.
 
-## Bindings
+### Bindings
 
 When we are talking navigation we are talking bindings lifecycle too. `FragmentBase` class handles them too. Since the library is based on MVVMLight library we are using its bindings. 
 
@@ -136,6 +156,9 @@ protected override void InitBindings()
 }
 ```
 Disclaimer: `Value` and `ToggleValue` are `TextViews`.
+
+!!! faq
+    References to bindings objects should be preserved so that GC doesn't sweep them away.
 
 ## Notes
 

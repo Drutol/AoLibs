@@ -319,6 +319,33 @@
     Setup
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layout" title="Layout" class="md-nav__link">
+    Layout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manager" title="Manager" class="md-nav__link">
+    Manager
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#back-navigation-forwarding" title="Back navigation forwarding" class="md-nav__link">
+    Back navigation forwarding
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -326,33 +353,39 @@
     Additional configuration
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#adding-new-pages" title="Adding new pages" class="md-nav__link">
     Adding new pages
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#transition-animations" title="Transition animations" class="md-nav__link">
     Transition animations
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#viewmodel-injection" title="ViewModel injection" class="md-nav__link">
     ViewModel injection
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#bindings" title="Bindings" class="md-nav__link">
     Bindings
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -512,6 +545,33 @@
     Setup
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layout" title="Layout" class="md-nav__link">
+    Layout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manager" title="Manager" class="md-nav__link">
+    Manager
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#back-navigation-forwarding" title="Back navigation forwarding" class="md-nav__link">
+    Back navigation forwarding
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -519,33 +579,39 @@
     Additional configuration
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#adding-new-pages" title="Adding new pages" class="md-nav__link">
     Adding new pages
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#transition-animations" title="Transition animations" class="md-nav__link">
     Transition animations
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#viewmodel-injection" title="ViewModel injection" class="md-nav__link">
     ViewModel injection
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#bindings" title="Bindings" class="md-nav__link">
     Bindings
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -580,6 +646,7 @@
                 <h2 id="introduction">Introduction</h2>
 <p>The idea behind this navigation mechanism is similar to how WPF/UWP's <code>&lt;Frame&gt;</code> element works. Namely we are have one root page that hosts all other pages. These pages are managed by library within this frame.</p>
 <h2 id="setup">Setup</h2>
+<h3 id="layout">Layout</h3>
 <p>All pages are hosted as <code>Fragments</code>, I'm assuming using single activity pattern.
 Given a single android activity with layout:</p>
 <pre><code class="xml">&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
@@ -593,6 +660,7 @@ Given a single android activity with layout:</p>
 &lt;/LinearLayout&gt;
 </code></pre>
 
+<h3 id="manager">Manager</h3>
 <p>Now we will want to initialize library from code.
 The <em>RootView</em> <code>FrameLayout</code> will be hosting all our pages within itself.</p>
 <pre><code class="cs">protected override void OnCreate(Bundle savedInstanceState)
@@ -616,9 +684,25 @@ The <em>RootView</em> <code>FrameLayout</code> will be hosting all our pages wit
 }
 </code></pre>
 
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>You can also used attribute based navigation. See more <a href="/navigation/#attribute-based-navigation">here</a>.</p>
+</div>
+<h3 id="back-navigation-forwarding">Back navigation forwarding</h3>
+<p>One last thing left to do is to give the library the way to know that user pressed back button. Given that <code>App.Current.NavigationManager</code> is the instance of our freshly created navigation manager we can override <code>OnBackPressed()</code> in <code>MainActivity</code> like so:</p>
+<pre><code class="cs">public override void OnBackPressed()
+{
+    if (!App.Current.NavigationManager.OnBackRequested())
+    {
+        MoveTaskToBack(true);
+    }
+}
+</code></pre>
+
+<p>If <code>OnBackRequested()</code> returns true it means that the navigation was handled by the library, if not then it means that there's nothing on backstack.</p>
 <p>Now we can happily use our <code>INavigationManager&lt;TPageIdentifier&gt;</code> in our ViewModels!</p>
 <h2 id="additional-configuration">Additional configuration</h2>
-<h2 id="adding-new-pages">Adding new pages</h2>
+<h3 id="adding-new-pages">Adding new pages</h3>
 <p>As we can see there are two pages defined <code>WelcomePageFragment</code> and <code>SignInPageFragment</code>. I'm providing base clases for fragments so it's very easy to add new content.</p>
 <p>Type hierarchy:</p>
 <ul>
@@ -654,7 +738,7 @@ The <em>RootView</em> <code>FrameLayout</code> will be hosting all our pages wit
 <li><code>InitBinings</code> method in which we will define our bindings to ViewModel.</li>
 <li>Add new entry in <code>pageDefinitions</code></li>
 </ol>
-<h2 id="transition-animations">Transition animations</h2>
+<h3 id="transition-animations">Transition animations</h3>
 <p>If you want to include transition animations when navigating you will want to use <code>Action&lt;FragmentTransaction&gt; interceptTransaction</code> parameter of <code>NavigationManager</code>'s constructor. It will expose <code>FragmentTransaction</code> so you change whatever you want before actually committing new page. For example:</p>
 <pre><code class="cs">private void InterceptTransaction(FragmentTransaction fragmentTransaction)
 {
@@ -664,7 +748,7 @@ The <em>RootView</em> <code>FrameLayout</code> will be hosting all our pages wit
 }
 </code></pre>
 
-<h2 id="viewmodel-injection">ViewModel injection</h2>
+<h3 id="viewmodel-injection">ViewModel injection</h3>
 <p>The generic parameter of <code>FragmentBase&lt;TViewModel&gt;</code> allows you to specify which ViewModel to pull for given fragment. ViewModel will be available in <code>ViewModel</code> property in your fragment.
 This requires providing implementation of <code>IViewModelResolver</code> interface which will pull appropriate ViewModels from your IoC for example.</p>
 <pre><code class="cs">private class ViewModelResolver : IViewModelResolver
@@ -679,11 +763,8 @@ This requires providing implementation of <code>IViewModelResolver</code> interf
 }
 </code></pre>
 
-<p>This <code>ViewModelResolver</code> can be assigned to static property found on <code>NavigationFragmentBase</code>.</p>
-<pre><code class="cs">NavigationFragmentBase.ViewModelResolver = new ViewModelResolver();
-</code></pre>
-
-<h2 id="bindings">Bindings</h2>
+<p>This <code>ViewModelResolver</code> can be passed to <code>NavigationManager</code>'s constructor.</p>
+<h3 id="bindings">Bindings</h3>
 <p>When we are talking navigation we are talking bindings lifecycle too. <code>FragmentBase</code> class handles them too. Since the library is based on MVVMLight library we are using its bindings. </p>
 <p>You will want to add all of them to <code>Bindings</code> which is of type <code>List&lt;Binding&gt;</code>, they will be properly attached and reattached when needed.</p>
 <p>You are supposed to add all your bindings in <code>InitBindings</code> method which is called once per fragment instance or when bindigs need to be recreated.</p>
@@ -704,6 +785,10 @@ This requires providing implementation of <code>IViewModelResolver</code> interf
 </code></pre>
 
 <p>Disclaimer: <code>Value</code> and <code>ToggleValue</code> are <code>TextViews</code>.</p>
+<div class="admonition faq">
+<p class="admonition-title">Faq</p>
+<p>References to bindings objects should be preserved so that GC doesn't sweep them away.</p>
+</div>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>The <em>MainActivity</em> will have to inherit <code>AppCompatActivity</code>.</li>

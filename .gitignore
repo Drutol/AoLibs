@@ -2,3 +2,5 @@ site/
 AoLibs.*/
 packages/
 .vs/
+Build/tools/
+Output/
