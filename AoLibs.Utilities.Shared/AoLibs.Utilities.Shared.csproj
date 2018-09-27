@@ -15,11 +15,11 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <LangVersion>latest</LangVersion>
-    <DocumentationFile>C:\Users\Piotr\Documents\GitHub\AoLibs\AoLibs.Utilities.Shared\AoLibs.Utilities.Shared.xml</DocumentationFile>
+    <DocumentationFile>AoLibs.Utilities.Shared.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>C:\Users\Piotr\Documents\GitHub\AoLibs\AoLibs.Utilities.Shared\AoLibs.Utilities.Shared.xml</DocumentationFile>
+    <DocumentationFile>AoLibs.Utilities.Shared.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="stylecop.json" />
@@ -28,6 +28,8 @@
     <AdditionalFiles Include="stylecop.json" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.0.2">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 </Project>

@@ -12,11 +12,11 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <LangVersion>latest</LangVersion>
-    <DocumentationFile>C:\Users\Piotr\Documents\GitHub\AoLibs\AoLibs.Adapters.Core\AoLibs.Adapters.Core.xml</DocumentationFile>
+    <DocumentationFile>AoLibs.Adapters.Core.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <LangVersion>latest</LangVersion>
-    <DocumentationFile>C:\Users\Piotr\Documents\GitHub\AoLibs\AoLibs.Adapters.Core\AoLibs.Adapters.Core.xml</DocumentationFile>
+    <DocumentationFile>AoLibs.Adapters.Core.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,6 +28,8 @@
   <ItemGroup>
     <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.0.2">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 </Project>

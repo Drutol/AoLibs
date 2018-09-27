@@ -15,7 +15,7 @@ var solutionFile = File("../AoLibs.sln");
 
 
 /////////////////////////////////////
-// Main Targets
+// Initial Setup
 /////////////////////////////////////
 
 Task("Clean")
@@ -43,63 +43,56 @@ Task("Restore-NuGet")
 		NuGetRestore(solutionFile);
 	});
 
-////////////////////////////////
+/////////////////////////////////////
+// Building
+/////////////////////////////////////
 
 Task("Build-Navigation")
 	.IsDependentOn("Restore-NuGet")
 	.Does(() =>
 	{
-		DotNetCoreBuild("../AoLibs.Navigation.Core/AoLibs.Navigation.Core.csproj", new DotNetCoreBuildSettings
-		{
-			Configuration = "Release",
-			ArgumentCustomization = args => args.Append($"/p:Version=\"{version}\"")
-		});
 		DotNetCoreBuild("../AoLibs.Navigation.Test/AoLibs.Navigation.Test.csproj", new DotNetCoreBuildSettings
 		{
 			Configuration = "Release",
 		});
 
-		MSBuild("../AoLibs.Navigation.Android/AoLibs.Navigation.Android.csproj", settings => settings.SetConfiguration("Release"));
-		MSBuild("../AoLibs.Navigation.iOS/AoLibs.Navigation.iOS.csproj", settings => settings
-																		.SetConfiguration("Release")
-																		.SetMSBuildPlatform(MSBuildPlatform.x86));
+		Build(
+			"../AoLibs.Navigation.Android/AoLibs.Navigation.Android.csproj",
+			"../AoLibs.Navigation.iOS/AoLibs.Navigation.iOS.csproj",
+			"../AoLibs.Navigation.Core/AoLibs.Navigation.Core.csproj"
+		);
 	});
 
 Task("Build-Adapters")
 	.IsDependentOn("Restore-NuGet")
 	.Does(() =>
 	{
-		DotNetCoreBuild("../AoLibs.Adapters.Core/AoLibs.Adapters.Core.csproj", new DotNetCoreBuildSettings
-		{
-			Configuration = "Release",
-			ArgumentCustomization = args => args.Append($"/p:Version=\"{version}\"")
-		});
 		DotNetCoreBuild("../AoLibs.Adapters.Test/AoLibs.Adapters.Test.csproj", new DotNetCoreBuildSettings
 		{
 			Configuration = "Release",
 		});
 
-		MSBuild("../AoLibs.Adapters.Android/AoLibs.Adapters.Android.csproj", settings => settings.SetConfiguration("Release"));
-		MSBuild("../AoLibs.Adapters.iOS/AoLibs.Adapters.iOS.csproj", settings => settings
-																	.SetConfiguration("Release")
-																	.SetMSBuildPlatform(MSBuildPlatform.x86));
+		Build(
+			"../AoLibs.Adapters.Android/AoLibs.Adapters.Android.csproj",
+			"../AoLibs.Adapters.iOS/AoLibs.Adapters.iOS.csproj",
+			"../AoLibs.Adapters.Core/AoLibs.Adapters.Core.csproj"
+		);
 	});
 
 Task("Build-Utilities")
 	.IsDependentOn("Restore-NuGet")
 	.Does(() =>
 	{
-		DotNetCoreBuild("../AoLibs.Utilities.Shared/AoLibs.Utilities.Shared.csproj", new DotNetCoreBuildSettings
-		{
-			Configuration = "Release",
-			ArgumentCustomization = args => args.Append($"/p:Version=\"{version}\"")
-		});
-		MSBuild("../AoLibs.Utilities.Android/AoLibs.Utilities.Android.csproj", settings => settings
-																				.SetConfiguration("Release")
-																				.SetMSBuildPlatform(MSBuildPlatform.x86));
+		Build(
+			"../AoLibs.Utilities.Android/AoLibs.Utilities.Android.csproj",
+			"../AoLibs.Utilities.iOS/AoLibs.Utilities.iOS.csproj",
+			"../AoLibs.Utilities.Shared/AoLibs.Utilities.Shared.csproj"
+		);
 	});
 
-////////////////////////////////
+/////////////////////////////////////
+// Testing
+/////////////////////////////////////
 
 Task("Test-Navigation")
 	.IsDependentOn("Build-Navigation")
@@ -121,30 +114,46 @@ Task("Test-Adapters")
 		});
 	});
 
-////////////////////////////////
+/////////////////////////////////////
+// Packing
+/////////////////////////////////////
 
 Task("Pack-Navigation")
-	.IsDependentOn("Restore-NuGet")
+	//.IsDependentOn("Build-Navigation")
 	.Does(() =>
 	{
-
+		Pack(
+			"../AoLibs.Navigation.Android/AoLibs.Navigation.Android.csproj",
+			"../AoLibs.Navigation.iOS/AoLibs.Navigation.iOS.csproj",
+			"../AoLibs.Navigation.Core/AoLibs.Navigation.Core.csproj"
+		);
 	});
 
 Task("Pack-Adapters")
 	.IsDependentOn("Restore-NuGet")
 	.Does(() =>
 	{
-
+		Pack(
+			"../AoLibs.Adapters.Android/AoLibs.Adapters.Android.csproj",
+			"../AoLibs.Adapters.iOS/AoLibs.Adapters.iOS.csproj",
+			"../AoLibs.Adapters.Core/AoLibs.Adapters.Core.csproj"
+		);
 	});
 
 Task("Pack-Utilities")
 	.IsDependentOn("Restore-NuGet")
 	.Does(() =>
 	{
-
+		Pack(
+			"../AoLibs.Utilities.Android/AoLibs.Utilities.Android.csproj",
+			"../AoLibs.Utilities.iOS/AoLibs.Utilities.iOS.csproj",
+			"../AoLibs.Utilities.Shared/AoLibs.Utilities.Shared.csproj"
+		);
 	});
 
-////////////////////////////////
+/////////////////////////////////////
+// Aggregates
+/////////////////////////////////////
 
 Task("Build-All")
 	.IsDependentOn("Build-Navigation")
@@ -155,25 +164,95 @@ Task("Test-All")
 	.IsDependentOn("Test-Navigation")
 	.IsDependentOn("Test-Adapters");
 
-
-// Task("Gather-Packages")
-// 	.IsDependentOn("Build-Packages")
-// 	.Does(() => 
-// 	{
-
-// 	});
-
-
-
-// Task("Publish-Packages")
-// 	.IsDependentOn("Gather-Packages")
-// 	.Does(() => 
-// 	{
-
-// 	});
+Task("Pack-All")
+	.IsDependentOn("Pack-Navigation")
+	.IsDependentOn("Pack-Adapters")
+    .IsDependentOn("Pack-Utilities");
 
 /////////////////////////////////////
-// Timestamping
+// Publishing
+/////////////////////////////////////
+
+
+Task("Gather-Packages")
+	.IsDependentOn("Build-All")
+	.IsDependentOn("Test-All")
+	.IsDependentOn("Pack-All")
+	.Does(() => 
+	{
+		if(DirectoryExists($"publish/{version}"))
+			DeleteDirectory($"publish/{version}", true);
+
+		CreateDirectory($"publish/{version}");
+		MoveFiles("*.nupkg", $"publish/{version}/");
+		MoveFiles("../AoLibs.Adapters.Core/bin/Release/**/*.nupkg", $"publish/{version}/");
+		MoveFiles("../AoLibs.Navigation.Core/bin/Release/**/*.nupkg", $"publish/{version}/");
+		MoveFiles("../AoLibs.Utilities.Shared/bin/Release/**/*.nupkg", $"publish/{version}/");
+	});
+
+
+
+Task("Publish-Packages")
+	.IsDependentOn("Gather-Packages")
+	.Does(() => 
+	{	
+		foreach(var file in GetFiles($"publish/{version}/*.nupkg"))
+		{
+			DotNetCoreNuGetPush(file.FullPath ,new DotNetCoreNuGetPushSettings()
+			{
+				ApiKey = EnvironmentVariable("NuGetApiKey"),
+				Source = EnvironmentVariable("NuGetFeed"),
+			});
+		}
+	});
+
+
+/////////////////////////////////////
+// Utilities
+/////////////////////////////////////
+
+private void Pack(string pathAndroid,string pathiOS,string pathShared)
+{
+	NuGetPack(pathAndroid, new NuGetPackSettings() 
+	{
+		Version = version,
+		Properties = {
+			["Configuration"] = "Release"
+		}
+	});
+	NuGetPack(pathiOS, new NuGetPackSettings() 
+	{
+		Version = version,
+		Properties = {
+			["Configuration"] = "Release"
+		}
+	});
+	DotNetCorePack(pathShared, new DotNetCorePackSettings()
+	{
+		ArgumentCustomization = (args) => 
+		{
+			return args.Append($"/p:Version={version}");
+		},
+		NoBuild = true,
+		IncludeSymbols = true,
+		Configuration = "Release"
+	});
+}
+
+private void Build(string pathAndroid,string pathiOS,string pathShared)
+{
+	DotNetCoreBuild(pathShared, new DotNetCoreBuildSettings
+		{
+			Configuration = "Release",
+		});
+	MSBuild(pathAndroid, settings => settings.SetConfiguration("Release"));
+	MSBuild(pathiOS, settings => settings
+								.SetConfiguration("Release")
+								.SetMSBuildPlatform(MSBuildPlatform.x86));
+}
+
+/////////////////////////////////////
+// Bootstrap
 /////////////////////////////////////
 
 Task("Default")
