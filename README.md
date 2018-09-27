@@ -1,4 +1,6 @@
 # AoLibs
+[![Build status](https://ci.appveyor.com/api/projects/status/pncu3m9pc5v6w5q4/branch/master?svg=true)](https://ci.appveyor.com/project/Drutol/aolibs/branch/master)
+
 
 Set of various libraries that I happened to write during my Xamarin adventures. They are in final stages of testing in real project. Later on I'll write proper docs and make the code more appropriate for nuget library.
 
