@@ -263,3 +263,4 @@ __pycache__/
 /AoLibs/
 build/tools
 build/packages
+/Build/.dotnet

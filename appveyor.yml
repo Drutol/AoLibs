@@ -1,0 +1,37 @@
+-
+  version: 0.4.{build}
+  image: Visual Studio 2017
+  configuration: Release
+  install: 
+  - echo y | "C:\Program Files (x86)\Android\android-sdk\tools\android.bat" update sdk -u -a -t tools
+  - echo y | "C:\Program Files (x86)\Android\android-sdk\tools\android.bat" update sdk -u -a -t platform-tools
+  - echo y | "C:\Program Files (x86)\Android\android-sdk\tools\android.bat" update sdk -u -a -t build-tools-27.0.3
+  - echo y | "C:\Program Files (x86)\Android\android-sdk\tools\android.bat" update sdk -u -a -t android-27
+
+  branches:
+    only:
+      - publish
+
+  build_script:
+  - cmd: >-
+      cd Build
+  - cmd: >-
+      powershell .\build.ps1 -Verbosity diagnostic -ScriptArgs '-buildTarget="Publish-Packages"','-libVersion="0.4.5"'
+    
+-
+  version: 0.4.{build}
+  image: Visual Studio 2017
+  configuration: Release
+  install: 
+  - echo y | "C:\Program Files (x86)\Android\android-sdk\tools\android.bat" update sdk -u -a -t tools
+  - echo y | "C:\Program Files (x86)\Android\android-sdk\tools\android.bat" update sdk -u -a -t platform-tools
+  - echo y | "C:\Program Files (x86)\Android\android-sdk\tools\android.bat" update sdk -u -a -t build-tools-27.0.3
+  - echo y | "C:\Program Files (x86)\Android\android-sdk\tools\android.bat" update sdk -u -a -t android-27
+
+  configuration: Release
+  
+  build_script:
+  - cmd: >-
+      cd Build
+  - cmd: >-
+      powershell .\build.ps1 -Verbosity diagnostic -ScriptArgs '-buildTarget="Test-All"'
