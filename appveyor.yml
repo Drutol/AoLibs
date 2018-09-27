@@ -1,7 +1,7 @@
 -
   version: 0.4.{build}
   image: Visual Studio 2017
-  configuration: Release
+
   install: 
   - echo y | "C:\Program Files (x86)\Android\android-sdk\tools\android.bat" update sdk -u -a -t tools
   - echo y | "C:\Program Files (x86)\Android\android-sdk\tools\android.bat" update sdk -u -a -t platform-tools
@@ -21,15 +21,13 @@
 -
   version: 0.4.{build}
   image: Visual Studio 2017
-  configuration: Release
+
   install: 
   - echo y | "C:\Program Files (x86)\Android\android-sdk\tools\android.bat" update sdk -u -a -t tools
   - echo y | "C:\Program Files (x86)\Android\android-sdk\tools\android.bat" update sdk -u -a -t platform-tools
   - echo y | "C:\Program Files (x86)\Android\android-sdk\tools\android.bat" update sdk -u -a -t build-tools-27.0.3
   - echo y | "C:\Program Files (x86)\Android\android-sdk\tools\android.bat" update sdk -u -a -t android-27
 
-  configuration: Release
-  
   build_script:
   - cmd: >-
       cd Build
