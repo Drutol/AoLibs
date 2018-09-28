@@ -4,12 +4,10 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-using Foundation;
-using System;
-using System.CodeDom.Compiler;
-using UIKit;
 
-namespace AoLibs.Sample.iOS
+using Foundation;
+
+namespace AoLibs.Sample.iOS.ViewControllers
 {
     [Register ("RootNavigationViewController")]
     partial class RootNavigationViewController

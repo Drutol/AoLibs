@@ -11,6 +11,7 @@ using UIKit;
 
 namespace AoLibs.Navigation.iOS.Navigation.Providers
 {
+    /// <inheritdoc />
     public class StoryboardCachedPageProvider<TPage> : CachedPageProvider<TPage> 
         where TPage : class, INavigationPage
     {
@@ -49,7 +50,7 @@ namespace AoLibs.Navigation.iOS.Navigation.Providers
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StoryboardOneshotPageProvider{TPage}"/> class.
+        /// Initializes a new instance of the <see cref="StoryboardCachedPageProvider{TPage}"/> class.
         /// Extracts data from <see cref="attr"/> to prepare the provider.
         /// </summary>
         /// <param name="attr">Page attribute.</param>

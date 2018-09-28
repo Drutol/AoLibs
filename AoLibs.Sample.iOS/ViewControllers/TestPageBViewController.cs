@@ -1,5 +1,4 @@
-﻿using Foundation;
-using System;
+﻿using System;
 using AoLibs.Navigation.iOS.Navigation.Attributes;
 using AoLibs.Navigation.iOS.Navigation.Controllers;
 using AoLibs.Sample.Shared;
@@ -7,9 +6,8 @@ using AoLibs.Sample.Shared.NavArgs;
 using AoLibs.Sample.Shared.ViewModels;
 using AoLibs.Utilities.iOS;
 using GalaSoft.MvvmLight.Helpers;
-using UIKit;
 
-namespace AoLibs.Sample.iOS
+namespace AoLibs.Sample.iOS.ViewControllers
 {
     [NavigationPage((int)PageIndex.PageB, NavigationPageAttribute.PageProvider.Cached, StoryboardName = "Main",
         ViewControllerIdentifier = "TestPageBViewController")]
@@ -17,6 +15,16 @@ namespace AoLibs.Sample.iOS
     {
         public TestPageBViewController (IntPtr handle) : base (handle)
         {
+        }
+
+        public override void NavigatedBack()
+        {
+            base.NavigatedBack();
+        }
+
+        public override void NavigatedFrom()
+        {
+            base.NavigatedFrom();
         }
 
         public override void NavigatedTo()

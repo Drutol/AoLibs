@@ -11,6 +11,7 @@ using UIKit;
 
 namespace AoLibs.Navigation.iOS.Navigation.Providers
 {
+    /// <inheritdoc />
     public class StoryboardOneshotPageProvider<TPage> : OneshotPageProvider<TPage> 
         where TPage : class, INavigationPage
     {
