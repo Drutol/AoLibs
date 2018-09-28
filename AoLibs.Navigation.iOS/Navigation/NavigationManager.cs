@@ -153,7 +153,10 @@ namespace AoLibs.Navigation.iOS.Navigation
         {
             // we are just pushing new page, not trickery required
             if (!Intercepting)
-                _navigationController.PushViewController((UIViewController) page, true);
+            {
+                if (!_navigationController.ViewControllers.Any(controller => ReferenceEquals(controller,page as UIViewController)))
+                    _navigationController.PushViewController((UIViewController) page, true);
+            }
         }
 
         public override void NotifyPagePushedWithoutBackstack(INavigationPage page)

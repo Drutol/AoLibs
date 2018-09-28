@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using AoLibs.Navigation.Core.Interfaces;
+using AoLibs.Sample.Shared.Models;
 using GalaSoft.MvvmLight;
 
 namespace AoLibs.Sample.Shared.ViewModels

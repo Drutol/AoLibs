@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using AoLibs.Sample.Shared;
+using AoLibs.Sample.Shared.Models;
 using AoLibs.Sample.Shared.NavArgs;
 using AoLibs.Sample.Shared.ViewModels;
 using AoLibs.Utilities.Android;

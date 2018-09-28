@@ -85,9 +85,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="295">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="295" misplaced="YES">
                                 <rect key="frame" x="184" y="388" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Go gack"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4106" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                <rect key="frame" x="184" y="423" width="46" height="30"/>
+                                <state key="normal" title="NavigateFurther"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4287" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                <rect key="frame" x="184" y="458" width="46" height="30"/>
+                                <state key="normal" title="Navigate C with no backstack"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -96,16 +104,59 @@
                             <constraint firstItem="295" firstAttribute="centerY" secondItem="243" secondAttribute="centerY" constant="35" id="297"/>
                             <constraint firstAttribute="centerX" secondItem="294" secondAttribute="centerX" id="298"/>
                             <constraint firstAttribute="centerY" secondItem="294" secondAttribute="centerY" constant="49.5" id="299"/>
+                            <constraint id="4107" firstItem="4106" firstAttribute="top" secondItem="295" secondAttribute="bottom" constant="5"/>
+                            <constraint id="4108" firstAttribute="centerX" secondItem="4106" secondAttribute="centerX"/>
+                            <constraint id="4288" firstItem="4287" firstAttribute="top" secondItem="4106" secondAttribute="bottom" constant="5"/>
+                            <constraint id="4289" firstAttribute="centerX" secondItem="4287" secondAttribute="centerX"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="GoBackButton" destination="295" id="name-outlet-295"/>
                         <outlet property="Label" destination="294" id="name-outlet-294"/>
+                        <outlet property="NavigateMore" destination="4106" id="name-outlet-4106"/>
+                        <outlet property="NavigateCNoBackstack" destination="4287" id="name-outlet-4287"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="244" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="16" y="476"/>
+        </scene>
+        <scene sceneID="4192">
+            <objects>
+                <viewController id="4193" sceneMemberID="viewController" customClass="TestPageCViewController" storyboardIdentifier="TestPageCViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4190"/>
+                        <viewControllerLayoutGuide type="bottom" id="4191"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4194">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4245" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                <rect key="frame" x="184" y="348" width="46" height="30"/>
+                                <state key="normal" title="Navigate to A with First Occurence"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4335" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                <rect key="frame" x="184" y="394" width="46" height="30"/>
+                                <state key="normal" title="Go back"/>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint id="4246" firstAttribute="centerX" secondItem="4245" secondAttribute="centerX"/>
+                            <constraint id="4247" firstAttribute="centerY" secondItem="4245" secondAttribute="centerY" constant="5"/>
+                            <constraint id="4336" firstAttribute="centerX" secondItem="4335" secondAttribute="centerX"/>
+                            <constraint id="4337" firstItem="4335" firstAttribute="top" secondItem="4245" secondAttribute="bottom" constant="16"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="NavigateAToFirstOccurenceButton" destination="4245" id="name-outlet-4245"/>
+                        <outlet property="GoBackButton" destination="4335" id="name-outlet-4335"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4195" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-715" y="963"/>
         </scene>
     </scenes>
 </document>

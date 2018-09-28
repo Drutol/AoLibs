@@ -2,6 +2,7 @@
 using AoLibs.Navigation.iOS.Navigation.Attributes;
 using AoLibs.Navigation.iOS.Navigation.Controllers;
 using AoLibs.Sample.Shared;
+using AoLibs.Sample.Shared.Models;
 using AoLibs.Sample.Shared.ViewModels;
 using AoLibs.Utilities.iOS;
 

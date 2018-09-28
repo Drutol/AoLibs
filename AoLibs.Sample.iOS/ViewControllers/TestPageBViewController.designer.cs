@@ -4,9 +4,9 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-
-using System.CodeDom.Compiler;
 using Foundation;
+using System;
+using System.CodeDom.Compiler;
 
 namespace AoLibs.Sample.iOS.ViewControllers
 {
@@ -21,6 +21,14 @@ namespace AoLibs.Sample.iOS.ViewControllers
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel Label { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton NavigateCNoBackstack { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton NavigateMore { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
             if (GoBackButton != null) {
@@ -31,6 +39,16 @@ namespace AoLibs.Sample.iOS.ViewControllers
             if (Label != null) {
                 Label.Dispose ();
                 Label = null;
+            }
+
+            if (NavigateCNoBackstack != null) {
+                NavigateCNoBackstack.Dispose ();
+                NavigateCNoBackstack = null;
+            }
+
+            if (NavigateMore != null) {
+                NavigateMore.Dispose ();
+                NavigateMore = null;
             }
         }
     }
