@@ -18,6 +18,12 @@ namespace AoLibs.Sample.iOS
 
         }
 
+        public override void NavigatedTo()
+        {
+            ViewModel.NavigatedTo();
+            base.NavigatedTo();
+        }
+
         public override void InitBindings()
         {
             ChooseFancyButton.SetOnClickCommand(ViewModel.AskUserAboutFancyThingsCommand);

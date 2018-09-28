@@ -35,6 +35,11 @@ namespace AoLibs.Navigation.iOS.Navigation.Providers
         {            
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StoryboardOneshotPageProvider{TPage}"/> class.
+        /// Extracts data from <see cref="attr"/> to prepare the provider.
+        /// </summary>
+        /// <param name="attr">Page attribute.</param>
         public StoryboardOneshotPageProvider(NavigationPageAttribute attr)
         {
             SetUpFactory(attr.StoryboardName, attr.ViewControllerIdentifier);

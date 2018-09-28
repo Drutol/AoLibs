@@ -89,19 +89,16 @@ namespace AoLibs.Navigation.iOS.Navigation
                     }
                     else
                     {
-                        if (string.IsNullOrEmpty(attr.ViewControllerIdentifier))
+                        switch (attr.PageProviderType)
                         {
-                            switch (attr.PageProviderType)
-                            {
-                                case NavigationPageAttribute.PageProvider.Cached:
-                                    providerType = ObtainProviderFromType(typeof(StoryboardCachedPageProvider<>), true);
-                                    break;
-                                case NavigationPageAttribute.PageProvider.Oneshot:
-                                    providerType = ObtainProviderFromType(typeof(StoryboardCachedPageProvider<>), true);
-                                    break;
-                                default:
-                                    throw new ArgumentOutOfRangeException();
-                            }
+                            case NavigationPageAttribute.PageProvider.Cached:
+                                providerType = ObtainProviderFromType(typeof(StoryboardCachedPageProvider<>), true);
+                                break;
+                            case NavigationPageAttribute.PageProvider.Oneshot:
+                                providerType = ObtainProviderFromType(typeof(StoryboardOneshotPageProvider<>), true);
+                                break;
+                            default:
+                                throw new ArgumentOutOfRangeException();
                         }
                     }
 
@@ -110,7 +107,8 @@ namespace AoLibs.Navigation.iOS.Navigation
 
                 IPageProvider<INavigationPage> ObtainProviderFromType(Type providerType, bool isStoryboard = false)
                 {
-                    return (IPageProvider<INavigationPage>) providerType.MakeGenericType(type)
+                    return (IPageProvider<INavigationPage>) providerType
+                        .MakeGenericType(type)
                         .GetConstructor(isStoryboard ? new[] {typeof(NavigationPageAttribute)} : new Type[] { })
                         .Invoke(isStoryboard ? new object[] {attr} : null);
                 }
