@@ -12,14 +12,14 @@ namespace AoLibs.Utilities.iOS
         private const string GestureRecognizerName = "AoLibsTapGestureRecognizer";
 
         /// <summary>
-        /// Sets <see cref="OnClickListener"/> executing given <see cref="command"/>.
-        /// Addtionally hooks to <see cref="ICommand.CanExecuteChanged"/> and alters <see cref="View.Enabled"/> according to <see cref="ICommand.CanExecute"/>
+        /// Sets <see cref="UIGestureRecognizer"/> executing given <see cref="command"/>.
+        /// Additionally hooks to <see cref="ICommand.CanExecuteChanged"/> and alters <see cref="UIView.UserInteractionEnabled"/> according to <see cref="ICommand.CanExecute"/>
         /// </summary>
         /// <param name="view">The view.</param>
         /// <param name="command">Command to bind to the button.</param>
         public static void SetOnClickCommand(this UIView view, ICommand command)
         {
-            var tapGestureRecognizer = view.GestureRecognizers.FirstOrDefault(recognizer => recognizer.Name == GestureRecognizerName);
+            var tapGestureRecognizer = view.GestureRecognizers?.FirstOrDefault(recognizer => recognizer.Name == GestureRecognizerName);
             if(tapGestureRecognizer != null)
                 view.RemoveGestureRecognizer(tapGestureRecognizer);
             tapGestureRecognizer = new UITapGestureRecognizer(() => command.Execute(null))
@@ -33,15 +33,15 @@ namespace AoLibs.Utilities.iOS
         }
 
         /// <summary>
-        /// Sets <see cref="OnClickListener"/> executing given <see cref="command"/>.
-        /// Addtionally hooks to <see cref="ICommand.CanExecuteChanged"/> and allows to easily alter the View with <see cref="onCanExecuteChanged"/>
+        /// Sets <see cref="UIGestureRecognizer"/> executing given <see cref="command"/>.
+        /// Additionally hooks to <see cref="ICommand.CanExecuteChanged"/> and allows to easily alter the View with <see cref="onCanExecuteChanged"/>
         /// </summary>
         /// <param name="view">The view.</param>
         /// <param name="command">Command to bind to the button.</param>
         /// <param name="onCanExecuteChanged">Delegate allowing custom modification of the view.</param>
         public static void SetOnClickCommand(this UIView view, ICommand command, Action<UIView, bool> onCanExecuteChanged)
         {
-            var tapGestureRecognizer = view.GestureRecognizers.FirstOrDefault(recognizer => recognizer.Name == GestureRecognizerName);
+            var tapGestureRecognizer = view.GestureRecognizers?.FirstOrDefault(recognizer => recognizer.Name == GestureRecognizerName);
             if (tapGestureRecognizer != null)
                 view.RemoveGestureRecognizer(tapGestureRecognizer);
             tapGestureRecognizer = new UITapGestureRecognizer(() => command.Execute(null))
@@ -55,15 +55,15 @@ namespace AoLibs.Utilities.iOS
         }
 
         /// <summary>
-        /// Sets <see cref="OnClickListener"/> executing given <see cref="command"/> with arrgument <see cref="arg"/>.
-        /// Addtionally hooks to <see cref="ICommand.CanExecuteChanged"/> and alters <see cref="View.Enabled"/> according to <see cref="ICommand.CanExecute"/>
+        /// Sets <see cref="UIGestureRecognizer"/> executing given <see cref="command"/> with argument <see cref="arg"/>.
+        /// Additionally hooks to <see cref="ICommand.CanExecuteChanged"/> and alters <see cref="UIView.UserInteractionEnabled"/> according to <see cref="ICommand.CanExecute"/>
         /// </summary>
         /// <param name="view">The view.</param>
         /// <param name="command">Command to bind to the button.</param>
         /// <param name="arg">Argument to pass to the <see cref="ICommand.Execute"/></param>
         public static void SetOnClickCommand(this UIView view, ICommand command, object arg)
         {
-            var tapGestureRecognizer = view.GestureRecognizers.FirstOrDefault(recognizer => recognizer.Name == GestureRecognizerName);
+            var tapGestureRecognizer = view.GestureRecognizers?.FirstOrDefault(recognizer => recognizer.Name == GestureRecognizerName);
             if (tapGestureRecognizer != null)
                 view.RemoveGestureRecognizer(tapGestureRecognizer);
             tapGestureRecognizer = new UITapGestureRecognizer(() => command.Execute(null))
@@ -77,8 +77,8 @@ namespace AoLibs.Utilities.iOS
         }
 
         /// <summary>
-        /// Sets <see cref="OnClickListener"/> executing given <see cref="command"/> with arrgument <see cref="arg"/>.
-        /// Addtionally hooks to <see cref="ICommand.CanExecuteChanged"/> and allows to easily alter the View with <see cref="onCanExecuteChanged"/>
+        /// Sets <see cref="UIGestureRecognizer"/> executing given <see cref="command"/> with argument <see cref="arg"/>.
+        /// Additionally hooks to <see cref="ICommand.CanExecuteChanged"/> and allows to easily alter the View with <see cref="onCanExecuteChanged"/>
         /// </summary>
         /// <param name="view">The view.</param>
         /// <param name="command">Command to bind to the button.</param>
@@ -90,7 +90,7 @@ namespace AoLibs.Utilities.iOS
             object arg,
             Action<UIView, bool> onCanExecuteChanged)
         {
-            var tapGestureRecognizer = view.GestureRecognizers.FirstOrDefault(recognizer => recognizer.Name == GestureRecognizerName);
+            var tapGestureRecognizer = view.GestureRecognizers?.FirstOrDefault(recognizer => recognizer.Name == GestureRecognizerName);
             if (tapGestureRecognizer != null)
                 view.RemoveGestureRecognizer(tapGestureRecognizer);
             tapGestureRecognizer = new UITapGestureRecognizer(() => command.Execute(arg))
