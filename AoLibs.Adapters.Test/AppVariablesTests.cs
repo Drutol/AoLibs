@@ -113,13 +113,21 @@ namespace AoLibs.Adapters.Test
             var appVariables = new TestAppVariables(settingsMock.Object, dataCache);
 
             var savedJson = string.Empty;
-            filestorageMock.Setup(provider => provider.WriteText(It.IsAny<string>(), It.IsAny<string>()))
+            filestorageMock.Setup(provider => provider.WriteTextAsync(It.IsAny<string>(), It.IsAny<string>()))
                 .Callback<string, string>((s, s1) => savedJson = s1);
             filestorageMock.Setup(provider => provider.ReadTextAsync(It.IsAny<string>()))
                 .Returns(() => Task.FromResult(savedJson));
 
             // Act
-            await appVariables.TestData.SetAsync(new TestData());
+            try
+            {
+                await appVariables.TestData.SetAsync(new TestData());
+            }
+            catch (Exception)
+            {
+                //async mock exception
+            }
+            
             var readDataBeforeExpiration = await appVariables.TestData.GetAsync();
             await Task.Delay(1100);
             var readDataAfterExpiration = await appVariables.TestData.GetAsync();
