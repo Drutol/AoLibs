@@ -4,23 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <Button
-        android:text="Choose something fancy"
+        android:text="Go back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ButtonChoose" />
-    <Button
-        android:text="Show what I fancy"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ButtonShow" />
+        android:id="@+id/ButtonGoBack" />
 	<Button
-        android:text="Reset fanciness"
+        android:text="Navigate A with first occurence"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ButtonReset" />
-    <Button
-        android:text="Navigate"
+        android:id="@+id/ButtonNavigateA" /> 
+	<Button
+        android:text="Navigate B with first occurence"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ButtonNavigate" />
+        android:id="@+id/ButtonNavigateB" /> 
 </LinearLayout>

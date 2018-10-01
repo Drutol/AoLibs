@@ -2,9 +2,11 @@
 using AoLibs.Navigation.iOS.Navigation.Attributes;
 using AoLibs.Navigation.iOS.Navigation.Controllers;
 using AoLibs.Sample.Shared;
+using AoLibs.Sample.Shared.Models;
 using AoLibs.Sample.Shared.NavArgs;
 using AoLibs.Sample.Shared.ViewModels;
 using AoLibs.Utilities.iOS;
+using AoLibs.Utilities.iOS.Extensions;
 using GalaSoft.MvvmLight.Helpers;
 
 namespace AoLibs.Sample.iOS.ViewControllers
@@ -37,6 +39,8 @@ namespace AoLibs.Sample.iOS.ViewControllers
         {
             Bindings.Add(this.SetBinding(() => ViewModel.Message, () => Label.Text));
             GoBackButton.SetOnClickCommand(ViewModel.GoBackCommand);
+            NavigateMore.SetOnClickCommand(ViewModel.NavigateCCommand);
+            NavigateCNoBackstack.SetOnClickCommand(ViewModel.NavigateCNoBackCommand);
         }
     }
 }

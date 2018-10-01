@@ -11,6 +11,7 @@ using AoLibs.Navigation.Core.Interfaces;
 using AoLibs.Navigation.Core.PageProviders;
 using AoLibs.Sample.Android.Fragments;
 using AoLibs.Sample.Shared;
+using AoLibs.Sample.Shared.Models;
 using AoLibs.Sample.Shared.Statics;
 using Autofac;
 using NavigationLib.Android.Navigation;

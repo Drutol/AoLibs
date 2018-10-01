@@ -146,6 +146,10 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="ViewControllers\TestPageCViewController.cs" />
+    <Compile Include="ViewControllers\TestPageCViewController.designer.cs">
+      <DependentUpon>TestPageCViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewControllers\RootNavigationViewController.cs" />
     <Compile Include="ViewControllers\RootNavigationViewController.designer.cs">
       <DependentUpon>RootNavigationViewController.cs</DependentUpon>

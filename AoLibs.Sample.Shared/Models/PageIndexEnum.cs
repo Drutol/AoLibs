@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AoLibs.Sample.Shared
+﻿namespace AoLibs.Sample.Shared.Models
 {
     public enum PageIndex
     {
         PageA,
         PageB,
+        PageC
     }
 }

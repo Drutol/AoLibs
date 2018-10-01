@@ -3,6 +3,7 @@ using AoLibs.Adapters.iOS;
 using AoLibs.Navigation.Core.Interfaces;
 using AoLibs.Navigation.iOS.Navigation;
 using AoLibs.Sample.Shared;
+using AoLibs.Sample.Shared.Models;
 using AoLibs.Sample.Shared.Statics;
 using Autofac;
 using CoreLocation;

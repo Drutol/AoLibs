@@ -2,8 +2,10 @@
 using AoLibs.Navigation.iOS.Navigation.Attributes;
 using AoLibs.Navigation.iOS.Navigation.Controllers;
 using AoLibs.Sample.Shared;
+using AoLibs.Sample.Shared.Models;
 using AoLibs.Sample.Shared.ViewModels;
 using AoLibs.Utilities.iOS;
+using AoLibs.Utilities.iOS.Extensions;
 
 namespace AoLibs.Sample.iOS.ViewControllers
 {
@@ -36,6 +38,7 @@ namespace AoLibs.Sample.iOS.ViewControllers
         {
             ChooseFancyButton.SetOnClickCommand(ViewModel.AskUserAboutFancyThingsCommand);
             ShowFancyButton.SetOnClickCommand(ViewModel.ShowLastFanciedThingCommand);
+            ResetButton.SetOnClickCommand(ViewModel.ResetFanciness);
             NavigateButton.SetOnClickCommand(ViewModel.NavigateSomewhereElseCommand);
         }
     }

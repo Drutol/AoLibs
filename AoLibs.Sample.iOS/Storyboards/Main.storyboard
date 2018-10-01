@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="247">
-                                <rect key="frame" x="20" y="36" width="374" height="90"/>
+                                <rect key="frame" x="20" y="36" width="374" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="246">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
@@ -28,9 +28,13 @@
                                         <rect key="frame" x="0.0" y="30" width="374" height="30"/>
                                         <state key="normal" title="Show what I fancy"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="256">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="10846" translatesAutoresizingMaskIntoConstraints="NO">
                                         <rect key="frame" x="0.0" y="60" width="374" height="30"/>
-                                        <state key="normal" title="Navigate"/>
+                                        <state key="normal" title="Reset Fanciness"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="256">
+                                        <rect key="frame" x="0.0" y="90" width="374" height="30"/>
+                                        <state key="normal" title="Navigate B"/>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -48,6 +52,7 @@
                         <outlet property="ChooseFancyButton" destination="246" id="name-outlet-246"/>
                         <outlet property="NavigateButton" destination="256" id="name-outlet-256"/>
                         <outlet property="ShowFancyButton" destination="255" id="name-outlet-255"/>
+                        <outlet property="ResetButton" destination="10846" id="name-outlet-10846"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -86,8 +91,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="295">
-                                <rect key="frame" x="184" y="388" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="178.5" y="388" width="57" height="30"/>
+                                <state key="normal" title="Go gack"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4106" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="169.5" y="423" width="75" height="30"/>
+                                <state key="normal" title="Navigate C"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4287" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="105.5" y="458" width="203" height="30"/>
+                                <state key="normal" title="Navigate C with no backstack"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -96,16 +109,66 @@
                             <constraint firstItem="295" firstAttribute="centerY" secondItem="243" secondAttribute="centerY" constant="35" id="297"/>
                             <constraint firstAttribute="centerX" secondItem="294" secondAttribute="centerX" id="298"/>
                             <constraint firstAttribute="centerY" secondItem="294" secondAttribute="centerY" constant="49.5" id="299"/>
+                            <constraint id="4107" firstItem="4106" firstAttribute="top" secondItem="295" secondAttribute="bottom" constant="5"/>
+                            <constraint id="4108" firstAttribute="centerX" secondItem="4106" secondAttribute="centerX"/>
+                            <constraint id="4288" firstItem="4287" firstAttribute="top" secondItem="4106" secondAttribute="bottom" constant="5"/>
+                            <constraint id="4289" firstAttribute="centerX" secondItem="4287" secondAttribute="centerX"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="GoBackButton" destination="295" id="name-outlet-295"/>
                         <outlet property="Label" destination="294" id="name-outlet-294"/>
+                        <outlet property="NavigateMore" destination="4106" id="name-outlet-4106"/>
+                        <outlet property="NavigateCNoBackstack" destination="4287" id="name-outlet-4287"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="244" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="16" y="476"/>
+        </scene>
+        <scene sceneID="4192">
+            <objects>
+                <viewController id="4193" sceneMemberID="viewController" customClass="TestPageCViewController" storyboardIdentifier="TestPageCViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4190"/>
+                        <viewControllerLayoutGuide type="bottom" id="4191"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4194">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4335" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="178.5" y="394" width="57" height="30"/>
+                                <state key="normal" title="Go back"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4245" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="88" y="348" width="238" height="30"/>
+                                <state key="normal" title="Navigate to A with First Occurence"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4613" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="97" y="439" width="220" height="30"/>
+                                <state key="normal" title="Navigate B with First Occurence"/>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint id="4246" firstAttribute="centerX" secondItem="4245" secondAttribute="centerX"/>
+                            <constraint id="4247" firstAttribute="centerY" secondItem="4245" secondAttribute="centerY" constant="5"/>
+                            <constraint id="4336" firstAttribute="centerX" secondItem="4335" secondAttribute="centerX"/>
+                            <constraint id="4337" firstItem="4335" firstAttribute="top" secondItem="4245" secondAttribute="bottom" constant="16"/>
+                            <constraint id="4614" firstItem="4613" firstAttribute="top" secondItem="4335" secondAttribute="bottom" constant="15"/>
+                            <constraint id="4615" firstAttribute="centerX" secondItem="4613" secondAttribute="centerX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="NavigateAToFirstOccurenceButton" destination="4245" id="name-outlet-4245"/>
+                        <outlet property="GoBackButton" destination="4335" id="name-outlet-4335"/>
+                        <outlet property="NavigateBToFirstOccurence" destination="4613" id="name-outlet-4613"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4195" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-715" y="963"/>
         </scene>
     </scenes>
 </document>
