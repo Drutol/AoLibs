@@ -86,9 +86,12 @@ namespace AoLibs.Sample.Shared.ViewModels
             }
         });
 
+        public RelayCommand ResetFanciness =>
+            new RelayCommand(() => { UserResponse = null; });
+
         public RelayCommand NavigateSomewhereElseCommand =>
             new RelayCommand(() => _navigationManager.Navigate(
                 PageIndex.PageB,
-                new PageBNavArgs {Message = "Hello!"}));
+                new PageBNavArgs {Message = "Hello from A!"}));
     }
 }

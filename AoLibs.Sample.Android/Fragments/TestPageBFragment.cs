@@ -34,16 +34,24 @@ namespace AoLibs.Sample.Android.Fragments
             Bindings.Add(this.SetBinding(() => ViewModel.Message,() => TextView.Text));
 
             ButtonGoBack.SetOnClickCommand(ViewModel.GoBackCommand);
+            ButtonNavigateC.SetOnClickCommand(ViewModel.NavigateCCommand);
+            ButtonNavigateCNoBackstack.SetOnClickCommand(ViewModel.NavigateCNoBackCommand);
         }
 
         #region Views
 
         private TextView _textView;
         private Button _buttonGoBack;
+        private Button _buttonNavigateC;
+        private Button _buttonNavigateCNoBackstack;
 
         public TextView TextView => _textView ?? (_textView = FindViewById<TextView>(Resource.Id.TextView));
 
         public Button ButtonGoBack => _buttonGoBack ?? (_buttonGoBack = FindViewById<Button>(Resource.Id.ButtonGoBack));
+
+        public Button ButtonNavigateC => _buttonNavigateC ?? (_buttonNavigateC = FindViewById<Button>(Resource.Id.ButtonNavigateC));
+
+        public Button ButtonNavigateCNoBackstack => _buttonNavigateCNoBackstack ?? (_buttonNavigateCNoBackstack = FindViewById<Button>(Resource.Id.ButtonNavigateCNoBackstack));
 
         #endregion
     }

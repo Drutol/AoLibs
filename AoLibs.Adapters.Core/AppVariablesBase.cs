@@ -43,7 +43,7 @@ namespace AoLibs.Adapters.Core
             /// <summary>
             /// Gets or sets time* in seconds describing how long data is valid since last write.
             /// By default only supported in async calls when calling <see cref="AppVariablesBase"/> 
-            /// contructor with <see cref="IDataCache"/>. Provide custom <see cref="ISyncStorage"/> to consume this attribute.
+            /// constructor with <see cref="IDataCache"/>. Provide custom <see cref="ISyncStorage"/> to consume this attribute.
             /// </summary>
             public int ExpirationTime { get; set; } = -1;
         }
@@ -150,13 +150,16 @@ namespace AoLibs.Adapters.Core
 
         /// <summary>
         /// Class that holds stored data. Cannot be inherited. 
-        /// If not instantinated it will be automatically created by underlying mechanisms.
+        /// If not instantiated it will be automatically created by underlying mechanisms.
         /// </summary>
         /// <typeparam name="T">The wrapped type.</typeparam>
         [Preserve(AllMembers = true)]
         public sealed class Holder<T> : HolderBase 
             where T : class
         {
+            /// <summary>
+            /// Fires whenever the value is changed.
+            /// </summary>
             public event EventHandler<T> ValueChanged;
 
             private readonly VariableAttribute _attribute;
@@ -302,7 +305,7 @@ namespace AoLibs.Adapters.Core
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AppVariablesBase"/> class.
-        /// Initialize with default <see cref="ISyncStorage"/> where <see cref="ISettingsProvider"/> is underlaying storage layer.
+        /// Initialize with default <see cref="ISyncStorage"/> where <see cref="ISettingsProvider"/> is underlying storage layer.
         /// Async methods of <see cref="Holder{T}"/> will be unavailable and throw <see cref="InvalidOperationException"/>
         /// </summary>
         /// <param name="settingsProvider">Settings provider.</param>
@@ -320,8 +323,8 @@ namespace AoLibs.Adapters.Core
         /// Initialize with custom implementations of <see cref="ISyncStorage"/> and optionally <see cref="IAsyncStorage"/>.
         /// Not providing <see cref="IAsyncStorage"/> will result in <see cref="InvalidOperationException"/> when accessing async methods of <see cref="Holder{T}"/>
         /// </summary>
-        /// <param name="syncStorage">Synchonous storage used when calling <see cref="Holder{T}.Value"/></param>
-        /// <param name="asyncStorage">Asynchonous storage.</param>
+        /// <param name="syncStorage">Synchronous storage used when calling <see cref="Holder{T}.Value"/></param>
+        /// <param name="asyncStorage">Asynchronous storage.</param>
         protected AppVariablesBase(ISyncStorage syncStorage, IAsyncStorage asyncStorage = null)
         {
             _syncStorage = syncStorage;

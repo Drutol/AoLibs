@@ -98,5 +98,10 @@ namespace AoLibs.Adapters.iOS
         {
             NSUserDefaults.StandardUserDefaults.SetDouble(value, key);
         }
+
+        public void Remove(string key)
+        {
+            NSUserDefaults.StandardUserDefaults.SetNilValueForKey(new NSString(key));
+        }
     }
 }

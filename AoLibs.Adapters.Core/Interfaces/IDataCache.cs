@@ -13,7 +13,7 @@ namespace AoLibs.Adapters.Core.Interfaces
         /// Reads file and deserializes given data.
         /// Returns default value of <see cref="T"/> when file doesn't exist.
         /// </summary>
-        /// <typeparam name="T">The type of data to retieve.</typeparam>
+        /// <typeparam name="T">The type of data to retrieve.</typeparam>
         /// <param name="path">Path delimeted with "/" with filename at the end. Root is default platfrom's AppData folder.</param>
         /// <param name="expiration">If data was stored for longer than given period <see cref="DataExpiredException"/> will be thrown.</param>
         /// <exception cref="DataExpiredException">Thrown when expiration exceeds specified time.</exception>
@@ -32,7 +32,7 @@ namespace AoLibs.Adapters.Core.Interfaces
         /// Serializes data and stores in in file.
         /// </summary>
         /// <typeparam name="T">Type of data to save.</typeparam>
-        /// <param name="path">Path delimeted with "/" with filename at the end. Root is default platfrom's AppData folder.</param>
+        /// <param name="path">Path deli-meted with "/" with filename at the end. Root is default platfrom's AppData folder.</param>
         /// <param name="data">Data to store.</param>
         Task SaveDataAsync<T>(string path, T data);
 

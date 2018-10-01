@@ -35,7 +35,7 @@
             <summary>
             Gets or sets time* in seconds describing how long data is valid since last write.
             By default only supported in async calls when calling <see cref="T:AoLibs.Adapters.Core.AppVariablesBase"/> 
-            contructor with <see cref="T:AoLibs.Adapters.Core.Interfaces.IDataCache"/>. Provide custom <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.ISyncStorage"/> to consume this attribute.
+            constructor with <see cref="T:AoLibs.Adapters.Core.Interfaces.IDataCache"/>. Provide custom <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.ISyncStorage"/> to consume this attribute.
             </summary>
         </member>
         <member name="T:AoLibs.Adapters.Core.AppVariablesBase.IAsyncStorage">
@@ -56,9 +56,14 @@
         <member name="T:AoLibs.Adapters.Core.AppVariablesBase.Holder`1">
             <summary>
             Class that holds stored data. Cannot be inherited. 
-            If not instantinated it will be automatically created by underlying mechanisms.
+            If not instantiated it will be automatically created by underlying mechanisms.
             </summary>
             <typeparam name="T">The wrapped type.</typeparam>
+        </member>
+        <member name="E:AoLibs.Adapters.Core.AppVariablesBase.Holder`1.ValueChanged">
+            <summary>
+            Fires whenever the value is changed.
+            </summary>
         </member>
         <member name="M:AoLibs.Adapters.Core.AppVariablesBase.Holder`1.Reset">
             <summary>
@@ -95,7 +100,7 @@
         <member name="M:AoLibs.Adapters.Core.AppVariablesBase.#ctor(AoLibs.Adapters.Core.Interfaces.ISettingsProvider,AoLibs.Adapters.Core.Interfaces.IDataCache)">
             <summary>
             Initializes a new instance of the <see cref="T:AoLibs.Adapters.Core.AppVariablesBase"/> class.
-            Initialize with default <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.ISyncStorage"/> where <see cref="T:AoLibs.Adapters.Core.Interfaces.ISettingsProvider"/> is underlaying storage layer.
+            Initialize with default <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.ISyncStorage"/> where <see cref="T:AoLibs.Adapters.Core.Interfaces.ISettingsProvider"/> is underlying storage layer.
             Async methods of <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.Holder`1"/> will be unavailable and throw <see cref="T:System.InvalidOperationException"/>
             </summary>
             <param name="settingsProvider">Settings provider.</param>
@@ -107,19 +112,25 @@
             Initialize with custom implementations of <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.ISyncStorage"/> and optionally <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.IAsyncStorage"/>.
             Not providing <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.IAsyncStorage"/> will result in <see cref="T:System.InvalidOperationException"/> when accessing async methods of <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.Holder`1"/>
             </summary>
-            <param name="syncStorage">Synchonous storage used when calling <see cref="P:AoLibs.Adapters.Core.AppVariablesBase.Holder`1.Value"/></param>
-            <param name="asyncStorage">Asynchonous storage.</param>
+            <param name="syncStorage">Synchronous storage used when calling <see cref="P:AoLibs.Adapters.Core.AppVariablesBase.Holder`1.Value"/></param>
+            <param name="asyncStorage">Asynchronous storage.</param>
         </member>
         <member name="T:AoLibs.Adapters.Core.DataCache">
             <summary>
             Utility class allowing to quickly store data within filesystem.
             </summary>
         </member>
+        <member name="M:AoLibs.Adapters.Core.DataCache.#ctor(AoLibs.Adapters.Core.Interfaces.IFileStorageProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AoLibs.Adapters.Core.DataCache"/> class.
+            </summary>
+            <param name="fileStorageProvider">File storage provider.</param>
+        </member>
         <member name="M:AoLibs.Adapters.Core.DataCache.RetrieveData``1(System.String,System.Nullable{System.TimeSpan})">
             <summary>
             Reads the data from given path and deserializes it taking given expirationTime in consideration.
             </summary>
-            <typeparam name="T">Data Type to retireve.</typeparam>
+            <typeparam name="T">Data Type to retrieve.</typeparam>
             <param name="path">Path to the file. Can be just filename.</param>
             <param name="expiration">Specifies how much time could have passed since last write.</param>
             <returns>Deserialized data or default if file does not exist or is malformed.</returns>
@@ -152,6 +163,12 @@
             Exception that signifies that the data stored is older than specified maximum.
             </summary>
         </member>
+        <member name="M:AoLibs.Adapters.Core.Excpetions.DataExpiredException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AoLibs.Adapters.Core.Excpetions.DataExpiredException"/> class.
+            </summary>
+            <param name="message">Message.</param>
+        </member>
         <member name="T:AoLibs.Adapters.Core.Interfaces.IClipboardProvider">
             <summary>
             Provides basic clipboard functionality.
@@ -167,7 +184,7 @@
             Reads file and deserializes given data.
             Returns default value of <see cref="!:T"/> when file doesn't exist.
             </summary>
-            <typeparam name="T">The type of data to retieve.</typeparam>
+            <typeparam name="T">The type of data to retrieve.</typeparam>
             <param name="path">Path delimeted with "/" with filename at the end. Root is default platfrom's AppData folder.</param>
             <param name="expiration">If data was stored for longer than given period <see cref="T:AoLibs.Adapters.Core.Excpetions.DataExpiredException"/> will be thrown.</param>
             <exception cref="T:AoLibs.Adapters.Core.Excpetions.DataExpiredException">Thrown when expiration exceeds specified time.</exception>
@@ -186,7 +203,7 @@
             Serializes data and stores in in file.
             </summary>
             <typeparam name="T">Type of data to save.</typeparam>
-            <param name="path">Path delimeted with "/" with filename at the end. Root is default platfrom's AppData folder.</param>
+            <param name="path">Path deli-meted with "/" with filename at the end. Root is default platfrom's AppData folder.</param>
             <param name="data">Data to store.</param>
         </member>
         <member name="M:AoLibs.Adapters.Core.Interfaces.IDataCache.Clear(System.String)">
@@ -362,7 +379,7 @@
         </member>
         <member name="T:AoLibs.Adapters.Core.MessageBoxProviderBase">
             <summary>
-            Base class for MessageBoxProviders, addiditonnaly allows to obtain "Lifetime" object of your loader so it can be conviniently used in using statement.
+            Base class for MessageBoxProviders, additionally allows to obtain "Lifetime" object of your loader so it can be conviniently used in using statement.
             </summary>
         </member>
     </members>

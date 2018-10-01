@@ -21,6 +21,10 @@ namespace AoLibs.Adapters.Core
 
         private readonly IFileStorageProvider _fileStorageProvider;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataCache"/> class.
+        /// </summary>
+        /// <param name="fileStorageProvider">File storage provider.</param>
         public DataCache(IFileStorageProvider fileStorageProvider)
         {
             _fileStorageProvider = fileStorageProvider;
@@ -29,7 +33,7 @@ namespace AoLibs.Adapters.Core
         /// <summary>
         /// Reads the data from given path and deserializes it taking given expirationTime in consideration.
         /// </summary>
-        /// <typeparam name="T">Data Type to retireve.</typeparam>
+        /// <typeparam name="T">Data Type to retrieve.</typeparam>
         /// <param name="path">Path to the file. Can be just filename.</param>
         /// <param name="expiration">Specifies how much time could have passed since last write.</param>
         /// <returns>Deserialized data or default if file does not exist or is malformed.</returns>
@@ -76,16 +80,17 @@ namespace AoLibs.Adapters.Core
                 CreatedAt = DateTime.UtcNow,
                 Value = data
             });
-            _fileStorageProvider.WriteText(path, json);
+            await _fileStorageProvider.WriteTextAsync(path, json);
         }
 
         /// <summary>
         /// Clears storage.
         /// </summary>
         /// <param name="path">File to remove.</param>
-        public async Task Clear(string path)
+        public Task Clear(string path)
         {
             _fileStorageProvider.RemoveFile(path);
+            return Task.CompletedTask;
         }
     }
 }

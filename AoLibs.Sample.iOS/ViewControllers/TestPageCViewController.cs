@@ -5,6 +5,7 @@ using AoLibs.Sample.Shared;
 using AoLibs.Sample.Shared.Models;
 using AoLibs.Sample.Shared.ViewModels;
 using AoLibs.Utilities.iOS;
+using AoLibs.Utilities.iOS.Extensions;
 using UIKit;
 
 namespace AoLibs.Sample.iOS.ViewControllers
@@ -20,6 +21,7 @@ namespace AoLibs.Sample.iOS.ViewControllers
         public override void InitBindings()
         {
             NavigateAToFirstOccurenceButton.SetOnClickCommand(ViewModel.NavigateAWithFirstOccurrence);
+            NavigateBToFirstOccurence.SetOnClickCommand(ViewModel.NavigateBWithFirstOccurrence);
             GoBackButton.SetOnClickCommand(ViewModel.GoBackCommand);
         }
     }

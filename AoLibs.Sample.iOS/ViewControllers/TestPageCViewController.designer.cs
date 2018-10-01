@@ -4,9 +4,9 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-
-using System.CodeDom.Compiler;
 using Foundation;
+using System;
+using System.CodeDom.Compiler;
 
 namespace AoLibs.Sample.iOS.ViewControllers
 {
@@ -21,6 +21,10 @@ namespace AoLibs.Sample.iOS.ViewControllers
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton NavigateAToFirstOccurenceButton { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton NavigateBToFirstOccurence { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
             if (GoBackButton != null) {
@@ -31,6 +35,11 @@ namespace AoLibs.Sample.iOS.ViewControllers
             if (NavigateAToFirstOccurenceButton != null) {
                 NavigateAToFirstOccurenceButton.Dispose ();
                 NavigateAToFirstOccurenceButton = null;
+            }
+
+            if (NavigateBToFirstOccurence != null) {
+                NavigateBToFirstOccurence.Dispose ();
+                NavigateBToFirstOccurence = null;
             }
         }
     }

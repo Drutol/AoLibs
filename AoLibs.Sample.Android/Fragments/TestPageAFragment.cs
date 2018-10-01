@@ -32,20 +32,23 @@ namespace AoLibs.Sample.Android.Fragments
             ButtonChoose.SetOnClickCommand(ViewModel.AskUserAboutFancyThingsCommand);
             ButtonShow.SetOnClickCommand(ViewModel.ShowLastFanciedThingCommand);
             ButtonNavigate.SetOnClickCommand(ViewModel.NavigateSomewhereElseCommand);
+            ButtonReset.SetOnClickCommand(ViewModel.ResetFanciness);
         }
 
         #region Views
 
         private Button _buttonChoose;
         private Button _buttonShow;
+        private Button _buttonReset;
         private Button _buttonNavigate;
 
         public Button ButtonChoose => _buttonChoose ?? (_buttonChoose = FindViewById<Button>(Resource.Id.ButtonChoose));
 
         public Button ButtonShow => _buttonShow ?? (_buttonShow = FindViewById<Button>(Resource.Id.ButtonShow));
 
-        public Button ButtonNavigate =>
-            _buttonNavigate ?? (_buttonNavigate = FindViewById<Button>(Resource.Id.ButtonNavigate));
+        public Button ButtonReset => _buttonReset ?? (_buttonReset = FindViewById<Button>(Resource.Id.ButtonReset));
+
+        public Button ButtonNavigate => _buttonNavigate ?? (_buttonNavigate = FindViewById<Button>(Resource.Id.ButtonNavigate));
 
         #endregion
     }

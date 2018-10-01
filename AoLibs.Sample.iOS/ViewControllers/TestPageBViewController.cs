@@ -6,6 +6,7 @@ using AoLibs.Sample.Shared.Models;
 using AoLibs.Sample.Shared.NavArgs;
 using AoLibs.Sample.Shared.ViewModels;
 using AoLibs.Utilities.iOS;
+using AoLibs.Utilities.iOS.Extensions;
 using GalaSoft.MvvmLight.Helpers;
 
 namespace AoLibs.Sample.iOS.ViewControllers
