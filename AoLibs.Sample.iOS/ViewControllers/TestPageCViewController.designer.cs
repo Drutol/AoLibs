@@ -10,8 +10,8 @@ using System.CodeDom.Compiler;
 
 namespace AoLibs.Sample.iOS.ViewControllers
 {
-    [Register ("TestPageBViewController")]
-    partial class TestPageBViewController
+    [Register ("TestPageCViewController")]
+    partial class TestPageCViewController
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -19,15 +19,11 @@ namespace AoLibs.Sample.iOS.ViewControllers
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel Label { get; set; }
+        UIKit.UIButton NavigateAToFirstOccurenceButton { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton NavigateCNoBackstack { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton NavigateMore { get; set; }
+        UIKit.UIButton NavigateBToFirstOccurence { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
@@ -36,19 +32,14 @@ namespace AoLibs.Sample.iOS.ViewControllers
                 GoBackButton = null;
             }
 
-            if (Label != null) {
-                Label.Dispose ();
-                Label = null;
+            if (NavigateAToFirstOccurenceButton != null) {
+                NavigateAToFirstOccurenceButton.Dispose ();
+                NavigateAToFirstOccurenceButton = null;
             }
 
-            if (NavigateCNoBackstack != null) {
-                NavigateCNoBackstack.Dispose ();
-                NavigateCNoBackstack = null;
-            }
-
-            if (NavigateMore != null) {
-                NavigateMore.Dispose ();
-                NavigateMore = null;
+            if (NavigateBToFirstOccurence != null) {
+                NavigateBToFirstOccurence.Dispose ();
+                NavigateBToFirstOccurence = null;
             }
         }
     }

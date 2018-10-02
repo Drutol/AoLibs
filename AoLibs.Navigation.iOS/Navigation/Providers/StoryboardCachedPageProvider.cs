@@ -11,6 +11,7 @@ using UIKit;
 
 namespace AoLibs.Navigation.iOS.Navigation.Providers
 {
+    /// <inheritdoc />
     public class StoryboardCachedPageProvider<TPage> : CachedPageProvider<TPage> 
         where TPage : class, INavigationPage
     {
@@ -46,6 +47,16 @@ namespace AoLibs.Navigation.iOS.Navigation.Providers
         public StoryboardCachedPageProvider(TPage instance, Func<TPage> factory = null) 
             : base(instance, factory)
         {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StoryboardCachedPageProvider{TPage}"/> class.
+        /// Extracts data from <see cref="attr"/> to prepare the provider.
+        /// </summary>
+        /// <param name="attr">Page attribute.</param>
+        public StoryboardCachedPageProvider(NavigationPageAttribute attr)
+        {
+            SetUpFactory(attr.StoryboardName, attr.ViewControllerIdentifier);
         }
 
         private void SetUpFactory(string storyboardName, string viewControllerIdentifier)

@@ -26,8 +26,11 @@ namespace AoLibs.Adapters.Android
         public void SetString(string key, string value)
         {
             var editor = _preferenceManager.Edit();
-            editor.PutString(key, value);
-            editor.Commit();
+            if (value is null)
+                editor.Remove(key);
+            else
+                editor.PutString(key, value);
+            editor.Apply();
         }
 
         public bool? GetBool(string key)
@@ -41,7 +44,7 @@ namespace AoLibs.Adapters.Android
         {
             var editor = _preferenceManager.Edit();
             editor.PutBoolean(key, value);
-            editor.Commit();
+            editor.Apply();
         }
 
         public int? GetInt(string key)
@@ -55,7 +58,7 @@ namespace AoLibs.Adapters.Android
         {
             var editor = _preferenceManager.Edit();
             editor.PutInt(key, value);
-            editor.Commit();
+            editor.Apply();
         }
 
         public long? GetLong(string key)
@@ -69,7 +72,7 @@ namespace AoLibs.Adapters.Android
         {
             var editor = _preferenceManager.Edit();
             editor.PutLong(key, value);
-            editor.Commit();
+            editor.Apply();
         }
 
         public double? GetDouble(string key)
@@ -83,7 +86,14 @@ namespace AoLibs.Adapters.Android
         {
             var editor = _preferenceManager.Edit();
             editor.PutFloat(key, (float)value);
-            editor.Commit();
+            editor.Apply();
+        }
+
+        public void Remove(string key)
+        {
+            var editor = _preferenceManager.Edit();
+            editor.Remove(key);
+            editor.Apply();
         }
     }
 }

@@ -7,9 +7,8 @@
 using Foundation;
 using System;
 using System.CodeDom.Compiler;
-using UIKit;
 
-namespace AoLibs.Sample.iOS
+namespace AoLibs.Sample.iOS.ViewControllers
 {
     [Register ("RootNavigationViewController")]
     partial class RootNavigationViewController

@@ -1,13 +1,13 @@
-﻿using Foundation;
-using System;
+﻿using System;
 using AoLibs.Navigation.iOS.Navigation.Attributes;
 using AoLibs.Navigation.iOS.Navigation.Controllers;
 using AoLibs.Sample.Shared;
+using AoLibs.Sample.Shared.Models;
 using AoLibs.Sample.Shared.ViewModels;
 using AoLibs.Utilities.iOS;
-using UIKit;
+using AoLibs.Utilities.iOS.Extensions;
 
-namespace AoLibs.Sample.iOS
+namespace AoLibs.Sample.iOS.ViewControllers
 {
     [NavigationPage((int) PageIndex.PageA, NavigationPageAttribute.PageProvider.Cached, StoryboardName = "Main",
         ViewControllerIdentifier = "TestPageAViewController")]
@@ -18,10 +18,27 @@ namespace AoLibs.Sample.iOS
 
         }
 
+        public override void NavigatedBack()
+        {
+            base.NavigatedBack();
+        }
+
+        public override void NavigatedFrom()
+        {
+            base.NavigatedFrom();
+        }
+
+        public override void NavigatedTo()
+        {
+            ViewModel.NavigatedTo();
+            base.NavigatedTo();
+        }
+
         public override void InitBindings()
         {
             ChooseFancyButton.SetOnClickCommand(ViewModel.AskUserAboutFancyThingsCommand);
             ShowFancyButton.SetOnClickCommand(ViewModel.ShowLastFanciedThingCommand);
+            ResetButton.SetOnClickCommand(ViewModel.ResetFanciness);
             NavigateButton.SetOnClickCommand(ViewModel.NavigateSomewhereElseCommand);
         }
     }

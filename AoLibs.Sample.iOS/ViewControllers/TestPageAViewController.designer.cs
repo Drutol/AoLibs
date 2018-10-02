@@ -7,9 +7,8 @@
 using Foundation;
 using System;
 using System.CodeDom.Compiler;
-using UIKit;
 
-namespace AoLibs.Sample.iOS
+namespace AoLibs.Sample.iOS.ViewControllers
 {
     [Register ("TestPageAViewController")]
     partial class TestPageAViewController
@@ -21,6 +20,10 @@ namespace AoLibs.Sample.iOS
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton NavigateButton { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton ResetButton { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -36,6 +39,11 @@ namespace AoLibs.Sample.iOS
             if (NavigateButton != null) {
                 NavigateButton.Dispose ();
                 NavigateButton = null;
+            }
+
+            if (ResetButton != null) {
+                ResetButton.Dispose ();
+                ResetButton = null;
             }
 
             if (ShowFancyButton != null) {

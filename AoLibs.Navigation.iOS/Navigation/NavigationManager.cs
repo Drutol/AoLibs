@@ -25,6 +25,9 @@ namespace AoLibs.Navigation.iOS.Navigation
         private bool Intercepting =>
             _naviagtionCompletionSource != null && !_naviagtionCompletionSource.Task.IsCompleted;
 
+        // Happens when we are trying to clear the backstack by popping but last page can't be popped according to iOS.
+        private bool _needsToSetPageAsRoot;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="NavigationManager{TPageIdentifier}"/> class.
         /// </summary>
@@ -89,19 +92,16 @@ namespace AoLibs.Navigation.iOS.Navigation
                     }
                     else
                     {
-                        if (string.IsNullOrEmpty(attr.ViewControllerIdentifier))
+                        switch (attr.PageProviderType)
                         {
-                            switch (attr.PageProviderType)
-                            {
-                                case NavigationPageAttribute.PageProvider.Cached:
-                                    providerType = ObtainProviderFromType(typeof(StoryboardCachedPageProvider<>), true);
-                                    break;
-                                case NavigationPageAttribute.PageProvider.Oneshot:
-                                    providerType = ObtainProviderFromType(typeof(StoryboardCachedPageProvider<>), true);
-                                    break;
-                                default:
-                                    throw new ArgumentOutOfRangeException();
-                            }
+                            case NavigationPageAttribute.PageProvider.Cached:
+                                providerType = ObtainProviderFromType(typeof(StoryboardCachedPageProvider<>), true);
+                                break;
+                            case NavigationPageAttribute.PageProvider.Oneshot:
+                                providerType = ObtainProviderFromType(typeof(StoryboardOneshotPageProvider<>), true);
+                                break;
+                            default:
+                                throw new ArgumentOutOfRangeException();
                         }
                     }
 
@@ -110,7 +110,8 @@ namespace AoLibs.Navigation.iOS.Navigation
 
                 IPageProvider<INavigationPage> ObtainProviderFromType(Type providerType, bool isStoryboard = false)
                 {
-                    return (IPageProvider<INavigationPage>) providerType.MakeGenericType(type)
+                    return (IPageProvider<INavigationPage>) providerType
+                        .MakeGenericType(type)
                         .GetConstructor(isStoryboard ? new[] {typeof(NavigationPageAttribute)} : new Type[] { })
                         .Invoke(isStoryboard ? new object[] {attr} : null);
                 }
@@ -145,23 +146,61 @@ namespace AoLibs.Navigation.iOS.Navigation
 
         public override void NotifyPagesPopped(IEnumerable<INavigationPage> pages)
         {
-            for (int i = 0; i <= pages.Count() + 1; i++)
+            if (_navigationController.ViewControllers.Length == pages.Count())
+                _needsToSetPageAsRoot = true;
+
+            for (int i = 0; i < pages.Count(); i++)
             {
                 _navigationController.PopViewController(false);
-            }
+            }       
         }
 
         public override void NotifyPagePushed(INavigationPage page)
         {
-            // we are just pushing new page, not trickery required
+            // we are just pushing new page, no trickery required
             if (!Intercepting)
-                _navigationController.PushViewController((UIViewController) page, true);
+            {
+                var viewControllers = _navigationController.ViewControllers;
+                // check if this controller is not already on stack
+                if (viewControllers.Any(controller => ReferenceEquals(controller, page)))
+                {
+                    // if so we have to remove them
+                    var clearedViewControllers = viewControllers.ToList();
+                    clearedViewControllers.RemoveAll(controller => ReferenceEquals(page, controller));
+                    clearedViewControllers.Add(page as UIViewController);
+                    viewControllers = clearedViewControllers.ToArray();
+                    _navigationController.SetViewControllers(viewControllers, true);
+                    _needsToSetPageAsRoot = false;
+                }
+                else
+                {
+                    if (_needsToSetPageAsRoot)
+                    {
+                        _navigationController.SetViewControllers(new[] { (UIViewController)page }, true);
+                        _needsToSetPageAsRoot = false;
+                    }
+                    else
+                    {
+                        _navigationController.PushViewController((UIViewController)page, true);
+                    }
+                }
+            }
         }
 
         public override void NotifyPagePushedWithoutBackstack(INavigationPage page)
         {
             // first we copy current stack
             var viewControllers = _navigationController.ViewControllers;
+
+            // check if this controller is not already on stack
+            if (viewControllers.Any(controller => ReferenceEquals(controller, page)))
+            {
+                // if so we have to remove them
+                var clearedViewControllers = viewControllers.ToList();
+                clearedViewControllers.RemoveAll(controller => ReferenceEquals(page, controller));
+                viewControllers = clearedViewControllers.ToArray();
+            }
+
             // we have the page we are pushing so we pass on intercepting and replace last page with new one
             viewControllers[viewControllers.Length - 1] = (UIViewController) page;
             // after navigation is completed we silently remove previous page

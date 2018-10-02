@@ -5,7 +5,7 @@ using AoLibs.Adapters.Core.Interfaces;
 namespace AoLibs.Adapters.Core
 {
     /// <summary>
-    /// Base class for MessageBoxProviders, addiditonnaly allows to obtain "Lifetime" object of your loader so it can be conviniently used in using statement.
+    /// Base class for MessageBoxProviders, additionally allows to obtain "Lifetime" object of your loader so it can be conviniently used in using statement.
     /// </summary>
     public abstract class MessageBoxProviderBase : IMessageBoxProvider
     {

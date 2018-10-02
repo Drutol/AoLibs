@@ -24,7 +24,7 @@ namespace AoLibs.Adapters.Test
             // Arrange
             var filestorageMock = new Mock<IFileStorageProvider>();
             var savedJson = string.Empty;
-            filestorageMock.Setup(provider => provider.WriteText(It.IsAny<string>(), It.IsAny<string>()))
+            filestorageMock.Setup(provider => provider.WriteTextAsync(It.IsAny<string>(), It.IsAny<string>()))
                 .Callback<string, string>((s, s1) => savedJson = s1);
             filestorageMock.Setup(provider => provider.ReadTextAsync(It.IsAny<string>()))
                 .Returns(() => Task.FromResult(savedJson));
@@ -37,7 +37,7 @@ namespace AoLibs.Adapters.Test
 
             // Assert
             filestorageMock.Verify(provider => provider
-                .WriteText(
+                .WriteTextAsync(
                     It.Is<string>(s => s == "test.json"),
                     It.IsAny<string>()));
 
@@ -54,7 +54,7 @@ namespace AoLibs.Adapters.Test
             // Arrange
             var filestorageMock = new Mock<IFileStorageProvider>();
             var savedJson = string.Empty;
-            filestorageMock.Setup(provider => provider.WriteText(It.IsAny<string>(), It.IsAny<string>()))
+            filestorageMock.Setup(provider => provider.WriteTextAsync(It.IsAny<string>(), It.IsAny<string>()))
                 .Callback<string, string>((s, s1) => savedJson = s1);
             filestorageMock.Setup(provider => provider.ReadTextAsync(It.IsAny<string>()))
                 .Returns(() => Task.FromResult(savedJson));

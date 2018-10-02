@@ -1,14 +1,15 @@
-﻿using Foundation;
-using System;
+﻿using System;
 using AoLibs.Navigation.iOS.Navigation.Attributes;
 using AoLibs.Navigation.iOS.Navigation.Controllers;
 using AoLibs.Sample.Shared;
+using AoLibs.Sample.Shared.Models;
+using AoLibs.Sample.Shared.NavArgs;
 using AoLibs.Sample.Shared.ViewModels;
 using AoLibs.Utilities.iOS;
+using AoLibs.Utilities.iOS.Extensions;
 using GalaSoft.MvvmLight.Helpers;
-using UIKit;
 
-namespace AoLibs.Sample.iOS
+namespace AoLibs.Sample.iOS.ViewControllers
 {
     [NavigationPage((int)PageIndex.PageB, NavigationPageAttribute.PageProvider.Cached, StoryboardName = "Main",
         ViewControllerIdentifier = "TestPageBViewController")]
@@ -18,10 +19,28 @@ namespace AoLibs.Sample.iOS
         {
         }
 
+        public override void NavigatedBack()
+        {
+            base.NavigatedBack();
+        }
+
+        public override void NavigatedFrom()
+        {
+            base.NavigatedFrom();
+        }
+
+        public override void NavigatedTo()
+        {
+            ViewModel.NavigatedTo(NavigationArguments as PageBNavArgs);
+            base.NavigatedTo();
+        }
+
         public override void InitBindings()
         {
             Bindings.Add(this.SetBinding(() => ViewModel.Message, () => Label.Text));
             GoBackButton.SetOnClickCommand(ViewModel.GoBackCommand);
+            NavigateMore.SetOnClickCommand(ViewModel.NavigateCCommand);
+            NavigateCNoBackstack.SetOnClickCommand(ViewModel.NavigateCNoBackCommand);
         }
     }
 }

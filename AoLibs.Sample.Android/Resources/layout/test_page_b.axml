@@ -7,10 +7,21 @@
         android:text="Text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/TextView" />
-    <Button
+		android:gravity="center"    
+		android:id="@+id/TextView" />
+	<Button
         android:text="Go back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ButtonGoBack" />
+    <Button
+        android:text="Navigate C"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ButtonNavigateC" /> 
+	<Button
+        android:text="Navigate C with no backstack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ButtonNavigateCNoBackstack" /> 
 </LinearLayout>

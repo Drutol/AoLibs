@@ -19,5 +19,7 @@
 
         double? GetDouble(string key);
         void SetDouble(string key, double value);
+
+        void Remove(string key);
     }
 }

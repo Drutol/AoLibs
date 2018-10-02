@@ -1,13 +1,13 @@
-﻿using Foundation;
-using System;
+﻿using System;
 using AoLibs.Navigation.Core.Interfaces;
 using AoLibs.Navigation.iOS.Navigation;
 using AoLibs.Sample.Shared;
+using AoLibs.Sample.Shared.Models;
 using AoLibs.Sample.Shared.Statics;
 using Autofac;
 using UIKit;
 
-namespace AoLibs.Sample.iOS
+namespace AoLibs.Sample.iOS.ViewControllers
 {
     public partial class RootNavigationViewController : UINavigationController
     {

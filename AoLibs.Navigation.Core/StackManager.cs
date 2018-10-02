@@ -63,23 +63,32 @@ namespace AoLibs.Navigation.Core
             // We gotta clean all entries on backstack until we find the desired one
             if (backstackOption == NavigationBackstackOption.ClearBackstackToFirstOccurence)
             {
-                var poppedPages = new List<TPage>();
-                var top = _stack.Pop();
-                var provider = _navigationManager.PageDefinitions[page];
-                while (!top.Page.PageIdentifier.Equals(provider.PageIdentifier))
+                if (_stack.Any(entry => entry.Page.PageIdentifier.Equals(page)))
                 {
-                    if (top.Page != null)
-                        poppedPages.Add(top.Page);
-                    if (!_stack.Any())
-                        break;
-                    top = _stack.Pop();
-                }
+                    var poppedPages = new List<TPage>();
+                    var top = _stack.Pop();
+                    var provider = _navigationManager.PageDefinitions[page];
+                    while (!top.Page.PageIdentifier.Equals(provider.PageIdentifier))
+                    {
+                        if (top.Page != null)
+                            poppedPages.Add(top.Page);
+                        if (!_stack.Any())
+                            break;
+                        top = _stack.Pop();
+                    }
 
-                CurrentFragment?.NavigatedFrom();
-                _navigationManager.NotifyPagesPopped(poppedPages);
-                CurrentFragment = null;
-            } // before navigation new page instance will be created
-            else if (backstackOption == NavigationBackstackOption.ForceNewPageInstance)
+                    CurrentFragment?.NavigatedFrom();
+                    _navigationManager.NotifyPagesPopped(poppedPages);
+                    CurrentFragment = null;
+                }
+                else
+                {
+                    backstackOption = NavigationBackstackOption.SetAsRootPage;
+                }
+            }
+
+            // before navigation new page instance will be created
+            if (backstackOption == NavigationBackstackOption.ForceNewPageInstance)
             {
                 _navigationManager.PageDefinitions[page].ForceReinstantination();
             }

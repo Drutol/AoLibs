@@ -1,5 +1,5 @@
 -
-  version: 0.4.{build}
+  version: 0.5.{build}
   image: Visual Studio 2017
 
   install: 
@@ -16,7 +16,7 @@
   - cmd: >-
       cd Build
   - cmd: >-
-      powershell .\build.ps1 -Verbosity diagnostic -ScriptArgs '-buildTarget="Publish-Packages"','-libVersion="0.4.5"'
+      powershell .\build.ps1 -Verbosity diagnostic -ScriptArgs '-buildTarget="Publish-Packages"','-libVersion="0.5.0"'
     
 -
   version: 0.4.{build}
