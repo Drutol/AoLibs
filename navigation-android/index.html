@@ -371,13 +371,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#viewmodel-injection" title="ViewModel injection" class="md-nav__link">
-    ViewModel injection
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#bindings" title="Bindings" class="md-nav__link">
     Bindings
   </a>
@@ -497,6 +490,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../utilities-ios/" title="iOS Utilities" class="md-nav__link">
+      iOS Utilities
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../android-listeners/" title="Android Listeners" class="md-nav__link">
       Android Listeners
     </a>
@@ -597,13 +602,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#viewmodel-injection" title="ViewModel injection" class="md-nav__link">
-    ViewModel injection
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#bindings" title="Bindings" class="md-nav__link">
     Bindings
   </a>
@@ -687,6 +685,7 @@ The <em>RootView</em> <code>FrameLayout</code> will be hosting all our pages wit
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>You can also used attribute based navigation. See more <a href="/navigation/#attribute-based-navigation">here</a>.</p>
+<p>This is also the place to pass <a href="/navigation/#viewmodel-injection">IViewModelResolver</a></p>
 </div>
 <h3 id="back-navigation-forwarding">Back navigation forwarding</h3>
 <p>One last thing left to do is to give the library the way to know that user pressed back button. Given that <code>App.Current.NavigationManager</code> is the instance of our freshly created navigation manager we can override <code>OnBackPressed()</code> in <code>MainActivity</code> like so:</p>
@@ -748,22 +747,6 @@ The <em>RootView</em> <code>FrameLayout</code> will be hosting all our pages wit
 }
 </code></pre>
 
-<h3 id="viewmodel-injection">ViewModel injection</h3>
-<p>The generic parameter of <code>FragmentBase&lt;TViewModel&gt;</code> allows you to specify which ViewModel to pull for given fragment. ViewModel will be available in <code>ViewModel</code> property in your fragment.
-This requires providing implementation of <code>IViewModelResolver</code> interface which will pull appropriate ViewModels from your IoC for example.</p>
-<pre><code class="cs">private class ViewModelResolver : IViewModelResolver
-{
-    public TViewModel Resolve&lt;TViewModel&gt;()
-    {
-        using (var scope = ViewModelLocator.ObtainScope())
-        {
-            return scope.Resolve&lt;TViewModel&gt;();
-        }
-    }
-}
-</code></pre>
-
-<p>This <code>ViewModelResolver</code> can be passed to <code>NavigationManager</code>'s constructor.</p>
 <h3 id="bindings">Bindings</h3>
 <p>When we are talking navigation we are talking bindings lifecycle too. <code>FragmentBase</code> class handles them too. Since the library is based on MVVMLight library we are using its bindings. </p>
 <p>You will want to add all of them to <code>Bindings</code> which is of type <code>List&lt;Binding&gt;</code>, they will be properly attached and reattached when needed.</p>

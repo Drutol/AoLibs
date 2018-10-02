@@ -41,6 +41,25 @@ It's possible to invoke navigation with arguments. It allows us to separate View
 
 `INavigationManager<TPageIdentifier>` allows to pass `args` parameter which is plain `System.Object`. These arguments will appear in `NavigationArguments` property within fragment class.
 
+## ViewModel injection
+
+The generic parameter of `FragmentBase<TViewModel>` or `ViewControllerBase<TViewModel>` allows you to specify which ViewModel to pull for given page. ViewModel will be available in `ViewModel` property of your page.
+This requires providing implementation of `IViewModelResolver` interface which will pull appropriate ViewModels from your IoC container for example.
+```cs
+private class ViewModelResolver : IViewModelResolver
+{
+    public TViewModel Resolve<TViewModel>()
+    {
+        using (var scope = ViewModelLocator.ObtainScope())
+        {
+            return scope.Resolve<TViewModel>();
+        }
+    }
+}
+```
+
+This `ViewModelResolver` can be passed to `NavigationManager`'s constructor.
+
 ## Navigation backstack options
 
 There are defined following navigation options:

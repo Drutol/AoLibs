@@ -36,7 +36,7 @@
     
     
       
-        <title>Navigation - AoLibs</title>
+        <title>iOS Utilities - AoLibs</title>
       
     
     
@@ -94,7 +94,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="../#navigation" tabindex="1" class="md-skip">
+      <a href="../#ios-utilities" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -120,7 +120,7 @@
                 AoLibs
               </span>
               <span class="md-header-nav__topic">
-                Navigation
+                iOS Utilities
               </span>
             
           
@@ -271,84 +271,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Navigation
-      </label>
-    
-    <a href="./" title="Navigation" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../navigation/" title="Navigation" class="md-nav__link">
       Navigation
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#page-providers" title="Page providers" class="md-nav__link">
-    Page providers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#navigation-lifecycle-events" title="Navigation lifecycle events" class="md-nav__link">
-    Navigation lifecycle events
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#navigation-with-arguments" title="Navigation with arguments" class="md-nav__link">
-    Navigation with arguments
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#viewmodel-injection" title="ViewModel injection" class="md-nav__link">
-    ViewModel injection
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#navigation-backstack-options" title="Navigation backstack options" class="md-nav__link">
-    Navigation backstack options
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#attribute-based-navigation" title="Attribute based navigation" class="md-nav__link">
-    Attribute based navigation
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
     
@@ -452,11 +379,49 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../utilities-ios/" title="iOS Utilities" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        iOS Utilities
+      </label>
+    
+    <a href="./" title="iOS Utilities" class="md-nav__link md-nav__link--active">
       iOS Utilities
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#commands" title="Commands" class="md-nav__link">
+    Commands
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -505,43 +470,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#page-providers" title="Page providers" class="md-nav__link">
-    Page providers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#navigation-lifecycle-events" title="Navigation lifecycle events" class="md-nav__link">
-    Navigation lifecycle events
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#navigation-with-arguments" title="Navigation with arguments" class="md-nav__link">
-    Navigation with arguments
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#viewmodel-injection" title="ViewModel injection" class="md-nav__link">
-    ViewModel injection
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#navigation-backstack-options" title="Navigation backstack options" class="md-nav__link">
-    Navigation backstack options
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#attribute-based-navigation" title="Attribute based navigation" class="md-nav__link">
-    Attribute based navigation
+  <a href="#commands" title="Commands" class="md-nav__link">
+    Commands
   </a>
   
 </li>
@@ -562,129 +492,36 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Drutol/AoLibs/edit/master/docs/navigation.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/Drutol/AoLibs/edit/master/docs/utilities-ios.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="navigation">Navigation</h1>
-<p>The goal is to provide lightweight solution for cross-platform navigation.</p>
-<p>The main interface you will be using in your shared codebase is <code>INavigationManager&lt;TPageIdentifier&gt;</code> where <code>TPageIdentifier</code> is usually a simple enum with all your pages.</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>Below I'll describe shared concepts between Android and iOS. Setup and platform specific things are contained in separate pages.</p>
+                <h1 id="ios-utilities">iOS Utilities</h1>
+<h3 id="commands">Commands</h3>
+<p>Set of 4 extension methods that help setting <code>ICommand</code> for <code>View</code>:</p>
+<ul>
+<li><code>void SetOnClickCommand(this UIView view, ICommand command)</code></li>
+<li><code>void SetOnClickCommand(this UIView view, ICommand command, Action&lt;UIView,bool&gt; onCanExecuteChanged)</code></li>
+<li><code>void SetOnClickCommand(this UIView view, ICommand command, object arg)</code></li>
+<li><code>void SetOnClickCommand(this UIView view, ICommand command, object arg, Action&lt;UIView, bool&gt; onCanExecuteChanged)</code></li>
+</ul>
+<p>Depending on whether passed <code>view</code> is instance of <code>UIControl</code> these methods will work slightly different in the backstage.</p>
+<ul>
+<li>UIView<ul>
+<li><code>UITapGestureRecognizer</code> will be added to the view for triggering command.</li>
+<li><code>UIView.UserInteractionEnabled</code> will be manipulated to apply command's <code>CanExecute()</code> state.</li>
+</ul>
+</li>
+<li>UIControl<ul>
+<li>Subscription will be made to <code>UIControl.TouchUpInside</code> for triggering command.</li>
+<li><code>UIControl.Enabled</code> will be changed to reflect the <code>CanExecute()</code> state of the command.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Repeated calls will not cause multiple subsriptions.</p>
 </div>
-<h2 id="page-providers">Page providers</h2>
-<p>The page definitions dictionary takes in pair of <code>TPageIdentifier</code> which is simple <code>enum</code> in most cases and instance of class that implements <code>IPageProvider&lt;INavigationPage&gt;</code>. There are two implemented as of now:</p>
-<ul>
-<li><code>CachedPageProvider</code><ul>
-<li>This provider preserves the state of its page so that when we navigate there it will look the same.</li>
-</ul>
-</li>
-<li><code>OneshotPageProvider</code><ul>
-<li>Here we are providing the page instance just once, each navigation will create new uninitialized page. The use-case of it is to avoid manually cleaning pages like <em>RegisterPage</em>. I suggest disabling cache in your IoC container for associated ViewModel.</li>
-</ul>
-</li>
-</ul>
-<h2 id="navigation-lifecycle-events">Navigation lifecycle events</h2>
-<p><code>INavigationPage</code> provides following events for you to override from platform specific class:</p>
-<pre><code class="cs">public virtual void NavigatedTo();
-public virtual void NavigatedBack();
-public virtual void NavigatedFrom();
-</code></pre>
-
-<ul>
-<li>NavigatedTo<ul>
-<li>Is called when we navigate forward to this fragment.<ul>
-<li>eg. SignInPage -&gt; DashboardPage</li>
-<li>DashboardPage invokes <code>NavigatedTo</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>NavigatedBack<ul>
-<li>Called when we navigate backwards to the page we have already been on.<ul>
-<li>eg. SignInPage &lt;- DashboardPage</li>
-<li>SignInPage invokes <code>NavigatedBack</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>NavigatedFrom<ul>
-<li>Is called whenever we leave the page.</li>
-</ul>
-</li>
-</ul>
-<h2 id="navigation-with-arguments">Navigation with arguments</h2>
-<p>It's possible to invoke navigation with arguments. It allows us to separate ViewModels and avoid communication spaghetti code. </p>
-<p><code>INavigationManager&lt;TPageIdentifier&gt;</code> allows to pass <code>args</code> parameter which is plain <code>System.Object</code>. These arguments will appear in <code>NavigationArguments</code> property within fragment class.</p>
-<h2 id="viewmodel-injection">ViewModel injection</h2>
-<p>The generic parameter of <code>FragmentBase&lt;TViewModel&gt;</code> or <code>ViewControllerBase&lt;TViewModel&gt;</code> allows you to specify which ViewModel to pull for given page. ViewModel will be available in <code>ViewModel</code> property of your page.
-This requires providing implementation of <code>IViewModelResolver</code> interface which will pull appropriate ViewModels from your IoC container for example.</p>
-<pre><code class="cs">private class ViewModelResolver : IViewModelResolver
-{
-    public TViewModel Resolve&lt;TViewModel&gt;()
-    {
-        using (var scope = ViewModelLocator.ObtainScope())
-        {
-            return scope.Resolve&lt;TViewModel&gt;();
-        }
-    }
-}
-</code></pre>
-
-<p>This <code>ViewModelResolver</code> can be passed to <code>NavigationManager</code>'s constructor.</p>
-<h2 id="navigation-backstack-options">Navigation backstack options</h2>
-<p>There are defined following navigation options:</p>
-<pre><code class="cs">public enum NavigationBackstackOption
-{
-    AddToBackstack,
-    SetAsRootPage,
-    ClearBackstackToFirstOccurence,
-    NoBackstack,
-    ForceNewPageInstance
-}
-</code></pre>
-
-<ul>
-<li><code>AddToBackstack</code><ul>
-<li>Basic default option, current page will be added to backstack when navigating.</li>
-</ul>
-</li>
-<li><code>SetAsRootPage</code><ul>
-<li>Clears backstack and then navigates to given page essentially making it a root page.</li>
-</ul>
-</li>
-<li><code>ClearBackstackToFirstOccurence</code><ul>
-<li>Allows to "jump" to page that is already on backstack, let's say you have registration process consisting of multiple pages and once you are done you need to get back to "Sign in" page, with this option you can go back multiple pages.</li>
-</ul>
-</li>
-<li><code>NoBackstack</code><ul>
-<li>Current page won't be added to backstack on navigation.</li>
-</ul>
-</li>
-<li><code>ForceNewPageInstance</code><ul>
-<li>Requests <code>IPageProvider</code> to recreate page instance before navigating.</li>
-</ul>
-</li>
-</ul>
-<h2 id="attribute-based-navigation">Attribute based navigation</h2>
-<p>When creating instance of <code>INavigationManager</code> there's a constructor overload that doesn't require you to pass dictionary mapping pages to providers.
-This constructor will search for all types from calling assembly via <code>Assembly.GetCallingAssembly()</code> and search for classes marked with <code>NavigationPageAttribute</code>.
-This attribute differs in Android vs iOS implementation but in its shared part it specifies:</p>
-<ul>
-<li><code>PageProviderType</code><ul>
-<li>Specifies whether to use <code>OneshotPageProvider</code> or <code>CachedPageProvider</code></li>
-</ul>
-</li>
-<li><code>Page</code><ul>
-<li>Specifies the integer value of an enum specified as <em>PageIndex</em></li>
-</ul>
-</li>
-</ul>
-<pre><code class="cs">
-[NavigationPage((int) PageIndex.PageA, NavigationPageAttribute.PageProvider.Cached)]
-public class TestPageAFragment : FragmentBase&lt;TestViewModelA&gt;
-
-</code></pre>
+<p>These commands will subscribe to <code>CanExecuteChanged</code> event. By default <code>Enabled</code> or <code>UserInteractionEnabled</code> property will be changed but you can also use overload with <code>Action&lt;View,bool&gt; onCanExecuteChanged</code> argument to customize behaviour. The other 2 variants allow passing <code>object arg</code> argument to <code>ICommand</code>'s <code>Execute()</code> and <code>CanExecute()</code> methods.</p>
                 
                   
                 
@@ -705,7 +542,7 @@ public class TestPageAFragment : FragmentBase&lt;TestViewModelA&gt;
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../about/" title="About" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../utilities-android/" title="Android Utilities" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -714,19 +551,19 @@ public class TestPageAFragment : FragmentBase&lt;TestViewModelA&gt;
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                About
+                Android Utilities
               </span>
             </div>
           </a>
         
         
-          <a href="../navigation-android/" title="Android Navigation" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../android-listeners/" title="Android Listeners" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Android Navigation
+                Android Listeners
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

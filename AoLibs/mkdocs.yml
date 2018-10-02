@@ -1,6 +1,6 @@
 site_name: AoLibs
 
-pages:
+nav:
   - Home: index.md
   - Installation: installation.md
   - About: about.md
@@ -13,6 +13,7 @@ pages:
   - AppVariables: app-variables.md
   - Utilities: utilities.md
   - Android Utilities: utilities-android.md
+  - iOS Utilities: utilities-ios.md
   - Android Listeners: android-listeners.md
   - Android Layout to C#: android-layout-to-cs.md
 

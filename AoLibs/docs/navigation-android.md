@@ -50,6 +50,8 @@ protected override void OnCreate(Bundle savedInstanceState)
 !!! hint
     You can also used attribute based navigation. See more [here](/navigation/#attribute-based-navigation).
 
+    This is also the place to pass [IViewModelResolver](/navigation/#viewmodel-injection)
+
 ### Back navigation forwarding
 
 One last thing left to do is to give the library the way to know that user pressed back button. Given that `App.Current.NavigationManager` is the instance of our freshly created navigation manager we can override `OnBackPressed()` in `MainActivity` like so:
@@ -111,25 +113,6 @@ private void InterceptTransaction(FragmentTransaction fragmentTransaction)
         Resource.Animator.animation_fade_out);
 }
 ```
-
-### ViewModel injection
-
-The generic parameter of `FragmentBase<TViewModel>` allows you to specify which ViewModel to pull for given fragment. ViewModel will be available in `ViewModel` property in your fragment.
-This requires providing implementation of `IViewModelResolver` interface which will pull appropriate ViewModels from your IoC for example.
-```cs
-private class ViewModelResolver : IViewModelResolver
-{
-    public TViewModel Resolve<TViewModel>()
-    {
-        using (var scope = ViewModelLocator.ObtainScope())
-        {
-            return scope.Resolve<TViewModel>();
-        }
-    }
-}
-```
-
-This `ViewModelResolver` can be passed to `NavigationManager`'s constructor.
 
 ### Bindings
 

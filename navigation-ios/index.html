@@ -331,9 +331,63 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#todo" title="Todo" class="md-nav__link">
-    Todo
+  <a href="#setup" title="Setup" class="md-nav__link">
+    Setup
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#navigationviewcontroller" title="NavigationViewController" class="md-nav__link">
+    NavigationViewController
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewcontroller" title="ViewController" class="md-nav__link">
+    ViewController
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage" title="Usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-configuration" title="Additional configuration" class="md-nav__link">
+    Additional configuration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabbarviewcontrollers" title="TabBarViewControllers" class="md-nav__link">
+    TabBarViewControllers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bindings" title="Bindings" class="md-nav__link">
+    Bindings
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -426,6 +480,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../utilities-ios/" title="iOS Utilities" class="md-nav__link">
+      iOS Utilities
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../android-listeners/" title="Android Listeners" class="md-nav__link">
       Android Listeners
     </a>
@@ -472,9 +538,63 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#todo" title="Todo" class="md-nav__link">
-    Todo
+  <a href="#setup" title="Setup" class="md-nav__link">
+    Setup
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#navigationviewcontroller" title="NavigationViewController" class="md-nav__link">
+    NavigationViewController
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewcontroller" title="ViewController" class="md-nav__link">
+    ViewController
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage" title="Usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-configuration" title="Additional configuration" class="md-nav__link">
+    Additional configuration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabbarviewcontrollers" title="TabBarViewControllers" class="md-nav__link">
+    TabBarViewControllers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bindings" title="Bindings" class="md-nav__link">
+    Bindings
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -499,8 +619,102 @@
                 
                 <h1 id="ios-navigation">iOS Navigation</h1>
 <h2 id="introduction">Introduction</h2>
-<p>It was certainly a challenge to bend native iOS navigation to match with overall concept and Android's capabilities. Finally I have achieved the freedom of managing the naviagrion stack however I see fit from shared code.</p>
-<h2 id="todo">Todo</h2>
+<p>It was certainly a challenge to bend native iOS navigation to match with overall concept and Android's capabilities. Finally I have achieved the freedom of managing the navigation stack however I see fit from shared code.</p>
+<h2 id="setup">Setup</h2>
+<p>As it's currently advised to use Storyboards I'll focus on them. What you essentially need is a navigation controller and a view controllers.</p>
+<h3 id="navigationviewcontroller">NavigationViewController</h3>
+<p>This is how the most basic NavigationController may look like:</p>
+<pre><code class="cs">public partial class RootNavigationViewController : UINavigationController
+    {
+        public RootNavigationViewController (IntPtr handle) : base (handle)
+        {
+
+        }
+
+        public override void ViewDidLoad()
+        {
+            base.ViewDidLoad();
+
+            // using attribute based navigation definition
+            var manager = new NavigationManager&lt;PageIndex&gt;(
+                navigationController: this,
+                viewModelResolver: new ViewModelResolver());
+            // or manually providing navigation definition
+            var manager = new NavigationManager&lt;PageIndex&gt;(
+                navigationController: this,
+                pageDefinitions: new Dictionary&lt;PageIndex, IPageProvider&lt;INavigationPage&gt;&gt;
+                {
+                    {PageIndex.PageA, new StoryboardCachedPageProvider&lt;TestPageAViewController&gt;(
+                        storyboardName: &quot;Main&quot;,
+                        viewControllerIdentifier: nameof(TestPageAViewController))},
+                    ...
+                },
+                viewModelResolver: new ViewModelResolver());
+
+            // store the manager somewhere to your liking   
+            AppDelegate.Instance.NavigationManager = manager;
+
+            ...
+        }
+    }
+</code></pre>
+
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>For more information on attribute based navigation go <a href="/navigation/#attribute-based-navigation">here</a>.</p>
+<p>For more on <code>ViewModelResolver</code> you can go <a href="/navigation/#viewmodel-injection">here</a></p>
+</div>
+<h3 id="viewcontroller">ViewController</h3>
+<p>Now we just need our ViewController to display the UI. For example:</p>
+<pre><code class="cs">    // used for attribute based definition, not needed when defining manually
+    [NavigationPage(
+        (int) PageIndex.PageA,
+        NavigationPageAttribute.PageProvider.Cached,
+        StoryboardName = &quot;Main&quot;,
+        ViewControllerIdentifier = nameof(TestPageAViewController))]
+    public partial class TestPageAViewController : ViewControllerBase&lt;TestViewModelA&gt;
+    {
+        public TestPageAViewController(IntPtr handle) : base(handle)
+        {
+
+        }
+
+        public override void NavigatedTo()
+        {
+            ViewModel.NavigatedTo();
+        }
+
+        public override void InitBindings()
+        {
+            ...
+        }
+    }
+</code></pre>
+
+<h3 id="usage">Usage</h3>
+<p>Now your <code>INavigationManager</code> can be passed around to invoke navigation whenever you want to.</p>
+<h2 id="additional-configuration">Additional configuration</h2>
+<h3 id="tabbarviewcontrollers">TabBarViewControllers</h3>
+<p>Due to how UI is contructed on iOS it's not possible to abstract it enough, there are separate classes included such as:</p>
+<ul>
+<li><code>ArgumentNavigationTabBarViewController</code> : <code>UITabBarController</code></li>
+<li><code>TabBarViewControllerBase&lt;TViewModel&gt;</code></li>
+</ul>
+<h3 id="bindings">Bindings</h3>
+<p>When we are talking navigation we are talking bindings lifecycle too. <code>ArgumentNavigationViewControler</code> class handles them too. Since the library is based on MVVMLight library we are using its bindings. </p>
+<p>You will want to add all of them to <code>Bindings</code> which is of type <code>List&lt;Binding&gt;</code>, they will be properly attached and reattached when needed.</p>
+<p>You are supposed to add all your bindings in <code>InitBindings</code> method which is called once per controller instance or when bindings need to be recreated.</p>
+<p>Example:</p>
+<pre><code class="cs">protected override void InitBindings()
+{
+    Bindings.Add(this.SetBinding(() =&gt; ViewModel.Toggle).WhenSourceChanges(() =&gt;
+    {
+        ToggleValue.Text = ViewModel.Toggle ? &quot;ON&quot; : &quot;OFF&quot;;
+    }));
+
+    Bindings.Add(this.SetBinding(() =&gt; ViewModel.Value, () =&gt; Value.Text));
+}
+</code></pre>
                 
                   
                 
