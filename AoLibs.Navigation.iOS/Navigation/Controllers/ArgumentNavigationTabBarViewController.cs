@@ -41,6 +41,12 @@ namespace AoLibs.Navigation.iOS.Navigation.Controllers
         {
         }
 
+        protected virtual T Resolve<T>()
+            where T : class
+        {
+            return ViewModelResolver?.Resolve<T>();
+        }
+
         public override void ViewWillDisappear(bool animated)
         {
             if (IsMovingFromParentViewController || IsBeingDismissed)

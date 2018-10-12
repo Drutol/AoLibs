@@ -259,8 +259,12 @@ namespace AoLibs.Adapters.Android.Recycler
 
         protected RecyclerView.LayoutParams GetLayoutParameters(View view)
         {
-            var width = StretchContentHorizonatally ? ViewGroup.LayoutParams.MatchParent : view.LayoutParameters.Width;
-            var height = StretchContentVertically ? ViewGroup.LayoutParams.MatchParent : view.LayoutParameters.Height;
+            var width = StretchContentHorizonatally
+                ? ViewGroup.LayoutParams.MatchParent
+                : view.LayoutParameters?.Width ?? ViewGroup.LayoutParams.WrapContent;
+            var height = StretchContentVertically
+                ? ViewGroup.LayoutParams.MatchParent
+                : view.LayoutParameters?.Height ?? ViewGroup.LayoutParams.WrapContent;
 
             return new RecyclerView.LayoutParams(width, height);
         }
