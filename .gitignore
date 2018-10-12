@@ -264,3 +264,4 @@ __pycache__/
 build/tools
 build/packages
 /Build/.dotnet
+/.vscode
