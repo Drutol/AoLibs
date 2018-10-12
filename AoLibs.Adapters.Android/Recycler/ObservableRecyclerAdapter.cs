@@ -104,7 +104,7 @@ namespace AoLibs.Adapters.Android.Recycler
         /// Gets or sets a value indicating whether to automatically bind ViewModel.
         /// Checks if given ViewHolder type is assignable from <see cref="BindingViewHolderBase{T}"/> if it is, automatically assigns current collection item to <see cref="BindingViewHolderBase{T}.ViewModel"/> in order to trigger binding. 
         /// </summary>
-        public bool IsAutomaticViewModelBindingEnabled { get; set; }
+        public bool IsAutomaticViewModelBindingEnabled { get; set; } = true;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ObservableRecyclerAdapter{TItem, THolder}"/> class.
