@@ -126,5 +126,11 @@ namespace NavigationLib.Android.Navigation
 
             return RootView;
         }
+
+        protected virtual T Resolve<T>()
+            where T : class
+        {
+            return ViewModelResolver?.Resolve<T>();
+        }
     }
 }
