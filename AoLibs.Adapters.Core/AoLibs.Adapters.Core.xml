@@ -158,6 +158,23 @@
             </summary>
             <param name="path">File to remove.</param>
         </member>
+        <member name="M:AoLibs.Adapters.Core.Dialogs.CachedCustomDialogProvider`1.#ctor(System.Func{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:AoLibs.Adapters.Core.Dialogs.CachedCustomDialogProvider`1"/> class.
+            </summary>
+            <param name="factory">Factory used to build actual dialog.</param>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Dialogs.CachedCustomDialogProvider`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AoLibs.Adapters.Core.Dialogs.CachedCustomDialogProvider`1"/> class.
+            <see cref="M:System.Activator.CreateInstance``1"/> will be used for instantiation.
+            </summary>
+        </member>
+        <member name="P:AoLibs.Adapters.Core.Dialogs.CachedCustomDialogProvider`1.Dialog">
+            <summary>
+            Gets instance of held page.
+            </summary>
+        </member>
         <member name="T:AoLibs.Adapters.Core.Excpetions.DataExpiredException">
             <summary>
             Exception that signifies that the data stored is older than specified maximum.

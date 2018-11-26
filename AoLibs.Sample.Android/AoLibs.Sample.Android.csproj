@@ -56,6 +56,7 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dialogs\TestDialogA.cs" />
     <Compile Include="Fragments\TestPageAFragment.cs" />
     <Compile Include="Fragments\TestPageBFragment.cs" />
     <Compile Include="Fragments\TestPageCFragment.cs" />
@@ -144,6 +145,11 @@
   <ItemGroup>
     <AndroidResource Include="Resources\layout\test_page_c.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\test_dialog_a.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using Android.App;
-using Android.OS;
 using Android.Views;
+using AoLibs.Navigation.Android.Navigation.Attributes;
 using AoLibs.Navigation.Core;
 using AoLibs.Navigation.Core.Interfaces;
 using AoLibs.Navigation.Core.PageProviders;
-using Debug = System.Diagnostics.Debug;
 using FragmentManager = Android.Support.V4.App.FragmentManager;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 
-namespace NavigationLib.Android.Navigation
+namespace AoLibs.Navigation.Android.Navigation
 {
     /// <summary>
     /// Class that fulfills the purpose of executing actual navigation transactions.

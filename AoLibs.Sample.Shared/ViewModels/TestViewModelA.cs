@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
+using AoLibs.Adapters.Core.Dialogs;
 using AoLibs.Adapters.Core.Interfaces;
 using AoLibs.Navigation.Core.Interfaces;
 using AoLibs.Sample.Shared.BL;
@@ -20,6 +21,7 @@ namespace AoLibs.Sample.Shared.ViewModels
         private readonly IMessageBoxProvider _messageBoxProvider;
         private readonly IPickerAdapter _pickerAdapter;
         private readonly INavigationManager<PageIndex> _navigationManager;
+        private readonly ICustomDialogsManager<DialogIndex> _dialogsManager;
         private readonly AppVariables _appVariables;
         private UserResponse _userResponse;
 
@@ -28,12 +30,14 @@ namespace AoLibs.Sample.Shared.ViewModels
             IMessageBoxProvider messageBoxProvider,
             IPickerAdapter pickerAdapter,
             INavigationManager<PageIndex> navigationManager,
+            ICustomDialogsManager<DialogIndex> dialogsManager,
             AppVariables appVariables)
         {
             _fancyProviders = fancyProviders.ToList();
             _messageBoxProvider = messageBoxProvider;
             _pickerAdapter = pickerAdapter;
             _navigationManager = navigationManager;
+            _dialogsManager = dialogsManager;
             _appVariables = appVariables;
 
             ShowLastFanciedThingCommand = new RelayCommand(
@@ -93,5 +97,12 @@ namespace AoLibs.Sample.Shared.ViewModels
             new RelayCommand(() => _navigationManager.Navigate(
                 PageIndex.PageB,
                 new PageBNavArgs {Message = "Hello from A!"}));
+
+        public RelayCommand ShowDialogCommand =>
+            new RelayCommand(async () =>
+            {
+                _dialogsManager[DialogIndex.TestDialogA].Show();
+                var result = await _dialogsManager[DialogIndex.TestDialogA].AwaitResult<int>();
+            });
     }
 }
