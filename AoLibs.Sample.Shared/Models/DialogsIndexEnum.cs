@@ -7,5 +7,6 @@ namespace AoLibs.Sample.Shared.Models
     public enum DialogIndex
     {
         TestDialogA,
+        TestDialogB,
     }
 }

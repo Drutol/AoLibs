@@ -22,7 +22,13 @@
         android:text="Some dialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ButtonDialog" /> 
+        android:id="@+id/ButtonDialog" />   
+	
+	<Button
+        android:text="Some other dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ButtonDialogB" /> 
 	
 	<Button
         android:text="Navigate"

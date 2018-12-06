@@ -4,9 +4,16 @@ using System.Text;
 
 namespace AoLibs.Adapters.Core.Dialogs
 {
+    /// <summary>
+    /// Dialog provider always returning new dialog instance.
+    /// </summary>
+    /// <typeparam name="TDialog">Dialog type</typeparam>
     public class OneshotCustomDialogProvider<TDialog> : ICustomDialogProvider 
         where TDialog : ICustomDialog
     {
+        /// <summary>
+        /// Gets or sets factory used to create new dialog instances.
+        /// </summary>
         protected Func<TDialog> Factory { get; set; }
 
         /// <summary>
@@ -31,6 +38,5 @@ namespace AoLibs.Adapters.Core.Dialogs
         /// Gets instance of held page.
         /// </summary>
         public ICustomDialog Dialog => Factory.Invoke();
-
     }
 }

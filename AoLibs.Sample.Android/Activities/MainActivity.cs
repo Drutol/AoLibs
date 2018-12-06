@@ -48,7 +48,8 @@ namespace AoLibs.Sample.Android
 
             var dialogDefinitions = new Dictionary<DialogIndex, ICustomDialogProvider>
             {
-                {DialogIndex.TestDialogA, new CachedCustomDialogProvider<TestDialogA>()}
+                {DialogIndex.TestDialogA, new OneshotCustomDialogProvider<TestDialogA>()},
+                {DialogIndex.TestDialogB, new OneshotCustomDialogProvider<TestDialogB>()}
             };
 
             var manager = new NavigationManager<PageIndex>(

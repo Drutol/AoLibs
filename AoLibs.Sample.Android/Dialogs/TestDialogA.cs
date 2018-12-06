@@ -18,7 +18,7 @@ namespace AoLibs.Sample.Android.Dialogs
 {
     public class TestDialogA : CustomViewModelDialogBase<TestDialogViewModelA>
     {
-        public override int LayoutResourceId { get; } = Resource.Layout.test_dialog_a;
+        protected override int LayoutResourceId { get; } = Resource.Layout.test_dialog_a;
 
         protected override void InitBindings()
         {

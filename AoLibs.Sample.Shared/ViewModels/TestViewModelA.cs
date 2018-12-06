@@ -101,8 +101,13 @@ namespace AoLibs.Sample.Shared.ViewModels
         public RelayCommand ShowDialogCommand =>
             new RelayCommand(async () =>
             {
-                _dialogsManager[DialogIndex.TestDialogA].Show();
                 var result = await _dialogsManager[DialogIndex.TestDialogA].AwaitResult<int>();
+            });
+
+        public RelayCommand ShowDialogBCommand =>
+            new RelayCommand(() =>
+            {
+                _dialogsManager[DialogIndex.TestDialogB].Show(new DialogBNavArgs {Message = "Things can be fancy"});
             });
     }
 }

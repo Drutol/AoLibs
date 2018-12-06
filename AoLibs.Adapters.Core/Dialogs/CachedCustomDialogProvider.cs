@@ -4,7 +4,8 @@ using System.Text;
 
 namespace AoLibs.Adapters.Core.Dialogs
 {
-    public class CachedCustomDialogProvider<TDialog> : ICustomDialogProvider 
+    // private for now as there are caching issues on Android
+    class CachedCustomDialogProvider<TDialog> : ICustomDialogProvider 
         where TDialog : ICustomDialog
     {
         protected Func<TDialog> Factory { get; set; }
