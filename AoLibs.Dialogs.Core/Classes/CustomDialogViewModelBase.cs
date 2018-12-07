@@ -41,7 +41,6 @@ namespace AoLibs.Dialogs.Core
         /// </summary>
         protected virtual void OnDialogAppeared()
         {
-
         }
 
         /// <summary>
@@ -49,7 +48,6 @@ namespace AoLibs.Dialogs.Core
         /// </summary>
         protected virtual void OnDialogDismissed()
         {
-
         }
     }
 }

@@ -4,7 +4,7 @@ using AoLibs.Dialogs.Core.Interfaces;
 namespace AoLibs.Dialogs.Core
 {
     // private for now as there are caching issues on Android
-    class CachedCustomDialogProvider<TDialog> : ICustomDialogProvider 
+    internal class CachedCustomDialogProvider<TDialog> : ICustomDialogProvider 
         where TDialog : ICustomDialog
     {
         protected Func<TDialog> Factory { get; set; }
@@ -33,7 +33,7 @@ namespace AoLibs.Dialogs.Core
         }
 
         /// <summary>
-        /// Gets or sets instance of held page.
+        /// Gets instance of held page.
         /// </summary>
         public ICustomDialog Dialog
         {

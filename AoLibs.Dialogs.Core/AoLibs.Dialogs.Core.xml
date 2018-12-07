@@ -20,7 +20,7 @@
         </member>
         <member name="P:AoLibs.Dialogs.Core.CachedCustomDialogProvider`1.Dialog">
             <summary>
-            Gets or sets instance of held page.
+            Gets instance of held page.
             </summary>
         </member>
         <member name="T:AoLibs.Dialogs.Core.CustomDialogConfig">
