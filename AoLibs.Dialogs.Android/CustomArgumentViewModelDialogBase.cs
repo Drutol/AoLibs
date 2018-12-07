@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using AoLibs.Dialogs.Core;
 
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using AoLibs.Adapters.Core.Dialogs;
-
-namespace AoLibs.Adapters.Android.Dialogs
+namespace AoLibs.Dialogs.Android
 {
     /// <summary>
     /// Dialog base with possibility of providing the type of ViewModel associated with given dialog, and parameter it will be using.

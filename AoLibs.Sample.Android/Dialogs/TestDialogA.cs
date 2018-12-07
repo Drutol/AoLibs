@@ -9,7 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using AoLibs.Adapters.Android.Dialogs;
+using AoLibs.Dialogs.Android;
 using AoLibs.Sample.Shared.DialogViewModels;
 using AoLibs.Utilities.Android;
 using GalaSoft.MvvmLight.Helpers;

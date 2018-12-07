@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace AoLibs.Adapters.Core.Dialogs
+namespace AoLibs.Dialogs.Core
 {
     /// <summary>
     /// Defines shared config of dialog.

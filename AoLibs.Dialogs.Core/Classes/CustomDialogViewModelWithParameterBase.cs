@@ -1,4 +1,4 @@
-﻿namespace AoLibs.Adapters.Core.Dialogs
+﻿namespace AoLibs.Dialogs.Core
 {
     /// <summary>
     /// Utility ViewModel for dialogs with typed <see cref="TParameter"/>

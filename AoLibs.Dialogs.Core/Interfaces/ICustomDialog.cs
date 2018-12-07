@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace AoLibs.Adapters.Core.Dialogs
+namespace AoLibs.Dialogs.Core.Interfaces
 {
     /// <summary>
     /// Base interface defining basic actions on cross-platform dialog.

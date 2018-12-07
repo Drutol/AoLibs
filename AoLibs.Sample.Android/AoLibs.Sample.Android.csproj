@@ -122,6 +122,14 @@
       <Project>{2d9542d8-3768-45c8-88d0-2a405f1752c0}</Project>
       <Name>AoLibs.Adapters.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AoLibs.Dialogs.Android\AoLibs.Dialogs.Android.csproj">
+      <Project>{490658cb-8298-4d63-8667-4d25b401e291}</Project>
+      <Name>AoLibs.Dialogs.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AoLibs.Dialogs.Core\AoLibs.Dialogs.Core.csproj">
+      <Project>{e520c63b-dcd7-4c41-a98f-715da29f904a}</Project>
+      <Name>AoLibs.Dialogs.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AoLibs.Navigation.Android\AoLibs.Navigation.Android.csproj">
       <Project>{9dfc65f1-1d85-48a2-b02d-88e6ac444978}</Project>
       <Name>AoLibs.Navigation.Android</Name>

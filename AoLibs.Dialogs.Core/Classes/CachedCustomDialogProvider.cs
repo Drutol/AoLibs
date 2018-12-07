@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using AoLibs.Dialogs.Core.Interfaces;
 
-namespace AoLibs.Adapters.Core.Dialogs
+namespace AoLibs.Dialogs.Core
 {
     // private for now as there are caching issues on Android
     class CachedCustomDialogProvider<TDialog> : ICustomDialogProvider 

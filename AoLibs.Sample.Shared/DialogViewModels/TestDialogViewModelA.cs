@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
-using AoLibs.Adapters.Core.Dialogs;
+using AoLibs.Dialogs.Core;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 

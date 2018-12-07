@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using AoLibs.Dialogs.Core.Interfaces;
 
-namespace AoLibs.Adapters.Core.Dialogs
+namespace AoLibs.Dialogs.Core
 {
     /// <summary>
     /// Base implementation of <see cref="ICustomDialogsManager{TDialogIndex}"/>

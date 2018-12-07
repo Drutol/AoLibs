@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Text;
+﻿using System.Runtime.CompilerServices;
+using AoLibs.Dialogs.Core.Interfaces;
 using GalaSoft.MvvmLight;
 
-[assembly: InternalsVisibleTo("AoLibs.Adapters.Android")]
-namespace AoLibs.Adapters.Core.Dialogs
+[assembly: InternalsVisibleTo("AoLibs.Dialogs.Android")]
+namespace AoLibs.Dialogs.Core
 {
     /// <summary>
     /// Base ViewModel to be used for dialogs.

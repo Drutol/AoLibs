@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AoLibs.Adapters.Core.Dialogs
+﻿namespace AoLibs.Dialogs.Core.Interfaces
 {
     /// <summary>
     /// Interface used for defining dialog providers.

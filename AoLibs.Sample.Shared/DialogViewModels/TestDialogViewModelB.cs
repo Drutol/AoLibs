@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using AoLibs.Adapters.Core.Dialogs;
+using AoLibs.Dialogs.Core;
 using AoLibs.Sample.Shared.NavArgs;
 
 namespace AoLibs.Sample.Shared.DialogViewModels

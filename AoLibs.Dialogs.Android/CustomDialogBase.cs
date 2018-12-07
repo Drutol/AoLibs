@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 using Android.Content;
 using Android.Content.Res;
 using Android.OS;
+using Android.Renderscripts;
 using Android.Support.V4.App;
 using Android.Views;
-using AoLibs.Adapters.Core.Dialogs;
+using AoLibs.Dialogs.Core;
+using AoLibs.Dialogs.Core.Interfaces;
 using GalaSoft.MvvmLight.Helpers;
+using Type = System.Type;
 
-namespace AoLibs.Adapters.Android.Dialogs
+namespace AoLibs.Dialogs.Android
 {
     /// <summary>
     /// Base android implementation of <see cref="ICustomDialog"/>
@@ -111,7 +114,7 @@ namespace AoLibs.Adapters.Android.Dialogs
         /// Gets application's Theme.
         /// Just a shortcut to <see cref="Resources.Theme"/> contained in parent activity.
         /// </summary>
-        public new Resources.Theme Theme => Activity.Theme;
+        public new global::Android.Content.Res.Resources.Theme Theme => Activity.Theme;
 
         /// <summary>
         /// Gets or sets the parameter the dialog was called with.
