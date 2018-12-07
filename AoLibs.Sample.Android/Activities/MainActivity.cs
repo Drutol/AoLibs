@@ -1,22 +1,22 @@
 ﻿using System.Collections.Generic;
 using Android.App;
 using Android.OS;
-using Android.Support.V4.App;
 using Android.Support.V7.App;
 using Android.Widget;
 using AoLibs.Adapters.Android;
 using AoLibs.Adapters.Android.Interfaces;
 using AoLibs.Adapters.Core.Interfaces;
+using AoLibs.Dialogs.Android;
+using AoLibs.Dialogs.Core;
+using AoLibs.Dialogs.Core.Interfaces;
+using AoLibs.Navigation.Android.Navigation;
 using AoLibs.Navigation.Core.Interfaces;
-using AoLibs.Navigation.Core.PageProviders;
-using AoLibs.Sample.Android.Fragments;
-using AoLibs.Sample.Shared;
+using AoLibs.Sample.Android.Dialogs;
 using AoLibs.Sample.Shared.Models;
 using AoLibs.Sample.Shared.Statics;
 using Autofac;
-using NavigationLib.Android.Navigation;
 
-namespace AoLibs.Sample.Android
+namespace AoLibs.Sample.Android.Activities
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
@@ -43,9 +43,20 @@ namespace AoLibs.Sample.Android
             ////    {PageIndex.PageB, new OneshotPageProvider<TestPageBFragment>()},
             ////};
 
+            var dialogDefinitions = new Dictionary<DialogIndex, ICustomDialogProvider>
+            {
+                {DialogIndex.TestDialogA, new OneshotCustomDialogProvider<TestDialogA>()},
+                {DialogIndex.TestDialogB, new OneshotCustomDialogProvider<TestDialogB>()}
+            };
+
             var manager = new NavigationManager<PageIndex>(
                 SupportFragmentManager,
                 RootView, 
+                new ViewModelResolver());
+
+            var dialogManager = new CustomDialogsManager<DialogIndex>(
+                SupportFragmentManager,
+                dialogDefinitions,
                 new ViewModelResolver());
 
             // usually you would do it in Application class but for showcase sake I will skip that
@@ -64,6 +75,7 @@ namespace AoLibs.Sample.Android
                 builder.RegisterType<PhoneCallAdapter>().As<IPhoneCallAdapter>().SingleInstance();
 
                 builder.RegisterInstance(manager).As<INavigationManager<PageIndex>>();
+                builder.RegisterInstance(dialogManager).As<ICustomDialogsManager<DialogIndex>>();
             });
 
             ViewModelLocator.MainViewModel.Initialize();
@@ -74,9 +86,18 @@ namespace AoLibs.Sample.Android
             public Activity CurrentContext => Instance;
         }
 
-        private class ViewModelResolver : IViewModelResolver
+        private class ViewModelResolver : IViewModelResolver, ICustomDialogViewModelResolver
         {
-            public TViewModel Resolve<TViewModel>()
+            TViewModel IViewModelResolver.Resolve<TViewModel>()
+            {
+                using (var scope = ResourceLocator.ObtainScope())
+                {
+                    return scope.Resolve<TViewModel>();
+                }
+            }
+
+            public TViewModel Resolve<TViewModel>() 
+                where TViewModel : CustomDialogViewModelBase
             {
                 using (var scope = ResourceLocator.ObtainScope())
                 {

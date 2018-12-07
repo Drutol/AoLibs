@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using AoLibs.Navigation.Core.PageProviders;
 
-namespace NavigationLib.Android.Navigation
+namespace AoLibs.Navigation.Android.Navigation.Attributes
 {
     /// <summary>
     /// Attribute used by <see cref="NavigationManager{TPageIdentifier}"/> to index all pages and initialize navigation with them.

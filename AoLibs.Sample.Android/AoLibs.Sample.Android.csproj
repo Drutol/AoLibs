@@ -18,7 +18,7 @@
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
@@ -56,10 +56,12 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dialogs\TestDialogA.cs" />
+    <Compile Include="Dialogs\TestDialogB.cs" />
     <Compile Include="Fragments\TestPageAFragment.cs" />
     <Compile Include="Fragments\TestPageBFragment.cs" />
     <Compile Include="Fragments\TestPageCFragment.cs" />
-    <Compile Include="MainActivity.cs" />
+    <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StyleCopSuppressions.cs" />
@@ -107,9 +109,9 @@
       <Version>4.8.1</Version>
     </PackageReference>
     <PackageReference Include="MvvmLightLibsStd10">
-      <Version>5.4.1</Version>
+      <Version>5.4.1.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2" />
+    <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AoLibs.Adapters.Android\AoLibs.Adapters.Android.csproj">
@@ -119,6 +121,14 @@
     <ProjectReference Include="..\AoLibs.Adapters.Core\AoLibs.Adapters.Core.csproj">
       <Project>{2d9542d8-3768-45c8-88d0-2a405f1752c0}</Project>
       <Name>AoLibs.Adapters.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AoLibs.Dialogs.Android\AoLibs.Dialogs.Android.csproj">
+      <Project>{490658cb-8298-4d63-8667-4d25b401e291}</Project>
+      <Name>AoLibs.Dialogs.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AoLibs.Dialogs.Core\AoLibs.Dialogs.Core.csproj">
+      <Project>{e520c63b-dcd7-4c41-a98f-715da29f904a}</Project>
+      <Name>AoLibs.Dialogs.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\AoLibs.Navigation.Android\AoLibs.Navigation.Android.csproj">
       <Project>{9dfc65f1-1d85-48a2-b02d-88e6ac444978}</Project>
@@ -143,6 +153,17 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\test_page_c.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\test_dialog_a.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\test_dialog_b.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
