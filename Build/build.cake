@@ -3,7 +3,7 @@
 #tool "nuget:?package=xunit.runner.console"
 
 // Arguments
-var buildTarget = Argument("buildTarget", "Build-Packages");
+var buildTarget = Argument("buildTarget", "Build-All");
 var outputPath = Argument("outputPath", "output/");
 var version = Argument<string>("libVersion", null);
 
@@ -13,6 +13,21 @@ var solutionFile = File("../AoLibs.sln");
 
 // Variables
 
+var androidNavigationProjectPath = "../AoLibs.Navigation.Android/AoLibs.Navigation.Android.csproj";
+var coreNavigationProjectPath = "../AoLibs.Navigation.Core/AoLibs.Navigation.Core.csproj";
+var iOSNavigationProjectPath = "../AoLibs.Navigation.iOS/AoLibs.Navigation.iOS.csproj";
+
+var androidAdaptersProjectPath = "../AoLibs.Adapters.Android/AoLibs.Adapters.Android.csproj";
+var coreAdaptersProjectPath = "../AoLibs.Adapters.Core/AoLibs.Adapters.Core.csproj";
+var iOSAdaptersProjectPath = "../AoLibs.Adapters.iOS/AoLibs.Adapters.iOS.csproj";
+
+var androidUtilitiesProjectPath = "../AoLibs.Utilities.Android/AoLibs.Utilities.Android.csproj";
+var sharedUtilitiesProjectPath = "../AoLibs.Utilities.Shared/AoLibs.Utilities.Shared.csproj";
+var iOSUtilitiesProjectPath = "../AoLibs.Utilities.iOS/AoLibs.Utilities.iOS.csproj";
+
+var androidDialogsProjectPath = "../AoLibs.Dialogs.Android/AoLibs.Dialogs.Android.csproj";
+var coreDialogsProjectPath = "../AoLibs.Dialogs.Core/AoLibs.Dialogs.Core.csproj";
+var iOSDialogsProjectPath = "../AoLibs.Dialogs.iOS/AoLibs.Dialogs.iOS.csproj";
 
 /////////////////////////////////////
 // Initial Setup
@@ -57,9 +72,9 @@ Task("Build-Navigation")
 		});
 
 		Build(
-			"../AoLibs.Navigation.Android/AoLibs.Navigation.Android.csproj",
-			"../AoLibs.Navigation.iOS/AoLibs.Navigation.iOS.csproj",
-			"../AoLibs.Navigation.Core/AoLibs.Navigation.Core.csproj"
+			androidNavigationProjectPath,
+			iOSNavigationProjectPath,
+			coreNavigationProjectPath
 		);
 	});
 
@@ -73,9 +88,9 @@ Task("Build-Adapters")
 		});
 
 		Build(
-			"../AoLibs.Adapters.Android/AoLibs.Adapters.Android.csproj",
-			"../AoLibs.Adapters.iOS/AoLibs.Adapters.iOS.csproj",
-			"../AoLibs.Adapters.Core/AoLibs.Adapters.Core.csproj"
+			androidAdaptersProjectPath,
+			iOSAdaptersProjectPath,
+			coreAdaptersProjectPath
 		);
 	});
 
@@ -84,11 +99,22 @@ Task("Build-Utilities")
 	.Does(() =>
 	{
 		Build(
-			"../AoLibs.Utilities.Android/AoLibs.Utilities.Android.csproj",
-			"../AoLibs.Utilities.iOS/AoLibs.Utilities.iOS.csproj",
-			"../AoLibs.Utilities.Shared/AoLibs.Utilities.Shared.csproj"
+			androidUtilitiesProjectPath,
+			iOSUtilitiesProjectPath,
+			sharedUtilitiesProjectPath
 		);
 	});
+
+Task("Build-Dialogs")
+	.IsDependentOn("Restore-NuGet")
+	.Does(() =>
+	{
+		Build(
+			androidDialogsProjectPath,
+			iOSDialogsProjectPath,
+			coreDialogsProjectPath
+		);
+	});	
 
 /////////////////////////////////////
 // Testing
@@ -123,9 +149,9 @@ Task("Pack-Navigation")
 	.Does(() =>
 	{
 		Pack(
-			"../AoLibs.Navigation.Android/AoLibs.Navigation.Android.csproj",
-			"../AoLibs.Navigation.iOS/AoLibs.Navigation.iOS.csproj",
-			"../AoLibs.Navigation.Core/AoLibs.Navigation.Core.csproj"
+			androidNavigationProjectPath,
+			iOSNavigationProjectPath,
+			coreNavigationProjectPath
 		);
 	});
 
@@ -134,9 +160,9 @@ Task("Pack-Adapters")
 	.Does(() =>
 	{
 		Pack(
-			"../AoLibs.Adapters.Android/AoLibs.Adapters.Android.csproj",
-			"../AoLibs.Adapters.iOS/AoLibs.Adapters.iOS.csproj",
-			"../AoLibs.Adapters.Core/AoLibs.Adapters.Core.csproj"
+			androidAdaptersProjectPath,
+			iOSAdaptersProjectPath,
+			coreAdaptersProjectPath
 		);
 	});
 
@@ -145,9 +171,20 @@ Task("Pack-Utilities")
 	.Does(() =>
 	{
 		Pack(
-			"../AoLibs.Utilities.Android/AoLibs.Utilities.Android.csproj",
-			"../AoLibs.Utilities.iOS/AoLibs.Utilities.iOS.csproj",
-			"../AoLibs.Utilities.Shared/AoLibs.Utilities.Shared.csproj"
+			androidUtilitiesProjectPath,
+			iOSUtilitiesProjectPath,
+			sharedUtilitiesProjectPath
+		);
+	});
+
+Task("Pack-Dialogs")
+	.IsDependentOn("Restore-NuGet")
+	.Does(() =>
+	{
+		Pack(
+			androidDialogsProjectPath,
+			iOSDialogsProjectPath,
+			coreDialogsProjectPath
 		);
 	});
 
@@ -158,7 +195,8 @@ Task("Pack-Utilities")
 Task("Build-All")
 	.IsDependentOn("Build-Navigation")
 	.IsDependentOn("Build-Adapters")
-    .IsDependentOn("Build-Utilities");
+    .IsDependentOn("Build-Utilities")
+    .IsDependentOn("Build-Dialogs");
 
 Task("Test-All")
 	.IsDependentOn("Test-Navigation")
@@ -167,7 +205,8 @@ Task("Test-All")
 Task("Pack-All")
 	.IsDependentOn("Pack-Navigation")
 	.IsDependentOn("Pack-Adapters")
-    .IsDependentOn("Pack-Utilities");
+    .IsDependentOn("Pack-Utilities")
+    .IsDependentOn("Pack-Dialogs");
 
 /////////////////////////////////////
 // Publishing
@@ -188,6 +227,7 @@ Task("Gather-Packages")
 		MoveFiles("../AoLibs.Adapters.Core/bin/Release/**/*.nupkg", $"publish/{version}/");
 		MoveFiles("../AoLibs.Navigation.Core/bin/Release/**/*.nupkg", $"publish/{version}/");
 		MoveFiles("../AoLibs.Utilities.Shared/bin/Release/**/*.nupkg", $"publish/{version}/");
+		MoveFiles("../AoLibs.Dialogs.Core/bin/Release/**/*.nupkg", $"publish/{version}/");
 	});
 
 
