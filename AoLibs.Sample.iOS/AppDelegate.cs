@@ -1,5 +1,9 @@
-﻿using AoLibs.Adapters.Core.Interfaces;
+﻿using System.Collections.Generic;
+using AoLibs.Adapters.Core.Interfaces;
 using AoLibs.Adapters.iOS;
+using AoLibs.Dialogs.Core;
+using AoLibs.Dialogs.Core.Interfaces;
+using AoLibs.Dialogs.iOS;
 using AoLibs.Navigation.Core.Interfaces;
 using AoLibs.Navigation.iOS.Navigation;
 using AoLibs.Sample.Shared;
@@ -28,6 +32,7 @@ namespace AoLibs.Sample.iOS
         public static AppDelegate Instance { get; set; }
 
         public NavigationManager<PageIndex> NavigationManager { get; set; }
+        public CustomDialogsManager<DialogIndex> DialogsManager { get; set; }
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
@@ -36,13 +41,13 @@ namespace AoLibs.Sample.iOS
             // If not required for your application you can safely delete this method
             InitializationRoutines.Initialize(AdaptersRegistration); 
 
-
             return true;
         }
 
         private void AdaptersRegistration(ContainerBuilder containerBuilder)
         {
             containerBuilder.Register(x => NavigationManager).As<INavigationManager<PageIndex>>();
+            containerBuilder.Register(x => DialogsManager).As<ICustomDialogsManager<DialogIndex>>().SingleInstance();
             containerBuilder.RegisterType<MessageBoxProvider>().As<IMessageBoxProvider>().SingleInstance();
             containerBuilder.RegisterType<SettingsProvider>().As<ISettingsProvider>().SingleInstance();
             containerBuilder.RegisterType<FileStorageProvider>().As<IFileStorageProvider>().SingleInstance();
