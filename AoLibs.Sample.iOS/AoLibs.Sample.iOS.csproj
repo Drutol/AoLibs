@@ -144,10 +144,16 @@
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
     <None Include="packages.config" />
+    <InterfaceDefinition Include="Storyboards\MainDialogs.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Dialogs\TestDialogAViewController.cs" />
+    <Compile Include="Dialogs\TestDialogAViewController.designer.cs">
+      <DependentUpon>TestDialogAViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Constants.cs" />
     <Compile Include="ViewControllers\TestPageCViewController.cs" />
     <Compile Include="ViewControllers\TestPageCViewController.designer.cs">
       <DependentUpon>TestPageCViewController.cs</DependentUpon>
@@ -173,6 +179,16 @@
     <ProjectReference Include="..\AoLibs.Adapters.iOS\AoLibs.Adapters.iOS.csproj">
       <Project>{a0a5f094-03ff-4fe7-b745-0328dd05827c}</Project>
       <Name>AoLibs.Adapters.iOS</Name>
+      <IsAppExtension>false</IsAppExtension>
+      <IsWatchApp>false</IsWatchApp>
+    </ProjectReference>
+    <ProjectReference Include="..\AoLibs.Dialogs.Core\AoLibs.Dialogs.Core.csproj">
+      <Project>{e520c63b-dcd7-4c41-a98f-715da29f904a}</Project>
+      <Name>AoLibs.Dialogs.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AoLibs.Dialogs.iOS\AoLibs.Dialogs.iOS.csproj">
+      <Project>{00db5ed3-4a89-4c26-bc4a-67e82c6355ff}</Project>
+      <Name>AoLibs.Dialogs.iOS</Name>
       <IsAppExtension>false</IsAppExtension>
       <IsWatchApp>false</IsWatchApp>
     </ProjectReference>

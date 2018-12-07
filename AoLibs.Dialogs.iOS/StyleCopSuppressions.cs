@@ -31,3 +31,4 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1615:Element return value should be documented")]
 [assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1652:Enable XML documentation output")]
 [assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1609:Property documentation must have value")]
+[assembly: SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element must begin with upper-case letter", Scope = "namespace", Target = "~N:AoLibs.Dialogs.iOS")]
