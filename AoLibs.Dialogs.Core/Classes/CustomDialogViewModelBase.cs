@@ -3,6 +3,7 @@ using AoLibs.Dialogs.Core.Interfaces;
 using GalaSoft.MvvmLight;
 
 [assembly: InternalsVisibleTo("AoLibs.Dialogs.Android")]
+[assembly: InternalsVisibleTo("AoLibs.Dialogs.iOS")]
 namespace AoLibs.Dialogs.Core
 {
     /// <summary>

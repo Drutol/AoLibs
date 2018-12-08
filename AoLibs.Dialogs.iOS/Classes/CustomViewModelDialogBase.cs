@@ -1,7 +1,9 @@
-﻿using AoLibs.Dialogs.Core;
+﻿using System;
+using AoLibs.Dialogs.Core;
 using AoLibs.Dialogs.Core.Interfaces;
+using Foundation;
 
-namespace AoLibs.Dialogs.Android
+namespace AoLibs.Dialogs.iOS
 {
     /// <summary>
     /// Dialog base with possibility of providing the type of ViewModel associated with given dialog.
@@ -14,12 +16,24 @@ namespace AoLibs.Dialogs.Android
         /// <summary>
         /// Gets the ViewModel of this dialog.
         /// </summary>
-        public TViewModel ViewModel { get; }
+        public TViewModel ViewModel { get; private set; }
+
+        protected CustomViewModelDialogBase(IntPtr handle)
+            : base(handle)
+        {
+            Initialize();
+        }
+
+        protected CustomViewModelDialogBase(string name, NSBundle p)
+            : base(name, p)
+        {
+            Initialize();
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomViewModelDialogBase{TViewModel}"/> class.
         /// </summary>
-        protected CustomViewModelDialogBase()
+        private void Initialize()
         {
             ViewModel = CustomDialogViewModelResolver?.Resolve<TViewModel>();
 

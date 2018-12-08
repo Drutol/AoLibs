@@ -17,18 +17,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="505" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="87" y="304" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint id="508" firstAttribute="height" constant="128"/>
-                                    <constraint id="509" firstAttribute="width" constant="240"/>
-                                </constraints>
+                            <view contentMode="scaleToFill" id="746" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="368"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0" green="0.32549019607843138" blue="0.5725490196078431" alpha="1"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="747" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="0.0" y="368" width="414" height="368"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0" green="0.5607843137254902" blue="0.31764705882352939" alpha="1"/>
                             </view>
                         </subviews>
                         <constraints>
-                            <constraint id="506" firstItem="505" firstAttribute="centerY" secondItem="253" secondAttribute="centerY"/>
-                            <constraint id="507" firstAttribute="centerX" secondItem="505" secondAttribute="centerX"/>
+                            <constraint id="748" firstItem="747" firstAttribute="top" secondItem="746" secondAttribute="bottom"/>
+                            <constraint id="749" firstItem="746" firstAttribute="top" secondItem="253" secondAttribute="top"/>
+                            <constraint id="750" firstAttribute="bottom" secondItem="747" secondAttribute="bottom"/>
+                            <constraint id="751" firstItem="747" firstAttribute="leading" secondItem="253" secondAttribute="leading"/>
+                            <constraint id="752" firstItem="746" firstAttribute="leading" secondItem="253" secondAttribute="leading"/>
+                            <constraint id="753" firstAttribute="trailing" secondItem="746" secondAttribute="trailing"/>
+                            <constraint id="754" firstAttribute="trailing" secondItem="747" secondAttribute="trailing"/>
+                            <constraint id="755" firstItem="746" firstAttribute="height" secondItem="747" secondAttribute="height"/>
                         </constraints>
                     </view>
                 </viewController>

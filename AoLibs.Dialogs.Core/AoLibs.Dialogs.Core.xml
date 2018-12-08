@@ -154,6 +154,16 @@
             Base interface defining basic actions on cross-platform dialog.
             </summary>
         </member>
+        <member name="E:AoLibs.Dialogs.Core.Interfaces.ICustomDialog.DialogShown">
+            <summary>
+            Fired when dialog is shown.
+            </summary>
+        </member>
+        <member name="E:AoLibs.Dialogs.Core.Interfaces.ICustomDialog.DialogHidden">
+            <summary>
+            Fired when dialog is hidden.
+            </summary>
+        </member>
         <member name="P:AoLibs.Dialogs.Core.Interfaces.ICustomDialog.Parameter">
             <summary>
             Gets or sets a parameter with which the dialog was run.
@@ -212,6 +222,16 @@
         <member name="P:AoLibs.Dialogs.Core.Interfaces.ICustomDialogProvider.Dialog">
             <summary>
             Gets the dialog instance.
+            </summary>
+        </member>
+        <member name="T:AoLibs.Dialogs.Core.Interfaces.ICustomDialogsManager">
+            <summary>
+            Base non-generic interface for custom dialogs manager.
+            </summary>
+        </member>
+        <member name="P:AoLibs.Dialogs.Core.Interfaces.ICustomDialogsManager.CurrentlyDisplayedDialog">
+            <summary>
+            Gets currently displayed dialog, null if none is presented.
             </summary>
         </member>
         <member name="T:AoLibs.Dialogs.Core.Interfaces.ICustomDialogsManager`1">

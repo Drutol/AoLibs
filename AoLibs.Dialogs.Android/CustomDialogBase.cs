@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Renderscripts;
 using Android.Support.V4.App;
 using Android.Views;
+using AoLibs.Dialogs.Android.Interfaces;
 using AoLibs.Dialogs.Core;
 using AoLibs.Dialogs.Core.Interfaces;
 using GalaSoft.MvvmLight.Helpers;
@@ -23,7 +24,11 @@ namespace AoLibs.Dialogs.Android
     {
         internal static ICustomDialogViewModelResolver CustomDialogViewModelResolver { get; set; }
         internal static FragmentManager ConfiguredFragmentManager { get; set; }
-    
+        internal static IInternalDialogsManager DialogsManager { get; set; }
+
+        public event EventHandler DialogShown;
+        public event EventHandler DialogHidden;
+
         /// <summary>
         /// Token source used to monitor <see cref="AwaitResult{TResult}"/> process.
         /// </summary>
@@ -47,7 +52,7 @@ namespace AoLibs.Dialogs.Android
         /// <summary>
         /// Callback when dialog has been dismissed.
         /// </summary>
-        protected virtual void OnDismissed()
+        protected virtual void OnHidden()
         {
         }
 
@@ -114,7 +119,7 @@ namespace AoLibs.Dialogs.Android
         /// Gets application's Theme.
         /// Just a shortcut to <see cref="Resources.Theme"/> contained in parent activity.
         /// </summary>
-        public new global::Android.Content.Res.Resources.Theme Theme => Activity.Theme;
+        public new Resources.Theme Theme => Activity.Theme;
 
         /// <summary>
         /// Gets or sets the parameter the dialog was called with.
@@ -127,9 +132,12 @@ namespace AoLibs.Dialogs.Android
         /// <param name="parameter">Parameter which can be passed to dialog's ViewModel.</param>
         public void Show(object parameter = null)
         {
+            DialogsManager.CurrentlyDisplayedDialog = this;
+
             Parameter = parameter;
             Show(ConfiguredFragmentManager, FragmentTag);
             OnShown();
+            DialogShown?.Invoke(this, EventArgs.Empty);
         }
 
         /// <summary>
@@ -165,7 +173,9 @@ namespace AoLibs.Dialogs.Android
         {
             CancelResult();
             base.DismissAllowingStateLoss();
-            OnDismissed();
+            OnHidden();
+            DialogHidden?.Invoke(this, EventArgs.Empty);
+            DialogsManager.CurrentlyDisplayedDialog = null;
         }
 
         /// <summary>

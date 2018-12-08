@@ -25,5 +25,7 @@ namespace AoLibs.Dialogs.Core
         /// </summary>
         /// <param name="dialog">The dialog type to retrieve.</param>
         public ICustomDialog this[TDialogIndex dialog] => _dialogsDictionary[dialog].Dialog;
+
+        public ICustomDialog CurrentlyDisplayedDialog { get; set; }
     }
 }

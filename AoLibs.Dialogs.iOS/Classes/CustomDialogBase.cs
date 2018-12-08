@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using AoLibs.Dialogs.Core;
 using AoLibs.Dialogs.Core.Interfaces;
 using AoLibs.Dialogs.iOS.Interfaces;
 using Foundation;
@@ -11,7 +12,7 @@ using UIKit;
 
 namespace AoLibs.Dialogs.iOS
 {
-    public abstract class CustomDialogBase : UIViewController, ICustomDialog
+    public abstract class CustomDialogBase : UIViewController, ICustomDialogForViewModel
     {
         internal static ICustomDialogViewModelResolver CustomDialogViewModelResolver { get; set; }
         internal static UIViewController RootViewController { get; set; }
@@ -32,6 +33,11 @@ namespace AoLibs.Dialogs.iOS
         private SemaphoreSlim _hideSemaphore;
         private TaskCompletionSource<object> _resultCompletionSource;
         private CancellationTokenSource _resultCancellationTokenSource;
+
+        /// <summary>
+        /// Gets or sets dialog config used when creating the dialog.
+        /// </summary>
+        protected CustomDialogConfig CustomDialogConfig { get; set; } = new CustomDialogConfig();
 
         protected CustomDialogBase(IntPtr handle) 
             : base(handle)
@@ -74,21 +80,37 @@ namespace AoLibs.Dialogs.iOS
             Hide();
             return _hideSemaphore.WaitAsync();
         }
- 
+
+        /// <summary>
+        /// Callback when dialog has been dismissed.
+        /// </summary>
+        protected virtual void OnHidden()
+        {
+        }
+
+        /// <summary>
+        /// Callback when dialog has been shown.
+        /// </summary>
+        protected virtual void OnShown()
+        {
+        }
+
         private void OnDialogDismissFinished()
+        {
+            DialogHidden?.Invoke(this, EventArgs.Empty);
+            _hideSemaphore?.Release();
+            _hideSemaphore = null;
+            OnHidden();
+        }
+
+        private void OnDialogPresentationFinished()
         {
             DialogsManager.CurrentlyDisplayedDialog = null;
 
             DialogShown?.Invoke(this, EventArgs.Empty);
             _showSemaphore?.Release();
             _showSemaphore = null;
-        }
-
-        private void OnDialogPresentationFinished()
-        {
-            DialogHidden?.Invoke(this, EventArgs.Empty);
-            _hideSemaphore?.Release();
-            _hideSemaphore = null;
+            OnShown();
         }
 
         /// <summary>
