@@ -52,6 +52,7 @@
     <Compile Include="CustomDialogBase.cs" />
     <Compile Include="CustomDialogsManager.cs" />
     <Compile Include="CustomViewModelDialogBase.cs" />
+    <Compile Include="Interfaces\IInternalDialogsManager.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StyleCopSuppressions.cs" />

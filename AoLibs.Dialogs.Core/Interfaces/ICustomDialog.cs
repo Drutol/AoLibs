@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AoLibs.Dialogs.Core.Interfaces
@@ -8,6 +9,16 @@ namespace AoLibs.Dialogs.Core.Interfaces
     /// </summary>
     public interface ICustomDialog
     {
+        /// <summary>
+        /// Fired when dialog is shown.
+        /// </summary>
+        event EventHandler DialogShown;
+
+        /// <summary>
+        /// Fired when dialog is hidden.
+        /// </summary>
+        event EventHandler DialogHidden;
+
         /// <summary>
         /// Gets or sets a parameter with which the dialog was run.
         /// </summary>

@@ -3,7 +3,7 @@
     /// <summary>
     /// Interface used for defining dialog providers.
     /// </summary>
-    public interface ICustomDialogProvider
+    public interface ICustomDialogProvider 
     {
         /// <summary>
         /// Gets the dialog instance.

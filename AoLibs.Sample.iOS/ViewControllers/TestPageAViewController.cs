@@ -42,13 +42,13 @@ namespace AoLibs.Sample.iOS.ViewControllers
             ShowFancyButton.SetOnClickCommand(ViewModel.ShowLastFanciedThingCommand);
             ResetButton.SetOnClickCommand(ViewModel.ResetFanciness);
             NavigateButton.SetOnClickCommand(ViewModel.NavigateSomewhereElseCommand);
-            ShowDialogButton.SetOnClickCommand(ShowDialog);
+            ShowDialogButton.SetOnClickCommand(ViewModel.ShowDialogCommand);
         }
 
-        private RelayCommand ShowDialog => new RelayCommand(() =>
-        {
-            var dialog = DialogViewController.Instatiate(CustomDialogBase.CreateInstance(typeof(TestDialogAViewController)));
-            this.PresentViewController(dialog, false, null);
-        });
+        //private RelayCommand ShowDialog => new RelayCommand(() =>
+        //{
+        //    //var dialog = DialogViewController.Instantiate(CustomDialogBase.CreateInstance(typeof(TestDialogAViewController)));
+        //    //this.PresentViewController(dialog, false, null);
+        //});
     }
 }
