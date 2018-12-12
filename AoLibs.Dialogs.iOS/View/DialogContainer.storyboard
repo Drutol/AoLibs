@@ -15,7 +15,7 @@
                     <view key="view" contentMode="scaleToFill" id="200">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                        <color key="backgroundColor" colorSpace="calibratedRGB" red="0" green="0" blue="0" alpha="0.49803921568627452"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="203" translatesAutoresizingMaskIntoConstraints="NO">
                                 <rect key="frame" x="93" y="268" width="250" height="250"/>
@@ -43,6 +43,7 @@
                     </view>
                     <connections>
                         <outlet property="ContainerView" destination="663" id="name-outlet-663"/>
+                        <outlet property="RootView" destination="200" id="name-outlet-200"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="201" userLabel="First Responder" sceneMemberID="firstResponder"/>

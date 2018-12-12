@@ -8,6 +8,7 @@ using AoLibs.Dialogs.Core;
 using AoLibs.Dialogs.Core.Interfaces;
 using AoLibs.Dialogs.iOS.Interfaces;
 using Foundation;
+using GalaSoft.MvvmLight.Helpers;
 using UIKit;
 
 namespace AoLibs.Dialogs.iOS
@@ -20,6 +21,8 @@ namespace AoLibs.Dialogs.iOS
 
         public event EventHandler DialogShown;
         public event EventHandler DialogHidden;
+
+        protected List<Binding> Bindings { get; } = new List<Binding>();
 
         protected DialogViewController ParentContainerViewController { get; set; }
         protected Type AwaitedResultType { get; set; }
@@ -54,6 +57,11 @@ namespace AoLibs.Dialogs.iOS
         private void Initialize()
         {
             ParentContainerViewController = DialogViewController.Instantiate(this);
+        }
+
+        private void HideDialogOnOutsideTap(object sender, EventArgs e)
+        {
+            Hide();
         }
 
         public void Show(object parameter = null)
@@ -167,5 +175,47 @@ namespace AoLibs.Dialogs.iOS
             _resultCancellationTokenSource?.Cancel();
             _resultCancellationTokenSource = null;
         }
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+
+            if (CustomDialogConfig.IsCancellable)
+                ParentContainerViewController.TappedOutsideTheDialog += HideDialogOnOutsideTap;
+        }
+
+        public override void ViewDidLoad()
+        {
+            base.ViewDidLoad();
+            SetCommands();
+            SetStyles();
+            SetLocale();
+            InitBindings();
+        }
+
+        public override void ViewDidUnload()
+        {
+            base.ViewDidUnload();
+            if (Bindings.Any())
+            {
+                foreach (var b in Bindings)
+                    b.Detach();
+                Bindings.Clear();
+            }
+        }
+
+        public virtual void SetCommands()
+        {
+        }
+
+        public virtual void SetStyles()
+        {
+        }
+
+        public virtual void SetLocale()
+        {
+        }
+
+        public abstract void InitBindings();
     }
 }

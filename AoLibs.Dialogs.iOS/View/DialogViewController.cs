@@ -9,6 +9,8 @@ namespace AoLibs.Dialogs.iOS
         private const string StoryboardName = "DialogContainer";
         private const string ControllerName = "DialogViewController";
 
+        public event EventHandler TappedOutsideTheDialog;
+
         public static DialogViewController Instantiate(CustomDialogBase dialog)
         {
             var vc = (DialogViewController) UIStoryboard.FromName(StoryboardName, null)
@@ -42,6 +44,10 @@ namespace AoLibs.Dialogs.iOS
             });
 
             _childDialog.DidMoveToParentViewController(this);
+
+            var gestureRecognizer =
+                new UITapGestureRecognizer(() => TappedOutsideTheDialog?.Invoke(this, EventArgs.Empty));
+            RootView.AddGestureRecognizer(gestureRecognizer);
         }
     }
 }

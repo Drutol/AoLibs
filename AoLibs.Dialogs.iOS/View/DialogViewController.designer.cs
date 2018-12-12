@@ -18,11 +18,20 @@ namespace AoLibs.Dialogs.iOS
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIView ContainerView { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIView RootView { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
             if (ContainerView != null) {
                 ContainerView.Dispose ();
                 ContainerView = null;
+            }
+
+            if (RootView != null) {
+                RootView.Dispose ();
+                RootView = null;
             }
         }
     }
