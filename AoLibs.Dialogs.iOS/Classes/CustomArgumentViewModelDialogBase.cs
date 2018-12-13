@@ -13,27 +13,28 @@ namespace AoLibs.Dialogs.iOS
         : CustomViewModelDialogBase<TViewModel>
         where TViewModel : CustomDialogViewModelBase
     {
-        protected TArgument Argument { get; private set; }
+        private object _parameter;
+        protected TArgument Argument { get; set; }
 
         protected CustomArgumentViewModelDialogBase(IntPtr handle)
             : base(handle)
         {
-            Initialize();
         }
 
         protected CustomArgumentViewModelDialogBase(string name, NSBundle p)
             : base(name, p)
         {
-            Initialize();
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CustomArgumentViewModelDialogBase{TViewModel, TArgument}"/> class.
-        /// </summary>
-        protected void Initialize()
+        public override object Parameter
         {
-            if (Parameter is TArgument param)
-                Argument = param;
+            get => _parameter;
+            set
+            {
+                _parameter = value;
+                if (value is TArgument argument)
+                    Argument = argument;
+            }
         }
     }
 }

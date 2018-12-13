@@ -30,7 +30,7 @@ namespace AoLibs.Dialogs.iOS
         public virtual bool ShouldAnimateOnShow { get; } = true;
         public virtual bool ShouldAnimateOnDismiss { get; } = true;
 
-        public object Parameter { get; set; }
+        public virtual object Parameter { get; set; }
 
         private SemaphoreSlim _showSemaphore;
         private SemaphoreSlim _hideSemaphore;
@@ -65,13 +65,16 @@ namespace AoLibs.Dialogs.iOS
         }
 
         public void Show(object parameter = null)
-        {
+        {        
+            Parameter = parameter;
+            OnWillBeShown();
             DialogsManager.CurrentlyDisplayedDialog = this;
             RootViewController.PresentViewController(ParentContainerViewController, ShouldAnimateOnShow, OnDialogPresentationFinished);
         }
 
         public void Hide()
         {
+            OnWillBeHidden();
             RootViewController.DismissViewController(ShouldAnimateOnDismiss, OnDialogDismissFinished);
         }
 
@@ -100,6 +103,20 @@ namespace AoLibs.Dialogs.iOS
         /// Callback when dialog has been shown.
         /// </summary>
         protected virtual void OnShown()
+        {
+        }  
+        
+        /// <summary>
+        /// Callback when dialog started show animation.
+        /// </summary>
+        protected virtual void OnWillBeShown()
+        {
+        }  
+        
+        /// <summary>
+        /// Callback when dialog started hide animation.
+        /// </summary>
+        protected virtual void OnWillBeHidden()
         {
         }
 
@@ -180,16 +197,9 @@ namespace AoLibs.Dialogs.iOS
         {
             base.ViewWillAppear(animated);
 
-            if (CustomDialogConfig?.IsCancellable ?? true)
+            if (CustomDialogConfig.IsCancellable)
                 ParentContainerViewController.TappedOutsideTheDialog += HideDialogOnOutsideTap;
-        }
 
-        public override void ViewDidLoad()
-        {
-            base.ViewDidLoad();
-            SetCommands();
-            SetStyles();
-            SetLocale();
             InitBindings();
         }
 
@@ -202,18 +212,6 @@ namespace AoLibs.Dialogs.iOS
                     b.Detach();
                 Bindings.Clear();
             }
-        }
-
-        public virtual void SetCommands()
-        {
-        }
-
-        public virtual void SetStyles()
-        {
-        }
-
-        public virtual void SetLocale()
-        {
         }
 
         public abstract void InitBindings();

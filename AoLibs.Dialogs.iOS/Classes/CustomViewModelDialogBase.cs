@@ -16,7 +16,7 @@ namespace AoLibs.Dialogs.iOS
         /// <summary>
         /// Gets the ViewModel of this dialog.
         /// </summary>
-        public TViewModel ViewModel { get; private set; }
+        public TViewModel ViewModel { get; protected set; }
 
         protected CustomViewModelDialogBase(IntPtr handle)
             : base(handle)
@@ -45,14 +45,14 @@ namespace AoLibs.Dialogs.iOS
         }
 
         /// <inheritdoc />
-        protected override void OnShown()
+        protected override void OnWillBeShown()
         {
             ViewModel.OnDialogAppearedInternal();
             base.OnShown();
         }
 
         /// <inheritdoc />
-        protected override void OnHidden()
+        protected override void OnWillBeHidden()
         {
             ViewModel.OnDialogDismissedInternal();
             base.OnHidden();
