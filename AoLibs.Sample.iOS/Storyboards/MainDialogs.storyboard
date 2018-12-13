@@ -15,42 +15,61 @@
                     <view key="view" contentMode="scaleToFill" id="253">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1028" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="179" y="373" width="56" height="30"/>
-                                <state key="normal" title="Do stuff"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1032" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="202" y="348" width="10.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello dialog!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1038" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="159.5" y="317.5" width="95" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" id="6161" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="15" y="15" width="384" height="706"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello dialog!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1038" translatesAutoresizingMaskIntoConstraints="NO">
+                                        <rect key="frame" x="144.5" y="308" width="95" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1032" translatesAutoresizingMaskIntoConstraints="NO">
+                                        <rect key="frame" x="187" y="343" width="10.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1028" translatesAutoresizingMaskIntoConstraints="NO">
+                                        <rect key="frame" x="164" y="373" width="56" height="30"/>
+                                        <state key="normal" title="Do stuff"/>
+                                    </button>
+                                </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <constraints>
+                                    <constraint id="6166" firstAttribute="height" constant="140"/>
+                                    <constraint id="6167" firstAttribute="width" constant="200"/>
+                                    <constraint id="6168" firstAttribute="centerX" secondItem="1028" secondAttribute="centerX"/>
+                                    <constraint id="6169" firstAttribute="centerX" secondItem="1032" secondAttribute="centerX"/>
+                                    <constraint id="6170" firstAttribute="centerX" secondItem="1038" secondAttribute="centerX"/>
+                                    <constraint id="6171" firstAttribute="centerY" secondItem="1038" secondAttribute="centerY" constant="35"/>
+                                    <constraint id="6172" firstAttribute="centerY" secondItem="1032" secondAttribute="centerY"/>
+                                    <constraint id="6173" firstAttribute="centerY" secondItem="1028" secondAttribute="centerY" constant="-35"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <constraints>
-                            <constraint id="1029" firstItem="1028" firstAttribute="centerY" secondItem="253" secondAttribute="centerY" constant="20"/>
-                            <constraint id="1030" firstAttribute="centerX" secondItem="1028" secondAttribute="centerX"/>
-                            <constraint id="1033" firstAttribute="centerY" secondItem="1032" secondAttribute="centerY" constant="9.75"/>
-                            <constraint id="1034" firstItem="1032" firstAttribute="centerX" secondItem="253" secondAttribute="centerX"/>
-                            <constraint id="1039" firstItem="1032" firstAttribute="top" secondItem="1038" secondAttribute="bottom" constant="10"/>
-                            <constraint id="1040" firstItem="1038" firstAttribute="centerX" secondItem="253" secondAttribute="centerX"/>
+                            <constraint id="6162" firstItem="6161" firstAttribute="top" secondItem="253" secondAttribute="top" constant="15"/>
+                            <constraint id="6163" firstItem="6161" firstAttribute="leading" secondItem="253" secondAttribute="leading" constant="15"/>
+                            <constraint id="6164" firstAttribute="trailing" secondItem="6161" secondAttribute="trailing" constant="15"/>
+                            <constraint id="6165" firstAttribute="bottom" secondItem="6161" secondAttribute="bottom" constant="15"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="DoStuffButton" destination="1028" id="name-outlet-1028"/>
                         <outlet property="CounterLabel" destination="1032" id="name-outlet-1032"/>
+                        <outlet property="DoStuffButton" destination="1028" id="name-outlet-1028"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="254" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-116" y="-386"/>
+            <point key="canvasLocation" x="-290" y="-368"/>
         </scene>
         <scene sceneID="2970">
             <objects>
@@ -62,35 +81,56 @@
                     <view key="view" contentMode="scaleToFill" id="2972">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello it's dialog B and I have a message for you!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2999" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
-                                <rect key="frame" x="186" y="348" width="42" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3012" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
-                                <rect key="frame" x="186" y="368" width="42" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" id="3510" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="15" y="15" width="384" height="706"/>
+                                <color key="backgroundColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello it's dialog B and I have a message for you!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2999" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES" ambiguous="YES">
+                                        <rect key="frame" x="20" y="25" width="344" height="47"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" colorSpace="calibratedWhite" white="0.333333333333333" alpha="1"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3012" translatesAutoresizingMaskIntoConstraints="NO" text="I'll be filled with arguments!" misplaced="YES" ambiguous="YES" numberOfLines="20">
+                                        <rect key="frame" x="20" y="88" width="344" height="19"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint id="3779" firstItem="2999" firstAttribute="top" secondItem="3510" secondAttribute="top" constant="25"/>
+                                    <constraint id="3780" firstItem="3012" firstAttribute="top" secondItem="2999" secondAttribute="bottom" constant="6"/>
+                                    <constraint id="3781" firstAttribute="bottom" secondItem="3012" secondAttribute="bottom" constant="25"/>
+                                    <constraint id="3800" firstItem="3012" firstAttribute="leading" secondItem="3510" secondAttribute="leading" constant="20"/>
+                                    <constraint id="3801" firstAttribute="trailing" secondItem="3012" secondAttribute="trailing" constant="20"/>
+                                    <constraint id="4038" firstItem="2999" firstAttribute="leading" secondItem="3510" secondAttribute="leading" constant="20"/>
+                                    <constraint id="4039" firstAttribute="trailing" secondItem="2999" secondAttribute="trailing" constant="20"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <constraints>
-                            <constraint id="3000" firstAttribute="centerY" secondItem="2999" secondAttribute="centerY" constant="9.75"/>
-                            <constraint id="3001" firstAttribute="centerX" secondItem="2999" secondAttribute="centerX"/>
-                            <constraint id="3013" firstItem="3012" firstAttribute="centerY" secondItem="2972" secondAttribute="centerY" constant="10"/>
-                            <constraint id="3014" firstAttribute="centerX" secondItem="3012" secondAttribute="centerX"/>
+                            <constraint id="3513" firstItem="3510" firstAttribute="top" secondItem="2972" secondAttribute="top" constant="15"/>
+                            <constraint id="3514" firstItem="3510" firstAttribute="leading" secondItem="2972" secondAttribute="leading" constant="15"/>
+                            <constraint id="3515" firstAttribute="bottom" secondItem="3510" secondAttribute="bottom" constant="15"/>
+                            <constraint id="3516" firstAttribute="trailing" secondItem="3510" secondAttribute="trailing" constant="15"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="StaticSizeContainer" destination="3510" id="name-outlet-3510"/>
                         <outlet property="MessageLabel" destination="3012" id="name-outlet-3012"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2973" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-844" y="-383"/>
+            <point key="canvasLocation" x="159" y="-371"/>
         </scene>
     </scenes>
 </document>

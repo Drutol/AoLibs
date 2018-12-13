@@ -66,13 +66,14 @@ namespace AoLibs.Dialogs.iOS
 
         public void Show(object parameter = null)
         {
+            Parameter = parameter; // is my addition okay?
             DialogsManager.CurrentlyDisplayedDialog = this;
-            RootViewController.PresentViewController(ParentContainerViewController, ShouldAnimateOnShow, OnDialogPresentationFinished);
+            RootViewController.PresentViewController(ParentContainerViewController, false, OnDialogPresentationFinished);
         }
 
         public void Hide()
         {
-            RootViewController.DismissViewController(ShouldAnimateOnDismiss, OnDialogDismissFinished);
+            RootViewController.DismissViewController(false, OnDialogDismissFinished);
         }
 
         public Task ShowAsync(object parameter = null)

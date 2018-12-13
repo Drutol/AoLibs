@@ -17,18 +17,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" colorSpace="calibratedRGB" red="0" green="0" blue="0" alpha="0.49803921568627452"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="203" translatesAutoresizingMaskIntoConstraints="NO" opaque="NO">
+                            <view contentMode="scaleToFill" id="203" translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" ambiguous="YES" misplaced="YES">
                                 <rect key="frame" x="93" y="268" width="250" height="250"/>
-                                <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" id="663" translatesAutoresizingMaskIntoConstraints="NO">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <view contentMode="scaleToFill" id="663" translatesAutoresizingMaskIntoConstraints="NO" ambiguous="YES">
+                                        <rect key="frame" x="80" y="0.0" width="170" height="250"/>
+                                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint id="206" firstAttribute="height" constant="250"/>
-                                    <constraint id="207" firstAttribute="width" constant="250"/>
                                     <constraint id="664" firstItem="663" firstAttribute="top" secondItem="203" secondAttribute="top"/>
                                     <constraint id="665" firstItem="663" firstAttribute="leading" secondItem="203" secondAttribute="leading"/>
                                     <constraint id="666" firstAttribute="bottom" secondItem="663" secondAttribute="bottom"/>
@@ -38,8 +36,11 @@
                             </view>
                         </subviews>
                         <constraints>
-                            <constraint id="204" firstItem="203" firstAttribute="centerX" secondItem="200" secondAttribute="centerX" constant="11"/>
-                            <constraint id="205" firstItem="203" firstAttribute="centerY" secondItem="200" secondAttribute="centerY" constant="25"/>
+                            <constraint id="885" firstItem="203" firstAttribute="centerX" secondItem="200" secondAttribute="centerX"/>
+                            <constraint id="886" firstItem="197" firstAttribute="top" secondItem="203" secondAttribute="bottom"/>
+                            <constraint id="1100" firstItem="203" firstAttribute="leading" secondItem="200" secondAttribute="leading" relation="greaterThanOrEqual"/>
+                            <constraint id="1101" firstAttribute="trailing" secondItem="203" secondAttribute="trailing" relation="greaterThanOrEqual"/>
+                            <constraint id="1102" firstItem="203" firstAttribute="top" secondItem="200" secondAttribute="top" relation="greaterThanOrEqual"/>
                         </constraints>
                     </view>
                     <connections>

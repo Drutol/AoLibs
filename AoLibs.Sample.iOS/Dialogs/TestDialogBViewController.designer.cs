@@ -18,11 +18,20 @@ namespace AoLibs.Sample.iOS
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel MessageLabel { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIView StaticSizeContainer { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
             if (MessageLabel != null) {
                 MessageLabel.Dispose ();
                 MessageLabel = null;
+            }
+
+            if (StaticSizeContainer != null) {
+                StaticSizeContainer.Dispose ();
+                StaticSizeContainer = null;
             }
         }
     }

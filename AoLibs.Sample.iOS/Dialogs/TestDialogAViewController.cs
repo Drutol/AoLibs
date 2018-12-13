@@ -12,14 +12,8 @@ namespace AoLibs.Sample.iOS
     [CustomDialog((int)DialogIndex.TestDialogA, Constants.MainDialogsStoryboard, nameof(TestDialogAViewController))]
     public partial class TestDialogAViewController : CustomViewModelDialogBase<TestDialogViewModelA>
     {
-
         public TestDialogAViewController (IntPtr handle) : base (handle)
         {
-        }
-
-        protected TestDialogAViewController(string name, NSBundle p) : base(name, p)
-        {
-           
         }
 
         public override void InitBindings()
