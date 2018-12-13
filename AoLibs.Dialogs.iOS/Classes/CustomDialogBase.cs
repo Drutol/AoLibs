@@ -40,7 +40,7 @@ namespace AoLibs.Dialogs.iOS
         /// <summary>
         /// Gets or sets dialog config used when creating the dialog.
         /// </summary>
-        protected CustomDialogConfig CustomDialogConfig { get; set; } = new CustomDialogConfig();
+        public CustomDialogConfig CustomDialogConfig { get; set; } = new CustomDialogConfig();
 
         protected CustomDialogBase(IntPtr handle) 
             : base(handle)
@@ -180,7 +180,7 @@ namespace AoLibs.Dialogs.iOS
         {
             base.ViewWillAppear(animated);
 
-            if (CustomDialogConfig.IsCancellable)
+            if (CustomDialogConfig?.IsCancellable ?? true)
                 ParentContainerViewController.TappedOutsideTheDialog += HideDialogOnOutsideTap;
         }
 

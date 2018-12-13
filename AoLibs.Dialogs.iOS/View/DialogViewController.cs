@@ -1,4 +1,5 @@
 ﻿using System;
+using AoLibs.Dialogs.Core;
 using Foundation;
 using UIKit;
 
@@ -34,6 +35,8 @@ namespace AoLibs.Dialogs.iOS
             AddChildViewController(_childDialog);
             _childDialog.View.TranslatesAutoresizingMaskIntoConstraints = false;
             ContainerView.AddSubview(_childDialog.View);
+            ContainerView.UserInteractionEnabled = true;
+            ContainerView.AddGestureRecognizer(new UITapGestureRecognizer(() => { }));
 
             NSLayoutConstraint.ActivateConstraints(new[]
             {

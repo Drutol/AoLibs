@@ -52,5 +52,45 @@
             </objects>
             <point key="canvasLocation" x="-116" y="-386"/>
         </scene>
+        <scene sceneID="2970">
+            <objects>
+                <viewController id="2971" sceneMemberID="viewController" customClass="TestDialogBViewController" storyboardIdentifier="TestDialogBViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2968"/>
+                        <viewControllerLayoutGuide type="bottom" id="2969"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2972">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello it's dialog B and I have a message for you!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2999" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                <rect key="frame" x="186" y="348" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3012" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                <rect key="frame" x="186" y="368" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint id="3000" firstAttribute="centerY" secondItem="2999" secondAttribute="centerY" constant="9.75"/>
+                            <constraint id="3001" firstAttribute="centerX" secondItem="2999" secondAttribute="centerX"/>
+                            <constraint id="3013" firstItem="3012" firstAttribute="centerY" secondItem="2972" secondAttribute="centerY" constant="10"/>
+                            <constraint id="3014" firstAttribute="centerX" secondItem="3012" secondAttribute="centerX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="MessageLabel" destination="3012" id="name-outlet-3012"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2973" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-844" y="-383"/>
+        </scene>
     </scenes>
 </document>

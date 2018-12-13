@@ -43,12 +43,7 @@ namespace AoLibs.Sample.iOS.ViewControllers
             ResetButton.SetOnClickCommand(ViewModel.ResetFanciness);
             NavigateButton.SetOnClickCommand(ViewModel.NavigateSomewhereElseCommand);
             ShowDialogButton.SetOnClickCommand(ViewModel.ShowDialogCommand);
+            ShowDifferentDialogButton.SetOnClickCommand(ViewModel.ShowDialogBCommand);
         }
-
-        //private RelayCommand ShowDialog => new RelayCommand(() =>
-        //{
-        //    //var dialog = DialogViewController.Instantiate(CustomDialogBase.CreateInstance(typeof(TestDialogAViewController)));
-        //    //this.PresentViewController(dialog, false, null);
-        //});
     }
 }
