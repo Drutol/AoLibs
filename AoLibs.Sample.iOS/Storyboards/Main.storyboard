@@ -25,20 +25,24 @@
                                         <state key="normal" title="Choose something fancy"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="255">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
                                         <state key="normal" title="Show what I fancy"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="10846" translatesAutoresizingMaskIntoConstraints="NO">
-                                        <rect key="frame" x="0.0" y="30" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                         <state key="normal" title="Reset Fanciness"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="256">
-                                        <rect key="frame" x="0.0" y="60" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="30" width="374" height="30"/>
                                         <state key="normal" title="Navigate B"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11111">
-                                        <rect key="frame" x="0.0" y="90" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="60" width="374" height="30"/>
                                         <state key="normal" title="Show me a dialog"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="11495" translatesAutoresizingMaskIntoConstraints="NO">
+                                        <rect key="frame" x="0.0" y="90" width="374" height="30"/>
+                                        <state key="normal" title="Show me different dialog"/>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -58,6 +62,7 @@
                         <outlet property="ShowFancyButton" destination="255" id="name-outlet-255"/>
                         <outlet property="ResetButton" destination="10846" id="name-outlet-10846"/>
                         <outlet property="ShowDialogButton" destination="11111" id="name-outlet-11111"/>
+                        <outlet property="ShowDifferentDialogButton" destination="11495" id="name-outlet-11495"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

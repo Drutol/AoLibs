@@ -31,6 +31,10 @@ namespace AoLibs.Sample.iOS.ViewControllers
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton ShowDifferentDialogButton { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton ShowFancyButton { get; set; }
 
         void ReleaseDesignerOutlets ()
@@ -53,6 +57,11 @@ namespace AoLibs.Sample.iOS.ViewControllers
             if (ShowDialogButton != null) {
                 ShowDialogButton.Dispose ();
                 ShowDialogButton = null;
+            }
+
+            if (ShowDifferentDialogButton != null) {
+                ShowDifferentDialogButton.Dispose ();
+                ShowDifferentDialogButton = null;
             }
 
             if (ShowFancyButton != null) {

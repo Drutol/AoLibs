@@ -1,4 +1,5 @@
 ﻿using System;
+using AoLibs.Dialogs.Core;
 using Foundation;
 using UIKit;
 
@@ -8,6 +9,8 @@ namespace AoLibs.Dialogs.iOS
     {
         private const string StoryboardName = "DialogContainer";
         private const string ControllerName = "DialogViewController";
+
+        public event EventHandler TappedOutsideTheDialog;
 
         public static DialogViewController Instantiate(CustomDialogBase dialog)
         {
@@ -32,6 +35,8 @@ namespace AoLibs.Dialogs.iOS
             AddChildViewController(_childDialog);
             _childDialog.View.TranslatesAutoresizingMaskIntoConstraints = false;
             ContainerView.AddSubview(_childDialog.View);
+            ContainerView.UserInteractionEnabled = true;
+            ContainerView.AddGestureRecognizer(new UITapGestureRecognizer(() => { }));
 
             NSLayoutConstraint.ActivateConstraints(new[]
             {
@@ -42,6 +47,10 @@ namespace AoLibs.Dialogs.iOS
             });
 
             _childDialog.DidMoveToParentViewController(this);
+
+            var gestureRecognizer =
+                new UITapGestureRecognizer(() => TappedOutsideTheDialog?.Invoke(this, EventArgs.Empty));
+            RootView.AddGestureRecognizer(gestureRecognizer);
         }
     }
 }
