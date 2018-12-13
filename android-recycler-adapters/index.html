@@ -430,6 +430,42 @@
 
 
   <li class="md-nav__item">
+    <a href="../dialogs/" title="Dialogs" class="md-nav__link">
+      Dialogs
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../dialogs-android/" title="Android Dialogs" class="md-nav__link">
+      Android Dialogs
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../dialogs-ios/" title="iOS Dialogs" class="md-nav__link">
+      iOS Dialogs
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../utilities/" title="Utilities" class="md-nav__link">
       Utilities
     </a>
@@ -562,7 +598,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Drutol/AoLibs/edit/master/docs/android-recycler-adapters.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/Drutol/AoLibs/tree/gh-pages/AoLibs/docs/android-recycler-adapters.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                 <h1 id="recycler-view-adapters">Recycler View Adapters</h1>
@@ -637,10 +673,10 @@ private ItemViewHolder HolderFactory(ViewGroup parent, int viewType, View view)
         items: ViewModel.Items, 
         dataTemplate: DataTemplate,
         itemTemplate: ItemTemplate,
-        holderFactory: HolderFactory) {ApplyLayoutParams = true});
+        holderFactory: HolderFactory) {StretchContentHorizonatally = true});
 </code></pre>
 
-<p>In order to use it you just have to set <code>ApplyLayoutParams</code> property to <code>true</code>. Item containers will be assigned with proper <code>RecyclerView.LayoutParams</code> after inflating.</p>
+<p>In order to use it you just have to set <code>StretchContentHorizonatally</code> or <code>StretchContentVertically</code> property to <code>true</code>. Item containers will be assigned with proper <code>RecyclerView.LayoutParams</code> after inflating.</p>
 <h2 id="footer">Footer</h2>
 <p>Adapter with footer is very similar to standard adapter:</p>
 <pre><code class="cs">RecyclerView.SetAdapter(

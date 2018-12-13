@@ -11,6 +11,9 @@ nav:
   - Android Adapters: adapters-android.md
   - Android Recycler Adapters: android-recycler-adapters.md
   - AppVariables: app-variables.md
+  - Dialogs: dialogs.md
+  - Android Dialogs: dialogs-android.md
+  - iOS Dialogs: dialogs-ios.md
   - Utilities: utilities.md
   - Android Utilities: utilities-android.md
   - iOS Utilities: utilities-ios.md
@@ -36,6 +39,7 @@ copyright: 'Copyright &copy; 2018 Piotr Szymczak'
 
 repo_name: 'Drutol/AoLibs'
 repo_url: 'https://github.com/Drutol/AoLibs'
+edit_uri: 'tree/gh-pages/AoLibs/docs'
 
 extra:
   social:

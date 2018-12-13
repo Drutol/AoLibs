@@ -93,7 +93,7 @@
     margin-left: var(--section-inner-left-margin);
 }
 
-/* Utilities */
+/* Dialogs */
 
 .md-nav.md-nav--primary .md-nav__list li:nth-child(11) a {
     font-size: var(--section-header-size);
@@ -106,12 +106,31 @@
 .md-nav.md-nav--primary .md-nav__list li:nth-child(13) a {
     margin-left: var(--section-inner-left-margin);
 }
+    
+/* Utilities */
+
 
 .md-nav.md-nav--primary .md-nav__list li:nth-child(14) a {
-    margin-left: var(--section-inner-left-margin);
+    font-size: var(--section-header-size);
 }
 
 .md-nav.md-nav--primary .md-nav__list li:nth-child(15) a {
+    margin-left: var(--section-inner-left-margin);
+}
+
+.md-nav.md-nav--primary .md-nav__list li:nth-child(16) a {
+    margin-left: var(--section-inner-left-margin);
+}
+
+.md-nav.md-nav--primary .md-nav__list li:nth-child(17) a {
+    margin-left: var(--section-inner-left-margin);
+}
+
+.md-nav.md-nav--primary .md-nav__list li:nth-child(18) a {
+    margin-left: var(--section-inner-left-margin);
+}
+
+.md-nav.md-nav--primary .md-nav__list li:nth-child(19) a {
     margin-left: var(--section-inner-left-margin);
 }
 

@@ -36,7 +36,7 @@
     
     
       
-        <title>Installation - AoLibs</title>
+        <title>Android Dialogs - AoLibs</title>
       
     
     
@@ -94,7 +94,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="../#installation" tabindex="1" class="md-skip">
+      <a href="../#android-dialogs" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -120,7 +120,7 @@
                 AoLibs
               </span>
               <span class="md-header-nav__topic">
-                Installation
+                Android Dialogs
               </span>
             
           
@@ -247,20 +247,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" title="Installation" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../installation/" title="Installation" class="md-nav__link">
       Installation
     </a>
-    
   </li>
 
     
@@ -376,11 +367,117 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../dialogs-android/" title="Android Dialogs" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Android Dialogs
+      </label>
+    
+    <a href="./" title="Android Dialogs" class="md-nav__link md-nav__link--active">
       Android Dialogs
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dialog-flavours" title="Dialog Flavours" class="md-nav__link">
+    Dialog Flavours
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#customdialogbase" title="CustomDialogBase" class="md-nav__link">
+    CustomDialogBase
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layout" title="Layout" class="md-nav__link">
+    Layout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bindings" title="Bindings" class="md-nav__link">
+    Bindings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#awaiting-result" title="Awaiting Result" class="md-nav__link">
+    Awaiting Result
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter" title="Parameter" class="md-nav__link">
+    Parameter
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customviewmodeldialogbase" title="CustomViewModelDialogBase" class="md-nav__link">
+    CustomViewModelDialogBase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customargumentviewmodeldialogbase" title="CustomArgumentViewModelDialogBase" class="md-nav__link">
+    CustomArgumentViewModelDialogBase
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customdialogsmanager" title="CustomDialogsManager" class="md-nav__link">
+    CustomDialogsManager
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -473,6 +570,90 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dialog-flavours" title="Dialog Flavours" class="md-nav__link">
+    Dialog Flavours
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#customdialogbase" title="CustomDialogBase" class="md-nav__link">
+    CustomDialogBase
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layout" title="Layout" class="md-nav__link">
+    Layout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bindings" title="Bindings" class="md-nav__link">
+    Bindings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#awaiting-result" title="Awaiting Result" class="md-nav__link">
+    Awaiting Result
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameter" title="Parameter" class="md-nav__link">
+    Parameter
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customviewmodeldialogbase" title="CustomViewModelDialogBase" class="md-nav__link">
+    CustomViewModelDialogBase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customargumentviewmodeldialogbase" title="CustomArgumentViewModelDialogBase" class="md-nav__link">
+    CustomArgumentViewModelDialogBase
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customdialogsmanager" title="CustomDialogsManager" class="md-nav__link">
+    CustomDialogsManager
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -483,12 +664,82 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Drutol/AoLibs/tree/gh-pages/AoLibs/docs/installation.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/Drutol/AoLibs/tree/gh-pages/AoLibs/docs/dialogs-android.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="installation">Installation</h1>
-<p>This library is still being worked on but some build can be found on thi NuGet repository:
-<code>https://www.myget.org/F/drutol/api/v3/index.json</code></p>
+                <h1 id="android-dialogs">Android Dialogs</h1>
+<p>The dialogs implemented with <code>CustomDialogBase</code> are working based on <code>DialogFragment</code>.</p>
+<h2 id="dialog-flavours">Dialog Flavours</h2>
+<p>There total 3 classes building upon each other with additional functionalities</p>
+<ul>
+<li>CustomDialogBase<ul>
+<li>CustomViewModelDialogBase<ul>
+<li>CustomArgumentViewModelDialogBase</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="customdialogbase">CustomDialogBase</h3>
+<p>The base implementaton inheriting directly from <code>DialogFragment</code> and implementing methods of <code>ICustomDialog</code>.</p>
+<h4 id="layout">Layout</h4>
+<p>There are no special requirements for layout that will be contained within the dialog. All you have to do is to provide its Id in <code>LayoutResourceId</code> property.</p>
+<pre><code class="cs">protected override int LayoutResourceId { get; } = Resource.Layout.test_dialog_a;
+</code></pre>
+
+<h4 id="bindings">Bindings</h4>
+<p>This class provides flow for creating bindings between ViewModel and View controls. You will be required to implement <code>InitBindings()</code> method. For example:</p>
+<pre><code>protected override void InitBindings()
+{
+    Bindings.Add(this.SetBinding(() =&gt; ViewModel.Counter, () =&gt; TextView.Text)
+        .ConvertSourceToTarget(i =&gt; i.ToString()));
+
+    Button.SetOnClickCommand(ViewModel.IncrementCommand);
+}
+</code></pre>
+
+<h4 id="awaiting-result">Awaiting Result</h4>
+<p>If the dialog was invoked using <code>AwaitResult()</code> method the awaited response type will be stored in <code>AwaitedResultType</code>. You can use <code>SetResult()</code> and <code>CancelResult()</code> to provide or cancel the result.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While you can pass anything as a result to <code>SetResult()</code> it will be checked against <code>AwaitedResultType</code> and <code>ArgumentException</code> will be thrown in case of mismatch.</p>
+</div>
+<h4 id="parameter">Parameter</h4>
+<p>Passed parameter while invoking the dialog will be stored in <code>Parameter</code> property.</p>
+<h3 id="customviewmodeldialogbase">CustomViewModelDialogBase</h3>
+<p>This inherited class will additionally take <code>TViewModel</code> generic parameter and will try to resolve given type using resolver passed to <code>CustomDialogsManager</code>.
+The ViewModel's callbacks will be also invoked by this class.</p>
+<h3 id="customargumentviewmodeldialogbase">CustomArgumentViewModelDialogBase</h3>
+<p>This class in addition to requiring <code>TViewModel</code> will also require <code>TArgument</code> and will expose <code>Argument</code> property with casted parameter.</p>
+<h2 id="customdialogsmanager">CustomDialogsManager</h2>
+<p>This class manages all the dialogs. During app start you will need to create its instance with passing your <code>FragmentManager</code> as well as dictionary of dialogs and providers. Additionally you can pass <code>ICustomDialogViewModelResolver</code> which will be used to obtain ViewModels from your IoC container or whatnot. For example:</p>
+<pre><code class="cs">protected override void OnCreate(Bundle savedInstanceState)
+{
+...
+    var dialogDefinitions = new Dictionary&lt;DialogIndex, ICustomDialogProvider&gt;
+    {
+        {DialogIndex.TestDialogA, new OneshotCustomDialogProvider&lt;TestDialogA&gt;()},
+        {DialogIndex.TestDialogB, new OneshotCustomDialogProvider&lt;TestDialogB&gt;()}
+    };
+
+    var dialogManager = new CustomDialogsManager&lt;DialogIndex&gt;(
+        SupportFragmentManager,
+        dialogDefinitions,
+        new ViewModelResolver());
+...
+}
+
+private class ViewModelResolver : ICustomDialogViewModelResolver
+{
+    TViewModel ICustomDialogViewModelResolver.Resolve&lt;TViewModel&gt;() 
+    {
+        using (var scope = ResourceLocator.ObtainScope())
+        {
+            return scope.Resolve&lt;TViewModel&gt;();
+        }
+    }
+}
+</code></pre>
                 
                   
                 
@@ -509,7 +760,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href=".." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../dialogs/" title="Dialogs" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -518,19 +769,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Home
+                Dialogs
               </span>
             </div>
           </a>
         
         
-          <a href="../about/" title="About" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../dialogs-ios/" title="iOS Dialogs" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                About
+                iOS Dialogs
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

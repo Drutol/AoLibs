@@ -72,10 +72,10 @@ RecyclerView.SetAdapter(
         items: ViewModel.Items, 
         dataTemplate: DataTemplate,
         itemTemplate: ItemTemplate,
-        holderFactory: HolderFactory) {ApplyLayoutParams = true});
+        holderFactory: HolderFactory) {StretchContentHorizonatally = true});
 ```
 
-In order to use it you just have to set `ApplyLayoutParams` property to `true`. Item containers will be assigned with proper `RecyclerView.LayoutParams` after inflating.
+In order to use it you just have to set `StretchContentHorizonatally` or `StretchContentVertically` property to `true`. Item containers will be assigned with proper `RecyclerView.LayoutParams` after inflating.
 
 ## Footer
 

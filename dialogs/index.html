@@ -36,7 +36,7 @@
     
     
       
-        <title>Installation - AoLibs</title>
+        <title>Dialogs - AoLibs</title>
       
     
     
@@ -94,7 +94,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="../#installation" tabindex="1" class="md-skip">
+      <a href="../#dialogs" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -120,7 +120,7 @@
                 AoLibs
               </span>
               <span class="md-header-nav__topic">
-                Installation
+                Dialogs
               </span>
             
           
@@ -247,20 +247,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" title="Installation" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../installation/" title="Installation" class="md-nav__link">
       Installation
     </a>
-    
   </li>
 
     
@@ -364,11 +355,96 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../dialogs/" title="Dialogs" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Dialogs
+      </label>
+    
+    <a href="./" title="Dialogs" class="md-nav__link md-nav__link--active">
       Dialogs
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" title="Setup" class="md-nav__link">
+    Setup
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-start" title="Quick Start" class="md-nav__link">
+    Quick Start
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dialog" title="Dialog" class="md-nav__link">
+    Dialog
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewmodel" title="ViewModel" class="md-nav__link">
+    ViewModel
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features" title="Features" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flavours" title="Flavours" class="md-nav__link">
+    Flavours
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -473,6 +549,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" title="Setup" class="md-nav__link">
+    Setup
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-start" title="Quick Start" class="md-nav__link">
+    Quick Start
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dialog" title="Dialog" class="md-nav__link">
+    Dialog
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewmodel" title="ViewModel" class="md-nav__link">
+    ViewModel
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features" title="Features" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flavours" title="Flavours" class="md-nav__link">
+    Flavours
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -483,12 +622,66 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Drutol/AoLibs/tree/gh-pages/AoLibs/docs/installation.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/Drutol/AoLibs/tree/gh-pages/AoLibs/docs/dialogs.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="installation">Installation</h1>
-<p>This library is still being worked on but some build can be found on thi NuGet repository:
-<code>https://www.myget.org/F/drutol/api/v3/index.json</code></p>
+                <h1 id="dialogs">Dialogs</h1>
+<p>This set of libraries is meant to provide easy management of dialogs from ViewModels in your Xamarin apps. It provides means of invoking dialogs, awaiting their results and streamlinining dialog creation in respective platform specific projects.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>The dialogs here are not stock message dialogs provided by the platforms. The dialogs here are modal windows with completly custom UI required for more specific scenarios.</p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>In the essence the mechanism here is very simillar to AoLibs' naviagtion solution.</p>
+</div>
+<p>I tried to find the best balance between passing instances as <code>object</code> arguments and using generics in order not to make the code overly complex.</p>
+<h2 id="setup">Setup</h2>
+<p>The dialog consists of its <code>ViewModel</code> paired with implementation of <code>ICustomDialog</code> interface in platform projects. All registered dialogs are handled by <code>ICustomDialogsManager</code> which can be injected into your page ViewModels. <code>ICustomDialog</code> defines methods to manipulate the dialog.</p>
+<p>Additional caveats will be described in subpages for each platfrom.</p>
+<h3 id="quick-start">Quick Start</h3>
+<p>Steps:</p>
+<ul>
+<li>Define an enum which will contain identifiers for all your dialogs, <code>DialogIndex</code> for example.</li>
+<li>Create dialog's ViewModel inheriting <code>CustomDialogViewModelBase</code> in your shared project.</li>
+<li>Create implementation of <code>ICustomDialog</code> in your platform specific project by inheriting <code>CustomDialogBase</code>.</li>
+<li>During app startup create instance of <code>CustomDialogsManagerBase</code> passing dictionary matching dialog identifiers with providers of your's dialog definition.</li>
+<li>Inject <code>ICustomDialogsManager</code> to your page ViewModel and access the dialog.</li>
+</ul>
+<h2 id="dialog">Dialog</h2>
+<p>Dialog is defined by <code>ICustomDialog</code> interface and is implemented separately on each platorm. Aside from basic funtions like Show&amp;Hide it allows to await result:</p>
+<pre><code class="cs">Task&lt;TResult&gt; AwaitResult&lt;TResult&gt;(CancellationToken token = default);
+</code></pre>
+
+<p>The dialog also has its parameter to give a context for its invocation, you can pass it to <code>Show()</code> method. You can pass anything there as it's an argument of <code>object</code> type.</p>
+<h2 id="viewmodel">ViewModel</h2>
+<p>The ViewModel for our dialog must inherit from <code>CustomDialogViewModelBase</code> which provides callbacks for dialog's lifetime as well as utility methods to access the dialog itself and manage the possibly awaited result of dialog's execution. Additionally from ViewModel you can define simple dialog config shared by both platforms.</p>
+<h3 id="features">Features</h3>
+<ul>
+<li>
+<p>Dialog config</p>
+<p>You can override <code>CustomDialogConfig</code> property in order to provide custom config defining basic characteristics of a dialog such as:</p>
+<ul>
+<li><code>Gravity</code> - defining side of screen where dialog should be shown.</li>
+<li><code>IsCancellable</code> - can dialog be cancelled by tapping outside or using back button.</li>
+<li><code>StretchHorizontally</code> - whether to stretch container horizontally</li>
+<li><code>StretchVertically</code>- whether to stretch container vertically</li>
+</ul>
+</li>
+<li>
+<p>Access to dialog instance</p>
+<p>You can access the dialog itself with additional methods to manipulate the dialog's result.</p>
+</li>
+<li>
+<p>Lifecycle callbacks</p>
+<p>You can override methods that indicate that dialog has been shown or hidden.</p>
+</li>
+</ul>
+<h3 id="flavours">Flavours</h3>
+<p>With <code>CustomDialogViewModelBase</code> being the very base dialog ViewModel there are others that provide additional functionality.</p>
+<ul>
+<li><code>CustomDialogViewModelWithParameterBase</code> allows to define generic parameter of the argument that will be passed when showing the dialog. Additional method to override is provided <code>OnDialogAppeared</code> which will pass given type instead of an <code>object</code></li>
+</ul>
                 
                   
                 
@@ -509,7 +702,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href=".." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../app-variables/" title="AppVariables" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -518,19 +711,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Home
+                AppVariables
               </span>
             </div>
           </a>
         
         
-          <a href="../about/" title="About" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../dialogs-android/" title="Android Dialogs" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                About
+                Android Dialogs
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
