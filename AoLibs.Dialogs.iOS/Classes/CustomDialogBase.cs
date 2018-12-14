@@ -37,6 +37,8 @@ namespace AoLibs.Dialogs.iOS
         private TaskCompletionSource<object> _resultCompletionSource;
         private CancellationTokenSource _resultCancellationTokenSource;
 
+        public abstract void InitBindings();
+
         /// <summary>
         /// Gets or sets dialog config used when creating the dialog.
         /// </summary>
@@ -213,7 +215,5 @@ namespace AoLibs.Dialogs.iOS
                 Bindings.Clear();
             }
         }
-
-        public abstract void InitBindings();
     }
 }

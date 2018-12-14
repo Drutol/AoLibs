@@ -10,7 +10,7 @@ namespace AoLibs.Dialogs.iOS
 {
     /// <summary>
     /// Attribute used to mark the backing storyboard of ViewController.
-    /// Used by <see cref="StoryboardOneshotDialogProvider{TPage}"/> to instantiate ViewController.
+    /// Used by <see cref="StoryboardOneshotCustomDialogProviderCustomDialogProvider{TDialog}"/> to instantiate ViewController.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class)]
     public class CustomDialogAttribute : Attribute
@@ -23,23 +23,23 @@ namespace AoLibs.Dialogs.iOS
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomDialogAttribute"/> class.
         /// </summary>
-        /// <param name="page">Integer value of your TPageIdentifier enum.</param>
+        /// <param name="dialog">Integer value of your TPageIdentifier enum.</param>
         /// <param name="storyboardName">The name of the storyboard fro which to retrieve view controller.</param>
-        public CustomDialogAttribute(int page, string storyboardName)
+        public CustomDialogAttribute(int dialog, string storyboardName)
         {
-            Page = page;
+            Dialog = dialog;
             StoryboardName = storyboardName;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomDialogAttribute"/> class.
         /// </summary>
-        /// <param name="page">Integer value of your TPageIdentifier enum.</param>
+        /// <param name="dialog">Integer value of your TPageIdentifier enum.</param>
         /// <param name="storyboardName">The name of the storyboard fro which to retrieve view controller.</param>
         /// <param name="viewControllerIdentifier">Identifier within storyboard of desired view controller.</param>
-        public CustomDialogAttribute(int page, string storyboardName, string viewControllerIdentifier)
+        public CustomDialogAttribute(int dialog, string storyboardName, string viewControllerIdentifier)
         {
-            Page = page;
+            Dialog = dialog;
             StoryboardName = storyboardName;
             ViewControllerIdentifier = viewControllerIdentifier;
         }
@@ -50,7 +50,7 @@ namespace AoLibs.Dialogs.iOS
         /// <value>
         /// Integer value of specified TDialogIndex enum.
         /// </value>
-        public int Page { get; }
+        public int Dialog { get; }
 
         /// <summary>
         /// Gets which provider to use. Currently only one available.
@@ -63,7 +63,7 @@ namespace AoLibs.Dialogs.iOS
         public string StoryboardName { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of ViewController associated with the page given that there are multiple ViewControllers defined within storyboard. Leave default if there's only initial ViewController.
+        /// Gets or sets the name of ViewController associated with the dialog given that there are multiple ViewControllers defined within storyboard. Leave default if there's only initial ViewController.
         /// </summary>
         public string ViewControllerIdentifier { get; set; }
     }

@@ -9,7 +9,6 @@
         /// <inheritdoc />
         protected internal override void OnDialogAppearedInternal()
         {
-            OnDialogAppeared();
 #pragma warning disable SA1000 // Keywords must be spaced correctly
             OnDialogAppeared(Dialog.Parameter == null ? default : (TParameter) Dialog.Parameter);
 #pragma warning restore SA1000 // Keywords must be spaced correctly
