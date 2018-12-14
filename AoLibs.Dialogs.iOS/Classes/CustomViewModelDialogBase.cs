@@ -16,14 +16,23 @@ namespace AoLibs.Dialogs.iOS
         /// <summary>
         /// Gets the ViewModel of this dialog.
         /// </summary>
-        public TViewModel ViewModel { get; protected set; }
+        public TViewModel ViewModel { get; private set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CustomViewModelDialogBase{TViewModel}"/> class.
+        /// </summary>
+        /// <param name="handle">Handle.</param>
         protected CustomViewModelDialogBase(IntPtr handle)
             : base(handle)
         {
             Initialize();
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CustomViewModelDialogBase{TViewModel}"/> class.
+        /// </summary>
+        /// <param name="name">Name.</param>
+        /// <param name="p">Bundle.</param>
         protected CustomViewModelDialogBase(string name, NSBundle p)
             : base(name, p)
         {
@@ -48,14 +57,14 @@ namespace AoLibs.Dialogs.iOS
         protected override void OnWillBeShown()
         {
             ViewModel.OnDialogAppearedInternal();
-            base.OnShown();
+            OnShown();
         }
 
         /// <inheritdoc />
         protected override void OnWillBeHidden()
         {
             ViewModel.OnDialogDismissedInternal();
-            base.OnHidden();
+            OnHidden();
         }
     }
 }

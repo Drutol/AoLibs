@@ -11,6 +11,9 @@ namespace AoLibs.Dialogs.Android
         : CustomViewModelDialogBase<TViewModel>
         where TViewModel : CustomDialogViewModelBase
     {
+        /// <summary>
+        /// Gets the parameter casted to TArgument.
+        /// </summary>
         protected TArgument Argument { get; }
 
         /// <summary>

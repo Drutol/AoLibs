@@ -5,13 +5,18 @@ using UIKit;
 
 namespace AoLibs.Dialogs.iOS
 {
+    /// <summary>
+    /// ViewController that wraps injected dialog.
+    /// </summary>
     public partial class DialogViewController : UIViewController
     {
         private const string StoryboardName = "DialogContainer";
         private const string ControllerName = "DialogViewController";
 
-        public event EventHandler TappedOutsideTheDialog;
-
+        /// <summary>
+        /// Method that creates the instance of <see cref="DialogViewController"/> with <see cref="CustomDialogBase"/> as the dialog to inject.
+        /// </summary>
+        /// <param name="dialog">Dialog to inject.</param>
         public static DialogViewController Instantiate(CustomDialogBase dialog)
         {
             var vc = (DialogViewController) UIStoryboard.FromName(StoryboardName, null)
@@ -23,13 +28,23 @@ namespace AoLibs.Dialogs.iOS
             return vc;
         }
 
+        /// <summary>
+        /// Called when user taps outside defined container.
+        /// </summary>
+        public event EventHandler TappedOutsideTheDialog;
+
         private CustomDialogBase _childDialog;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DialogViewController"/> class.
+        /// </summary>
+        /// <param name="handle">Handle.</param>
         public DialogViewController (IntPtr handle) 
             : base (handle)
         {
         }
 
+        /// <inheritdoc />
         public override void ViewWillAppear(bool animated)
         {
             AddChildViewController(_childDialog);

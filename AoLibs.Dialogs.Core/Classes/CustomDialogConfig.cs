@@ -13,11 +13,13 @@ namespace AoLibs.Dialogs.Core
         [Flags]
         public enum DialogGravity
         {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
             Left = 1,
             Top = 2,
             Right = 4,
             Bottom = 8,
             Center = 16
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         }
 
         /// <summary>

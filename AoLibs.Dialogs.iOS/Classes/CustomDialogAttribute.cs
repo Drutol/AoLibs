@@ -10,16 +10,11 @@ namespace AoLibs.Dialogs.iOS
 {
     /// <summary>
     /// Attribute used to mark the backing storyboard of ViewController.
-    /// Used by <see cref="StoryboardOneshotCustomDialogProviderCustomDialogProvider{TDialog}"/> to instantiate ViewController.
+    /// Used by <see cref="StoryboardOneshotCustomDialogProvider{TDialog}"/> to instantiate ViewController.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class)]
     public class CustomDialogAttribute : Attribute
     {
-        public enum PageProvider
-        {
-            Oneshot,
-        }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomDialogAttribute"/> class.
         /// </summary>
@@ -51,11 +46,6 @@ namespace AoLibs.Dialogs.iOS
         /// Integer value of specified TDialogIndex enum.
         /// </value>
         public int Dialog { get; }
-
-        /// <summary>
-        /// Gets which provider to use. Currently only one available.
-        /// </summary>
-        public PageProvider PageProviderType { get; } = PageProvider.Oneshot;
 
         /// <summary>
         /// Gets or sets the name of the storyboard that will be used for ViewController instantiation. 

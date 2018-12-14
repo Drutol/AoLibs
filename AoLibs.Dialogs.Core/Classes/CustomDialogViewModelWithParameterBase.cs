@@ -1,7 +1,7 @@
 ﻿namespace AoLibs.Dialogs.Core
 {
     /// <summary>
-    /// Utility ViewModel for dialogs with typed <see cref="TParameter"/>
+    /// Utility ViewModel for dialogs with typed TParameter.
     /// </summary>
     /// <typeparam name="TParameter">The type of used parameter for given dialog.</typeparam>
     public class CustomDialogViewModelWithParameterBase<TParameter> : CustomDialogViewModelBase

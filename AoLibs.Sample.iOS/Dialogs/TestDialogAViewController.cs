@@ -22,7 +22,7 @@ namespace AoLibs.Sample.iOS
            
         }
 
-        public override void InitBindings()
+        protected override void InitBindings()
         {
             Bindings.Add(this.SetBinding(() => ViewModel.Counter, () => CounterLabel.Text));
             DoStuffButton.SetOnClickCommand(ViewModel.IncrementCommand);

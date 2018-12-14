@@ -26,7 +26,14 @@ namespace AoLibs.Dialogs.Android
         internal static FragmentManager ConfiguredFragmentManager { get; set; }
         internal static IInternalDialogsManager DialogsManager { get; set; }
 
+        /// <summary>
+        /// Fires when the dialog is shown.
+        /// </summary>
         public event EventHandler DialogShown;
+
+        /// <summary>
+        /// Fires when the dialog is hidden.
+        /// </summary>
         public event EventHandler DialogHidden;
 
         /// <summary>
@@ -185,7 +192,7 @@ namespace AoLibs.Dialogs.Android
         /// <typeparam name="TResult">Awaited return type, it will be checked when dialog calls <see cref="Show"/></typeparam>
         /// <param name="token">Cancellation token.</param>
         /// <returns>Awaited result</returns>
-        /// <exception cref="TaskCanceledException">Throws this exception when result gets cancelled by either <see cref="token"/> or <see cref="CancelResult"/> method</exception>
+        /// <exception cref="TaskCanceledException">Throws this exception when result gets cancelled by either <see cref="CancellationToken"/> or <see cref="CancelResult"/> method</exception>
         public async Task<TResult> AwaitResult<TResult>(CancellationToken token = default)
         {
             try
@@ -215,7 +222,7 @@ namespace AoLibs.Dialogs.Android
         /// Completes the task awaited in <see cref="AwaitResult{TResult}"/>.
         /// </summary>
         /// <param name="result">The object to return to the caller. It should be of <see cref="AwaitedResultType"/> type.</param>
-        /// <exception cref="ArgumentException">Thrown when given <see cref="result"/> doesn't match <see cref="AwaitedResultType"/></exception>
+        /// <exception cref="ArgumentException">Thrown when given result doesn't match <see cref="AwaitedResultType"/></exception>
         public void SetResult(object result)
         {
             if (AwaitedResultType != result.GetType())
