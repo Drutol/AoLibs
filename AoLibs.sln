@@ -55,6 +55,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoLibs.Sample.iOS", "AoLibs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoLibs.Utilities.iOS", "AoLibs.Utilities.iOS\AoLibs.Utilities.iOS.csproj", "{E71F3053-056C-4381-9638-048ED73BDFF6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiClient", "ApiClient", "{33AEAD68-2146-4F80-B4A2-C96E27FB2A70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoLibs.ApiClient", "AoLibs.ApiClient\AoLibs.ApiClient.csproj", "{0AA6B480-9A8A-4B42-ACFC-ACBE0663147E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoLibs.ApiClient.Test", "AoLibs.ApiClient.Test\AoLibs.ApiClient.Test.csproj", "{C4B22C6B-85C0-4B91-92D0-1F79674C71EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{5E9E0F72-A207-4AA8-A46C-9D4F94D7346B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -237,6 +245,30 @@ Global
 		{E71F3053-056C-4381-9638-048ED73BDFF6}.Release|iPhone.Build.0 = Release|Any CPU
 		{E71F3053-056C-4381-9638-048ED73BDFF6}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{E71F3053-056C-4381-9638-048ED73BDFF6}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{0AA6B480-9A8A-4B42-ACFC-ACBE0663147E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AA6B480-9A8A-4B42-ACFC-ACBE0663147E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AA6B480-9A8A-4B42-ACFC-ACBE0663147E}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{0AA6B480-9A8A-4B42-ACFC-ACBE0663147E}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{0AA6B480-9A8A-4B42-ACFC-ACBE0663147E}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{0AA6B480-9A8A-4B42-ACFC-ACBE0663147E}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{0AA6B480-9A8A-4B42-ACFC-ACBE0663147E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AA6B480-9A8A-4B42-ACFC-ACBE0663147E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AA6B480-9A8A-4B42-ACFC-ACBE0663147E}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{0AA6B480-9A8A-4B42-ACFC-ACBE0663147E}.Release|iPhone.Build.0 = Release|Any CPU
+		{0AA6B480-9A8A-4B42-ACFC-ACBE0663147E}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{0AA6B480-9A8A-4B42-ACFC-ACBE0663147E}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{C4B22C6B-85C0-4B91-92D0-1F79674C71EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4B22C6B-85C0-4B91-92D0-1F79674C71EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4B22C6B-85C0-4B91-92D0-1F79674C71EA}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{C4B22C6B-85C0-4B91-92D0-1F79674C71EA}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{C4B22C6B-85C0-4B91-92D0-1F79674C71EA}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{C4B22C6B-85C0-4B91-92D0-1F79674C71EA}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{C4B22C6B-85C0-4B91-92D0-1F79674C71EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4B22C6B-85C0-4B91-92D0-1F79674C71EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4B22C6B-85C0-4B91-92D0-1F79674C71EA}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{C4B22C6B-85C0-4B91-92D0-1F79674C71EA}.Release|iPhone.Build.0 = Release|Any CPU
+		{C4B22C6B-85C0-4B91-92D0-1F79674C71EA}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{C4B22C6B-85C0-4B91-92D0-1F79674C71EA}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -259,6 +291,9 @@ Global
 		{51793179-E71A-497A-96E4-7BCD71912201} = {E8A60658-28C1-46ED-8F6A-325E05C79558}
 		{101E3060-8799-4119-8A7A-4F86A01C0C84} = {044230EF-6298-4D80-B936-FFBA1CE5F5EC}
 		{E71F3053-056C-4381-9638-048ED73BDFF6} = {162B8D28-0774-4DAC-A46A-F6D101EB572B}
+		{0AA6B480-9A8A-4B42-ACFC-ACBE0663147E} = {33AEAD68-2146-4F80-B4A2-C96E27FB2A70}
+		{C4B22C6B-85C0-4B91-92D0-1F79674C71EA} = {5E9E0F72-A207-4AA8-A46C-9D4F94D7346B}
+		{5E9E0F72-A207-4AA8-A46C-9D4F94D7346B} = {33AEAD68-2146-4F80-B4A2-C96E27FB2A70}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B52CBBB5-4296-4A0E-B4E5-9BDDF0EC98D3}
