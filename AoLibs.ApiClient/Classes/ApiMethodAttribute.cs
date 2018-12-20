@@ -19,7 +19,6 @@ namespace AoLibs.ApiClient
             Patch,
         }
 
-        public string Method { get; set; }
         public string Path { get; set; }
 
         public HttpMethod HttpMethod { get; private set; }

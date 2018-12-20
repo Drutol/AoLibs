@@ -11,104 +11,88 @@ using Newtonsoft.Json;
 
 namespace AoLibs.ApiClient
 {
-    public class ApiRequestBuilder<TResponse>
+    public class ApiMessageBuilder
     {
         public IApiDefinition ApiDefinition { get; set; }
         public IApiClientProvider ApiClientProvider { get; set; }
-        public HttpResponseConverter<TResponse> HttpResponseConverter { get; set; }
-        public string Path { get; set; }
+        public string PathTemplate { get; set; }
         public HttpMethod HttpMethod { get; set; }
         public HttpContent HttpContent { get; set; }
         public string Tag { get; set; }
 
-        public IApiRequest<TResponse> Build()
+        public IApiMessage<ApiMessage> Build()
         {
             if (ApiDefinition is null)
                 throw new ArgumentNullException($"{nameof(ApiDefinition)} can't be null.");
             if (ApiClientProvider is null)
                 throw new ArgumentNullException($"{nameof(ApiClientProvider)} can't be null.");
-            if (HttpResponseConverter is null)
-                throw new ArgumentNullException($"{nameof(HttpResponseConverter)} can't be null.");
             if (HttpMethod is null)
                 throw new ArgumentNullException($"{nameof(HttpMethod)} can't be null.");
-            if (string.IsNullOrEmpty(Path))
-                throw new ArgumentNullException($"{nameof(Path)} can't be null or empty.");
+            if (string.IsNullOrEmpty(PathTemplate))
+                throw new ArgumentNullException($"{nameof(PathTemplate)} can't be null or empty.");
 
-            return new ApiRequest(ApiDefinition, ApiClientProvider, HttpResponseConverter, Path, HttpMethod, Tag)
+            return new ApiMessage(ApiDefinition, ApiClientProvider, PathTemplate, HttpMethod, Tag)
             {
                 Content = HttpContent,
             };
         }
 
-        public ApiRequestBuilder<TResponse> WithPath(string path)
+        public ApiMessageBuilder WithPathTemplate(string path)
         {
-            Path = path;
+            PathTemplate = path;
             return this;
         }
 
-        public ApiRequestBuilder<TResponse> WithHttpMethod(HttpMethod method)
+        public ApiMessageBuilder WithHttpMethod(HttpMethod method)
         {
             HttpMethod = method;
             return this;
         }
 
-        public ApiRequestBuilder<TResponse> WithHttpMethod(string method)
+        public ApiMessageBuilder WithHttpMethod(string method)
         {
             HttpMethod = new HttpMethod(method);
             return this;
         }
 
-        public ApiRequestBuilder<TResponse> WithContent(HttpContent content)
+        public ApiMessageBuilder WithContent(HttpContent content)
         {
             HttpContent = content;
             return this;
         }
 
-        public ApiRequestBuilder<TResponse> WithJsonContent(object content)
+        public ApiMessageBuilder WithJsonContent(object content)
         {
             HttpContent = new StringContent(JsonConvert.SerializeObject(content), Encoding.UTF8, "application/json");
             return this;
         }
 
-        public ApiRequestBuilder<TResponse> WithApiDefinition(IApiDefinition apiDefinition)
+        public ApiMessageBuilder WithApiDefinition(IApiDefinition apiDefinition)
         {
             ApiDefinition = apiDefinition;
             return this;
         }
 
-        public ApiRequestBuilder<TResponse> WithApiClient(IApiClientProvider apiClientProvider)
+        public ApiMessageBuilder WithApiClient(IApiClientProvider apiClientProvider)
         {
             ApiClientProvider = apiClientProvider;
             return this;
         }
 
-        public ApiRequestBuilder<TResponse> WithResponseConverter(HttpResponseConverter<TResponse> httpResponseConverter)
-        {
-            HttpResponseConverter = httpResponseConverter;
-            return this;
-        }
-
-        public ApiRequestBuilder<TResponse> WithDefaultJsonResponseConverter()
-        {
-            HttpResponseConverter = async message =>
-                JsonConvert.DeserializeObject<TResponse>(await message.Content.ReadAsStringAsync());
-            return this;
-        }
-
-        public ApiRequestBuilder<TResponse> WithConfig(IApiRequestBuilderConfig apiRequestBuilderConfig)
+        public ApiMessageBuilder WithConfig(IApiRequestBuilderConfig apiRequestBuilderConfig)
         {
             ApiDefinition = apiRequestBuilderConfig.ApiDefinition;
             ApiClientProvider = apiRequestBuilderConfig.ApiClientProvider;
             return this;
         }
 
-        public ApiRequestBuilder<TResponse> WithTag(string tag)
+        public ApiMessageBuilder WithTag(string tag)
         {
             Tag = tag;
             return this;
         }
 
-        public ApiRequestBuilder<TResponse> WithCallingMethodInfo(object declaringObject, [CallerMemberName] string callerFunctionName = null)
+        public ApiMessageBuilder WithCallingMethodInfo(object declaringObject, [CallerMemberName] string callerFunctionName = null)
         {
             if (string.IsNullOrEmpty(callerFunctionName))
                 throw new ArgumentNullException(nameof(callerFunctionName));
@@ -126,41 +110,34 @@ namespace AoLibs.ApiClient
 
             HttpMethod = attr.HttpMethod;
             if(!string.IsNullOrEmpty(attr.Path))
-                Path = attr.Path;
+                PathTemplate = attr.Path;
 
             return this;
         }
 
-        class ApiRequest : IApiRequest<TResponse>
+        public class ApiMessage : IApiMessage<ApiMessage>
         {
-            private readonly HttpResponseConverter<TResponse> _responseConverter;
-
             public string Tag { get; set; }
             public IApiDefinition ApiDefinition { get; }
             public IApiClientProvider ApiClientProvider { get; }
             public HttpMethod HttpMethod { get; }
-            public string Path { get; set; }
+            public string PathTemplate { get; }
+            public string CurrentPath { get; set; }
             public HttpContent Content { get; set; }
 
-            public ApiRequest(IApiDefinition apiDefinition,
+            public ApiMessage(IApiDefinition apiDefinition,
                 IApiClientProvider apiClientProvider,
-                HttpResponseConverter<TResponse> responseConverter,
                 string path,
                 HttpMethod httpMethod,
                 string tag)
             {
-                _responseConverter = responseConverter;
-                Path = path;
+                PathTemplate = path;
                 HttpMethod = httpMethod;
                 ApiDefinition = apiDefinition;
                 ApiClientProvider = apiClientProvider;
+                CurrentPath = PathTemplate;
 
-                Tag = string.IsNullOrEmpty(tag) ? $"{GetType().FullName} - {Path}" : tag;
-            }
-
-            public Task<TResponse> ToResponse(HttpResponseMessage httpResponseMessage)
-            {
-                return _responseConverter(httpResponseMessage);
+                Tag = string.IsNullOrEmpty(tag) ? $"{GetType().FullName} - {PathTemplate}" : tag;
             }
         }
     }

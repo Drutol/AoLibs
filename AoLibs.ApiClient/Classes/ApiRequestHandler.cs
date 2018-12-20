@@ -15,7 +15,7 @@ namespace AoLibs.ApiClient
     {
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken)
         {
-            var message = new HttpRequestMessage(request.HttpMethod, request.ApiDefinition.BaseAddress + request.Path)
+            var message = new HttpRequestMessage(request.HttpMethod, request.ApiDefinition.BaseAddress + request.CurrentPath)
             {
                 Content = request.Content
             };

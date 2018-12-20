@@ -7,6 +7,6 @@ namespace AoLibs.ApiClient.Test.Instrumentation
 {
     public class TestApiDefinition : IApiDefinition
     {
-        public string BaseAddress { get; } = "https://jsonplaceholder.typicode.com";
+        public string BaseAddress { get; } = "https://reqres.in/api";
     }
 }

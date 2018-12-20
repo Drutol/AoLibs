@@ -14,7 +14,8 @@ namespace AoLibs.ApiClient.Interfaces
 
         HttpMethod HttpMethod { get; }
 
-        string Path { get; set; }
+        string PathTemplate { get; }
+        string CurrentPath { get; set; }
         HttpContent Content { get; set; }
     }
 }

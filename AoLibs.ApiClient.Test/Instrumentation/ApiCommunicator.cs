@@ -1,57 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using AoLibs.ApiClient.Interfaces;
 using AoLibs.ApiClient.Test.Models;
 using MediatR;
+using Newtonsoft.Json;
 
 namespace AoLibs.ApiClient.Test.Instrumentation
 {
-    public class ApiCommunicator : IApiRequestBuilderConfig
+    public class ApiCommunicator : ApiCommunicatorBase
     {
-        private readonly IMediator _mediator;
-        private IApiRequest<Post> _postApiRequest;
-        private IApiRequest<List<Post>> _postsApiRequest;
+        public override IApiDefinition ApiDefinition { get; } = new TestApiDefinition();
+        public override IApiClientProvider ApiClientProvider { get; } = new TestApiClientProvider();
 
-        public IApiDefinition ApiDefinition { get; } = new TestApiDefinition();
-        public IApiClientProvider ApiClientProvider { get; } = new TestApiClientProvider();
-
-        public ApiCommunicator(IMediator mediator)
+        public ApiCommunicator(IMediator mediator) : base(mediator)
         {
-            _mediator = mediator;
         }
 
-        [ApiMethod]
-        public async Task<Post> GetPost(int id)
+        [ApiMethod(Path = "/posts/{0}")]
+        public Task<DataWrapper<User>> GetUser(int id)
         {
-            if (_postApiRequest is null)
-            {
-                _postApiRequest = new ApiRequestBuilder<Post>()
-                    .WithConfig(this)
-                    .WithCallingMethodInfo(this)
-                    .WithDefaultJsonResponseConverter()
-                    .Build();
-            }
-
-            _postApiRequest.Path = $"/posts/{id}";
-
-            return await _mediator.Send(_postApiRequest);
+            return Process<DataWrapper<User>>(P(id));
         }
 
-        [ApiMethod(Path = "/posts")]
-        public async Task<List<Post>> GetPosts()
+        [ApiMethod(Path = "/users")]
+        public Task<PaginatedDataWrapper<List<User>>> GetUsers()
         {
-            if (_postsApiRequest is null)
-            {
-                _postsApiRequest = new ApiRequestBuilder<List<Post>>()
-                    .WithConfig(this)
-                    .WithCallingMethodInfo(this)
-                    .WithDefaultJsonResponseConverter()
-                    .Build();
-            }
+            return Process<PaginatedDataWrapper<List<User>>>();
+        }
 
-            return await _mediator.Send(_postsApiRequest);
+        [ApiMethod(Path = "/users")]
+        public Task PostUser(User user)
+        {
+            return Process(user);
+        }
+
+        [ApiMethod(Path = "/users/{0}")]
+        public Task DeleteUser(int id)
+        {
+            return Process(P(id));
         }
     }
 }
