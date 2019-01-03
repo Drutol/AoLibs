@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AoLibs.Dialogs.Core;
 using AoLibs.Dialogs.Core.Interfaces;
 using AoLibs.Dialogs.iOS.Interfaces;
+using AoLibs.Dialogs.iOS.Models;
 using Foundation;
 using GalaSoft.MvvmLight.Helpers;
 using UIKit;
@@ -50,12 +51,12 @@ namespace AoLibs.Dialogs.iOS
         /// <summary>
         /// Gets a value indicating whether the dialog will show with animation.
         /// </summary>
-        public virtual bool ShouldAnimateOnShow { get; } = true;
+        public virtual DialogAnimationConfig AnimationConfig { get; } = new DialogAnimationConfig();
 
         /// <summary>
         /// Gets a value indicating whether the dialog will hide with animation.
         /// </summary>
-        public virtual bool ShouldAnimateOnDismiss { get; } = true;
+        public virtual DialogBackgroundConfig BackgroundConfig { get; } = new DialogBackgroundConfig();
 
         /// <summary>
         /// Gets or sets the model that was passed to <see cref="Show"/> method.
@@ -126,7 +127,7 @@ namespace AoLibs.Dialogs.iOS
         public void Hide()
         {
             OnWillBeHidden();
-            RootViewController.DismissViewController(ShouldAnimateOnDismiss, OnDialogDismissFinished);
+            RootViewController.DismissViewController(false, OnDialogDismissFinished);
         }
 
         /// <summary>

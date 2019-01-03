@@ -20,6 +20,10 @@ namespace AoLibs.Dialogs.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIVisualEffectView EffectView { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIView RootView { get; set; }
 
         void ReleaseDesignerOutlets ()
@@ -27,6 +31,11 @@ namespace AoLibs.Dialogs.iOS
             if (ContainerView != null) {
                 ContainerView.Dispose ();
                 ContainerView = null;
+            }
+
+            if (EffectView != null) {
+                EffectView.Dispose ();
+                EffectView = null;
             }
 
             if (RootView != null) {

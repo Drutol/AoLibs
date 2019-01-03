@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{044230
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoLibs.Sample.Android", "AoLibs.Sample.Android\AoLibs.Sample.Android.csproj", "{35898AC2-F5B9-4703-B2C4-99DA1145FCB7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AoLibs.Sample.Shared", "AoLibs.Sample.Shared\AoLibs.Sample.Shared.csproj", "{40EFA5FB-28B6-4976-8DA9-E1D88302023D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoLibs.Sample.Shared", "AoLibs.Sample.Shared\AoLibs.Sample.Shared.csproj", "{40EFA5FB-28B6-4976-8DA9-E1D88302023D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{E8A60658-28C1-46ED-8F6A-325E05C79558}"
 EndProject
@@ -23,23 +23,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{70D8CFBE-7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoLibs.Adapters.Android", "AoLibs.Adapters.Android\AoLibs.Adapters.Android.csproj", "{9072A3C7-A429-4F79-A0AB-224C8AFE6AA2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AoLibs.Adapters.Core", "AoLibs.Adapters.Core\AoLibs.Adapters.Core.csproj", "{2D9542D8-3768-45C8-88D0-2A405F1752C0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoLibs.Adapters.Core", "AoLibs.Adapters.Core\AoLibs.Adapters.Core.csproj", "{2D9542D8-3768-45C8-88D0-2A405F1752C0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoLibs.Adapters.iOS", "AoLibs.Adapters.iOS\AoLibs.Adapters.iOS.csproj", "{A0A5F094-03FF-4FE7-B745-0328DD05827C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoLibs.Navigation.Android", "AoLibs.Navigation.Android\AoLibs.Navigation.Android.csproj", "{9DFC65F1-1D85-48A2-B02D-88E6AC444978}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AoLibs.Navigation.Core", "AoLibs.Navigation.Core\AoLibs.Navigation.Core.csproj", "{50FC724F-6C81-42F0-B09A-CE8792E25510}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoLibs.Navigation.Core", "AoLibs.Navigation.Core\AoLibs.Navigation.Core.csproj", "{50FC724F-6C81-42F0-B09A-CE8792E25510}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoLibs.Navigation.iOS", "AoLibs.Navigation.iOS\AoLibs.Navigation.iOS.csproj", "{83FA4A15-A071-499F-A8B8-36221C43D58B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoLibs.Utilities.Android", "AoLibs.Utilities.Android\AoLibs.Utilities.Android.csproj", "{E565F491-F6F0-4CE5-B155-E3696004142E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AoLibs.Utilities.Shared", "AoLibs.Utilities.Shared\AoLibs.Utilities.Shared.csproj", "{7FC542D2-9880-4129-9F4B-949C054A64CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoLibs.Utilities.Shared", "AoLibs.Utilities.Shared\AoLibs.Utilities.Shared.csproj", "{7FC542D2-9880-4129-9F4B-949C054A64CA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AoLibs.Adapters.Test", "AoLibs.Adapters.Test\AoLibs.Adapters.Test.csproj", "{B8197322-F4BF-4D96-987F-7ADC8D40F616}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoLibs.Adapters.Test", "AoLibs.Adapters.Test\AoLibs.Adapters.Test.csproj", "{B8197322-F4BF-4D96-987F-7ADC8D40F616}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AoLibs.Navigation.Test", "AoLibs.Navigation.Test\AoLibs.Navigation.Test.csproj", "{51793179-E71A-497A-96E4-7BCD71912201}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoLibs.Navigation.Test", "AoLibs.Navigation.Test\AoLibs.Navigation.Test.csproj", "{51793179-E71A-497A-96E4-7BCD71912201}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{24921143-6019-4D5F-89E3-A9E3E8CAF1C1}"
 	ProjectSection(SolutionItems) = preProject
