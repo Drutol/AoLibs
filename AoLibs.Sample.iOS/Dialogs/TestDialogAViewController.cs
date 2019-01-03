@@ -16,7 +16,12 @@ namespace AoLibs.Sample.iOS
         {
         }
 
-        public override void InitBindings()
+        protected TestDialogAViewController(string name, NSBundle p) : base(name, p)
+        {
+           
+        }
+
+        protected override void InitBindings()
         {
             Bindings.Add(this.SetBinding(() => ViewModel.Counter, () => CounterLabel.Text));
             DoStuffButton.SetOnClickCommand(ViewModel.IncrementCommand);

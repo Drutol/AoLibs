@@ -96,8 +96,7 @@ namespace AoLibs.Sample.Android.Activities
                 }
             }
 
-            public TViewModel Resolve<TViewModel>() 
-                where TViewModel : CustomDialogViewModelBase
+            TViewModel ICustomDialogViewModelResolver.Resolve<TViewModel>() 
             {
                 using (var scope = ResourceLocator.ObtainScope())
                 {

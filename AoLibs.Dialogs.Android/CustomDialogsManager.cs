@@ -16,7 +16,7 @@ namespace AoLibs.Dialogs.Android
         /// Initializes a new instance of the <see cref="CustomDialogsManager{TDialogIndex}"/> class.
         /// </summary>
         /// <param name="fragmentManager">Application's fragment manager.</param>
-        /// <param name="dialogsDictionary">Definitions matching <see cref="TDialogIndex"/> values with actual dialog providers.</param>
+        /// <param name="dialogsDictionary">Definitions matching TDialogIndex values with actual dialog providers.</param>
         /// <param name="viewModelResolver">Optional argument for allowing automatic resolution of ViewModels in dialogs.</param>
         public CustomDialogsManager(
             FragmentManager fragmentManager,
