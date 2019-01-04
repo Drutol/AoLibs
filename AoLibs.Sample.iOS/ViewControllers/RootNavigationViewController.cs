@@ -40,7 +40,8 @@ namespace AoLibs.Sample.iOS.ViewControllers
         {
             var dialogDefinitions = new Dictionary<DialogIndex, ICustomDialogProvider>
             {
-                {DialogIndex.TestDialogA, new OneshotCustomDialogProvider<TestDialogAViewController>()},
+                {DialogIndex.TestDialogA, new StoryboardOneshotCustomDialogProvider<TestDialogAViewController>()},
+                {DialogIndex.TestDialogB, new StoryboardOneshotCustomDialogProvider<TestDialogBViewController>()},
             };
 
             var dialogManager = new CustomDialogsManager<DialogIndex>(

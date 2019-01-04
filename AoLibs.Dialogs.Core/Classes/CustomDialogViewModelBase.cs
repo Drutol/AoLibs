@@ -14,7 +14,7 @@ namespace AoLibs.Dialogs.Core
         /// <summary>
         /// Gets the config used for dialog definition.
         /// </summary>
-        public virtual CustomDialogConfig CustomDialogConfig { get; }
+        public virtual CustomDialogConfig CustomDialogConfig { get; } = new CustomDialogConfig();
 
         /// <summary>
         /// Gets or sets instance associated with this ViewModel.

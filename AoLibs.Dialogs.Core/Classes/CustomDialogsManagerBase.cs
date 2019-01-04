@@ -21,11 +21,14 @@ namespace AoLibs.Dialogs.Core
         }
 
         /// <summary>
-        /// Gets the dialog associated with given <see cref="dialog"/>
+        /// Gets the dialog associated with given dialog.
         /// </summary>
         /// <param name="dialog">The dialog type to retrieve.</param>
         public ICustomDialog this[TDialogIndex dialog] => _dialogsDictionary[dialog].Dialog;
 
+        /// <summary>
+        /// Gets or sets currently displayed dialog.
+        /// </summary>
         public ICustomDialog CurrentlyDisplayedDialog { get; set; }
     }
 }

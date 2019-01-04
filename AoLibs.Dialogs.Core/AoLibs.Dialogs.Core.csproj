@@ -19,6 +19,10 @@
     <DocumentationFile>AoLibs.Dialogs.Core.xml</DocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\Piotr\Documents\GitHub\AoLibs\AoLibs.Dialogs.Core\AoLibs.Dialogs.Core.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Remove="stylecop.json" />
   </ItemGroup>

@@ -13,27 +13,42 @@ namespace AoLibs.Dialogs.iOS
         : CustomViewModelDialogBase<TViewModel>
         where TViewModel : CustomDialogViewModelBase
     {
+        private object _parameter;
+
+        /// <summary>
+        /// Gets the parameter that was passed to the dialog while invoking it, casted to given TArgument.
+        /// </summary>
         protected TArgument Argument { get; private set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CustomArgumentViewModelDialogBase{TViewModel, TArgument}"/> class.
+        /// </summary>
+        /// <param name="handle">Handle.</param>
         protected CustomArgumentViewModelDialogBase(IntPtr handle)
             : base(handle)
         {
-            Initialize();
-        }
-
-        protected CustomArgumentViewModelDialogBase(string name, NSBundle p)
-            : base(name, p)
-        {
-            Initialize();
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomArgumentViewModelDialogBase{TViewModel, TArgument}"/> class.
         /// </summary>
-        protected void Initialize()
+        /// <param name="name">Name.</param>
+        /// <param name="p">Bundle.</param>
+        protected CustomArgumentViewModelDialogBase(string name, NSBundle p)
+            : base(name, p)
         {
-            if (Parameter is TArgument param)
-                Argument = param;
+        }
+
+        /// <inheritdoc />
+        public override object Parameter
+        {
+            get => _parameter;
+            set
+            {
+                _parameter = value;
+                if (value is TArgument argument)
+                    Argument = argument;
+            }
         }
     }
 }

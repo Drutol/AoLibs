@@ -23,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <LangVersion>latest</LangVersion>
+    <DocumentationFile>bin\Debug\AoLibs.Dialogs.iOS.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -33,6 +34,7 @@
     <ConsolePause>false</ConsolePause>
     <LangVersion>latest</LangVersion>
     <CodeAnalysisRuleSet>..\StyleCopEnforcerRuleSet.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Release\AoLibs.Dialogs.iOS.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=0ffbc31322e9d308, processorArchitecture=MSIL">
@@ -58,7 +60,7 @@
     <Compile Include="Classes\CustomViewModelDialogBase.cs" />
     <Compile Include="Interfaces\IInternalDialogsManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Classes\StoryboardOneshotDialogProvider.cs" />
+    <Compile Include="Classes\StoryboardOneshotCustomDialogProvider.cs" />
     <Compile Include="StyleCopSuppressions.cs" />
     <Compile Include="View\DialogViewController.cs" />
     <Compile Include="View\DialogViewController.designer.cs">

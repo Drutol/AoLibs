@@ -15,32 +15,82 @@
                     <view key="view" contentMode="scaleToFill" id="253">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                        <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="746" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="368"/>
-                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0" green="0.32549019607843138" blue="0.5725490196078431" alpha="1"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="747" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="0.0" y="368" width="414" height="368"/>
-                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0" green="0.5607843137254902" blue="0.31764705882352939" alpha="1"/>
-                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1028" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="179" y="373" width="56" height="30"/>
+                                <state key="normal" title="Do stuff"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1032" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="202" y="348" width="10.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello dialog!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1038" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="159.5" y="317.5" width="95" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
-                            <constraint id="748" firstItem="747" firstAttribute="top" secondItem="746" secondAttribute="bottom"/>
-                            <constraint id="749" firstItem="746" firstAttribute="top" secondItem="253" secondAttribute="top"/>
-                            <constraint id="750" firstAttribute="bottom" secondItem="747" secondAttribute="bottom"/>
-                            <constraint id="751" firstItem="747" firstAttribute="leading" secondItem="253" secondAttribute="leading"/>
-                            <constraint id="752" firstItem="746" firstAttribute="leading" secondItem="253" secondAttribute="leading"/>
-                            <constraint id="753" firstAttribute="trailing" secondItem="746" secondAttribute="trailing"/>
-                            <constraint id="754" firstAttribute="trailing" secondItem="747" secondAttribute="trailing"/>
-                            <constraint id="755" firstItem="746" firstAttribute="height" secondItem="747" secondAttribute="height"/>
+                            <constraint id="1029" firstItem="1028" firstAttribute="centerY" secondItem="253" secondAttribute="centerY" constant="20"/>
+                            <constraint id="1030" firstAttribute="centerX" secondItem="1028" secondAttribute="centerX"/>
+                            <constraint id="1033" firstAttribute="centerY" secondItem="1032" secondAttribute="centerY" constant="9.75"/>
+                            <constraint id="1034" firstItem="1032" firstAttribute="centerX" secondItem="253" secondAttribute="centerX"/>
+                            <constraint id="1039" firstItem="1032" firstAttribute="top" secondItem="1038" secondAttribute="bottom" constant="10"/>
+                            <constraint id="1040" firstItem="1038" firstAttribute="centerX" secondItem="253" secondAttribute="centerX"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="DoStuffButton" destination="1028" id="name-outlet-1028"/>
+                        <outlet property="CounterLabel" destination="1032" id="name-outlet-1032"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="254" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-116" y="-386"/>
+        </scene>
+        <scene sceneID="2970">
+            <objects>
+                <viewController id="2971" sceneMemberID="viewController" customClass="TestDialogBViewController" storyboardIdentifier="TestDialogBViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2968"/>
+                        <viewControllerLayoutGuide type="bottom" id="2969"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2972">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello it's dialog B and I have a message for you!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2999" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                <rect key="frame" x="186" y="348" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3012" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                <rect key="frame" x="186" y="368" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint id="3000" firstAttribute="centerY" secondItem="2999" secondAttribute="centerY" constant="9.75"/>
+                            <constraint id="3001" firstAttribute="centerX" secondItem="2999" secondAttribute="centerX"/>
+                            <constraint id="3013" firstItem="3012" firstAttribute="centerY" secondItem="2972" secondAttribute="centerY" constant="10"/>
+                            <constraint id="3014" firstAttribute="centerX" secondItem="3012" secondAttribute="centerX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="MessageLabel" destination="3012" id="name-outlet-3012"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2973" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-844" y="-383"/>
         </scene>
     </scenes>
 </document>

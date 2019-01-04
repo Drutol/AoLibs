@@ -26,6 +26,11 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignProvision />
+    <CodesignExtraArgs />
+    <CodesignResourceRules />
+    <CodesignEntitlements />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -152,6 +157,10 @@
     <Compile Include="Dialogs\TestDialogAViewController.cs" />
     <Compile Include="Dialogs\TestDialogAViewController.designer.cs">
       <DependentUpon>TestDialogAViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\TestDialogBViewController.cs" />
+    <Compile Include="Dialogs\TestDialogBViewController.designer.cs">
+      <DependentUpon>TestDialogBViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\Constants.cs" />
     <Compile Include="ViewControllers\TestPageCViewController.cs" />

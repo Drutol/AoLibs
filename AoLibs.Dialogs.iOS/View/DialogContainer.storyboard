@@ -15,25 +15,26 @@
                     <view key="view" contentMode="scaleToFill" id="200">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                        <color key="backgroundColor" colorSpace="calibratedRGB" red="0" green="0" blue="0" alpha="0.49803921568627452"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="203" translatesAutoresizingMaskIntoConstraints="NO">
+                            <view contentMode="scaleToFill" id="203" translatesAutoresizingMaskIntoConstraints="NO" opaque="NO">
                                 <rect key="frame" x="93" y="268" width="250" height="250"/>
-                                <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="0.14901960784313725" blue="0" alpha="1"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="663" translatesAutoresizingMaskIntoConstraints="NO">
-                                        <rect key="frame" x="20" y="20" width="210" height="210"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint id="206" firstAttribute="height" constant="250"/>
                                     <constraint id="207" firstAttribute="width" constant="250"/>
-                                    <constraint id="664" firstItem="663" firstAttribute="top" secondItem="203" secondAttribute="top" constant="20"/>
-                                    <constraint id="665" firstItem="663" firstAttribute="leading" secondItem="203" secondAttribute="leading" constant="20"/>
-                                    <constraint id="666" firstAttribute="bottom" secondItem="663" secondAttribute="bottom" constant="20"/>
-                                    <constraint id="667" firstAttribute="trailing" secondItem="663" secondAttribute="trailing" constant="20"/>
+                                    <constraint id="664" firstItem="663" firstAttribute="top" secondItem="203" secondAttribute="top"/>
+                                    <constraint id="665" firstItem="663" firstAttribute="leading" secondItem="203" secondAttribute="leading"/>
+                                    <constraint id="666" firstAttribute="bottom" secondItem="663" secondAttribute="bottom"/>
+                                    <constraint id="667" firstAttribute="trailing" secondItem="663" secondAttribute="trailing"/>
                                 </constraints>
+                                <color key="tintColor" colorSpace="calibratedRGB" red="0.0392156862745098" green="0.37647058823529411" blue="1" alpha="1"/>
                             </view>
                         </subviews>
                         <constraints>
@@ -43,6 +44,7 @@
                     </view>
                     <connections>
                         <outlet property="ContainerView" destination="663" id="name-outlet-663"/>
+                        <outlet property="RootView" destination="200" id="name-outlet-200"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="201" userLabel="First Responder" sceneMemberID="firstResponder"/>

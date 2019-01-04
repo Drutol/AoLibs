@@ -67,9 +67,14 @@
         </member>
         <member name="P:AoLibs.Dialogs.Core.CustomDialogsManagerBase`1.Item(`0)">
             <summary>
-            Gets the dialog associated with given <see cref="!:dialog"/>
+            Gets the dialog associated with given dialog.
             </summary>
             <param name="dialog">The dialog type to retrieve.</param>
+        </member>
+        <member name="P:AoLibs.Dialogs.Core.CustomDialogsManagerBase`1.CurrentlyDisplayedDialog">
+            <summary>
+            Gets or sets currently displayed dialog.
+            </summary>
         </member>
         <member name="T:AoLibs.Dialogs.Core.CustomDialogViewModelBase">
             <summary>
@@ -108,7 +113,7 @@
         </member>
         <member name="T:AoLibs.Dialogs.Core.CustomDialogViewModelWithParameterBase`1">
             <summary>
-            Utility ViewModel for dialogs with typed <see cref="!:TParameter"/>
+            Utility ViewModel for dialogs with typed TParameter.
             </summary>
             <typeparam name="TParameter">The type of used parameter for given dialog.</typeparam>
         </member>
