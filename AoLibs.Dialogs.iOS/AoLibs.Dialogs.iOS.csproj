@@ -51,6 +51,7 @@
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="View\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\CustomArgumentViewModelDialogBase.cs" />
@@ -66,6 +67,8 @@
     <Compile Include="View\DialogViewController.designer.cs">
       <DependentUpon>DialogViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\DialogBackgroundConfig.cs" />
+    <Compile Include="Models\DialogAnimationConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

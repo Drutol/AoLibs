@@ -120,7 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AoLibs.Utilities.Shared\AoLibs.Utilities.Shared.csproj">
-      <Project>{a5088458-5876-4a49-846b-f2d4b16e6f8a}</Project>
+      <Project>{7FC542D2-9880-4129-9F4B-949C054A64CA}</Project>
       <Name>AoLibs.Utilities.Shared</Name>
     </ProjectReference>
   </ItemGroup>

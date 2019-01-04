@@ -47,6 +47,8 @@ namespace AoLibs.Dialogs.iOS
         /// <inheritdoc />
         public override void ViewWillAppear(bool animated)
         {
+            SetupBackground();
+
             AddChildViewController(_childDialog);
             _childDialog.View.TranslatesAutoresizingMaskIntoConstraints = false;
             ContainerView.AddSubview(_childDialog.View);
@@ -66,6 +68,16 @@ namespace AoLibs.Dialogs.iOS
             var gestureRecognizer =
                 new UITapGestureRecognizer(() => TappedOutsideTheDialog?.Invoke(this, EventArgs.Empty));
             RootView.AddGestureRecognizer(gestureRecognizer);
+        }
+
+        private void SetupBackground()
+        {
+            RootView.BackgroundColor = _childDialog.BackgroundConfig.Color;
+
+            if (_childDialog.BackgroundConfig.BlurEnabled)
+                EffectView.Effect = UIBlurEffect.FromStyle(_childDialog.BackgroundConfig.BlurStyle);
+            else
+                EffectView.Effect = null;
         }
     }
 }

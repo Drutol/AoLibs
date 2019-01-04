@@ -25,6 +25,10 @@ namespace AoLibs.Sample.Shared.ViewModels
         private readonly AppVariables _appVariables;
         private UserResponse _userResponse;
 
+        private bool _dialogBShouldShowLongText = true;
+        private string _dialogBLongText = "This is very long text in a multiline label, so you can see the TestDialogB's height can be adjusted based on it's content, dynamically at inital binding time.\r\nAlso the text in the label above is long, but the label is single line, so you can see how it affects the dialog's width, but never extends it beyond the margins. Note that the 15pt margins that the dialog has, are defined on client side. Have a nice day!";
+        private string _dialogBShortText = "And this is short text, to show you how tiny this dialog can be.";
+
         public TestViewModelA(
             IEnumerable<ISomeFancyProvider> fancyProviders,
             IMessageBoxProvider messageBoxProvider,
@@ -107,7 +111,8 @@ namespace AoLibs.Sample.Shared.ViewModels
         public RelayCommand ShowDialogBCommand =>
             new RelayCommand(() =>
             {
-                _dialogsManager[DialogIndex.TestDialogB].Show(new DialogBNavArgs {Message = "Things can be fancy"});
+                _dialogsManager[DialogIndex.TestDialogB].Show(new DialogBNavArgs {Message = _dialogBShouldShowLongText ? _dialogBLongText : _dialogBShortText });
+                _dialogBShouldShowLongText = !_dialogBShouldShowLongText;
             });
     }
 }

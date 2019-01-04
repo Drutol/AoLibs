@@ -110,7 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AoLibs.Navigation.Core\AoLibs.Navigation.Core.csproj">
-      <Project>{DD2AFFEA-B220-4A5D-AE30-418FBB1E2F87}</Project>
+      <Project>{50FC724F-6C81-42F0-B09A-CE8792E25510}</Project>
       <Name>AoLibs.Navigation.Core</Name>
     </ProjectReference>
   </ItemGroup>
