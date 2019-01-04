@@ -24,8 +24,6 @@ namespace AoLibs.Sample.iOS
 
         public override DialogBackgroundConfig BackgroundConfig => new DialogBackgroundConfig() { BlurStyle = UIBlurEffectStyle.Dark };
 
-        public override DialogAnimationConfig AnimationConfig => new DialogAnimationConfig();
-
         protected override void InitBindings()
         {
             Bindings.Add(this.SetBinding(() => ViewModel.Counter, () => CounterLabel.Text));

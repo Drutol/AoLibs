@@ -56,15 +56,15 @@ namespace AoLibs.Dialogs.iOS
         /// <inheritdoc />
         protected override void OnWillBeShown()
         {
+            base.OnWillBeShown();
             ViewModel.OnDialogAppearedInternal();
-            OnShown();
         }
 
         /// <inheritdoc />
         protected override void OnWillBeHidden()
         {
+            base.OnWillBeHidden();
             ViewModel.OnDialogDismissedInternal();
-            OnHidden();
         }
     }
 }

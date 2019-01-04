@@ -20,6 +20,16 @@ namespace AoLibs.Dialogs.Core.Interfaces
         event EventHandler DialogHidden;
 
         /// <summary>
+        /// Fired when dialog is about to be shown.
+        /// </summary>
+        event EventHandler DialogWillShow;
+
+        /// <summary>
+        /// Fired when dialog is about to be hidden.
+        /// </summary>
+        event EventHandler DialogWillHide;
+
+        /// <summary>
         /// Gets or sets a parameter with which the dialog was run.
         /// </summary>
         object Parameter { get; set; }
