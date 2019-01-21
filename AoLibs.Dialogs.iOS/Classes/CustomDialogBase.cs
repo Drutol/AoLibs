@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AoLibs.Dialogs.Core;
 using AoLibs.Dialogs.Core.Interfaces;
 using AoLibs.Dialogs.iOS.Interfaces;
+using AoLibs.Dialogs.iOS.Models;
 using Foundation;
 using GalaSoft.MvvmLight.Helpers;
 using UIKit;
@@ -33,6 +34,16 @@ namespace AoLibs.Dialogs.iOS
         public event EventHandler DialogHidden;
 
         /// <summary>
+        /// Fired when dialog is about to be shown.
+        /// </summary>
+        public event EventHandler DialogWillShow;
+
+        /// <summary>
+        /// Fired when dialog is about to be hidden.
+        /// </summary>
+        public event EventHandler DialogWillHide;
+
+        /// <summary>
         /// Gets a container for view bindings.
         /// </summary>
         protected List<Binding> Bindings { get; } = new List<Binding>();
@@ -48,14 +59,14 @@ namespace AoLibs.Dialogs.iOS
         protected Type AwaitedResultType { get; private set; }
 
         /// <summary>
-        /// Gets a value indicating whether the dialog will show with animation.
+        /// Gets a value indicating how dialog presentation and dismissal should be animated
         /// </summary>
-        public virtual bool ShouldAnimateOnShow { get; } = true;
+        public virtual DialogAnimationConfig AnimationConfig { get; } = new DialogAnimationConfig();
 
         /// <summary>
-        /// Gets a value indicating whether the dialog will hide with animation.
+        /// Gets a value indicating how the dialog's background should look
         /// </summary>
-        public virtual bool ShouldAnimateOnDismiss { get; } = true;
+        public virtual DialogBackgroundConfig BackgroundConfig { get; } = new DialogBackgroundConfig();
 
         /// <summary>
         /// Gets or sets the model that was passed to <see cref="Show"/> method.
@@ -103,9 +114,13 @@ namespace AoLibs.Dialogs.iOS
             ParentContainerViewController = DialogViewController.Instantiate(this);
         }
 
-        private void HideDialogOnOutsideTap(object sender, EventArgs e)
+        private async void HideDialogOnOutsideTap(object sender, EventArgs e)
         {
-            Hide();
+            // checking if dialog is already dismissed
+            if (_hideSemaphore != null)
+                return;
+
+            await HideAsync();
         }
 
         /// <summary>
@@ -113,11 +128,13 @@ namespace AoLibs.Dialogs.iOS
         /// </summary>
         /// <param name="parameter">Parameter.</param>
         public void Show(object parameter = null)
-        {        
+        {
+            ParentContainerViewController.ModalTransitionStyle = AnimationConfig.ShowAnimationType.ToUIModalTransition();
+
             Parameter = parameter;
             OnWillBeShown();
             DialogsManager.CurrentlyDisplayedDialog = this;
-            RootViewController.PresentViewController(ParentContainerViewController, ShouldAnimateOnShow, OnDialogPresentationFinished);
+            RootViewController.PresentViewController(ParentContainerViewController, AnimationConfig.ShowAnimationType.IsSystemAnimation(), OnDialogPresentationFinished);
         }
 
         /// <summary>
@@ -125,29 +142,37 @@ namespace AoLibs.Dialogs.iOS
         /// </summary>
         public void Hide()
         {
+            ParentContainerViewController.ModalTransitionStyle = AnimationConfig.HideAnimationType.ToUIModalTransition();
+
             OnWillBeHidden();
-            RootViewController.DismissViewController(ShouldAnimateOnDismiss, OnDialogDismissFinished);
+            RootViewController.DismissViewController(AnimationConfig.HideAnimationType.IsSystemAnimation(), OnDialogDismissFinished);
         }
 
         /// <summary>
         /// Shows the dialog asynchronously. The task will be completed when the dialog is fully shown.
         /// </summary>
         /// <param name="parameter">Parameter.</param>
-        public Task ShowAsync(object parameter = null)
+        public async Task ShowAsync(object parameter = null)
         {
             _showSemaphore = new SemaphoreSlim(0);
+            DialogWillShow?.Invoke(this, EventArgs.Empty);
             Show(parameter);
-            return _showSemaphore.WaitAsync();
+            await _showSemaphore.WaitAsync();
         }
 
         /// <summary>
         /// Hides the dialog asynchronously. The task will be completed once the dialog has fully disappeared.
         /// </summary>
-        public Task HideAsync()
+        public async Task HideAsync()
         {
             _hideSemaphore = new SemaphoreSlim(0);
+            DialogWillHide?.Invoke(this, EventArgs.Empty);
+
+            if (AnimationConfig.HideAnimationType== DialogAnimationType.CustomBlurFade)
+                await Task.Delay((int)(AnimationConfig.HideCustomAnimationDurationSeconds * 1000));
+
             Hide();
-            return _hideSemaphore.WaitAsync();
+            await _hideSemaphore.WaitAsync();
         }
 
         /// <summary>

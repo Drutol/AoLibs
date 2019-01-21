@@ -50,6 +50,14 @@ namespace AoLibs.Dialogs.iOS
             ParentContainerViewController = DialogViewController.Instantiate(this);
         }
 
+        public static CustomDialogBase CreateInstance(Type type)
+        {
+            var attributes = type.GetCustomAttributes(typeof(CustomDialogAttribute), true);
+            var attribute = (CustomDialogAttribute)attributes[0];
+            var instance = UIStoryboard.FromName(attribute.StoryboardName, null).InstantiateViewController(attribute.ViewControllerIdentifier);
+            return (CustomDialogBase)instance;
+        }
+
         public void Show(object parameter = null)
         {
             DialogsManager.CurrentlyDisplayedDialog = this;

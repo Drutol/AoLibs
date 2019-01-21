@@ -115,7 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AoLibs.Adapters.Core\AoLibs.Adapters.Core.csproj">
-      <Project>{ec45abed-b0f0-497d-aaee-430a2842808a}</Project>
+      <Project>{2D9542D8-3768-45C8-88D0-2A405F1752C0}</Project>
       <Name>AoLibs.Adapters.Core</Name>
     </ProjectReference>
   </ItemGroup>

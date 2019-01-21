@@ -1,5 +1,6 @@
 ﻿using System;
 using AoLibs.Dialogs.Core;
+using AoLibs.Dialogs.iOS.Models;
 using Foundation;
 using UIKit;
 
@@ -22,8 +23,10 @@ namespace AoLibs.Dialogs.iOS
             var vc = (DialogViewController) UIStoryboard.FromName(StoryboardName, null)
                 .InstantiateViewController(ControllerName);
 
-            vc.ModalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
             vc._childDialog = dialog;
+            vc.ModalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
+
+            vc._childDialog.DialogWillHide+= vc.Dialog_DialogWillHide;
 
             return vc;
         }
@@ -47,6 +50,9 @@ namespace AoLibs.Dialogs.iOS
         /// <inheritdoc />
         public override void ViewWillAppear(bool animated)
         {
+            SetupBackground();
+            PrepareCustomAnimation();
+
             AddChildViewController(_childDialog);
             _childDialog.View.TranslatesAutoresizingMaskIntoConstraints = false;
             ContainerView.AddSubview(_childDialog.View);
@@ -66,6 +72,52 @@ namespace AoLibs.Dialogs.iOS
             var gestureRecognizer =
                 new UITapGestureRecognizer(() => TappedOutsideTheDialog?.Invoke(this, EventArgs.Empty));
             RootView.AddGestureRecognizer(gestureRecognizer);
+        }
+
+        /// <inheritdoc />
+        public override void ViewDidAppear(bool animated)
+        {
+            if (_childDialog.AnimationConfig.ShowAnimationType == DialogAnimationType.CustomBlurFade &&
+                _childDialog.BackgroundConfig.BlurEnabled)
+            {
+                UIView.Animate(_childDialog.AnimationConfig.ShowCustomAnimationDurationSeconds, () =>
+                {
+                    _childDialog.View.Alpha = 1f;
+                    EffectView.Effect = UIBlurEffect.FromStyle(_childDialog.BackgroundConfig.BlurStyle);
+                });
+            }
+        }
+
+        private void Dialog_DialogWillHide(object sender, EventArgs e)
+        {
+            if (_childDialog.AnimationConfig.HideAnimationType == DialogAnimationType.CustomBlurFade)
+            {
+                EffectView.Effect = UIBlurEffect.FromStyle(_childDialog.BackgroundConfig.BlurStyle);
+                UIView.Animate(_childDialog.AnimationConfig.ShowCustomAnimationDurationSeconds, () =>
+                {
+                    _childDialog.View.Alpha = 0f;
+                    EffectView.Effect = null;
+                });
+            }
+        }
+
+        private void SetupBackground()
+        {
+            RootView.BackgroundColor = _childDialog.BackgroundConfig.Color;
+
+            if (_childDialog.BackgroundConfig.BlurEnabled)
+                EffectView.Effect = UIBlurEffect.FromStyle(_childDialog.BackgroundConfig.BlurStyle);
+            else
+                EffectView.Effect = null;
+        }
+
+        private void PrepareCustomAnimation()
+        {
+            if (_childDialog.AnimationConfig.ShowAnimationType == DialogAnimationType.CustomBlurFade)
+            {
+                _childDialog.View.Alpha = 0f;
+                EffectView.Effect = null;
+            }
         }
     }
 }

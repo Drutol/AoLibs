@@ -15,36 +15,52 @@
                     <view key="view" contentMode="scaleToFill" id="200">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" colorSpace="calibratedRGB" red="0" green="0" blue="0" alpha="0.49803921568627452"/>
+                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="203" translatesAutoresizingMaskIntoConstraints="NO" opaque="NO">
-                                <rect key="frame" x="93" y="268" width="250" height="250"/>
-                                <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" id="663" translatesAutoresizingMaskIntoConstraints="NO">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint id="206" firstAttribute="height" constant="250"/>
-                                    <constraint id="207" firstAttribute="width" constant="250"/>
-                                    <constraint id="664" firstItem="663" firstAttribute="top" secondItem="203" secondAttribute="top"/>
-                                    <constraint id="665" firstItem="663" firstAttribute="leading" secondItem="203" secondAttribute="leading"/>
-                                    <constraint id="666" firstAttribute="bottom" secondItem="663" secondAttribute="bottom"/>
-                                    <constraint id="667" firstAttribute="trailing" secondItem="663" secondAttribute="trailing"/>
-                                </constraints>
-                                <color key="tintColor" colorSpace="calibratedRGB" red="0.0392156862745098" green="0.37647058823529411" blue="1" alpha="1"/>
-                            </view>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" id="1322" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1323">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" id="203" translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" ambiguous="YES">
+                                            <rect key="frame" x="39" y="35" width="149" height="69"/>
+                                            <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" id="663" translatesAutoresizingMaskIntoConstraints="NO" ambiguous="YES">
+                                                    <rect key="frame" x="34" y="16" width="90" height="45"/>
+                                                    <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="664" firstItem="663" firstAttribute="top" secondItem="203" secondAttribute="top"/>
+                                                <constraint id="665" firstItem="663" firstAttribute="leading" secondItem="203" secondAttribute="leading"/>
+                                                <constraint id="666" firstAttribute="bottom" secondItem="663" secondAttribute="bottom"/>
+                                                <constraint id="667" firstAttribute="trailing" secondItem="663" secondAttribute="trailing"/>
+                                            </constraints>
+                                            <color key="tintColor" colorSpace="calibratedRGB" red="0.0392156862745098" green="0.37647058823529411" blue="1" alpha="1"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint id="1328" firstItem="203" firstAttribute="top" secondItem="1323" secondAttribute="top" relation="greaterThanOrEqual"/>
+                                        <constraint id="1329" firstItem="203" firstAttribute="leading" secondItem="1323" secondAttribute="leading" relation="greaterThanOrEqual"/>
+                                        <constraint id="1330" firstAttribute="bottom" secondItem="203" secondAttribute="bottom" relation="greaterThanOrEqual"/>
+                                        <constraint id="1331" firstAttribute="trailing" secondItem="203" secondAttribute="trailing" relation="greaterThanOrEqual"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                         </subviews>
                         <constraints>
-                            <constraint id="204" firstItem="203" firstAttribute="centerX" secondItem="200" secondAttribute="centerX" constant="11"/>
-                            <constraint id="205" firstItem="203" firstAttribute="centerY" secondItem="200" secondAttribute="centerY" constant="25"/>
+                            <constraint id="1332" firstItem="1322" firstAttribute="top" secondItem="200" secondAttribute="top"/>
+                            <constraint id="1333" firstItem="1322" firstAttribute="leading" secondItem="200" secondAttribute="leading"/>
+                            <constraint id="1334" firstAttribute="bottom" secondItem="1322" secondAttribute="bottom"/>
+                            <constraint id="1335" firstAttribute="trailing" secondItem="1322" secondAttribute="trailing"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ContainerView" destination="663" id="name-outlet-663"/>
                         <outlet property="RootView" destination="200" id="name-outlet-200"/>
+                        <outlet property="ContainerView" destination="663" id="name-outlet-663"/>
+                        <outlet property="EffectView" destination="1322" id="name-outlet-1322"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="201" userLabel="First Responder" sceneMemberID="firstResponder"/>
