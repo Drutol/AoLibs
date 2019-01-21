@@ -129,7 +129,7 @@ namespace AoLibs.Dialogs.iOS
         /// <param name="parameter">Parameter.</param>
         public void Show(object parameter = null)
         {
-            ParentContainerViewController.ModalTransitionStyle = AnimationConfig.ShowAnimationType.ToUIModalTransition();
+            ParentContainerViewController.ModalTransitionStyle = AnimationConfig.ShowAnimationType.ToModalTransition();
 
             Parameter = parameter;
             OnWillBeShown();
@@ -142,7 +142,7 @@ namespace AoLibs.Dialogs.iOS
         /// </summary>
         public void Hide()
         {
-            ParentContainerViewController.ModalTransitionStyle = AnimationConfig.HideAnimationType.ToUIModalTransition();
+            ParentContainerViewController.ModalTransitionStyle = AnimationConfig.HideAnimationType.ToModalTransition();
 
             OnWillBeHidden();
             RootViewController.DismissViewController(AnimationConfig.HideAnimationType.IsSystemAnimation(), OnDialogDismissFinished);

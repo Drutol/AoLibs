@@ -169,6 +169,16 @@
             Fired when dialog is hidden.
             </summary>
         </member>
+        <member name="E:AoLibs.Dialogs.Core.Interfaces.ICustomDialog.DialogWillShow">
+            <summary>
+            Fired when dialog is about to be shown.
+            </summary>
+        </member>
+        <member name="E:AoLibs.Dialogs.Core.Interfaces.ICustomDialog.DialogWillHide">
+            <summary>
+            Fired when dialog is about to be hidden.
+            </summary>
+        </member>
         <member name="P:AoLibs.Dialogs.Core.Interfaces.ICustomDialog.Parameter">
             <summary>
             Gets or sets a parameter with which the dialog was run.

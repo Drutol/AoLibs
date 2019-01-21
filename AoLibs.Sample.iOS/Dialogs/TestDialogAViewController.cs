@@ -11,18 +11,19 @@ using UIKit;
 
 namespace AoLibs.Sample.iOS
 {
-    [CustomDialog((int)DialogIndex.TestDialogA, Constants.MainDialogsStoryboard, nameof(TestDialogAViewController))]
+    [CustomDialog((int) DialogIndex.TestDialogA, Constants.MainDialogsStoryboard, nameof(TestDialogAViewController))]
     public partial class TestDialogAViewController : CustomViewModelDialogBase<TestDialogViewModelA>
     {
-        public TestDialogAViewController (IntPtr handle) : base (handle)
+        public TestDialogAViewController(IntPtr handle) : base(handle)
         {
         }
 
         protected TestDialogAViewController(string name, NSBundle p) : base(name, p)
-        {  
+        {
         }
 
-        public override DialogBackgroundConfig BackgroundConfig => new DialogBackgroundConfig() { BlurStyle = UIBlurEffectStyle.Dark };
+        public override DialogBackgroundConfig BackgroundConfig => new DialogBackgroundConfig()
+            {BlurStyle = UIBlurEffectStyle.Dark};
 
         protected override void InitBindings()
         {

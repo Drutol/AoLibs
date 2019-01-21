@@ -50,10 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="View\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AnimationModelExtensions.cs" />
     <Compile Include="Classes\CustomArgumentViewModelDialogBase.cs" />
     <Compile Include="Classes\CustomDialogBase.cs" />
     <Compile Include="Classes\CustomDialogsManager.cs" />

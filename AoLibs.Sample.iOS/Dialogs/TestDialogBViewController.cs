@@ -1,13 +1,12 @@
-using Foundation;
 using System;
 using AoLibs.Dialogs.iOS;
+using AoLibs.Dialogs.iOS.Models;
 using AoLibs.Sample.iOS.Utils;
 using AoLibs.Sample.Shared.DialogViewModels;
 using AoLibs.Sample.Shared.Models;
 using AoLibs.Sample.Shared.NavArgs;
 using GalaSoft.MvvmLight.Helpers;
 using UIKit;
-using AoLibs.Dialogs.iOS.Models;
 
 namespace AoLibs.Sample.iOS
 {
