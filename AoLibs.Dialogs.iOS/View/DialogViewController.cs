@@ -53,7 +53,7 @@ namespace AoLibs.Dialogs.iOS
         {
             SetupBackground();
             PrepareCustomAnimation();
-            SetupGravity();
+            SetupLayout();
 
             AddChildViewController(_childDialog);
             _childDialog.View.TranslatesAutoresizingMaskIntoConstraints = false;
@@ -120,7 +120,7 @@ namespace AoLibs.Dialogs.iOS
             }
         }
 
-        private void SetupGravity()
+        private void SetupLayout()
         {
             var config = _childDialog.CustomDialogConfig;
 
@@ -136,12 +136,12 @@ namespace AoLibs.Dialogs.iOS
                     ContainerCenterX.Active = false;
                     ContainerTrailing.Active = false;
                 }
-                if (CheckFlag(config.Gravity, DialogGravity.Right))
+                else if (CheckFlag(config.Gravity, DialogGravity.Right))
                 {
                     ContainerCenterX.Active = false;
                     ContainerLeading.Active = false;
                 }
-                else
+                else if (config.Gravity != 0)
                 {
                     ContainerLeading.Active = false;
                     ContainerTrailing.Active = false;
@@ -165,12 +165,17 @@ namespace AoLibs.Dialogs.iOS
                     ContainerCenterY.Active = false;
                     ContainerTop.Active = false;
                 }
-                else
+                else if (config.Gravity != 0)
                 {
                     ContainerTop.Active = false;
                     ContainerBottom.Active = false;
                 }
             }
+
+            ContainerLeading.Constant = _childDialog.Margins.Left;
+            ContainerTop.Constant = _childDialog.Margins.Top;
+            ContainerTrailing.Constant = _childDialog.Margins.Right;
+            ContainerBottom.Constant = _childDialog.Margins.Bottom;
 
             View.UpdateConstraints();
             View.LayoutSubviews();

@@ -126,6 +126,28 @@
             </summary>
             <param name="parameter">Passed parameter when the dialog was invoked.</param>
         </member>
+        <member name="M:AoLibs.Dialogs.Core.DialogMargins.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AoLibs.Dialogs.Core.Classes.DialogMargins"/> class.
+            </summary>
+            <param name="margin">The margin for all four directions</param>
+        </member>
+        <member name="M:AoLibs.Dialogs.Core.DialogMargins.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AoLibs.Dialogs.Core.Classes.DialogMargins"/> class.
+            </summary>
+            <param name="horizontal">Margin for left and right sides</param>
+            <param name="vertical">Margin for top and bottom sides</param>
+        </member>
+        <member name="M:AoLibs.Dialogs.Core.DialogMargins.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AoLibs.Dialogs.Core.Classes.DialogMargins"/> class with all margins specified in clockwise direction starting from left.
+            </summary>
+            <param name="left">Left margin.</param>
+            <param name="top">Top margin.</param>
+            <param name="right">Right margin.</param>
+            <param name="bottom">Bottom margin.</param>
+        </member>
         <member name="T:AoLibs.Dialogs.Core.OneshotCustomDialogProvider`1">
             <summary>
             Dialog provider always returning new dialog instance.

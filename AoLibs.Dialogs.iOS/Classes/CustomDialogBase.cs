@@ -69,6 +69,11 @@ namespace AoLibs.Dialogs.iOS
         public virtual DialogBackgroundConfig BackgroundConfig { get; } = new DialogBackgroundConfig();
 
         /// <summary>
+        /// Gets or sets a value indicating dialog's margins size
+        /// </summary>
+        public virtual DialogMargins Margins { get; set; } = new DialogMargins(15);
+
+        /// <summary>
         /// Gets or sets the model that was passed to <see cref="Show"/> method.
         /// </summary>
         public virtual object Parameter { get; set; }
