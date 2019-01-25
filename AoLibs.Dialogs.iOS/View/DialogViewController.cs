@@ -3,6 +3,7 @@ using AoLibs.Dialogs.Core;
 using AoLibs.Dialogs.iOS.Models;
 using Foundation;
 using UIKit;
+using DialogGravity = AoLibs.Dialogs.Core.CustomDialogConfig.DialogGravity;
 
 namespace AoLibs.Dialogs.iOS
 {
@@ -26,7 +27,7 @@ namespace AoLibs.Dialogs.iOS
             vc._childDialog = dialog;
             vc.ModalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
 
-            vc._childDialog.DialogWillHide+= vc.Dialog_DialogWillHide;
+            vc._childDialog.DialogWillHide += vc.Dialog_DialogWillHide;
 
             return vc;
         }
@@ -52,6 +53,7 @@ namespace AoLibs.Dialogs.iOS
         {
             SetupBackground();
             PrepareCustomAnimation();
+            SetupLayout();
 
             AddChildViewController(_childDialog);
             _childDialog.View.TranslatesAutoresizingMaskIntoConstraints = false;
@@ -69,9 +71,7 @@ namespace AoLibs.Dialogs.iOS
 
             _childDialog.DidMoveToParentViewController(this);
 
-            var gestureRecognizer =
-                new UITapGestureRecognizer(() => TappedOutsideTheDialog?.Invoke(this, EventArgs.Empty));
-            RootView.AddGestureRecognizer(gestureRecognizer);
+            RootView.AddGestureRecognizer(GetTappedOutsideGestureRecognizer());
         }
 
         /// <inheritdoc />
@@ -119,5 +119,69 @@ namespace AoLibs.Dialogs.iOS
                 EffectView.Effect = null;
             }
         }
+
+        private void SetupLayout()
+        {
+            var config = _childDialog.CustomDialogConfig;
+
+            if (!config.StretchHorizontally)
+            {
+                if (!CheckFlag(config.Gravity, DialogGravity.Center))
+                {
+                    ContainerCenterX.Active = false;
+                }
+
+                if (CheckFlag(config.Gravity, DialogGravity.Left))
+                {
+                    ContainerCenterX.Active = false;
+                    ContainerTrailing.Active = false;
+                }
+                else if (CheckFlag(config.Gravity, DialogGravity.Right))
+                {
+                    ContainerCenterX.Active = false;
+                    ContainerLeading.Active = false;
+                }
+                else if (config.Gravity != 0)
+                {
+                    ContainerLeading.Active = false;
+                    ContainerTrailing.Active = false;
+                }
+            }
+
+            if (!config.StretchVertically)
+            {
+                if (!CheckFlag(config.Gravity, DialogGravity.Center))
+                {
+                    ContainerCenterY.Active = false;
+                }
+
+                if (CheckFlag(config.Gravity, DialogGravity.Top))
+                {
+                    ContainerCenterY.Active = false;
+                    ContainerBottom.Active = false;
+                }
+                else if (CheckFlag(config.Gravity, DialogGravity.Bottom))
+                {
+                    ContainerCenterY.Active = false;
+                    ContainerTop.Active = false;
+                }
+                else if (config.Gravity != 0)
+                {
+                    ContainerTop.Active = false;
+                    ContainerBottom.Active = false;
+                }
+            }
+
+            ContainerLeading.Constant = _childDialog.Margins.Left;
+            ContainerTop.Constant = _childDialog.Margins.Top;
+            ContainerTrailing.Constant = _childDialog.Margins.Right;
+            ContainerBottom.Constant = _childDialog.Margins.Bottom;
+
+            View.UpdateConstraints();
+            View.LayoutSubviews();
+        }
+
+        private bool CheckFlag(DialogGravity gravity, DialogGravity value) => (gravity & value) == value;
+        private UIGestureRecognizer GetTappedOutsideGestureRecognizer() => new UITapGestureRecognizer(() => TappedOutsideTheDialog?.Invoke(this, EventArgs.Empty));
     }
 }

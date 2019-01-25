@@ -14,19 +14,17 @@ namespace AoLibs.Sample.Shared.DialogViewModels
 
         protected override void OnDialogAppeared()
         {
-            
         }
 
         protected override void OnDialogDismissed()
         {
-
         }
 
         public override CustomDialogConfig CustomDialogConfig { get; } = new CustomDialogConfig
         {
-            Gravity = CustomDialogConfig.DialogGravity.Top | CustomDialogConfig.DialogGravity.Center,
+            Gravity = CustomDialogConfig.DialogGravity.Bottom | CustomDialogConfig.DialogGravity.Center,
             IsCancellable = true,
-            StretchHorizontally = true,
+            StretchHorizontally = false,
             StretchVertically = false,
         };
 

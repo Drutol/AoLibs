@@ -7,6 +7,7 @@ using AoLibs.Sample.Shared.Models;
 using AoLibs.Sample.Shared.NavArgs;
 using GalaSoft.MvvmLight.Helpers;
 using UIKit;
+using AoLibs.Dialogs.iOS.Models;
 
 namespace AoLibs.Sample.iOS
 {

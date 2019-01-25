@@ -69,6 +69,11 @@ namespace AoLibs.Dialogs.iOS
         public virtual DialogBackgroundConfig BackgroundConfig { get; } = new DialogBackgroundConfig();
 
         /// <summary>
+        /// Gets or sets a value indicating dialog's margins size
+        /// </summary>
+        public virtual DialogMargins Margins { get; set; } = new DialogMargins(15);
+
+        /// <summary>
         /// Gets or sets the model that was passed to <see cref="Show"/> method.
         /// </summary>
         public virtual object Parameter { get; set; }
@@ -129,7 +134,7 @@ namespace AoLibs.Dialogs.iOS
         /// <param name="parameter">Parameter.</param>
         public void Show(object parameter = null)
         {
-            ParentContainerViewController.ModalTransitionStyle = AnimationConfig.ShowAnimationType.ToModalTransition();
+            ParentContainerViewController.ModalTransitionStyle = AnimationConfig.ShowAnimationType.ToUIModalTransition();
 
             Parameter = parameter;
             OnWillBeShown();
@@ -142,7 +147,7 @@ namespace AoLibs.Dialogs.iOS
         /// </summary>
         public void Hide()
         {
-            ParentContainerViewController.ModalTransitionStyle = AnimationConfig.HideAnimationType.ToModalTransition();
+            ParentContainerViewController.ModalTransitionStyle = AnimationConfig.HideAnimationType.ToUIModalTransition();
 
             OnWillBeHidden();
             RootViewController.DismissViewController(AnimationConfig.HideAnimationType.IsSystemAnimation(), OnDialogDismissFinished);
@@ -168,7 +173,7 @@ namespace AoLibs.Dialogs.iOS
             _hideSemaphore = new SemaphoreSlim(0);
             DialogWillHide?.Invoke(this, EventArgs.Empty);
 
-            if (AnimationConfig.HideAnimationType== DialogAnimationType.CustomBlurFade)
+            if (AnimationConfig.HideAnimationType == DialogAnimationType.CustomBlurFade)
                 await Task.Delay((int)(AnimationConfig.HideCustomAnimationDurationSeconds * 1000));
 
             Hide();

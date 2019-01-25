@@ -1,71 +1,85 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="199">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="199">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Dialog View Controller-->
         <scene sceneID="198">
             <objects>
-                <viewController id="199" sceneMemberID="viewController" customClass="DialogViewController" storyboardIdentifier="DialogViewController" useStoryboardIdentifierAsRestorationIdentifier="YES">
+                <viewController storyboardIdentifier="DialogViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="199" customClass="DialogViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="196"/>
                         <viewControllerLayoutGuide type="bottom" id="197"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="200">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" id="1322" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1323">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" id="203" translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" ambiguous="YES">
-                                            <rect key="frame" x="39" y="35" width="149" height="69"/>
-                                            <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" id="663" translatesAutoresizingMaskIntoConstraints="NO" ambiguous="YES">
-                                                    <rect key="frame" x="34" y="16" width="90" height="45"/>
-                                                    <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint id="664" firstItem="663" firstAttribute="top" secondItem="203" secondAttribute="top"/>
-                                                <constraint id="665" firstItem="663" firstAttribute="leading" secondItem="203" secondAttribute="leading"/>
-                                                <constraint id="666" firstAttribute="bottom" secondItem="663" secondAttribute="bottom"/>
-                                                <constraint id="667" firstAttribute="trailing" secondItem="663" secondAttribute="trailing"/>
-                                            </constraints>
-                                            <color key="tintColor" colorSpace="calibratedRGB" red="0.0392156862745098" green="0.37647058823529411" blue="1" alpha="1"/>
-                                        </view>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint id="1328" firstItem="203" firstAttribute="top" secondItem="1323" secondAttribute="top" relation="greaterThanOrEqual"/>
-                                        <constraint id="1329" firstItem="203" firstAttribute="leading" secondItem="1323" secondAttribute="leading" relation="greaterThanOrEqual"/>
-                                        <constraint id="1330" firstAttribute="bottom" secondItem="203" secondAttribute="bottom" relation="greaterThanOrEqual"/>
-                                        <constraint id="1331" firstAttribute="trailing" secondItem="203" secondAttribute="trailing" relation="greaterThanOrEqual"/>
-                                    </constraints>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1322">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1323" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DK1-gK-2ty" misplaced="YES">
+                                <rect key="frame" x="30" y="70" width="329" height="513"/>
+                                <color key="backgroundColor" customColorSpace="genericGamma22GrayColorSpace" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="1569" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                        <rect key="frame" x="59" y="163" width="174" height="147"/>
+                                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint id="1570" firstItem="1569" firstAttribute="top" secondItem="DK1-gK-2ty" secondAttribute="top" relation="greaterThanOrEqual"/>
+                                    <constraint id="1571" firstItem="1569" firstAttribute="leading" secondItem="DK1-gK-2ty" secondAttribute="leading" relation="greaterThanOrEqual"/>
+                                    <constraint id="1572" firstAttribute="bottom" secondItem="1569" secondAttribute="bottom" relation="greaterThanOrEqual"/>
+                                    <constraint id="1573" firstAttribute="trailing" secondItem="1569" secondAttribute="trailing" relation="greaterThanOrEqual"/>
+                                    <constraint id="1822" firstItem="1569" firstAttribute="top" secondItem="DK1-gK-2ty" secondAttribute="top"/>
+                                    <constraint id="1823" firstAttribute="trailing" secondItem="1569" secondAttribute="trailing"/>
+                                    <constraint id="1824" firstAttribute="bottom" secondItem="1569" secondAttribute="bottom"/>
+                                    <constraint id="1825" firstItem="1569" firstAttribute="leading" secondItem="DK1-gK-2ty" secondAttribute="leading"/>
+                                    <constraint id="1849" firstItem="1569" firstAttribute="centerY" secondItem="DK1-gK-2ty" secondAttribute="centerY"/>
+                                    <constraint id="1850" firstAttribute="centerX" secondItem="1569" secondAttribute="centerX"/>
+                                </constraints>
+                            </view>
                         </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint id="1332" firstItem="1322" firstAttribute="top" secondItem="200" secondAttribute="top"/>
-                            <constraint id="1333" firstItem="1322" firstAttribute="leading" secondItem="200" secondAttribute="leading"/>
-                            <constraint id="1334" firstAttribute="bottom" secondItem="1322" secondAttribute="bottom"/>
-                            <constraint id="1335" firstAttribute="trailing" secondItem="1322" secondAttribute="trailing"/>
+                            <constraint firstItem="1322" firstAttribute="top" secondItem="200" secondAttribute="top" id="1332"/>
+                            <constraint firstItem="1322" firstAttribute="leading" secondItem="200" secondAttribute="leading" id="1333"/>
+                            <constraint firstAttribute="bottom" secondItem="1322" secondAttribute="bottom" id="1334"/>
+                            <constraint firstAttribute="trailing" secondItem="1322" secondAttribute="trailing" id="1335"/>
+                            <constraint firstItem="DK1-gK-2ty" firstAttribute="top" secondItem="196" secondAttribute="bottom" id="Pmh-Cm-6iG"/>
+                            <constraint firstItem="197" firstAttribute="top" secondItem="DK1-gK-2ty" secondAttribute="bottom" id="vTi-6Y-u9f"/>
+                            <constraint id="1567" firstItem="DK1-gK-2ty" firstAttribute="leading" secondItem="1322" secondAttribute="leading"/>
+                            <constraint id="1568" firstItem="1322" firstAttribute="trailing" secondItem="DK1-gK-2ty" secondAttribute="trailing"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="RootView" destination="200" id="name-outlet-200"/>
-                        <outlet property="ContainerView" destination="663" id="name-outlet-663"/>
                         <outlet property="EffectView" destination="1322" id="name-outlet-1322"/>
+                        <outlet property="RootView" destination="200" id="name-outlet-200"/>
+                        <outlet property="ContainerView" destination="1569" id="name-outlet-1569"/>
+                        <outlet property="ContainerTop" destination="1822" id="name-outlet-1822"/>
+                        <outlet property="ContainerBottom" destination="1824" id="name-outlet-1824"/>
+                        <outlet property="ContainerTrailing" destination="1823" id="name-outlet-1823"/>
+                        <outlet property="ContainerLeading" destination="1825" id="name-outlet-1825"/>
+                        <outlet property="ContainerCenterY" destination="1849" id="name-outlet-1849"/>
+                        <outlet property="ContainerCenterX" destination="1850" id="name-outlet-1850"/>
+                        <outlet property="LayoutView" destination="DK1-gK-2ty" id="name-outlet-DK1-gK-2ty"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="201" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="284" y="56"/>
+            <point key="canvasLocation" x="284" y="55.32234"/>
         </scene>
     </scenes>
 </document>
