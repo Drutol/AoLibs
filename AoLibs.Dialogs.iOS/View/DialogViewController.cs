@@ -27,7 +27,7 @@ namespace AoLibs.Dialogs.iOS
             vc._childDialog = dialog;
             vc.ModalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
 
-            vc._childDialog.DialogWillHide+= vc.Dialog_DialogWillHide;
+            vc._childDialog.DialogWillHide += vc.Dialog_DialogWillHide;
 
             return vc;
         }

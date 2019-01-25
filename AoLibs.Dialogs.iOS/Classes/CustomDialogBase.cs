@@ -168,7 +168,7 @@ namespace AoLibs.Dialogs.iOS
             _hideSemaphore = new SemaphoreSlim(0);
             DialogWillHide?.Invoke(this, EventArgs.Empty);
 
-            if (AnimationConfig.HideAnimationType== DialogAnimationType.CustomBlurFade)
+            if (AnimationConfig.HideAnimationType == DialogAnimationType.CustomBlurFade)
                 await Task.Delay((int)(AnimationConfig.HideCustomAnimationDurationSeconds * 1000));
 
             Hide();
