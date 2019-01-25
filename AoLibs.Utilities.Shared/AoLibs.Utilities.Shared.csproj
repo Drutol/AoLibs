@@ -32,7 +32,4 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="EnumUtilities.cs" />
-  </ItemGroup>
 </Project>
