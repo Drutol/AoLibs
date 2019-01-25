@@ -13,16 +13,19 @@ namespace AoLibs.Dialogs.iOS.Models
         /// </summary>
         /// <value>The type of the show animation.</value>
         public DialogAnimationType ShowAnimationType { get; set; } = DialogAnimationType.CustomBlurFade;
+        
         /// <summary>
         /// Gets or sets the type of the hide animation.
         /// </summary>
         /// <value>The type of the hide animation.</value>
         public DialogAnimationType HideAnimationType { get; set; } = DialogAnimationType.CustomBlurFade;
+        
         /// <summary>
         /// Gets or sets the show custom animation duration in seconds.
         /// </summary>
         /// <value>The show custom animation duration seconds.</value>
         public float ShowCustomAnimationDurationSeconds { get; set; } = .3f;
+        
         /// <summary>
         /// Gets or sets the hide custom animation duration in seconds.
         /// </summary>

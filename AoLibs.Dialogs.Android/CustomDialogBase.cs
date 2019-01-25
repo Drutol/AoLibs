@@ -37,6 +37,16 @@ namespace AoLibs.Dialogs.Android
         public event EventHandler DialogHidden;
 
         /// <summary>
+        /// Fired when dialog is about to be shown.
+        /// </summary>
+        public event EventHandler DialogWillShow;
+
+        /// <summary>
+        /// Fired when dialog is about to be hidden.
+        /// </summary>
+        public event EventHandler DialogWillHide;
+
+        /// <summary>
         /// Token source used to monitor <see cref="AwaitResult{TResult}"/> process.
         /// </summary>
         private CancellationTokenSource _cts;
@@ -140,6 +150,7 @@ namespace AoLibs.Dialogs.Android
         public void Show(object parameter = null)
         {
             DialogsManager.CurrentlyDisplayedDialog = this;
+            DialogWillShow?.Invoke(this, EventArgs.Empty);
 
             Parameter = parameter;
             Show(ConfiguredFragmentManager, FragmentTag);
@@ -178,6 +189,7 @@ namespace AoLibs.Dialogs.Android
         /// <inheritdoc />
         public sealed override void DismissAllowingStateLoss()
         {
+            DialogWillHide?.Invoke(this, EventArgs.Empty);
             CancelResult();
             base.DismissAllowingStateLoss();
             OnHidden();

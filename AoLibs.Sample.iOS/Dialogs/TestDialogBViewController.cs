@@ -1,6 +1,6 @@
-using Foundation;
 using System;
 using AoLibs.Dialogs.iOS;
+using AoLibs.Dialogs.iOS.Models;
 using AoLibs.Sample.iOS.Utils;
 using AoLibs.Sample.Shared.DialogViewModels;
 using AoLibs.Sample.Shared.Models;
