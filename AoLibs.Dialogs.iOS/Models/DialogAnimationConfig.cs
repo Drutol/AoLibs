@@ -62,28 +62,5 @@ namespace AoLibs.Dialogs.iOS.Models
         /// Custom AOLibs animation that involves gradually blurring in/out the background if blur background is selected.
         /// </summary>
         CustomBlurFade,
-    }
-
-    internal static class AnimationModelExtensions
-    {
-        internal static UIModalTransitionStyle ToUIModalTransition(this DialogAnimationType type)
-        {
-            switch (type)
-            {
-                case DialogAnimationType.SystemCoverVertical:
-                    return UIModalTransitionStyle.CoverVertical;
-                case DialogAnimationType.SystemFlipHorizontal:
-                    return UIModalTransitionStyle.FlipHorizontal;
-                default:
-                    return UIModalTransitionStyle.CrossDissolve;
-            }
-        }
-
-        internal static bool IsSystemAnimation(this DialogAnimationType type)
-        {
-            return type == DialogAnimationType.SystemCrossDissolve ||
-                   type == DialogAnimationType.SystemCoverVertical ||
-                   type == DialogAnimationType.SystemFlipHorizontal;
-        }
-    }
+    }   
 }

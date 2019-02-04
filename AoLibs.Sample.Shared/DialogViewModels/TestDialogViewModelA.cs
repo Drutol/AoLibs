@@ -23,8 +23,8 @@ namespace AoLibs.Sample.Shared.DialogViewModels
         public override CustomDialogConfig CustomDialogConfig { get; } = new CustomDialogConfig
         {
             Gravity = CustomDialogConfig.DialogGravity.Bottom | CustomDialogConfig.DialogGravity.Center,
-            IsCancellable = true,
-            StretchHorizontally = false,
+            IsCancellable = false,
+            StretchHorizontally = true,
             StretchVertically = false,
         };
 

@@ -8,6 +8,7 @@ using AoLibs.Dialogs.Core;
 using AoLibs.Dialogs.Core.Interfaces;
 using AoLibs.Dialogs.iOS.Interfaces;
 using AoLibs.Dialogs.iOS.Models;
+using AoLibs.Dialogs.iOS.Utils;
 using Foundation;
 using GalaSoft.MvvmLight.Helpers;
 using UIKit;
@@ -134,7 +135,7 @@ namespace AoLibs.Dialogs.iOS
         /// <param name="parameter">Parameter.</param>
         public void Show(object parameter = null)
         {
-            ParentContainerViewController.ModalTransitionStyle = AnimationConfig.ShowAnimationType.ToUIModalTransition();
+            ParentContainerViewController.ModalTransitionStyle = AnimationConfig.ShowAnimationType.ToUiModalTransition();
 
             Parameter = parameter;
             OnWillBeShown();
@@ -147,7 +148,7 @@ namespace AoLibs.Dialogs.iOS
         /// </summary>
         public void Hide()
         {
-            ParentContainerViewController.ModalTransitionStyle = AnimationConfig.HideAnimationType.ToUIModalTransition();
+            ParentContainerViewController.ModalTransitionStyle = AnimationConfig.HideAnimationType.ToUiModalTransition();
 
             OnWillBeHidden();
             RootViewController.DismissViewController(AnimationConfig.HideAnimationType.IsSystemAnimation(), OnDialogDismissFinished);

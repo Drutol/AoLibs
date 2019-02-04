@@ -1,12 +1,13 @@
 ﻿using System;
 namespace AoLibs.Dialogs.Core
 {
+    /// <summary>
+    /// Defines margins that will be applied to dialog.
+    /// </summary>
     public class DialogMargins
     {
-        public DialogMargins() { }
-
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:AoLibs.Dialogs.Core.Classes.DialogMargins"/> class.
+        /// Initializes a new instance of the <see cref="DialogMargins"/> class.
         /// </summary>
         /// <param name="margin">The margin for all four directions</param>
         public DialogMargins(int margin)
@@ -18,7 +19,7 @@ namespace AoLibs.Dialogs.Core
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:AoLibs.Dialogs.Core.Classes.DialogMargins"/> class.
+        /// Initializes a new instance of the <see cref="DialogMargins"/> class.
         /// </summary>
         /// <param name="horizontal">Margin for left and right sides</param>
         /// <param name="vertical">Margin for top and bottom sides</param>
@@ -31,7 +32,7 @@ namespace AoLibs.Dialogs.Core
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:AoLibs.Dialogs.Core.Classes.DialogMargins"/> class with all margins specified in clockwise direction starting from left.
+        /// Initializes a new instance of the <see cref="DialogMargins"/> class with all margins specified in clockwise direction starting from left.
         /// </summary>
         /// <param name="left">Left margin.</param>
         /// <param name="top">Top margin.</param>

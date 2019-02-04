@@ -34,3 +34,4 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element must begin with upper-case letter", Scope = "namespace", Target = "~N:AoLibs.Dialogs.iOS")]
 [assembly: SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element must begin with upper-case letter", Scope = "namespace", Target = "~N:AoLibs.Dialogs.iOS.Interfaces")]
 [assembly: SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element must begin with upper-case letter", Scope = "namespace", Target = "~N:AoLibs.Dialogs.iOS.Models")]
+[assembly: SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:Element must begin with upper-case letter", Scope = "namespace", Target = "~N:AoLibs.Dialogs.iOS.Utils")]
