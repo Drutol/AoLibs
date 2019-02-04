@@ -240,7 +240,7 @@ Task("Publish-Packages")
 		{
 			DotNetCoreNuGetPush(file.FullPath ,new DotNetCoreNuGetPushSettings()
 			{
-				ApiKey = "$ENV:NuGetApiKey",
+				ApiKey = EnvironmentVariable("NuGetApiKey"),
 				Source = EnvironmentVariable("NuGetFeed"),
 			});
 		}
