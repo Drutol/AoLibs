@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
-using Android.App;
 using Android.Content;
 using Android.Content.Res;
 using Android.OS;
@@ -10,9 +7,8 @@ using Android.Views;
 using AoLibs.Navigation.Core.Interfaces;
 using GalaSoft.MvvmLight.Helpers;
 using Fragment = Android.Support.V4.App.Fragment;
-using SearchView = Android.Support.V7.Widget.SearchView;
 
-namespace NavigationLib.Android.Navigation
+namespace AoLibs.Navigation.Android.Navigation
 {
     /// <summary>
     /// Base class for library managed pages.

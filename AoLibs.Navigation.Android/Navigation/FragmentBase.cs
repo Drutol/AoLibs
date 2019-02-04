@@ -1,9 +1,4 @@
-﻿using System;
-using Android.OS;
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Ioc;
-
-namespace NavigationLib.Android.Navigation
+﻿namespace AoLibs.Navigation.Android.Navigation
 {
     /// <summary>
     /// Base fragment class which fetches given ViewModel automatically.

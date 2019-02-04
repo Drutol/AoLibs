@@ -265,3 +265,5 @@ build/tools
 build/packages
 /Build/.dotnet
 /.vscode
+AoLibs.Dialogs.Android/.DS_Store
+.DS_Store

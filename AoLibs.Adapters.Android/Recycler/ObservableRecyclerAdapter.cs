@@ -112,7 +112,7 @@ namespace AoLibs.Adapters.Android.Recycler
         /// <param name="items">Backing data for the adapter.</param>
         /// <param name="dataTemplate">View binding definition.</param>
         /// <param name="itemTemplate">View inflation definition.</param>
-        /// <param name="holderFactory">If not assigned make sure your ViewHolder has public constructo with <see cref="View"/> argument.</param>
+        /// <param name="holderFactory">If not assigned make sure your ViewHolder has public constructor with <see cref="View"/> argument.</param>
         public ObservableRecyclerAdapter(
             IList<TItem> items, 
             DataTemplateDelegate<THolder> dataTemplate,
@@ -131,7 +131,7 @@ namespace AoLibs.Adapters.Android.Recycler
         }
 
         /// <summary>
-        /// Gets or sets urrent collection that adapter grabs its data from.
+        /// Gets or sets current collection that adapter grabs its data from.
         /// </summary>
         public IList<TItem> DataSource
         {

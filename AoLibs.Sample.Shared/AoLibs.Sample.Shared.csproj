@@ -14,12 +14,13 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.8.1" />
-    <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1" />
+    <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\AoLibs.Adapters.Core\AoLibs.Adapters.Core.csproj" />
+    <ProjectReference Include="..\AoLibs.Dialogs.Core\AoLibs.Dialogs.Core.csproj" />
     <ProjectReference Include="..\AoLibs.Navigation.Core\AoLibs.Navigation.Core.csproj" />
     <ProjectReference Include="..\AoLibs.Utilities.Shared\AoLibs.Utilities.Shared.csproj" />
   </ItemGroup>

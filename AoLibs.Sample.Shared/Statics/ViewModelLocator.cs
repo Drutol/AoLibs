@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using AoLibs.Sample.Shared.DialogViewModels;
 using AoLibs.Sample.Shared.ViewModels;
 using Autofac;
 
@@ -17,6 +18,9 @@ namespace AoLibs.Sample.Shared.Statics
             builder.RegisterType<TestViewModelA>().SingleInstance();
             builder.RegisterType<TestViewModelB>().SingleInstance();
             builder.RegisterType<TestViewModelC>().SingleInstance();
+
+            builder.RegisterType<TestDialogViewModelA>().SingleInstance();
+            builder.RegisterType<TestDialogViewModelB>();
 
             builder.RegisterType<MainViewModel>().SingleInstance();
         }
