@@ -35,4 +35,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ButtonNavigate" />
+	
+	<Button
+        android:text="NavigateCamera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ButtonNavigateCamera" />
 </LinearLayout>

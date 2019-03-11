@@ -33,6 +33,9 @@
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
     <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <BundleAssemblies>false</BundleAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -57,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Dialogs\TestDialogA.cs" />
     <Compile Include="Dialogs\TestDialogB.cs" />
+    <Compile Include="Fragments\CameraPageFragment.cs" />
     <Compile Include="Fragments\TestPageAFragment.cs" />
     <Compile Include="Fragments\TestPageBFragment.cs" />
     <Compile Include="Fragments\TestPageCFragment.cs" />
@@ -121,6 +125,10 @@
       <Project>{2d9542d8-3768-45c8-88d0-2a405f1752c0}</Project>
       <Name>AoLibs.Adapters.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AoLibs.Camera.Android\AoLibs.Camera.Android.csproj">
+      <Project>{e88cad9f-f6e4-403a-966d-8df465d1b667}</Project>
+      <Name>AoLibs.Camera.Android</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AoLibs.Dialogs.Android\AoLibs.Dialogs.Android.csproj">
       <Project>{490658cb-8298-4d63-8667-4d25b401e291}</Project>
       <Name>AoLibs.Dialogs.Android</Name>
@@ -164,6 +172,11 @@
   <ItemGroup>
     <AndroidResource Include="Resources\layout\test_dialog_b.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\camera_page.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

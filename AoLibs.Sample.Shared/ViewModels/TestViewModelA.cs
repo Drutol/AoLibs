@@ -114,5 +114,8 @@ namespace AoLibs.Sample.Shared.ViewModels
                 _dialogsManager[DialogIndex.TestDialogB].Show(new DialogBNavArgs {Message = _dialogBShouldShowLongText ? _dialogBLongText : _dialogBShortText });
                 _dialogBShouldShowLongText = !_dialogBShouldShowLongText;
             });
+
+        public RelayCommand NavigateCameraCommand =>
+            new RelayCommand(() => _navigationManager.Navigate(PageIndex.PageCamera));
     }
 }

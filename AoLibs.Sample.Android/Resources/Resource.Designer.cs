@@ -26,6 +26,1492 @@ namespace AoLibs.Sample.Android
 		
 		public static void UpdateIdValues()
 		{
+			global::AoLibs.Camera.Android.Resource.Animation.abc_fade_in = global::AoLibs.Sample.Android.Resource.Animation.abc_fade_in;
+			global::AoLibs.Camera.Android.Resource.Animation.abc_fade_out = global::AoLibs.Sample.Android.Resource.Animation.abc_fade_out;
+			global::AoLibs.Camera.Android.Resource.Animation.abc_grow_fade_in_from_bottom = global::AoLibs.Sample.Android.Resource.Animation.abc_grow_fade_in_from_bottom;
+			global::AoLibs.Camera.Android.Resource.Animation.abc_popup_enter = global::AoLibs.Sample.Android.Resource.Animation.abc_popup_enter;
+			global::AoLibs.Camera.Android.Resource.Animation.abc_popup_exit = global::AoLibs.Sample.Android.Resource.Animation.abc_popup_exit;
+			global::AoLibs.Camera.Android.Resource.Animation.abc_shrink_fade_out_from_bottom = global::AoLibs.Sample.Android.Resource.Animation.abc_shrink_fade_out_from_bottom;
+			global::AoLibs.Camera.Android.Resource.Animation.abc_slide_in_bottom = global::AoLibs.Sample.Android.Resource.Animation.abc_slide_in_bottom;
+			global::AoLibs.Camera.Android.Resource.Animation.abc_slide_in_top = global::AoLibs.Sample.Android.Resource.Animation.abc_slide_in_top;
+			global::AoLibs.Camera.Android.Resource.Animation.abc_slide_out_bottom = global::AoLibs.Sample.Android.Resource.Animation.abc_slide_out_bottom;
+			global::AoLibs.Camera.Android.Resource.Animation.abc_slide_out_top = global::AoLibs.Sample.Android.Resource.Animation.abc_slide_out_top;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionBarDivider = global::AoLibs.Sample.Android.Resource.Attribute.actionBarDivider;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionBarItemBackground = global::AoLibs.Sample.Android.Resource.Attribute.actionBarItemBackground;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionBarPopupTheme = global::AoLibs.Sample.Android.Resource.Attribute.actionBarPopupTheme;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionBarSize = global::AoLibs.Sample.Android.Resource.Attribute.actionBarSize;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionBarSplitStyle = global::AoLibs.Sample.Android.Resource.Attribute.actionBarSplitStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionBarStyle = global::AoLibs.Sample.Android.Resource.Attribute.actionBarStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionBarTabBarStyle = global::AoLibs.Sample.Android.Resource.Attribute.actionBarTabBarStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionBarTabStyle = global::AoLibs.Sample.Android.Resource.Attribute.actionBarTabStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionBarTabTextStyle = global::AoLibs.Sample.Android.Resource.Attribute.actionBarTabTextStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionBarTheme = global::AoLibs.Sample.Android.Resource.Attribute.actionBarTheme;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionBarWidgetTheme = global::AoLibs.Sample.Android.Resource.Attribute.actionBarWidgetTheme;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionButtonStyle = global::AoLibs.Sample.Android.Resource.Attribute.actionButtonStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionDropDownStyle = global::AoLibs.Sample.Android.Resource.Attribute.actionDropDownStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionLayout = global::AoLibs.Sample.Android.Resource.Attribute.actionLayout;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionMenuTextAppearance = global::AoLibs.Sample.Android.Resource.Attribute.actionMenuTextAppearance;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionMenuTextColor = global::AoLibs.Sample.Android.Resource.Attribute.actionMenuTextColor;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionModeBackground = global::AoLibs.Sample.Android.Resource.Attribute.actionModeBackground;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionModeCloseButtonStyle = global::AoLibs.Sample.Android.Resource.Attribute.actionModeCloseButtonStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionModeCloseDrawable = global::AoLibs.Sample.Android.Resource.Attribute.actionModeCloseDrawable;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionModeCopyDrawable = global::AoLibs.Sample.Android.Resource.Attribute.actionModeCopyDrawable;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionModeCutDrawable = global::AoLibs.Sample.Android.Resource.Attribute.actionModeCutDrawable;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionModeFindDrawable = global::AoLibs.Sample.Android.Resource.Attribute.actionModeFindDrawable;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionModePasteDrawable = global::AoLibs.Sample.Android.Resource.Attribute.actionModePasteDrawable;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionModePopupWindowStyle = global::AoLibs.Sample.Android.Resource.Attribute.actionModePopupWindowStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionModeSelectAllDrawable = global::AoLibs.Sample.Android.Resource.Attribute.actionModeSelectAllDrawable;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionModeShareDrawable = global::AoLibs.Sample.Android.Resource.Attribute.actionModeShareDrawable;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionModeSplitBackground = global::AoLibs.Sample.Android.Resource.Attribute.actionModeSplitBackground;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionModeStyle = global::AoLibs.Sample.Android.Resource.Attribute.actionModeStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionModeWebSearchDrawable = global::AoLibs.Sample.Android.Resource.Attribute.actionModeWebSearchDrawable;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionOverflowButtonStyle = global::AoLibs.Sample.Android.Resource.Attribute.actionOverflowButtonStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionOverflowMenuStyle = global::AoLibs.Sample.Android.Resource.Attribute.actionOverflowMenuStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionProviderClass = global::AoLibs.Sample.Android.Resource.Attribute.actionProviderClass;
+			global::AoLibs.Camera.Android.Resource.Attribute.actionViewClass = global::AoLibs.Sample.Android.Resource.Attribute.actionViewClass;
+			global::AoLibs.Camera.Android.Resource.Attribute.activityChooserViewStyle = global::AoLibs.Sample.Android.Resource.Attribute.activityChooserViewStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.alertDialogButtonGroupStyle = global::AoLibs.Sample.Android.Resource.Attribute.alertDialogButtonGroupStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.alertDialogCenterButtons = global::AoLibs.Sample.Android.Resource.Attribute.alertDialogCenterButtons;
+			global::AoLibs.Camera.Android.Resource.Attribute.alertDialogStyle = global::AoLibs.Sample.Android.Resource.Attribute.alertDialogStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.alertDialogTheme = global::AoLibs.Sample.Android.Resource.Attribute.alertDialogTheme;
+			global::AoLibs.Camera.Android.Resource.Attribute.allowStacking = global::AoLibs.Sample.Android.Resource.Attribute.allowStacking;
+			global::AoLibs.Camera.Android.Resource.Attribute.alpha = global::AoLibs.Sample.Android.Resource.Attribute.alpha;
+			global::AoLibs.Camera.Android.Resource.Attribute.alphabeticModifiers = global::AoLibs.Sample.Android.Resource.Attribute.alphabeticModifiers;
+			global::AoLibs.Camera.Android.Resource.Attribute.arrowHeadLength = global::AoLibs.Sample.Android.Resource.Attribute.arrowHeadLength;
+			global::AoLibs.Camera.Android.Resource.Attribute.arrowShaftLength = global::AoLibs.Sample.Android.Resource.Attribute.arrowShaftLength;
+			global::AoLibs.Camera.Android.Resource.Attribute.autoCompleteTextViewStyle = global::AoLibs.Sample.Android.Resource.Attribute.autoCompleteTextViewStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.autoSizeMaxTextSize = global::AoLibs.Sample.Android.Resource.Attribute.autoSizeMaxTextSize;
+			global::AoLibs.Camera.Android.Resource.Attribute.autoSizeMinTextSize = global::AoLibs.Sample.Android.Resource.Attribute.autoSizeMinTextSize;
+			global::AoLibs.Camera.Android.Resource.Attribute.autoSizePresetSizes = global::AoLibs.Sample.Android.Resource.Attribute.autoSizePresetSizes;
+			global::AoLibs.Camera.Android.Resource.Attribute.autoSizeStepGranularity = global::AoLibs.Sample.Android.Resource.Attribute.autoSizeStepGranularity;
+			global::AoLibs.Camera.Android.Resource.Attribute.autoSizeTextType = global::AoLibs.Sample.Android.Resource.Attribute.autoSizeTextType;
+			global::AoLibs.Camera.Android.Resource.Attribute.background = global::AoLibs.Sample.Android.Resource.Attribute.background;
+			global::AoLibs.Camera.Android.Resource.Attribute.backgroundSplit = global::AoLibs.Sample.Android.Resource.Attribute.backgroundSplit;
+			global::AoLibs.Camera.Android.Resource.Attribute.backgroundStacked = global::AoLibs.Sample.Android.Resource.Attribute.backgroundStacked;
+			global::AoLibs.Camera.Android.Resource.Attribute.backgroundTint = global::AoLibs.Sample.Android.Resource.Attribute.backgroundTint;
+			global::AoLibs.Camera.Android.Resource.Attribute.backgroundTintMode = global::AoLibs.Sample.Android.Resource.Attribute.backgroundTintMode;
+			global::AoLibs.Camera.Android.Resource.Attribute.barLength = global::AoLibs.Sample.Android.Resource.Attribute.barLength;
+			global::AoLibs.Camera.Android.Resource.Attribute.borderlessButtonStyle = global::AoLibs.Sample.Android.Resource.Attribute.borderlessButtonStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.buttonBarButtonStyle = global::AoLibs.Sample.Android.Resource.Attribute.buttonBarButtonStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.buttonBarNegativeButtonStyle = global::AoLibs.Sample.Android.Resource.Attribute.buttonBarNegativeButtonStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.buttonBarNeutralButtonStyle = global::AoLibs.Sample.Android.Resource.Attribute.buttonBarNeutralButtonStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.buttonBarPositiveButtonStyle = global::AoLibs.Sample.Android.Resource.Attribute.buttonBarPositiveButtonStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.buttonBarStyle = global::AoLibs.Sample.Android.Resource.Attribute.buttonBarStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.buttonGravity = global::AoLibs.Sample.Android.Resource.Attribute.buttonGravity;
+			global::AoLibs.Camera.Android.Resource.Attribute.buttonPanelSideLayout = global::AoLibs.Sample.Android.Resource.Attribute.buttonPanelSideLayout;
+			global::AoLibs.Camera.Android.Resource.Attribute.buttonStyle = global::AoLibs.Sample.Android.Resource.Attribute.buttonStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.buttonStyleSmall = global::AoLibs.Sample.Android.Resource.Attribute.buttonStyleSmall;
+			global::AoLibs.Camera.Android.Resource.Attribute.buttonTint = global::AoLibs.Sample.Android.Resource.Attribute.buttonTint;
+			global::AoLibs.Camera.Android.Resource.Attribute.buttonTintMode = global::AoLibs.Sample.Android.Resource.Attribute.buttonTintMode;
+			global::AoLibs.Camera.Android.Resource.Attribute.checkboxStyle = global::AoLibs.Sample.Android.Resource.Attribute.checkboxStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.checkedTextViewStyle = global::AoLibs.Sample.Android.Resource.Attribute.checkedTextViewStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.closeIcon = global::AoLibs.Sample.Android.Resource.Attribute.closeIcon;
+			global::AoLibs.Camera.Android.Resource.Attribute.closeItemLayout = global::AoLibs.Sample.Android.Resource.Attribute.closeItemLayout;
+			global::AoLibs.Camera.Android.Resource.Attribute.collapseContentDescription = global::AoLibs.Sample.Android.Resource.Attribute.collapseContentDescription;
+			global::AoLibs.Camera.Android.Resource.Attribute.collapseIcon = global::AoLibs.Sample.Android.Resource.Attribute.collapseIcon;
+			global::AoLibs.Camera.Android.Resource.Attribute.color = global::AoLibs.Sample.Android.Resource.Attribute.color;
+			global::AoLibs.Camera.Android.Resource.Attribute.colorAccent = global::AoLibs.Sample.Android.Resource.Attribute.colorAccent;
+			global::AoLibs.Camera.Android.Resource.Attribute.colorBackgroundFloating = global::AoLibs.Sample.Android.Resource.Attribute.colorBackgroundFloating;
+			global::AoLibs.Camera.Android.Resource.Attribute.colorButtonNormal = global::AoLibs.Sample.Android.Resource.Attribute.colorButtonNormal;
+			global::AoLibs.Camera.Android.Resource.Attribute.colorControlActivated = global::AoLibs.Sample.Android.Resource.Attribute.colorControlActivated;
+			global::AoLibs.Camera.Android.Resource.Attribute.colorControlHighlight = global::AoLibs.Sample.Android.Resource.Attribute.colorControlHighlight;
+			global::AoLibs.Camera.Android.Resource.Attribute.colorControlNormal = global::AoLibs.Sample.Android.Resource.Attribute.colorControlNormal;
+			global::AoLibs.Camera.Android.Resource.Attribute.colorError = global::AoLibs.Sample.Android.Resource.Attribute.colorError;
+			global::AoLibs.Camera.Android.Resource.Attribute.colorPrimary = global::AoLibs.Sample.Android.Resource.Attribute.colorPrimary;
+			global::AoLibs.Camera.Android.Resource.Attribute.colorPrimaryDark = global::AoLibs.Sample.Android.Resource.Attribute.colorPrimaryDark;
+			global::AoLibs.Camera.Android.Resource.Attribute.colorSwitchThumbNormal = global::AoLibs.Sample.Android.Resource.Attribute.colorSwitchThumbNormal;
+			global::AoLibs.Camera.Android.Resource.Attribute.commitIcon = global::AoLibs.Sample.Android.Resource.Attribute.commitIcon;
+			global::AoLibs.Camera.Android.Resource.Attribute.contentDescription = global::AoLibs.Sample.Android.Resource.Attribute.contentDescription;
+			global::AoLibs.Camera.Android.Resource.Attribute.contentInsetEnd = global::AoLibs.Sample.Android.Resource.Attribute.contentInsetEnd;
+			global::AoLibs.Camera.Android.Resource.Attribute.contentInsetEndWithActions = global::AoLibs.Sample.Android.Resource.Attribute.contentInsetEndWithActions;
+			global::AoLibs.Camera.Android.Resource.Attribute.contentInsetLeft = global::AoLibs.Sample.Android.Resource.Attribute.contentInsetLeft;
+			global::AoLibs.Camera.Android.Resource.Attribute.contentInsetRight = global::AoLibs.Sample.Android.Resource.Attribute.contentInsetRight;
+			global::AoLibs.Camera.Android.Resource.Attribute.contentInsetStart = global::AoLibs.Sample.Android.Resource.Attribute.contentInsetStart;
+			global::AoLibs.Camera.Android.Resource.Attribute.contentInsetStartWithNavigation = global::AoLibs.Sample.Android.Resource.Attribute.contentInsetStartWithNavigation;
+			global::AoLibs.Camera.Android.Resource.Attribute.controlBackground = global::AoLibs.Sample.Android.Resource.Attribute.controlBackground;
+			global::AoLibs.Camera.Android.Resource.Attribute.customNavigationLayout = global::AoLibs.Sample.Android.Resource.Attribute.customNavigationLayout;
+			global::AoLibs.Camera.Android.Resource.Attribute.defaultQueryHint = global::AoLibs.Sample.Android.Resource.Attribute.defaultQueryHint;
+			global::AoLibs.Camera.Android.Resource.Attribute.dialogPreferredPadding = global::AoLibs.Sample.Android.Resource.Attribute.dialogPreferredPadding;
+			global::AoLibs.Camera.Android.Resource.Attribute.dialogTheme = global::AoLibs.Sample.Android.Resource.Attribute.dialogTheme;
+			global::AoLibs.Camera.Android.Resource.Attribute.displayOptions = global::AoLibs.Sample.Android.Resource.Attribute.displayOptions;
+			global::AoLibs.Camera.Android.Resource.Attribute.divider = global::AoLibs.Sample.Android.Resource.Attribute.divider;
+			global::AoLibs.Camera.Android.Resource.Attribute.dividerHorizontal = global::AoLibs.Sample.Android.Resource.Attribute.dividerHorizontal;
+			global::AoLibs.Camera.Android.Resource.Attribute.dividerPadding = global::AoLibs.Sample.Android.Resource.Attribute.dividerPadding;
+			global::AoLibs.Camera.Android.Resource.Attribute.dividerVertical = global::AoLibs.Sample.Android.Resource.Attribute.dividerVertical;
+			global::AoLibs.Camera.Android.Resource.Attribute.drawableSize = global::AoLibs.Sample.Android.Resource.Attribute.drawableSize;
+			global::AoLibs.Camera.Android.Resource.Attribute.drawerArrowStyle = global::AoLibs.Sample.Android.Resource.Attribute.drawerArrowStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.dropDownListViewStyle = global::AoLibs.Sample.Android.Resource.Attribute.dropDownListViewStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.dropdownListPreferredItemHeight = global::AoLibs.Sample.Android.Resource.Attribute.dropdownListPreferredItemHeight;
+			global::AoLibs.Camera.Android.Resource.Attribute.editTextBackground = global::AoLibs.Sample.Android.Resource.Attribute.editTextBackground;
+			global::AoLibs.Camera.Android.Resource.Attribute.editTextColor = global::AoLibs.Sample.Android.Resource.Attribute.editTextColor;
+			global::AoLibs.Camera.Android.Resource.Attribute.editTextStyle = global::AoLibs.Sample.Android.Resource.Attribute.editTextStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.elevation = global::AoLibs.Sample.Android.Resource.Attribute.elevation;
+			global::AoLibs.Camera.Android.Resource.Attribute.expandActivityOverflowButtonDrawable = global::AoLibs.Sample.Android.Resource.Attribute.expandActivityOverflowButtonDrawable;
+			global::AoLibs.Camera.Android.Resource.Attribute.font = global::AoLibs.Sample.Android.Resource.Attribute.font;
+			global::AoLibs.Camera.Android.Resource.Attribute.fontFamily = global::AoLibs.Sample.Android.Resource.Attribute.fontFamily;
+			global::AoLibs.Camera.Android.Resource.Attribute.fontProviderAuthority = global::AoLibs.Sample.Android.Resource.Attribute.fontProviderAuthority;
+			global::AoLibs.Camera.Android.Resource.Attribute.fontProviderCerts = global::AoLibs.Sample.Android.Resource.Attribute.fontProviderCerts;
+			global::AoLibs.Camera.Android.Resource.Attribute.fontProviderFetchStrategy = global::AoLibs.Sample.Android.Resource.Attribute.fontProviderFetchStrategy;
+			global::AoLibs.Camera.Android.Resource.Attribute.fontProviderFetchTimeout = global::AoLibs.Sample.Android.Resource.Attribute.fontProviderFetchTimeout;
+			global::AoLibs.Camera.Android.Resource.Attribute.fontProviderPackage = global::AoLibs.Sample.Android.Resource.Attribute.fontProviderPackage;
+			global::AoLibs.Camera.Android.Resource.Attribute.fontProviderQuery = global::AoLibs.Sample.Android.Resource.Attribute.fontProviderQuery;
+			global::AoLibs.Camera.Android.Resource.Attribute.fontStyle = global::AoLibs.Sample.Android.Resource.Attribute.fontStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.fontWeight = global::AoLibs.Sample.Android.Resource.Attribute.fontWeight;
+			global::AoLibs.Camera.Android.Resource.Attribute.gapBetweenBars = global::AoLibs.Sample.Android.Resource.Attribute.gapBetweenBars;
+			global::AoLibs.Camera.Android.Resource.Attribute.goIcon = global::AoLibs.Sample.Android.Resource.Attribute.goIcon;
+			global::AoLibs.Camera.Android.Resource.Attribute.height = global::AoLibs.Sample.Android.Resource.Attribute.height;
+			global::AoLibs.Camera.Android.Resource.Attribute.hideOnContentScroll = global::AoLibs.Sample.Android.Resource.Attribute.hideOnContentScroll;
+			global::AoLibs.Camera.Android.Resource.Attribute.homeAsUpIndicator = global::AoLibs.Sample.Android.Resource.Attribute.homeAsUpIndicator;
+			global::AoLibs.Camera.Android.Resource.Attribute.homeLayout = global::AoLibs.Sample.Android.Resource.Attribute.homeLayout;
+			global::AoLibs.Camera.Android.Resource.Attribute.icon = global::AoLibs.Sample.Android.Resource.Attribute.icon;
+			global::AoLibs.Camera.Android.Resource.Attribute.iconTint = global::AoLibs.Sample.Android.Resource.Attribute.iconTint;
+			global::AoLibs.Camera.Android.Resource.Attribute.iconTintMode = global::AoLibs.Sample.Android.Resource.Attribute.iconTintMode;
+			global::AoLibs.Camera.Android.Resource.Attribute.iconifiedByDefault = global::AoLibs.Sample.Android.Resource.Attribute.iconifiedByDefault;
+			global::AoLibs.Camera.Android.Resource.Attribute.imageButtonStyle = global::AoLibs.Sample.Android.Resource.Attribute.imageButtonStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.indeterminateProgressStyle = global::AoLibs.Sample.Android.Resource.Attribute.indeterminateProgressStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.initialActivityCount = global::AoLibs.Sample.Android.Resource.Attribute.initialActivityCount;
+			global::AoLibs.Camera.Android.Resource.Attribute.isLightTheme = global::AoLibs.Sample.Android.Resource.Attribute.isLightTheme;
+			global::AoLibs.Camera.Android.Resource.Attribute.itemPadding = global::AoLibs.Sample.Android.Resource.Attribute.itemPadding;
+			global::AoLibs.Camera.Android.Resource.Attribute.layout = global::AoLibs.Sample.Android.Resource.Attribute.layout;
+			global::AoLibs.Camera.Android.Resource.Attribute.listChoiceBackgroundIndicator = global::AoLibs.Sample.Android.Resource.Attribute.listChoiceBackgroundIndicator;
+			global::AoLibs.Camera.Android.Resource.Attribute.listDividerAlertDialog = global::AoLibs.Sample.Android.Resource.Attribute.listDividerAlertDialog;
+			global::AoLibs.Camera.Android.Resource.Attribute.listItemLayout = global::AoLibs.Sample.Android.Resource.Attribute.listItemLayout;
+			global::AoLibs.Camera.Android.Resource.Attribute.listLayout = global::AoLibs.Sample.Android.Resource.Attribute.listLayout;
+			global::AoLibs.Camera.Android.Resource.Attribute.listMenuViewStyle = global::AoLibs.Sample.Android.Resource.Attribute.listMenuViewStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.listPopupWindowStyle = global::AoLibs.Sample.Android.Resource.Attribute.listPopupWindowStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.listPreferredItemHeight = global::AoLibs.Sample.Android.Resource.Attribute.listPreferredItemHeight;
+			global::AoLibs.Camera.Android.Resource.Attribute.listPreferredItemHeightLarge = global::AoLibs.Sample.Android.Resource.Attribute.listPreferredItemHeightLarge;
+			global::AoLibs.Camera.Android.Resource.Attribute.listPreferredItemHeightSmall = global::AoLibs.Sample.Android.Resource.Attribute.listPreferredItemHeightSmall;
+			global::AoLibs.Camera.Android.Resource.Attribute.listPreferredItemPaddingLeft = global::AoLibs.Sample.Android.Resource.Attribute.listPreferredItemPaddingLeft;
+			global::AoLibs.Camera.Android.Resource.Attribute.listPreferredItemPaddingRight = global::AoLibs.Sample.Android.Resource.Attribute.listPreferredItemPaddingRight;
+			global::AoLibs.Camera.Android.Resource.Attribute.logo = global::AoLibs.Sample.Android.Resource.Attribute.logo;
+			global::AoLibs.Camera.Android.Resource.Attribute.logoDescription = global::AoLibs.Sample.Android.Resource.Attribute.logoDescription;
+			global::AoLibs.Camera.Android.Resource.Attribute.maxButtonHeight = global::AoLibs.Sample.Android.Resource.Attribute.maxButtonHeight;
+			global::AoLibs.Camera.Android.Resource.Attribute.measureWithLargestChild = global::AoLibs.Sample.Android.Resource.Attribute.measureWithLargestChild;
+			global::AoLibs.Camera.Android.Resource.Attribute.multiChoiceItemLayout = global::AoLibs.Sample.Android.Resource.Attribute.multiChoiceItemLayout;
+			global::AoLibs.Camera.Android.Resource.Attribute.navigationContentDescription = global::AoLibs.Sample.Android.Resource.Attribute.navigationContentDescription;
+			global::AoLibs.Camera.Android.Resource.Attribute.navigationIcon = global::AoLibs.Sample.Android.Resource.Attribute.navigationIcon;
+			global::AoLibs.Camera.Android.Resource.Attribute.navigationMode = global::AoLibs.Sample.Android.Resource.Attribute.navigationMode;
+			global::AoLibs.Camera.Android.Resource.Attribute.numericModifiers = global::AoLibs.Sample.Android.Resource.Attribute.numericModifiers;
+			global::AoLibs.Camera.Android.Resource.Attribute.overlapAnchor = global::AoLibs.Sample.Android.Resource.Attribute.overlapAnchor;
+			global::AoLibs.Camera.Android.Resource.Attribute.paddingBottomNoButtons = global::AoLibs.Sample.Android.Resource.Attribute.paddingBottomNoButtons;
+			global::AoLibs.Camera.Android.Resource.Attribute.paddingEnd = global::AoLibs.Sample.Android.Resource.Attribute.paddingEnd;
+			global::AoLibs.Camera.Android.Resource.Attribute.paddingStart = global::AoLibs.Sample.Android.Resource.Attribute.paddingStart;
+			global::AoLibs.Camera.Android.Resource.Attribute.paddingTopNoTitle = global::AoLibs.Sample.Android.Resource.Attribute.paddingTopNoTitle;
+			global::AoLibs.Camera.Android.Resource.Attribute.panelBackground = global::AoLibs.Sample.Android.Resource.Attribute.panelBackground;
+			global::AoLibs.Camera.Android.Resource.Attribute.panelMenuListTheme = global::AoLibs.Sample.Android.Resource.Attribute.panelMenuListTheme;
+			global::AoLibs.Camera.Android.Resource.Attribute.panelMenuListWidth = global::AoLibs.Sample.Android.Resource.Attribute.panelMenuListWidth;
+			global::AoLibs.Camera.Android.Resource.Attribute.popupMenuStyle = global::AoLibs.Sample.Android.Resource.Attribute.popupMenuStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.popupTheme = global::AoLibs.Sample.Android.Resource.Attribute.popupTheme;
+			global::AoLibs.Camera.Android.Resource.Attribute.popupWindowStyle = global::AoLibs.Sample.Android.Resource.Attribute.popupWindowStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.preserveIconSpacing = global::AoLibs.Sample.Android.Resource.Attribute.preserveIconSpacing;
+			global::AoLibs.Camera.Android.Resource.Attribute.progressBarPadding = global::AoLibs.Sample.Android.Resource.Attribute.progressBarPadding;
+			global::AoLibs.Camera.Android.Resource.Attribute.progressBarStyle = global::AoLibs.Sample.Android.Resource.Attribute.progressBarStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.queryBackground = global::AoLibs.Sample.Android.Resource.Attribute.queryBackground;
+			global::AoLibs.Camera.Android.Resource.Attribute.queryHint = global::AoLibs.Sample.Android.Resource.Attribute.queryHint;
+			global::AoLibs.Camera.Android.Resource.Attribute.radioButtonStyle = global::AoLibs.Sample.Android.Resource.Attribute.radioButtonStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.ratingBarStyle = global::AoLibs.Sample.Android.Resource.Attribute.ratingBarStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.ratingBarStyleIndicator = global::AoLibs.Sample.Android.Resource.Attribute.ratingBarStyleIndicator;
+			global::AoLibs.Camera.Android.Resource.Attribute.ratingBarStyleSmall = global::AoLibs.Sample.Android.Resource.Attribute.ratingBarStyleSmall;
+			global::AoLibs.Camera.Android.Resource.Attribute.searchHintIcon = global::AoLibs.Sample.Android.Resource.Attribute.searchHintIcon;
+			global::AoLibs.Camera.Android.Resource.Attribute.searchIcon = global::AoLibs.Sample.Android.Resource.Attribute.searchIcon;
+			global::AoLibs.Camera.Android.Resource.Attribute.searchViewStyle = global::AoLibs.Sample.Android.Resource.Attribute.searchViewStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.seekBarStyle = global::AoLibs.Sample.Android.Resource.Attribute.seekBarStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.selectableItemBackground = global::AoLibs.Sample.Android.Resource.Attribute.selectableItemBackground;
+			global::AoLibs.Camera.Android.Resource.Attribute.selectableItemBackgroundBorderless = global::AoLibs.Sample.Android.Resource.Attribute.selectableItemBackgroundBorderless;
+			global::AoLibs.Camera.Android.Resource.Attribute.showAsAction = global::AoLibs.Sample.Android.Resource.Attribute.showAsAction;
+			global::AoLibs.Camera.Android.Resource.Attribute.showDividers = global::AoLibs.Sample.Android.Resource.Attribute.showDividers;
+			global::AoLibs.Camera.Android.Resource.Attribute.showText = global::AoLibs.Sample.Android.Resource.Attribute.showText;
+			global::AoLibs.Camera.Android.Resource.Attribute.showTitle = global::AoLibs.Sample.Android.Resource.Attribute.showTitle;
+			global::AoLibs.Camera.Android.Resource.Attribute.singleChoiceItemLayout = global::AoLibs.Sample.Android.Resource.Attribute.singleChoiceItemLayout;
+			global::AoLibs.Camera.Android.Resource.Attribute.spinBars = global::AoLibs.Sample.Android.Resource.Attribute.spinBars;
+			global::AoLibs.Camera.Android.Resource.Attribute.spinnerDropDownItemStyle = global::AoLibs.Sample.Android.Resource.Attribute.spinnerDropDownItemStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.spinnerStyle = global::AoLibs.Sample.Android.Resource.Attribute.spinnerStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.splitTrack = global::AoLibs.Sample.Android.Resource.Attribute.splitTrack;
+			global::AoLibs.Camera.Android.Resource.Attribute.srcCompat = global::AoLibs.Sample.Android.Resource.Attribute.srcCompat;
+			global::AoLibs.Camera.Android.Resource.Attribute.state_above_anchor = global::AoLibs.Sample.Android.Resource.Attribute.state_above_anchor;
+			global::AoLibs.Camera.Android.Resource.Attribute.subMenuArrow = global::AoLibs.Sample.Android.Resource.Attribute.subMenuArrow;
+			global::AoLibs.Camera.Android.Resource.Attribute.submitBackground = global::AoLibs.Sample.Android.Resource.Attribute.submitBackground;
+			global::AoLibs.Camera.Android.Resource.Attribute.subtitle = global::AoLibs.Sample.Android.Resource.Attribute.subtitle;
+			global::AoLibs.Camera.Android.Resource.Attribute.subtitleTextAppearance = global::AoLibs.Sample.Android.Resource.Attribute.subtitleTextAppearance;
+			global::AoLibs.Camera.Android.Resource.Attribute.subtitleTextColor = global::AoLibs.Sample.Android.Resource.Attribute.subtitleTextColor;
+			global::AoLibs.Camera.Android.Resource.Attribute.subtitleTextStyle = global::AoLibs.Sample.Android.Resource.Attribute.subtitleTextStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.suggestionRowLayout = global::AoLibs.Sample.Android.Resource.Attribute.suggestionRowLayout;
+			global::AoLibs.Camera.Android.Resource.Attribute.switchMinWidth = global::AoLibs.Sample.Android.Resource.Attribute.switchMinWidth;
+			global::AoLibs.Camera.Android.Resource.Attribute.switchPadding = global::AoLibs.Sample.Android.Resource.Attribute.switchPadding;
+			global::AoLibs.Camera.Android.Resource.Attribute.switchStyle = global::AoLibs.Sample.Android.Resource.Attribute.switchStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.switchTextAppearance = global::AoLibs.Sample.Android.Resource.Attribute.switchTextAppearance;
+			global::AoLibs.Camera.Android.Resource.Attribute.textAllCaps = global::AoLibs.Sample.Android.Resource.Attribute.textAllCaps;
+			global::AoLibs.Camera.Android.Resource.Attribute.textAppearanceLargePopupMenu = global::AoLibs.Sample.Android.Resource.Attribute.textAppearanceLargePopupMenu;
+			global::AoLibs.Camera.Android.Resource.Attribute.textAppearanceListItem = global::AoLibs.Sample.Android.Resource.Attribute.textAppearanceListItem;
+			global::AoLibs.Camera.Android.Resource.Attribute.textAppearanceListItemSecondary = global::AoLibs.Sample.Android.Resource.Attribute.textAppearanceListItemSecondary;
+			global::AoLibs.Camera.Android.Resource.Attribute.textAppearanceListItemSmall = global::AoLibs.Sample.Android.Resource.Attribute.textAppearanceListItemSmall;
+			global::AoLibs.Camera.Android.Resource.Attribute.textAppearancePopupMenuHeader = global::AoLibs.Sample.Android.Resource.Attribute.textAppearancePopupMenuHeader;
+			global::AoLibs.Camera.Android.Resource.Attribute.textAppearanceSearchResultSubtitle = global::AoLibs.Sample.Android.Resource.Attribute.textAppearanceSearchResultSubtitle;
+			global::AoLibs.Camera.Android.Resource.Attribute.textAppearanceSearchResultTitle = global::AoLibs.Sample.Android.Resource.Attribute.textAppearanceSearchResultTitle;
+			global::AoLibs.Camera.Android.Resource.Attribute.textAppearanceSmallPopupMenu = global::AoLibs.Sample.Android.Resource.Attribute.textAppearanceSmallPopupMenu;
+			global::AoLibs.Camera.Android.Resource.Attribute.textColorAlertDialogListItem = global::AoLibs.Sample.Android.Resource.Attribute.textColorAlertDialogListItem;
+			global::AoLibs.Camera.Android.Resource.Attribute.textColorSearchUrl = global::AoLibs.Sample.Android.Resource.Attribute.textColorSearchUrl;
+			global::AoLibs.Camera.Android.Resource.Attribute.theme = global::AoLibs.Sample.Android.Resource.Attribute.theme;
+			global::AoLibs.Camera.Android.Resource.Attribute.thickness = global::AoLibs.Sample.Android.Resource.Attribute.thickness;
+			global::AoLibs.Camera.Android.Resource.Attribute.thumbTextPadding = global::AoLibs.Sample.Android.Resource.Attribute.thumbTextPadding;
+			global::AoLibs.Camera.Android.Resource.Attribute.thumbTint = global::AoLibs.Sample.Android.Resource.Attribute.thumbTint;
+			global::AoLibs.Camera.Android.Resource.Attribute.thumbTintMode = global::AoLibs.Sample.Android.Resource.Attribute.thumbTintMode;
+			global::AoLibs.Camera.Android.Resource.Attribute.tickMark = global::AoLibs.Sample.Android.Resource.Attribute.tickMark;
+			global::AoLibs.Camera.Android.Resource.Attribute.tickMarkTint = global::AoLibs.Sample.Android.Resource.Attribute.tickMarkTint;
+			global::AoLibs.Camera.Android.Resource.Attribute.tickMarkTintMode = global::AoLibs.Sample.Android.Resource.Attribute.tickMarkTintMode;
+			global::AoLibs.Camera.Android.Resource.Attribute.tint = global::AoLibs.Sample.Android.Resource.Attribute.tint;
+			global::AoLibs.Camera.Android.Resource.Attribute.tintMode = global::AoLibs.Sample.Android.Resource.Attribute.tintMode;
+			global::AoLibs.Camera.Android.Resource.Attribute.title = global::AoLibs.Sample.Android.Resource.Attribute.title;
+			global::AoLibs.Camera.Android.Resource.Attribute.titleMargin = global::AoLibs.Sample.Android.Resource.Attribute.titleMargin;
+			global::AoLibs.Camera.Android.Resource.Attribute.titleMarginBottom = global::AoLibs.Sample.Android.Resource.Attribute.titleMarginBottom;
+			global::AoLibs.Camera.Android.Resource.Attribute.titleMarginEnd = global::AoLibs.Sample.Android.Resource.Attribute.titleMarginEnd;
+			global::AoLibs.Camera.Android.Resource.Attribute.titleMarginStart = global::AoLibs.Sample.Android.Resource.Attribute.titleMarginStart;
+			global::AoLibs.Camera.Android.Resource.Attribute.titleMarginTop = global::AoLibs.Sample.Android.Resource.Attribute.titleMarginTop;
+			global::AoLibs.Camera.Android.Resource.Attribute.titleMargins = global::AoLibs.Sample.Android.Resource.Attribute.titleMargins;
+			global::AoLibs.Camera.Android.Resource.Attribute.titleTextAppearance = global::AoLibs.Sample.Android.Resource.Attribute.titleTextAppearance;
+			global::AoLibs.Camera.Android.Resource.Attribute.titleTextColor = global::AoLibs.Sample.Android.Resource.Attribute.titleTextColor;
+			global::AoLibs.Camera.Android.Resource.Attribute.titleTextStyle = global::AoLibs.Sample.Android.Resource.Attribute.titleTextStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.toolbarNavigationButtonStyle = global::AoLibs.Sample.Android.Resource.Attribute.toolbarNavigationButtonStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.toolbarStyle = global::AoLibs.Sample.Android.Resource.Attribute.toolbarStyle;
+			global::AoLibs.Camera.Android.Resource.Attribute.tooltipForegroundColor = global::AoLibs.Sample.Android.Resource.Attribute.tooltipForegroundColor;
+			global::AoLibs.Camera.Android.Resource.Attribute.tooltipFrameBackground = global::AoLibs.Sample.Android.Resource.Attribute.tooltipFrameBackground;
+			global::AoLibs.Camera.Android.Resource.Attribute.tooltipText = global::AoLibs.Sample.Android.Resource.Attribute.tooltipText;
+			global::AoLibs.Camera.Android.Resource.Attribute.track = global::AoLibs.Sample.Android.Resource.Attribute.track;
+			global::AoLibs.Camera.Android.Resource.Attribute.trackTint = global::AoLibs.Sample.Android.Resource.Attribute.trackTint;
+			global::AoLibs.Camera.Android.Resource.Attribute.trackTintMode = global::AoLibs.Sample.Android.Resource.Attribute.trackTintMode;
+			global::AoLibs.Camera.Android.Resource.Attribute.voiceIcon = global::AoLibs.Sample.Android.Resource.Attribute.voiceIcon;
+			global::AoLibs.Camera.Android.Resource.Attribute.windowActionBar = global::AoLibs.Sample.Android.Resource.Attribute.windowActionBar;
+			global::AoLibs.Camera.Android.Resource.Attribute.windowActionBarOverlay = global::AoLibs.Sample.Android.Resource.Attribute.windowActionBarOverlay;
+			global::AoLibs.Camera.Android.Resource.Attribute.windowActionModeOverlay = global::AoLibs.Sample.Android.Resource.Attribute.windowActionModeOverlay;
+			global::AoLibs.Camera.Android.Resource.Attribute.windowFixedHeightMajor = global::AoLibs.Sample.Android.Resource.Attribute.windowFixedHeightMajor;
+			global::AoLibs.Camera.Android.Resource.Attribute.windowFixedHeightMinor = global::AoLibs.Sample.Android.Resource.Attribute.windowFixedHeightMinor;
+			global::AoLibs.Camera.Android.Resource.Attribute.windowFixedWidthMajor = global::AoLibs.Sample.Android.Resource.Attribute.windowFixedWidthMajor;
+			global::AoLibs.Camera.Android.Resource.Attribute.windowFixedWidthMinor = global::AoLibs.Sample.Android.Resource.Attribute.windowFixedWidthMinor;
+			global::AoLibs.Camera.Android.Resource.Attribute.windowMinWidthMajor = global::AoLibs.Sample.Android.Resource.Attribute.windowMinWidthMajor;
+			global::AoLibs.Camera.Android.Resource.Attribute.windowMinWidthMinor = global::AoLibs.Sample.Android.Resource.Attribute.windowMinWidthMinor;
+			global::AoLibs.Camera.Android.Resource.Attribute.windowNoTitle = global::AoLibs.Sample.Android.Resource.Attribute.windowNoTitle;
+			global::AoLibs.Camera.Android.Resource.Boolean.abc_action_bar_embed_tabs = global::AoLibs.Sample.Android.Resource.Boolean.abc_action_bar_embed_tabs;
+			global::AoLibs.Camera.Android.Resource.Boolean.abc_allow_stacked_button_bar = global::AoLibs.Sample.Android.Resource.Boolean.abc_allow_stacked_button_bar;
+			global::AoLibs.Camera.Android.Resource.Boolean.abc_config_actionMenuItemAllCaps = global::AoLibs.Sample.Android.Resource.Boolean.abc_config_actionMenuItemAllCaps;
+			global::AoLibs.Camera.Android.Resource.Color.abc_background_cache_hint_selector_material_dark = global::AoLibs.Sample.Android.Resource.Color.abc_background_cache_hint_selector_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.abc_background_cache_hint_selector_material_light = global::AoLibs.Sample.Android.Resource.Color.abc_background_cache_hint_selector_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.abc_btn_colored_borderless_text_material = global::AoLibs.Sample.Android.Resource.Color.abc_btn_colored_borderless_text_material;
+			global::AoLibs.Camera.Android.Resource.Color.abc_btn_colored_text_material = global::AoLibs.Sample.Android.Resource.Color.abc_btn_colored_text_material;
+			global::AoLibs.Camera.Android.Resource.Color.abc_color_highlight_material = global::AoLibs.Sample.Android.Resource.Color.abc_color_highlight_material;
+			global::AoLibs.Camera.Android.Resource.Color.abc_hint_foreground_material_dark = global::AoLibs.Sample.Android.Resource.Color.abc_hint_foreground_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.abc_hint_foreground_material_light = global::AoLibs.Sample.Android.Resource.Color.abc_hint_foreground_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.abc_input_method_navigation_guard = global::AoLibs.Sample.Android.Resource.Color.abc_input_method_navigation_guard;
+			global::AoLibs.Camera.Android.Resource.Color.abc_primary_text_disable_only_material_dark = global::AoLibs.Sample.Android.Resource.Color.abc_primary_text_disable_only_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.abc_primary_text_disable_only_material_light = global::AoLibs.Sample.Android.Resource.Color.abc_primary_text_disable_only_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.abc_primary_text_material_dark = global::AoLibs.Sample.Android.Resource.Color.abc_primary_text_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.abc_primary_text_material_light = global::AoLibs.Sample.Android.Resource.Color.abc_primary_text_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.abc_search_url_text = global::AoLibs.Sample.Android.Resource.Color.abc_search_url_text;
+			global::AoLibs.Camera.Android.Resource.Color.abc_search_url_text_normal = global::AoLibs.Sample.Android.Resource.Color.abc_search_url_text_normal;
+			global::AoLibs.Camera.Android.Resource.Color.abc_search_url_text_pressed = global::AoLibs.Sample.Android.Resource.Color.abc_search_url_text_pressed;
+			global::AoLibs.Camera.Android.Resource.Color.abc_search_url_text_selected = global::AoLibs.Sample.Android.Resource.Color.abc_search_url_text_selected;
+			global::AoLibs.Camera.Android.Resource.Color.abc_secondary_text_material_dark = global::AoLibs.Sample.Android.Resource.Color.abc_secondary_text_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.abc_secondary_text_material_light = global::AoLibs.Sample.Android.Resource.Color.abc_secondary_text_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.abc_tint_btn_checkable = global::AoLibs.Sample.Android.Resource.Color.abc_tint_btn_checkable;
+			global::AoLibs.Camera.Android.Resource.Color.abc_tint_default = global::AoLibs.Sample.Android.Resource.Color.abc_tint_default;
+			global::AoLibs.Camera.Android.Resource.Color.abc_tint_edittext = global::AoLibs.Sample.Android.Resource.Color.abc_tint_edittext;
+			global::AoLibs.Camera.Android.Resource.Color.abc_tint_seek_thumb = global::AoLibs.Sample.Android.Resource.Color.abc_tint_seek_thumb;
+			global::AoLibs.Camera.Android.Resource.Color.abc_tint_spinner = global::AoLibs.Sample.Android.Resource.Color.abc_tint_spinner;
+			global::AoLibs.Camera.Android.Resource.Color.abc_tint_switch_track = global::AoLibs.Sample.Android.Resource.Color.abc_tint_switch_track;
+			global::AoLibs.Camera.Android.Resource.Color.accent_material_dark = global::AoLibs.Sample.Android.Resource.Color.accent_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.accent_material_light = global::AoLibs.Sample.Android.Resource.Color.accent_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.background_floating_material_dark = global::AoLibs.Sample.Android.Resource.Color.background_floating_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.background_floating_material_light = global::AoLibs.Sample.Android.Resource.Color.background_floating_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.background_material_dark = global::AoLibs.Sample.Android.Resource.Color.background_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.background_material_light = global::AoLibs.Sample.Android.Resource.Color.background_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.bright_foreground_disabled_material_dark = global::AoLibs.Sample.Android.Resource.Color.bright_foreground_disabled_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.bright_foreground_disabled_material_light = global::AoLibs.Sample.Android.Resource.Color.bright_foreground_disabled_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.bright_foreground_inverse_material_dark = global::AoLibs.Sample.Android.Resource.Color.bright_foreground_inverse_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.bright_foreground_inverse_material_light = global::AoLibs.Sample.Android.Resource.Color.bright_foreground_inverse_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.bright_foreground_material_dark = global::AoLibs.Sample.Android.Resource.Color.bright_foreground_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.bright_foreground_material_light = global::AoLibs.Sample.Android.Resource.Color.bright_foreground_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.button_material_dark = global::AoLibs.Sample.Android.Resource.Color.button_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.button_material_light = global::AoLibs.Sample.Android.Resource.Color.button_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.dim_foreground_disabled_material_dark = global::AoLibs.Sample.Android.Resource.Color.dim_foreground_disabled_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.dim_foreground_disabled_material_light = global::AoLibs.Sample.Android.Resource.Color.dim_foreground_disabled_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.dim_foreground_material_dark = global::AoLibs.Sample.Android.Resource.Color.dim_foreground_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.dim_foreground_material_light = global::AoLibs.Sample.Android.Resource.Color.dim_foreground_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.foreground_material_dark = global::AoLibs.Sample.Android.Resource.Color.foreground_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.foreground_material_light = global::AoLibs.Sample.Android.Resource.Color.foreground_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.highlighted_text_material_dark = global::AoLibs.Sample.Android.Resource.Color.highlighted_text_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.highlighted_text_material_light = global::AoLibs.Sample.Android.Resource.Color.highlighted_text_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.material_blue_grey_800 = global::AoLibs.Sample.Android.Resource.Color.material_blue_grey_800;
+			global::AoLibs.Camera.Android.Resource.Color.material_blue_grey_900 = global::AoLibs.Sample.Android.Resource.Color.material_blue_grey_900;
+			global::AoLibs.Camera.Android.Resource.Color.material_blue_grey_950 = global::AoLibs.Sample.Android.Resource.Color.material_blue_grey_950;
+			global::AoLibs.Camera.Android.Resource.Color.material_deep_teal_200 = global::AoLibs.Sample.Android.Resource.Color.material_deep_teal_200;
+			global::AoLibs.Camera.Android.Resource.Color.material_deep_teal_500 = global::AoLibs.Sample.Android.Resource.Color.material_deep_teal_500;
+			global::AoLibs.Camera.Android.Resource.Color.material_grey_100 = global::AoLibs.Sample.Android.Resource.Color.material_grey_100;
+			global::AoLibs.Camera.Android.Resource.Color.material_grey_300 = global::AoLibs.Sample.Android.Resource.Color.material_grey_300;
+			global::AoLibs.Camera.Android.Resource.Color.material_grey_50 = global::AoLibs.Sample.Android.Resource.Color.material_grey_50;
+			global::AoLibs.Camera.Android.Resource.Color.material_grey_600 = global::AoLibs.Sample.Android.Resource.Color.material_grey_600;
+			global::AoLibs.Camera.Android.Resource.Color.material_grey_800 = global::AoLibs.Sample.Android.Resource.Color.material_grey_800;
+			global::AoLibs.Camera.Android.Resource.Color.material_grey_850 = global::AoLibs.Sample.Android.Resource.Color.material_grey_850;
+			global::AoLibs.Camera.Android.Resource.Color.material_grey_900 = global::AoLibs.Sample.Android.Resource.Color.material_grey_900;
+			global::AoLibs.Camera.Android.Resource.Color.notification_action_color_filter = global::AoLibs.Sample.Android.Resource.Color.notification_action_color_filter;
+			global::AoLibs.Camera.Android.Resource.Color.notification_icon_bg_color = global::AoLibs.Sample.Android.Resource.Color.notification_icon_bg_color;
+			global::AoLibs.Camera.Android.Resource.Color.primary_dark_material_dark = global::AoLibs.Sample.Android.Resource.Color.primary_dark_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.primary_dark_material_light = global::AoLibs.Sample.Android.Resource.Color.primary_dark_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.primary_material_dark = global::AoLibs.Sample.Android.Resource.Color.primary_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.primary_material_light = global::AoLibs.Sample.Android.Resource.Color.primary_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.primary_text_default_material_dark = global::AoLibs.Sample.Android.Resource.Color.primary_text_default_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.primary_text_default_material_light = global::AoLibs.Sample.Android.Resource.Color.primary_text_default_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.primary_text_disabled_material_dark = global::AoLibs.Sample.Android.Resource.Color.primary_text_disabled_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.primary_text_disabled_material_light = global::AoLibs.Sample.Android.Resource.Color.primary_text_disabled_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.ripple_material_dark = global::AoLibs.Sample.Android.Resource.Color.ripple_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.ripple_material_light = global::AoLibs.Sample.Android.Resource.Color.ripple_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.secondary_text_default_material_dark = global::AoLibs.Sample.Android.Resource.Color.secondary_text_default_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.secondary_text_default_material_light = global::AoLibs.Sample.Android.Resource.Color.secondary_text_default_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.secondary_text_disabled_material_dark = global::AoLibs.Sample.Android.Resource.Color.secondary_text_disabled_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.secondary_text_disabled_material_light = global::AoLibs.Sample.Android.Resource.Color.secondary_text_disabled_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.switch_thumb_disabled_material_dark = global::AoLibs.Sample.Android.Resource.Color.switch_thumb_disabled_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.switch_thumb_disabled_material_light = global::AoLibs.Sample.Android.Resource.Color.switch_thumb_disabled_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.switch_thumb_material_dark = global::AoLibs.Sample.Android.Resource.Color.switch_thumb_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.switch_thumb_material_light = global::AoLibs.Sample.Android.Resource.Color.switch_thumb_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.switch_thumb_normal_material_dark = global::AoLibs.Sample.Android.Resource.Color.switch_thumb_normal_material_dark;
+			global::AoLibs.Camera.Android.Resource.Color.switch_thumb_normal_material_light = global::AoLibs.Sample.Android.Resource.Color.switch_thumb_normal_material_light;
+			global::AoLibs.Camera.Android.Resource.Color.tooltip_background_dark = global::AoLibs.Sample.Android.Resource.Color.tooltip_background_dark;
+			global::AoLibs.Camera.Android.Resource.Color.tooltip_background_light = global::AoLibs.Sample.Android.Resource.Color.tooltip_background_light;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_action_bar_content_inset_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_action_bar_content_inset_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_action_bar_content_inset_with_nav = global::AoLibs.Sample.Android.Resource.Dimension.abc_action_bar_content_inset_with_nav;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_action_bar_default_height_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_action_bar_default_height_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_action_bar_default_padding_end_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_action_bar_default_padding_end_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_action_bar_default_padding_start_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_action_bar_default_padding_start_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_action_bar_elevation_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_action_bar_elevation_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_action_bar_icon_vertical_padding_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_action_bar_icon_vertical_padding_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_action_bar_overflow_padding_end_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_action_bar_overflow_padding_end_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_action_bar_overflow_padding_start_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_action_bar_overflow_padding_start_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_action_bar_stacked_max_height = global::AoLibs.Sample.Android.Resource.Dimension.abc_action_bar_stacked_max_height;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_action_bar_stacked_tab_max_width = global::AoLibs.Sample.Android.Resource.Dimension.abc_action_bar_stacked_tab_max_width;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_action_bar_subtitle_bottom_margin_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_action_bar_subtitle_bottom_margin_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_action_bar_subtitle_top_margin_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_action_bar_subtitle_top_margin_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_action_button_min_height_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_action_button_min_height_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_action_button_min_width_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_action_button_min_width_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_action_button_min_width_overflow_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_action_button_min_width_overflow_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_alert_dialog_button_bar_height = global::AoLibs.Sample.Android.Resource.Dimension.abc_alert_dialog_button_bar_height;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_button_inset_horizontal_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_button_inset_horizontal_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_button_inset_vertical_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_button_inset_vertical_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_button_padding_horizontal_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_button_padding_horizontal_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_button_padding_vertical_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_button_padding_vertical_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_cascading_menus_min_smallest_width = global::AoLibs.Sample.Android.Resource.Dimension.abc_cascading_menus_min_smallest_width;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_config_prefDialogWidth = global::AoLibs.Sample.Android.Resource.Dimension.abc_config_prefDialogWidth;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_control_corner_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_control_corner_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_control_inset_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_control_inset_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_control_padding_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_control_padding_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_dialog_fixed_height_major = global::AoLibs.Sample.Android.Resource.Dimension.abc_dialog_fixed_height_major;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_dialog_fixed_height_minor = global::AoLibs.Sample.Android.Resource.Dimension.abc_dialog_fixed_height_minor;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_dialog_fixed_width_major = global::AoLibs.Sample.Android.Resource.Dimension.abc_dialog_fixed_width_major;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_dialog_fixed_width_minor = global::AoLibs.Sample.Android.Resource.Dimension.abc_dialog_fixed_width_minor;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_dialog_list_padding_bottom_no_buttons = global::AoLibs.Sample.Android.Resource.Dimension.abc_dialog_list_padding_bottom_no_buttons;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_dialog_list_padding_top_no_title = global::AoLibs.Sample.Android.Resource.Dimension.abc_dialog_list_padding_top_no_title;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_dialog_min_width_major = global::AoLibs.Sample.Android.Resource.Dimension.abc_dialog_min_width_major;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_dialog_min_width_minor = global::AoLibs.Sample.Android.Resource.Dimension.abc_dialog_min_width_minor;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_dialog_padding_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_dialog_padding_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_dialog_padding_top_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_dialog_padding_top_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_dialog_title_divider_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_dialog_title_divider_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_disabled_alpha_material_dark = global::AoLibs.Sample.Android.Resource.Dimension.abc_disabled_alpha_material_dark;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_disabled_alpha_material_light = global::AoLibs.Sample.Android.Resource.Dimension.abc_disabled_alpha_material_light;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_dropdownitem_icon_width = global::AoLibs.Sample.Android.Resource.Dimension.abc_dropdownitem_icon_width;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_dropdownitem_text_padding_left = global::AoLibs.Sample.Android.Resource.Dimension.abc_dropdownitem_text_padding_left;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_dropdownitem_text_padding_right = global::AoLibs.Sample.Android.Resource.Dimension.abc_dropdownitem_text_padding_right;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_edit_text_inset_bottom_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_edit_text_inset_bottom_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_edit_text_inset_horizontal_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_edit_text_inset_horizontal_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_edit_text_inset_top_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_edit_text_inset_top_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_floating_window_z = global::AoLibs.Sample.Android.Resource.Dimension.abc_floating_window_z;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_list_item_padding_horizontal_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_list_item_padding_horizontal_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_panel_menu_list_width = global::AoLibs.Sample.Android.Resource.Dimension.abc_panel_menu_list_width;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_progress_bar_height_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_progress_bar_height_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_search_view_preferred_height = global::AoLibs.Sample.Android.Resource.Dimension.abc_search_view_preferred_height;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_search_view_preferred_width = global::AoLibs.Sample.Android.Resource.Dimension.abc_search_view_preferred_width;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_seekbar_track_background_height_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_seekbar_track_background_height_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_seekbar_track_progress_height_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_seekbar_track_progress_height_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_select_dialog_padding_start_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_select_dialog_padding_start_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_switch_padding = global::AoLibs.Sample.Android.Resource.Dimension.abc_switch_padding;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_text_size_body_1_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_text_size_body_1_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_text_size_body_2_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_text_size_body_2_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_text_size_button_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_text_size_button_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_text_size_caption_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_text_size_caption_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_text_size_display_1_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_text_size_display_1_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_text_size_display_2_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_text_size_display_2_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_text_size_display_3_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_text_size_display_3_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_text_size_display_4_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_text_size_display_4_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_text_size_headline_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_text_size_headline_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_text_size_large_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_text_size_large_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_text_size_medium_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_text_size_medium_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_text_size_menu_header_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_text_size_menu_header_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_text_size_menu_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_text_size_menu_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_text_size_small_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_text_size_small_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_text_size_subhead_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_text_size_subhead_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_text_size_subtitle_material_toolbar = global::AoLibs.Sample.Android.Resource.Dimension.abc_text_size_subtitle_material_toolbar;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_text_size_title_material = global::AoLibs.Sample.Android.Resource.Dimension.abc_text_size_title_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.abc_text_size_title_material_toolbar = global::AoLibs.Sample.Android.Resource.Dimension.abc_text_size_title_material_toolbar;
+			global::AoLibs.Camera.Android.Resource.Dimension.compat_button_inset_horizontal_material = global::AoLibs.Sample.Android.Resource.Dimension.compat_button_inset_horizontal_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.compat_button_inset_vertical_material = global::AoLibs.Sample.Android.Resource.Dimension.compat_button_inset_vertical_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.compat_button_padding_horizontal_material = global::AoLibs.Sample.Android.Resource.Dimension.compat_button_padding_horizontal_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.compat_button_padding_vertical_material = global::AoLibs.Sample.Android.Resource.Dimension.compat_button_padding_vertical_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.compat_control_corner_material = global::AoLibs.Sample.Android.Resource.Dimension.compat_control_corner_material;
+			global::AoLibs.Camera.Android.Resource.Dimension.disabled_alpha_material_dark = global::AoLibs.Sample.Android.Resource.Dimension.disabled_alpha_material_dark;
+			global::AoLibs.Camera.Android.Resource.Dimension.disabled_alpha_material_light = global::AoLibs.Sample.Android.Resource.Dimension.disabled_alpha_material_light;
+			global::AoLibs.Camera.Android.Resource.Dimension.highlight_alpha_material_colored = global::AoLibs.Sample.Android.Resource.Dimension.highlight_alpha_material_colored;
+			global::AoLibs.Camera.Android.Resource.Dimension.highlight_alpha_material_dark = global::AoLibs.Sample.Android.Resource.Dimension.highlight_alpha_material_dark;
+			global::AoLibs.Camera.Android.Resource.Dimension.highlight_alpha_material_light = global::AoLibs.Sample.Android.Resource.Dimension.highlight_alpha_material_light;
+			global::AoLibs.Camera.Android.Resource.Dimension.hint_alpha_material_dark = global::AoLibs.Sample.Android.Resource.Dimension.hint_alpha_material_dark;
+			global::AoLibs.Camera.Android.Resource.Dimension.hint_alpha_material_light = global::AoLibs.Sample.Android.Resource.Dimension.hint_alpha_material_light;
+			global::AoLibs.Camera.Android.Resource.Dimension.hint_pressed_alpha_material_dark = global::AoLibs.Sample.Android.Resource.Dimension.hint_pressed_alpha_material_dark;
+			global::AoLibs.Camera.Android.Resource.Dimension.hint_pressed_alpha_material_light = global::AoLibs.Sample.Android.Resource.Dimension.hint_pressed_alpha_material_light;
+			global::AoLibs.Camera.Android.Resource.Dimension.notification_action_icon_size = global::AoLibs.Sample.Android.Resource.Dimension.notification_action_icon_size;
+			global::AoLibs.Camera.Android.Resource.Dimension.notification_action_text_size = global::AoLibs.Sample.Android.Resource.Dimension.notification_action_text_size;
+			global::AoLibs.Camera.Android.Resource.Dimension.notification_big_circle_margin = global::AoLibs.Sample.Android.Resource.Dimension.notification_big_circle_margin;
+			global::AoLibs.Camera.Android.Resource.Dimension.notification_content_margin_start = global::AoLibs.Sample.Android.Resource.Dimension.notification_content_margin_start;
+			global::AoLibs.Camera.Android.Resource.Dimension.notification_large_icon_height = global::AoLibs.Sample.Android.Resource.Dimension.notification_large_icon_height;
+			global::AoLibs.Camera.Android.Resource.Dimension.notification_large_icon_width = global::AoLibs.Sample.Android.Resource.Dimension.notification_large_icon_width;
+			global::AoLibs.Camera.Android.Resource.Dimension.notification_main_column_padding_top = global::AoLibs.Sample.Android.Resource.Dimension.notification_main_column_padding_top;
+			global::AoLibs.Camera.Android.Resource.Dimension.notification_media_narrow_margin = global::AoLibs.Sample.Android.Resource.Dimension.notification_media_narrow_margin;
+			global::AoLibs.Camera.Android.Resource.Dimension.notification_right_icon_size = global::AoLibs.Sample.Android.Resource.Dimension.notification_right_icon_size;
+			global::AoLibs.Camera.Android.Resource.Dimension.notification_right_side_padding_top = global::AoLibs.Sample.Android.Resource.Dimension.notification_right_side_padding_top;
+			global::AoLibs.Camera.Android.Resource.Dimension.notification_small_icon_background_padding = global::AoLibs.Sample.Android.Resource.Dimension.notification_small_icon_background_padding;
+			global::AoLibs.Camera.Android.Resource.Dimension.notification_small_icon_size_as_large = global::AoLibs.Sample.Android.Resource.Dimension.notification_small_icon_size_as_large;
+			global::AoLibs.Camera.Android.Resource.Dimension.notification_subtext_size = global::AoLibs.Sample.Android.Resource.Dimension.notification_subtext_size;
+			global::AoLibs.Camera.Android.Resource.Dimension.notification_top_pad = global::AoLibs.Sample.Android.Resource.Dimension.notification_top_pad;
+			global::AoLibs.Camera.Android.Resource.Dimension.notification_top_pad_large_text = global::AoLibs.Sample.Android.Resource.Dimension.notification_top_pad_large_text;
+			global::AoLibs.Camera.Android.Resource.Dimension.tooltip_corner_radius = global::AoLibs.Sample.Android.Resource.Dimension.tooltip_corner_radius;
+			global::AoLibs.Camera.Android.Resource.Dimension.tooltip_horizontal_padding = global::AoLibs.Sample.Android.Resource.Dimension.tooltip_horizontal_padding;
+			global::AoLibs.Camera.Android.Resource.Dimension.tooltip_margin = global::AoLibs.Sample.Android.Resource.Dimension.tooltip_margin;
+			global::AoLibs.Camera.Android.Resource.Dimension.tooltip_precise_anchor_extra_offset = global::AoLibs.Sample.Android.Resource.Dimension.tooltip_precise_anchor_extra_offset;
+			global::AoLibs.Camera.Android.Resource.Dimension.tooltip_precise_anchor_threshold = global::AoLibs.Sample.Android.Resource.Dimension.tooltip_precise_anchor_threshold;
+			global::AoLibs.Camera.Android.Resource.Dimension.tooltip_vertical_padding = global::AoLibs.Sample.Android.Resource.Dimension.tooltip_vertical_padding;
+			global::AoLibs.Camera.Android.Resource.Dimension.tooltip_y_offset_non_touch = global::AoLibs.Sample.Android.Resource.Dimension.tooltip_y_offset_non_touch;
+			global::AoLibs.Camera.Android.Resource.Dimension.tooltip_y_offset_touch = global::AoLibs.Sample.Android.Resource.Dimension.tooltip_y_offset_touch;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_ab_share_pack_mtrl_alpha = global::AoLibs.Sample.Android.Resource.Drawable.abc_ab_share_pack_mtrl_alpha;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_action_bar_item_background_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_action_bar_item_background_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_btn_borderless_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_btn_borderless_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_btn_check_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_btn_check_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_btn_check_to_on_mtrl_000 = global::AoLibs.Sample.Android.Resource.Drawable.abc_btn_check_to_on_mtrl_000;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_btn_check_to_on_mtrl_015 = global::AoLibs.Sample.Android.Resource.Drawable.abc_btn_check_to_on_mtrl_015;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_btn_colored_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_btn_colored_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_btn_default_mtrl_shape = global::AoLibs.Sample.Android.Resource.Drawable.abc_btn_default_mtrl_shape;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_btn_radio_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_btn_radio_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_btn_radio_to_on_mtrl_000 = global::AoLibs.Sample.Android.Resource.Drawable.abc_btn_radio_to_on_mtrl_000;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_btn_radio_to_on_mtrl_015 = global::AoLibs.Sample.Android.Resource.Drawable.abc_btn_radio_to_on_mtrl_015;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_btn_switch_to_on_mtrl_00001 = global::AoLibs.Sample.Android.Resource.Drawable.abc_btn_switch_to_on_mtrl_00001;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_btn_switch_to_on_mtrl_00012 = global::AoLibs.Sample.Android.Resource.Drawable.abc_btn_switch_to_on_mtrl_00012;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_cab_background_internal_bg = global::AoLibs.Sample.Android.Resource.Drawable.abc_cab_background_internal_bg;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_cab_background_top_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_cab_background_top_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_cab_background_top_mtrl_alpha = global::AoLibs.Sample.Android.Resource.Drawable.abc_cab_background_top_mtrl_alpha;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_control_background_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_control_background_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_dialog_material_background = global::AoLibs.Sample.Android.Resource.Drawable.abc_dialog_material_background;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_edit_text_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_edit_text_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_ic_ab_back_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_ic_ab_back_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_ic_arrow_drop_right_black_24dp = global::AoLibs.Sample.Android.Resource.Drawable.abc_ic_arrow_drop_right_black_24dp;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_ic_clear_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_ic_clear_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_ic_commit_search_api_mtrl_alpha = global::AoLibs.Sample.Android.Resource.Drawable.abc_ic_commit_search_api_mtrl_alpha;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_ic_go_search_api_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_ic_go_search_api_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_ic_menu_copy_mtrl_am_alpha = global::AoLibs.Sample.Android.Resource.Drawable.abc_ic_menu_copy_mtrl_am_alpha;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_ic_menu_cut_mtrl_alpha = global::AoLibs.Sample.Android.Resource.Drawable.abc_ic_menu_cut_mtrl_alpha;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_ic_menu_overflow_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_ic_menu_overflow_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_ic_menu_paste_mtrl_am_alpha = global::AoLibs.Sample.Android.Resource.Drawable.abc_ic_menu_paste_mtrl_am_alpha;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_ic_menu_selectall_mtrl_alpha = global::AoLibs.Sample.Android.Resource.Drawable.abc_ic_menu_selectall_mtrl_alpha;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_ic_menu_share_mtrl_alpha = global::AoLibs.Sample.Android.Resource.Drawable.abc_ic_menu_share_mtrl_alpha;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_ic_search_api_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_ic_search_api_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_ic_star_black_16dp = global::AoLibs.Sample.Android.Resource.Drawable.abc_ic_star_black_16dp;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_ic_star_black_36dp = global::AoLibs.Sample.Android.Resource.Drawable.abc_ic_star_black_36dp;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_ic_star_black_48dp = global::AoLibs.Sample.Android.Resource.Drawable.abc_ic_star_black_48dp;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_ic_star_half_black_16dp = global::AoLibs.Sample.Android.Resource.Drawable.abc_ic_star_half_black_16dp;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_ic_star_half_black_36dp = global::AoLibs.Sample.Android.Resource.Drawable.abc_ic_star_half_black_36dp;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_ic_star_half_black_48dp = global::AoLibs.Sample.Android.Resource.Drawable.abc_ic_star_half_black_48dp;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_ic_voice_search_api_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_ic_voice_search_api_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_item_background_holo_dark = global::AoLibs.Sample.Android.Resource.Drawable.abc_item_background_holo_dark;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_item_background_holo_light = global::AoLibs.Sample.Android.Resource.Drawable.abc_item_background_holo_light;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_list_divider_mtrl_alpha = global::AoLibs.Sample.Android.Resource.Drawable.abc_list_divider_mtrl_alpha;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_list_focused_holo = global::AoLibs.Sample.Android.Resource.Drawable.abc_list_focused_holo;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_list_longpressed_holo = global::AoLibs.Sample.Android.Resource.Drawable.abc_list_longpressed_holo;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_list_pressed_holo_dark = global::AoLibs.Sample.Android.Resource.Drawable.abc_list_pressed_holo_dark;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_list_pressed_holo_light = global::AoLibs.Sample.Android.Resource.Drawable.abc_list_pressed_holo_light;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_list_selector_background_transition_holo_dark = global::AoLibs.Sample.Android.Resource.Drawable.abc_list_selector_background_transition_holo_dark;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_list_selector_background_transition_holo_light = global::AoLibs.Sample.Android.Resource.Drawable.abc_list_selector_background_transition_holo_light;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_list_selector_disabled_holo_dark = global::AoLibs.Sample.Android.Resource.Drawable.abc_list_selector_disabled_holo_dark;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_list_selector_disabled_holo_light = global::AoLibs.Sample.Android.Resource.Drawable.abc_list_selector_disabled_holo_light;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_list_selector_holo_dark = global::AoLibs.Sample.Android.Resource.Drawable.abc_list_selector_holo_dark;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_list_selector_holo_light = global::AoLibs.Sample.Android.Resource.Drawable.abc_list_selector_holo_light;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_menu_hardkey_panel_mtrl_mult = global::AoLibs.Sample.Android.Resource.Drawable.abc_menu_hardkey_panel_mtrl_mult;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_popup_background_mtrl_mult = global::AoLibs.Sample.Android.Resource.Drawable.abc_popup_background_mtrl_mult;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_ratingbar_indicator_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_ratingbar_indicator_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_ratingbar_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_ratingbar_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_ratingbar_small_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_ratingbar_small_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_scrubber_control_off_mtrl_alpha = global::AoLibs.Sample.Android.Resource.Drawable.abc_scrubber_control_off_mtrl_alpha;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_000 = global::AoLibs.Sample.Android.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_000;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_005 = global::AoLibs.Sample.Android.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_005;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_scrubber_primary_mtrl_alpha = global::AoLibs.Sample.Android.Resource.Drawable.abc_scrubber_primary_mtrl_alpha;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_scrubber_track_mtrl_alpha = global::AoLibs.Sample.Android.Resource.Drawable.abc_scrubber_track_mtrl_alpha;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_seekbar_thumb_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_seekbar_thumb_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_seekbar_tick_mark_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_seekbar_tick_mark_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_seekbar_track_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_seekbar_track_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_spinner_mtrl_am_alpha = global::AoLibs.Sample.Android.Resource.Drawable.abc_spinner_mtrl_am_alpha;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_spinner_textfield_background_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_spinner_textfield_background_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_switch_thumb_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_switch_thumb_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_switch_track_mtrl_alpha = global::AoLibs.Sample.Android.Resource.Drawable.abc_switch_track_mtrl_alpha;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_tab_indicator_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_tab_indicator_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_tab_indicator_mtrl_alpha = global::AoLibs.Sample.Android.Resource.Drawable.abc_tab_indicator_mtrl_alpha;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_text_cursor_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_text_cursor_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_text_select_handle_left_mtrl_dark = global::AoLibs.Sample.Android.Resource.Drawable.abc_text_select_handle_left_mtrl_dark;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_text_select_handle_left_mtrl_light = global::AoLibs.Sample.Android.Resource.Drawable.abc_text_select_handle_left_mtrl_light;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_text_select_handle_middle_mtrl_dark = global::AoLibs.Sample.Android.Resource.Drawable.abc_text_select_handle_middle_mtrl_dark;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_text_select_handle_middle_mtrl_light = global::AoLibs.Sample.Android.Resource.Drawable.abc_text_select_handle_middle_mtrl_light;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_text_select_handle_right_mtrl_dark = global::AoLibs.Sample.Android.Resource.Drawable.abc_text_select_handle_right_mtrl_dark;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_text_select_handle_right_mtrl_light = global::AoLibs.Sample.Android.Resource.Drawable.abc_text_select_handle_right_mtrl_light;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_textfield_activated_mtrl_alpha = global::AoLibs.Sample.Android.Resource.Drawable.abc_textfield_activated_mtrl_alpha;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_textfield_default_mtrl_alpha = global::AoLibs.Sample.Android.Resource.Drawable.abc_textfield_default_mtrl_alpha;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_textfield_search_activated_mtrl_alpha = global::AoLibs.Sample.Android.Resource.Drawable.abc_textfield_search_activated_mtrl_alpha;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_textfield_search_default_mtrl_alpha = global::AoLibs.Sample.Android.Resource.Drawable.abc_textfield_search_default_mtrl_alpha;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_textfield_search_material = global::AoLibs.Sample.Android.Resource.Drawable.abc_textfield_search_material;
+			global::AoLibs.Camera.Android.Resource.Drawable.abc_vector_test = global::AoLibs.Sample.Android.Resource.Drawable.abc_vector_test;
+			global::AoLibs.Camera.Android.Resource.Drawable.notification_action_background = global::AoLibs.Sample.Android.Resource.Drawable.notification_action_background;
+			global::AoLibs.Camera.Android.Resource.Drawable.notification_bg = global::AoLibs.Sample.Android.Resource.Drawable.notification_bg;
+			global::AoLibs.Camera.Android.Resource.Drawable.notification_bg_low = global::AoLibs.Sample.Android.Resource.Drawable.notification_bg_low;
+			global::AoLibs.Camera.Android.Resource.Drawable.notification_bg_low_normal = global::AoLibs.Sample.Android.Resource.Drawable.notification_bg_low_normal;
+			global::AoLibs.Camera.Android.Resource.Drawable.notification_bg_low_pressed = global::AoLibs.Sample.Android.Resource.Drawable.notification_bg_low_pressed;
+			global::AoLibs.Camera.Android.Resource.Drawable.notification_bg_normal = global::AoLibs.Sample.Android.Resource.Drawable.notification_bg_normal;
+			global::AoLibs.Camera.Android.Resource.Drawable.notification_bg_normal_pressed = global::AoLibs.Sample.Android.Resource.Drawable.notification_bg_normal_pressed;
+			global::AoLibs.Camera.Android.Resource.Drawable.notification_icon_background = global::AoLibs.Sample.Android.Resource.Drawable.notification_icon_background;
+			global::AoLibs.Camera.Android.Resource.Drawable.notification_template_icon_bg = global::AoLibs.Sample.Android.Resource.Drawable.notification_template_icon_bg;
+			global::AoLibs.Camera.Android.Resource.Drawable.notification_template_icon_low_bg = global::AoLibs.Sample.Android.Resource.Drawable.notification_template_icon_low_bg;
+			global::AoLibs.Camera.Android.Resource.Drawable.notification_tile_bg = global::AoLibs.Sample.Android.Resource.Drawable.notification_tile_bg;
+			global::AoLibs.Camera.Android.Resource.Drawable.notify_panel_notification_icon_bg = global::AoLibs.Sample.Android.Resource.Drawable.notify_panel_notification_icon_bg;
+			global::AoLibs.Camera.Android.Resource.Drawable.tooltip_frame_dark = global::AoLibs.Sample.Android.Resource.Drawable.tooltip_frame_dark;
+			global::AoLibs.Camera.Android.Resource.Drawable.tooltip_frame_light = global::AoLibs.Sample.Android.Resource.Drawable.tooltip_frame_light;
+			global::AoLibs.Camera.Android.Resource.Id.ALT = global::AoLibs.Sample.Android.Resource.Id.ALT;
+			global::AoLibs.Camera.Android.Resource.Id.CTRL = global::AoLibs.Sample.Android.Resource.Id.CTRL;
+			global::AoLibs.Camera.Android.Resource.Id.FUNCTION = global::AoLibs.Sample.Android.Resource.Id.FUNCTION;
+			global::AoLibs.Camera.Android.Resource.Id.META = global::AoLibs.Sample.Android.Resource.Id.META;
+			global::AoLibs.Camera.Android.Resource.Id.SHIFT = global::AoLibs.Sample.Android.Resource.Id.SHIFT;
+			global::AoLibs.Camera.Android.Resource.Id.SYM = global::AoLibs.Sample.Android.Resource.Id.SYM;
+			global::AoLibs.Camera.Android.Resource.Id.action_bar = global::AoLibs.Sample.Android.Resource.Id.action_bar;
+			global::AoLibs.Camera.Android.Resource.Id.action_bar_activity_content = global::AoLibs.Sample.Android.Resource.Id.action_bar_activity_content;
+			global::AoLibs.Camera.Android.Resource.Id.action_bar_container = global::AoLibs.Sample.Android.Resource.Id.action_bar_container;
+			global::AoLibs.Camera.Android.Resource.Id.action_bar_root = global::AoLibs.Sample.Android.Resource.Id.action_bar_root;
+			global::AoLibs.Camera.Android.Resource.Id.action_bar_spinner = global::AoLibs.Sample.Android.Resource.Id.action_bar_spinner;
+			global::AoLibs.Camera.Android.Resource.Id.action_bar_subtitle = global::AoLibs.Sample.Android.Resource.Id.action_bar_subtitle;
+			global::AoLibs.Camera.Android.Resource.Id.action_bar_title = global::AoLibs.Sample.Android.Resource.Id.action_bar_title;
+			global::AoLibs.Camera.Android.Resource.Id.action_container = global::AoLibs.Sample.Android.Resource.Id.action_container;
+			global::AoLibs.Camera.Android.Resource.Id.action_context_bar = global::AoLibs.Sample.Android.Resource.Id.action_context_bar;
+			global::AoLibs.Camera.Android.Resource.Id.action_divider = global::AoLibs.Sample.Android.Resource.Id.action_divider;
+			global::AoLibs.Camera.Android.Resource.Id.action_image = global::AoLibs.Sample.Android.Resource.Id.action_image;
+			global::AoLibs.Camera.Android.Resource.Id.action_menu_divider = global::AoLibs.Sample.Android.Resource.Id.action_menu_divider;
+			global::AoLibs.Camera.Android.Resource.Id.action_menu_presenter = global::AoLibs.Sample.Android.Resource.Id.action_menu_presenter;
+			global::AoLibs.Camera.Android.Resource.Id.action_mode_bar = global::AoLibs.Sample.Android.Resource.Id.action_mode_bar;
+			global::AoLibs.Camera.Android.Resource.Id.action_mode_bar_stub = global::AoLibs.Sample.Android.Resource.Id.action_mode_bar_stub;
+			global::AoLibs.Camera.Android.Resource.Id.action_mode_close_button = global::AoLibs.Sample.Android.Resource.Id.action_mode_close_button;
+			global::AoLibs.Camera.Android.Resource.Id.action_text = global::AoLibs.Sample.Android.Resource.Id.action_text;
+			global::AoLibs.Camera.Android.Resource.Id.actions = global::AoLibs.Sample.Android.Resource.Id.actions;
+			global::AoLibs.Camera.Android.Resource.Id.activity_chooser_view_content = global::AoLibs.Sample.Android.Resource.Id.activity_chooser_view_content;
+			global::AoLibs.Camera.Android.Resource.Id.add = global::AoLibs.Sample.Android.Resource.Id.add;
+			global::AoLibs.Camera.Android.Resource.Id.alertTitle = global::AoLibs.Sample.Android.Resource.Id.alertTitle;
+			global::AoLibs.Camera.Android.Resource.Id.always = global::AoLibs.Sample.Android.Resource.Id.always;
+			global::AoLibs.Camera.Android.Resource.Id.async = global::AoLibs.Sample.Android.Resource.Id.async;
+			global::AoLibs.Camera.Android.Resource.Id.beginning = global::AoLibs.Sample.Android.Resource.Id.beginning;
+			global::AoLibs.Camera.Android.Resource.Id.blocking = global::AoLibs.Sample.Android.Resource.Id.blocking;
+			global::AoLibs.Camera.Android.Resource.Id.bottom = global::AoLibs.Sample.Android.Resource.Id.bottom;
+			global::AoLibs.Camera.Android.Resource.Id.buttonPanel = global::AoLibs.Sample.Android.Resource.Id.buttonPanel;
+			global::AoLibs.Camera.Android.Resource.Id.checkbox = global::AoLibs.Sample.Android.Resource.Id.checkbox;
+			global::AoLibs.Camera.Android.Resource.Id.chronometer = global::AoLibs.Sample.Android.Resource.Id.chronometer;
+			global::AoLibs.Camera.Android.Resource.Id.collapseActionView = global::AoLibs.Sample.Android.Resource.Id.collapseActionView;
+			global::AoLibs.Camera.Android.Resource.Id.contentPanel = global::AoLibs.Sample.Android.Resource.Id.contentPanel;
+			global::AoLibs.Camera.Android.Resource.Id.custom = global::AoLibs.Sample.Android.Resource.Id.custom;
+			global::AoLibs.Camera.Android.Resource.Id.customPanel = global::AoLibs.Sample.Android.Resource.Id.customPanel;
+			global::AoLibs.Camera.Android.Resource.Id.decor_content_parent = global::AoLibs.Sample.Android.Resource.Id.decor_content_parent;
+			global::AoLibs.Camera.Android.Resource.Id.default_activity_button = global::AoLibs.Sample.Android.Resource.Id.default_activity_button;
+			global::AoLibs.Camera.Android.Resource.Id.disableHome = global::AoLibs.Sample.Android.Resource.Id.disableHome;
+			global::AoLibs.Camera.Android.Resource.Id.edit_query = global::AoLibs.Sample.Android.Resource.Id.edit_query;
+			global::AoLibs.Camera.Android.Resource.Id.end = global::AoLibs.Sample.Android.Resource.Id.end;
+			global::AoLibs.Camera.Android.Resource.Id.expand_activities_button = global::AoLibs.Sample.Android.Resource.Id.expand_activities_button;
+			global::AoLibs.Camera.Android.Resource.Id.expanded_menu = global::AoLibs.Sample.Android.Resource.Id.expanded_menu;
+			global::AoLibs.Camera.Android.Resource.Id.forever = global::AoLibs.Sample.Android.Resource.Id.forever;
+			global::AoLibs.Camera.Android.Resource.Id.home = global::AoLibs.Sample.Android.Resource.Id.home;
+			global::AoLibs.Camera.Android.Resource.Id.homeAsUp = global::AoLibs.Sample.Android.Resource.Id.homeAsUp;
+			global::AoLibs.Camera.Android.Resource.Id.icon = global::AoLibs.Sample.Android.Resource.Id.icon;
+			global::AoLibs.Camera.Android.Resource.Id.icon_group = global::AoLibs.Sample.Android.Resource.Id.icon_group;
+			global::AoLibs.Camera.Android.Resource.Id.ifRoom = global::AoLibs.Sample.Android.Resource.Id.ifRoom;
+			global::AoLibs.Camera.Android.Resource.Id.image = global::AoLibs.Sample.Android.Resource.Id.image;
+			global::AoLibs.Camera.Android.Resource.Id.info = global::AoLibs.Sample.Android.Resource.Id.info;
+			global::AoLibs.Camera.Android.Resource.Id.italic = global::AoLibs.Sample.Android.Resource.Id.italic;
+			global::AoLibs.Camera.Android.Resource.Id.line1 = global::AoLibs.Sample.Android.Resource.Id.line1;
+			global::AoLibs.Camera.Android.Resource.Id.line3 = global::AoLibs.Sample.Android.Resource.Id.line3;
+			global::AoLibs.Camera.Android.Resource.Id.listMode = global::AoLibs.Sample.Android.Resource.Id.listMode;
+			global::AoLibs.Camera.Android.Resource.Id.list_item = global::AoLibs.Sample.Android.Resource.Id.list_item;
+			global::AoLibs.Camera.Android.Resource.Id.message = global::AoLibs.Sample.Android.Resource.Id.message;
+			global::AoLibs.Camera.Android.Resource.Id.middle = global::AoLibs.Sample.Android.Resource.Id.middle;
+			global::AoLibs.Camera.Android.Resource.Id.multiply = global::AoLibs.Sample.Android.Resource.Id.multiply;
+			global::AoLibs.Camera.Android.Resource.Id.never = global::AoLibs.Sample.Android.Resource.Id.never;
+			global::AoLibs.Camera.Android.Resource.Id.none = global::AoLibs.Sample.Android.Resource.Id.none;
+			global::AoLibs.Camera.Android.Resource.Id.normal = global::AoLibs.Sample.Android.Resource.Id.normal;
+			global::AoLibs.Camera.Android.Resource.Id.notification_background = global::AoLibs.Sample.Android.Resource.Id.notification_background;
+			global::AoLibs.Camera.Android.Resource.Id.notification_main_column = global::AoLibs.Sample.Android.Resource.Id.notification_main_column;
+			global::AoLibs.Camera.Android.Resource.Id.notification_main_column_container = global::AoLibs.Sample.Android.Resource.Id.notification_main_column_container;
+			global::AoLibs.Camera.Android.Resource.Id.parentPanel = global::AoLibs.Sample.Android.Resource.Id.parentPanel;
+			global::AoLibs.Camera.Android.Resource.Id.progress_circular = global::AoLibs.Sample.Android.Resource.Id.progress_circular;
+			global::AoLibs.Camera.Android.Resource.Id.progress_horizontal = global::AoLibs.Sample.Android.Resource.Id.progress_horizontal;
+			global::AoLibs.Camera.Android.Resource.Id.radio = global::AoLibs.Sample.Android.Resource.Id.radio;
+			global::AoLibs.Camera.Android.Resource.Id.right_icon = global::AoLibs.Sample.Android.Resource.Id.right_icon;
+			global::AoLibs.Camera.Android.Resource.Id.right_side = global::AoLibs.Sample.Android.Resource.Id.right_side;
+			global::AoLibs.Camera.Android.Resource.Id.screen = global::AoLibs.Sample.Android.Resource.Id.screen;
+			global::AoLibs.Camera.Android.Resource.Id.scrollIndicatorDown = global::AoLibs.Sample.Android.Resource.Id.scrollIndicatorDown;
+			global::AoLibs.Camera.Android.Resource.Id.scrollIndicatorUp = global::AoLibs.Sample.Android.Resource.Id.scrollIndicatorUp;
+			global::AoLibs.Camera.Android.Resource.Id.scrollView = global::AoLibs.Sample.Android.Resource.Id.scrollView;
+			global::AoLibs.Camera.Android.Resource.Id.search_badge = global::AoLibs.Sample.Android.Resource.Id.search_badge;
+			global::AoLibs.Camera.Android.Resource.Id.search_bar = global::AoLibs.Sample.Android.Resource.Id.search_bar;
+			global::AoLibs.Camera.Android.Resource.Id.search_button = global::AoLibs.Sample.Android.Resource.Id.search_button;
+			global::AoLibs.Camera.Android.Resource.Id.search_close_btn = global::AoLibs.Sample.Android.Resource.Id.search_close_btn;
+			global::AoLibs.Camera.Android.Resource.Id.search_edit_frame = global::AoLibs.Sample.Android.Resource.Id.search_edit_frame;
+			global::AoLibs.Camera.Android.Resource.Id.search_go_btn = global::AoLibs.Sample.Android.Resource.Id.search_go_btn;
+			global::AoLibs.Camera.Android.Resource.Id.search_mag_icon = global::AoLibs.Sample.Android.Resource.Id.search_mag_icon;
+			global::AoLibs.Camera.Android.Resource.Id.search_plate = global::AoLibs.Sample.Android.Resource.Id.search_plate;
+			global::AoLibs.Camera.Android.Resource.Id.search_src_text = global::AoLibs.Sample.Android.Resource.Id.search_src_text;
+			global::AoLibs.Camera.Android.Resource.Id.search_voice_btn = global::AoLibs.Sample.Android.Resource.Id.search_voice_btn;
+			global::AoLibs.Camera.Android.Resource.Id.select_dialog_listview = global::AoLibs.Sample.Android.Resource.Id.select_dialog_listview;
+			global::AoLibs.Camera.Android.Resource.Id.shortcut = global::AoLibs.Sample.Android.Resource.Id.shortcut;
+			global::AoLibs.Camera.Android.Resource.Id.showCustom = global::AoLibs.Sample.Android.Resource.Id.showCustom;
+			global::AoLibs.Camera.Android.Resource.Id.showHome = global::AoLibs.Sample.Android.Resource.Id.showHome;
+			global::AoLibs.Camera.Android.Resource.Id.showTitle = global::AoLibs.Sample.Android.Resource.Id.showTitle;
+			global::AoLibs.Camera.Android.Resource.Id.spacer = global::AoLibs.Sample.Android.Resource.Id.spacer;
+			global::AoLibs.Camera.Android.Resource.Id.split_action_bar = global::AoLibs.Sample.Android.Resource.Id.split_action_bar;
+			global::AoLibs.Camera.Android.Resource.Id.src_atop = global::AoLibs.Sample.Android.Resource.Id.src_atop;
+			global::AoLibs.Camera.Android.Resource.Id.src_in = global::AoLibs.Sample.Android.Resource.Id.src_in;
+			global::AoLibs.Camera.Android.Resource.Id.src_over = global::AoLibs.Sample.Android.Resource.Id.src_over;
+			global::AoLibs.Camera.Android.Resource.Id.submenuarrow = global::AoLibs.Sample.Android.Resource.Id.submenuarrow;
+			global::AoLibs.Camera.Android.Resource.Id.submit_area = global::AoLibs.Sample.Android.Resource.Id.submit_area;
+			global::AoLibs.Camera.Android.Resource.Id.tabMode = global::AoLibs.Sample.Android.Resource.Id.tabMode;
+			global::AoLibs.Camera.Android.Resource.Id.tag_transition_group = global::AoLibs.Sample.Android.Resource.Id.tag_transition_group;
+			global::AoLibs.Camera.Android.Resource.Id.text = global::AoLibs.Sample.Android.Resource.Id.text;
+			global::AoLibs.Camera.Android.Resource.Id.text2 = global::AoLibs.Sample.Android.Resource.Id.text2;
+			global::AoLibs.Camera.Android.Resource.Id.textSpacerNoButtons = global::AoLibs.Sample.Android.Resource.Id.textSpacerNoButtons;
+			global::AoLibs.Camera.Android.Resource.Id.textSpacerNoTitle = global::AoLibs.Sample.Android.Resource.Id.textSpacerNoTitle;
+			global::AoLibs.Camera.Android.Resource.Id.time = global::AoLibs.Sample.Android.Resource.Id.time;
+			global::AoLibs.Camera.Android.Resource.Id.title = global::AoLibs.Sample.Android.Resource.Id.title;
+			global::AoLibs.Camera.Android.Resource.Id.titleDividerNoCustom = global::AoLibs.Sample.Android.Resource.Id.titleDividerNoCustom;
+			global::AoLibs.Camera.Android.Resource.Id.title_template = global::AoLibs.Sample.Android.Resource.Id.title_template;
+			global::AoLibs.Camera.Android.Resource.Id.top = global::AoLibs.Sample.Android.Resource.Id.top;
+			global::AoLibs.Camera.Android.Resource.Id.topPanel = global::AoLibs.Sample.Android.Resource.Id.topPanel;
+			global::AoLibs.Camera.Android.Resource.Id.uniform = global::AoLibs.Sample.Android.Resource.Id.uniform;
+			global::AoLibs.Camera.Android.Resource.Id.up = global::AoLibs.Sample.Android.Resource.Id.up;
+			global::AoLibs.Camera.Android.Resource.Id.useLogo = global::AoLibs.Sample.Android.Resource.Id.useLogo;
+			global::AoLibs.Camera.Android.Resource.Id.withText = global::AoLibs.Sample.Android.Resource.Id.withText;
+			global::AoLibs.Camera.Android.Resource.Id.wrap_content = global::AoLibs.Sample.Android.Resource.Id.wrap_content;
+			global::AoLibs.Camera.Android.Resource.Integer.abc_config_activityDefaultDur = global::AoLibs.Sample.Android.Resource.Integer.abc_config_activityDefaultDur;
+			global::AoLibs.Camera.Android.Resource.Integer.abc_config_activityShortDur = global::AoLibs.Sample.Android.Resource.Integer.abc_config_activityShortDur;
+			global::AoLibs.Camera.Android.Resource.Integer.cancel_button_image_alpha = global::AoLibs.Sample.Android.Resource.Integer.cancel_button_image_alpha;
+			global::AoLibs.Camera.Android.Resource.Integer.config_tooltipAnimTime = global::AoLibs.Sample.Android.Resource.Integer.config_tooltipAnimTime;
+			global::AoLibs.Camera.Android.Resource.Integer.status_bar_notification_info_maxnum = global::AoLibs.Sample.Android.Resource.Integer.status_bar_notification_info_maxnum;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_action_bar_title_item = global::AoLibs.Sample.Android.Resource.Layout.abc_action_bar_title_item;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_action_bar_up_container = global::AoLibs.Sample.Android.Resource.Layout.abc_action_bar_up_container;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_action_menu_item_layout = global::AoLibs.Sample.Android.Resource.Layout.abc_action_menu_item_layout;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_action_menu_layout = global::AoLibs.Sample.Android.Resource.Layout.abc_action_menu_layout;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_action_mode_bar = global::AoLibs.Sample.Android.Resource.Layout.abc_action_mode_bar;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_action_mode_close_item_material = global::AoLibs.Sample.Android.Resource.Layout.abc_action_mode_close_item_material;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_activity_chooser_view = global::AoLibs.Sample.Android.Resource.Layout.abc_activity_chooser_view;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_activity_chooser_view_list_item = global::AoLibs.Sample.Android.Resource.Layout.abc_activity_chooser_view_list_item;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_alert_dialog_button_bar_material = global::AoLibs.Sample.Android.Resource.Layout.abc_alert_dialog_button_bar_material;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_alert_dialog_material = global::AoLibs.Sample.Android.Resource.Layout.abc_alert_dialog_material;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_alert_dialog_title_material = global::AoLibs.Sample.Android.Resource.Layout.abc_alert_dialog_title_material;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_dialog_title_material = global::AoLibs.Sample.Android.Resource.Layout.abc_dialog_title_material;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_expanded_menu_layout = global::AoLibs.Sample.Android.Resource.Layout.abc_expanded_menu_layout;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_list_menu_item_checkbox = global::AoLibs.Sample.Android.Resource.Layout.abc_list_menu_item_checkbox;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_list_menu_item_icon = global::AoLibs.Sample.Android.Resource.Layout.abc_list_menu_item_icon;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_list_menu_item_layout = global::AoLibs.Sample.Android.Resource.Layout.abc_list_menu_item_layout;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_list_menu_item_radio = global::AoLibs.Sample.Android.Resource.Layout.abc_list_menu_item_radio;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_popup_menu_header_item_layout = global::AoLibs.Sample.Android.Resource.Layout.abc_popup_menu_header_item_layout;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_popup_menu_item_layout = global::AoLibs.Sample.Android.Resource.Layout.abc_popup_menu_item_layout;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_screen_content_include = global::AoLibs.Sample.Android.Resource.Layout.abc_screen_content_include;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_screen_simple = global::AoLibs.Sample.Android.Resource.Layout.abc_screen_simple;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_screen_simple_overlay_action_mode = global::AoLibs.Sample.Android.Resource.Layout.abc_screen_simple_overlay_action_mode;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_screen_toolbar = global::AoLibs.Sample.Android.Resource.Layout.abc_screen_toolbar;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_search_dropdown_item_icons_2line = global::AoLibs.Sample.Android.Resource.Layout.abc_search_dropdown_item_icons_2line;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_search_view = global::AoLibs.Sample.Android.Resource.Layout.abc_search_view;
+			global::AoLibs.Camera.Android.Resource.Layout.abc_select_dialog_material = global::AoLibs.Sample.Android.Resource.Layout.abc_select_dialog_material;
+			global::AoLibs.Camera.Android.Resource.Layout.notification_action = global::AoLibs.Sample.Android.Resource.Layout.notification_action;
+			global::AoLibs.Camera.Android.Resource.Layout.notification_action_tombstone = global::AoLibs.Sample.Android.Resource.Layout.notification_action_tombstone;
+			global::AoLibs.Camera.Android.Resource.Layout.notification_template_custom_big = global::AoLibs.Sample.Android.Resource.Layout.notification_template_custom_big;
+			global::AoLibs.Camera.Android.Resource.Layout.notification_template_icon_group = global::AoLibs.Sample.Android.Resource.Layout.notification_template_icon_group;
+			global::AoLibs.Camera.Android.Resource.Layout.notification_template_part_chronometer = global::AoLibs.Sample.Android.Resource.Layout.notification_template_part_chronometer;
+			global::AoLibs.Camera.Android.Resource.Layout.notification_template_part_time = global::AoLibs.Sample.Android.Resource.Layout.notification_template_part_time;
+			global::AoLibs.Camera.Android.Resource.Layout.select_dialog_item_material = global::AoLibs.Sample.Android.Resource.Layout.select_dialog_item_material;
+			global::AoLibs.Camera.Android.Resource.Layout.select_dialog_multichoice_material = global::AoLibs.Sample.Android.Resource.Layout.select_dialog_multichoice_material;
+			global::AoLibs.Camera.Android.Resource.Layout.select_dialog_singlechoice_material = global::AoLibs.Sample.Android.Resource.Layout.select_dialog_singlechoice_material;
+			global::AoLibs.Camera.Android.Resource.Layout.support_simple_spinner_dropdown_item = global::AoLibs.Sample.Android.Resource.Layout.support_simple_spinner_dropdown_item;
+			global::AoLibs.Camera.Android.Resource.String.abc_action_bar_home_description = global::AoLibs.Sample.Android.Resource.String.abc_action_bar_home_description;
+			global::AoLibs.Camera.Android.Resource.String.abc_action_bar_up_description = global::AoLibs.Sample.Android.Resource.String.abc_action_bar_up_description;
+			global::AoLibs.Camera.Android.Resource.String.abc_action_menu_overflow_description = global::AoLibs.Sample.Android.Resource.String.abc_action_menu_overflow_description;
+			global::AoLibs.Camera.Android.Resource.String.abc_action_mode_done = global::AoLibs.Sample.Android.Resource.String.abc_action_mode_done;
+			global::AoLibs.Camera.Android.Resource.String.abc_activity_chooser_view_see_all = global::AoLibs.Sample.Android.Resource.String.abc_activity_chooser_view_see_all;
+			global::AoLibs.Camera.Android.Resource.String.abc_activitychooserview_choose_application = global::AoLibs.Sample.Android.Resource.String.abc_activitychooserview_choose_application;
+			global::AoLibs.Camera.Android.Resource.String.abc_capital_off = global::AoLibs.Sample.Android.Resource.String.abc_capital_off;
+			global::AoLibs.Camera.Android.Resource.String.abc_capital_on = global::AoLibs.Sample.Android.Resource.String.abc_capital_on;
+			global::AoLibs.Camera.Android.Resource.String.abc_font_family_body_1_material = global::AoLibs.Sample.Android.Resource.String.abc_font_family_body_1_material;
+			global::AoLibs.Camera.Android.Resource.String.abc_font_family_body_2_material = global::AoLibs.Sample.Android.Resource.String.abc_font_family_body_2_material;
+			global::AoLibs.Camera.Android.Resource.String.abc_font_family_button_material = global::AoLibs.Sample.Android.Resource.String.abc_font_family_button_material;
+			global::AoLibs.Camera.Android.Resource.String.abc_font_family_caption_material = global::AoLibs.Sample.Android.Resource.String.abc_font_family_caption_material;
+			global::AoLibs.Camera.Android.Resource.String.abc_font_family_display_1_material = global::AoLibs.Sample.Android.Resource.String.abc_font_family_display_1_material;
+			global::AoLibs.Camera.Android.Resource.String.abc_font_family_display_2_material = global::AoLibs.Sample.Android.Resource.String.abc_font_family_display_2_material;
+			global::AoLibs.Camera.Android.Resource.String.abc_font_family_display_3_material = global::AoLibs.Sample.Android.Resource.String.abc_font_family_display_3_material;
+			global::AoLibs.Camera.Android.Resource.String.abc_font_family_display_4_material = global::AoLibs.Sample.Android.Resource.String.abc_font_family_display_4_material;
+			global::AoLibs.Camera.Android.Resource.String.abc_font_family_headline_material = global::AoLibs.Sample.Android.Resource.String.abc_font_family_headline_material;
+			global::AoLibs.Camera.Android.Resource.String.abc_font_family_menu_material = global::AoLibs.Sample.Android.Resource.String.abc_font_family_menu_material;
+			global::AoLibs.Camera.Android.Resource.String.abc_font_family_subhead_material = global::AoLibs.Sample.Android.Resource.String.abc_font_family_subhead_material;
+			global::AoLibs.Camera.Android.Resource.String.abc_font_family_title_material = global::AoLibs.Sample.Android.Resource.String.abc_font_family_title_material;
+			global::AoLibs.Camera.Android.Resource.String.abc_search_hint = global::AoLibs.Sample.Android.Resource.String.abc_search_hint;
+			global::AoLibs.Camera.Android.Resource.String.abc_searchview_description_clear = global::AoLibs.Sample.Android.Resource.String.abc_searchview_description_clear;
+			global::AoLibs.Camera.Android.Resource.String.abc_searchview_description_query = global::AoLibs.Sample.Android.Resource.String.abc_searchview_description_query;
+			global::AoLibs.Camera.Android.Resource.String.abc_searchview_description_search = global::AoLibs.Sample.Android.Resource.String.abc_searchview_description_search;
+			global::AoLibs.Camera.Android.Resource.String.abc_searchview_description_submit = global::AoLibs.Sample.Android.Resource.String.abc_searchview_description_submit;
+			global::AoLibs.Camera.Android.Resource.String.abc_searchview_description_voice = global::AoLibs.Sample.Android.Resource.String.abc_searchview_description_voice;
+			global::AoLibs.Camera.Android.Resource.String.abc_shareactionprovider_share_with = global::AoLibs.Sample.Android.Resource.String.abc_shareactionprovider_share_with;
+			global::AoLibs.Camera.Android.Resource.String.abc_shareactionprovider_share_with_application = global::AoLibs.Sample.Android.Resource.String.abc_shareactionprovider_share_with_application;
+			global::AoLibs.Camera.Android.Resource.String.abc_toolbar_collapse_description = global::AoLibs.Sample.Android.Resource.String.abc_toolbar_collapse_description;
+			global::AoLibs.Camera.Android.Resource.String.app_name = global::AoLibs.Sample.Android.Resource.String.app_name;
+			global::AoLibs.Camera.Android.Resource.String.hello = global::AoLibs.Sample.Android.Resource.String.hello;
+			global::AoLibs.Camera.Android.Resource.String.search_menu_title = global::AoLibs.Sample.Android.Resource.String.search_menu_title;
+			global::AoLibs.Camera.Android.Resource.String.status_bar_notification_info_overflow = global::AoLibs.Sample.Android.Resource.String.status_bar_notification_info_overflow;
+			global::AoLibs.Camera.Android.Resource.Style.AlertDialog_AppCompat = global::AoLibs.Sample.Android.Resource.Style.AlertDialog_AppCompat;
+			global::AoLibs.Camera.Android.Resource.Style.AlertDialog_AppCompat_Light = global::AoLibs.Sample.Android.Resource.Style.AlertDialog_AppCompat_Light;
+			global::AoLibs.Camera.Android.Resource.Style.Animation_AppCompat_Dialog = global::AoLibs.Sample.Android.Resource.Style.Animation_AppCompat_Dialog;
+			global::AoLibs.Camera.Android.Resource.Style.Animation_AppCompat_DropDownUp = global::AoLibs.Sample.Android.Resource.Style.Animation_AppCompat_DropDownUp;
+			global::AoLibs.Camera.Android.Resource.Style.Animation_AppCompat_Tooltip = global::AoLibs.Sample.Android.Resource.Style.Animation_AppCompat_Tooltip;
+			global::AoLibs.Camera.Android.Resource.Style.Base_AlertDialog_AppCompat = global::AoLibs.Sample.Android.Resource.Style.Base_AlertDialog_AppCompat;
+			global::AoLibs.Camera.Android.Resource.Style.Base_AlertDialog_AppCompat_Light = global::AoLibs.Sample.Android.Resource.Style.Base_AlertDialog_AppCompat_Light;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Animation_AppCompat_Dialog = global::AoLibs.Sample.Android.Resource.Style.Base_Animation_AppCompat_Dialog;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Animation_AppCompat_DropDownUp = global::AoLibs.Sample.Android.Resource.Style.Base_Animation_AppCompat_DropDownUp;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Animation_AppCompat_Tooltip = global::AoLibs.Sample.Android.Resource.Style.Base_Animation_AppCompat_Tooltip;
+			global::AoLibs.Camera.Android.Resource.Style.Base_DialogWindowTitle_AppCompat = global::AoLibs.Sample.Android.Resource.Style.Base_DialogWindowTitle_AppCompat;
+			global::AoLibs.Camera.Android.Resource.Style.Base_DialogWindowTitleBackground_AppCompat = global::AoLibs.Sample.Android.Resource.Style.Base_DialogWindowTitleBackground_AppCompat;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Body1 = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Body1;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Body2 = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Body2;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Button = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Button;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Caption = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Caption;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Display1 = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Display1;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Display2 = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Display2;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Display3 = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Display3;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Display4 = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Display4;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Headline = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Headline;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Inverse = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Large = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Large;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Large_Inverse = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Large_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Medium = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Medium;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Medium_Inverse = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Medium_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Menu = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Menu;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_SearchResult = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_SearchResult;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Subtitle = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Subtitle;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Title = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Title;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Small = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Small;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Small_Inverse = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Small_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Subhead = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Subhead;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Subhead_Inverse = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Subhead_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Title = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Title;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Title_Inverse = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Title_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Tooltip = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Tooltip;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Menu = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Menu;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Title = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Title;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Colored = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Colored;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Inverse = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_DropDownItem = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_DropDownItem;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Header = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Header;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Large = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Large;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Small = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Small;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_Switch = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_Switch;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
+			global::AoLibs.Camera.Android.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Title = global::AoLibs.Sample.Android.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Title;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Theme_AppCompat = global::AoLibs.Sample.Android.Resource.Style.Base_Theme_AppCompat;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Theme_AppCompat_CompactMenu = global::AoLibs.Sample.Android.Resource.Style.Base_Theme_AppCompat_CompactMenu;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Theme_AppCompat_Dialog = global::AoLibs.Sample.Android.Resource.Style.Base_Theme_AppCompat_Dialog;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Theme_AppCompat_Dialog_Alert = global::AoLibs.Sample.Android.Resource.Style.Base_Theme_AppCompat_Dialog_Alert;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Theme_AppCompat_Dialog_FixedSize = global::AoLibs.Sample.Android.Resource.Style.Base_Theme_AppCompat_Dialog_FixedSize;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Theme_AppCompat_Dialog_MinWidth = global::AoLibs.Sample.Android.Resource.Style.Base_Theme_AppCompat_Dialog_MinWidth;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Theme_AppCompat_DialogWhenLarge = global::AoLibs.Sample.Android.Resource.Style.Base_Theme_AppCompat_DialogWhenLarge;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Theme_AppCompat_Light = global::AoLibs.Sample.Android.Resource.Style.Base_Theme_AppCompat_Light;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Theme_AppCompat_Light_DarkActionBar = global::AoLibs.Sample.Android.Resource.Style.Base_Theme_AppCompat_Light_DarkActionBar;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Theme_AppCompat_Light_Dialog = global::AoLibs.Sample.Android.Resource.Style.Base_Theme_AppCompat_Light_Dialog;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert = global::AoLibs.Sample.Android.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize = global::AoLibs.Sample.Android.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth = global::AoLibs.Sample.Android.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge = global::AoLibs.Sample.Android.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge;
+			global::AoLibs.Camera.Android.Resource.Style.Base_ThemeOverlay_AppCompat = global::AoLibs.Sample.Android.Resource.Style.Base_ThemeOverlay_AppCompat;
+			global::AoLibs.Camera.Android.Resource.Style.Base_ThemeOverlay_AppCompat_ActionBar = global::AoLibs.Sample.Android.Resource.Style.Base_ThemeOverlay_AppCompat_ActionBar;
+			global::AoLibs.Camera.Android.Resource.Style.Base_ThemeOverlay_AppCompat_Dark = global::AoLibs.Sample.Android.Resource.Style.Base_ThemeOverlay_AppCompat_Dark;
+			global::AoLibs.Camera.Android.Resource.Style.Base_ThemeOverlay_AppCompat_Dark_ActionBar = global::AoLibs.Sample.Android.Resource.Style.Base_ThemeOverlay_AppCompat_Dark_ActionBar;
+			global::AoLibs.Camera.Android.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog = global::AoLibs.Sample.Android.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog;
+			global::AoLibs.Camera.Android.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog_Alert = global::AoLibs.Sample.Android.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog_Alert;
+			global::AoLibs.Camera.Android.Resource.Style.Base_ThemeOverlay_AppCompat_Light = global::AoLibs.Sample.Android.Resource.Style.Base_ThemeOverlay_AppCompat_Light;
+			global::AoLibs.Camera.Android.Resource.Style.Base_V21_Theme_AppCompat = global::AoLibs.Sample.Android.Resource.Style.Base_V21_Theme_AppCompat;
+			global::AoLibs.Camera.Android.Resource.Style.Base_V21_Theme_AppCompat_Dialog = global::AoLibs.Sample.Android.Resource.Style.Base_V21_Theme_AppCompat_Dialog;
+			global::AoLibs.Camera.Android.Resource.Style.Base_V21_Theme_AppCompat_Light = global::AoLibs.Sample.Android.Resource.Style.Base_V21_Theme_AppCompat_Light;
+			global::AoLibs.Camera.Android.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog = global::AoLibs.Sample.Android.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog;
+			global::AoLibs.Camera.Android.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog = global::AoLibs.Sample.Android.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog;
+			global::AoLibs.Camera.Android.Resource.Style.Base_V22_Theme_AppCompat = global::AoLibs.Sample.Android.Resource.Style.Base_V22_Theme_AppCompat;
+			global::AoLibs.Camera.Android.Resource.Style.Base_V22_Theme_AppCompat_Light = global::AoLibs.Sample.Android.Resource.Style.Base_V22_Theme_AppCompat_Light;
+			global::AoLibs.Camera.Android.Resource.Style.Base_V23_Theme_AppCompat = global::AoLibs.Sample.Android.Resource.Style.Base_V23_Theme_AppCompat;
+			global::AoLibs.Camera.Android.Resource.Style.Base_V23_Theme_AppCompat_Light = global::AoLibs.Sample.Android.Resource.Style.Base_V23_Theme_AppCompat_Light;
+			global::AoLibs.Camera.Android.Resource.Style.Base_V26_Theme_AppCompat = global::AoLibs.Sample.Android.Resource.Style.Base_V26_Theme_AppCompat;
+			global::AoLibs.Camera.Android.Resource.Style.Base_V26_Theme_AppCompat_Light = global::AoLibs.Sample.Android.Resource.Style.Base_V26_Theme_AppCompat_Light;
+			global::AoLibs.Camera.Android.Resource.Style.Base_V26_Widget_AppCompat_Toolbar = global::AoLibs.Sample.Android.Resource.Style.Base_V26_Widget_AppCompat_Toolbar;
+			global::AoLibs.Camera.Android.Resource.Style.Base_V7_Theme_AppCompat = global::AoLibs.Sample.Android.Resource.Style.Base_V7_Theme_AppCompat;
+			global::AoLibs.Camera.Android.Resource.Style.Base_V7_Theme_AppCompat_Dialog = global::AoLibs.Sample.Android.Resource.Style.Base_V7_Theme_AppCompat_Dialog;
+			global::AoLibs.Camera.Android.Resource.Style.Base_V7_Theme_AppCompat_Light = global::AoLibs.Sample.Android.Resource.Style.Base_V7_Theme_AppCompat_Light;
+			global::AoLibs.Camera.Android.Resource.Style.Base_V7_Theme_AppCompat_Light_Dialog = global::AoLibs.Sample.Android.Resource.Style.Base_V7_Theme_AppCompat_Light_Dialog;
+			global::AoLibs.Camera.Android.Resource.Style.Base_V7_ThemeOverlay_AppCompat_Dialog = global::AoLibs.Sample.Android.Resource.Style.Base_V7_ThemeOverlay_AppCompat_Dialog;
+			global::AoLibs.Camera.Android.Resource.Style.Base_V7_Widget_AppCompat_AutoCompleteTextView = global::AoLibs.Sample.Android.Resource.Style.Base_V7_Widget_AppCompat_AutoCompleteTextView;
+			global::AoLibs.Camera.Android.Resource.Style.Base_V7_Widget_AppCompat_EditText = global::AoLibs.Sample.Android.Resource.Style.Base_V7_Widget_AppCompat_EditText;
+			global::AoLibs.Camera.Android.Resource.Style.Base_V7_Widget_AppCompat_Toolbar = global::AoLibs.Sample.Android.Resource.Style.Base_V7_Widget_AppCompat_Toolbar;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_ActionBar = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_ActionBar;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_ActionBar_Solid = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_ActionBar_Solid;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_ActionBar_TabBar = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_ActionBar_TabBar;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_ActionBar_TabText = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_ActionBar_TabText;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_ActionBar_TabView = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_ActionBar_TabView;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_ActionButton = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_ActionButton;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_ActionButton_CloseMode = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_ActionButton_CloseMode;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_ActionButton_Overflow = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_ActionButton_Overflow;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_ActionMode = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_ActionMode;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_ActivityChooserView = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_ActivityChooserView;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_AutoCompleteTextView = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_AutoCompleteTextView;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_Button = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_Button;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_Button_Borderless = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_Button_Borderless;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_Button_Borderless_Colored = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_Button_Borderless_Colored;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_Button_ButtonBar_AlertDialog = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_Button_ButtonBar_AlertDialog;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_Button_Colored = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_Button_Colored;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_Button_Small = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_Button_Small;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_ButtonBar = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_ButtonBar;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_ButtonBar_AlertDialog = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_ButtonBar_AlertDialog;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_CompoundButton_CheckBox = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_CompoundButton_CheckBox;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_CompoundButton_RadioButton = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_CompoundButton_RadioButton;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_CompoundButton_Switch = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_CompoundButton_Switch;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle_Common = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle_Common;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_DropDownItem_Spinner = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_DropDownItem_Spinner;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_EditText = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_EditText;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_ImageButton = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_ImageButton;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_Solid = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_Solid;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabBar = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabBar;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabView = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabView;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu_Overflow = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu_Overflow;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_ListMenuView = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_ListMenuView;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_ListPopupWindow = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_ListPopupWindow;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_ListView = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_ListView;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_ListView_DropDown = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_ListView_DropDown;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_ListView_Menu = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_ListView_Menu;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_PopupMenu = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_PopupMenu;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_PopupMenu_Overflow = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_PopupMenu_Overflow;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_PopupWindow = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_PopupWindow;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_ProgressBar = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_ProgressBar;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_ProgressBar_Horizontal = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_ProgressBar_Horizontal;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_RatingBar = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_RatingBar;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_RatingBar_Indicator = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_RatingBar_Indicator;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_RatingBar_Small = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_RatingBar_Small;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_SearchView = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_SearchView;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_SearchView_ActionBar = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_SearchView_ActionBar;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_SeekBar = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_SeekBar;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_SeekBar_Discrete = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_SeekBar_Discrete;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_Spinner = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_Spinner;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_Spinner_Underlined = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_Spinner_Underlined;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_TextView_SpinnerItem = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_TextView_SpinnerItem;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_Toolbar = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_Toolbar;
+			global::AoLibs.Camera.Android.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation = global::AoLibs.Sample.Android.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation;
+			global::AoLibs.Camera.Android.Resource.Style.Platform_AppCompat = global::AoLibs.Sample.Android.Resource.Style.Platform_AppCompat;
+			global::AoLibs.Camera.Android.Resource.Style.Platform_AppCompat_Light = global::AoLibs.Sample.Android.Resource.Style.Platform_AppCompat_Light;
+			global::AoLibs.Camera.Android.Resource.Style.Platform_ThemeOverlay_AppCompat = global::AoLibs.Sample.Android.Resource.Style.Platform_ThemeOverlay_AppCompat;
+			global::AoLibs.Camera.Android.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark = global::AoLibs.Sample.Android.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark;
+			global::AoLibs.Camera.Android.Resource.Style.Platform_ThemeOverlay_AppCompat_Light = global::AoLibs.Sample.Android.Resource.Style.Platform_ThemeOverlay_AppCompat_Light;
+			global::AoLibs.Camera.Android.Resource.Style.Platform_V21_AppCompat = global::AoLibs.Sample.Android.Resource.Style.Platform_V21_AppCompat;
+			global::AoLibs.Camera.Android.Resource.Style.Platform_V21_AppCompat_Light = global::AoLibs.Sample.Android.Resource.Style.Platform_V21_AppCompat_Light;
+			global::AoLibs.Camera.Android.Resource.Style.Platform_V25_AppCompat = global::AoLibs.Sample.Android.Resource.Style.Platform_V25_AppCompat;
+			global::AoLibs.Camera.Android.Resource.Style.Platform_V25_AppCompat_Light = global::AoLibs.Sample.Android.Resource.Style.Platform_V25_AppCompat_Light;
+			global::AoLibs.Camera.Android.Resource.Style.Platform_Widget_AppCompat_Spinner = global::AoLibs.Sample.Android.Resource.Style.Platform_Widget_AppCompat_Spinner;
+			global::AoLibs.Camera.Android.Resource.Style.RtlOverlay_DialogWindowTitle_AppCompat = global::AoLibs.Sample.Android.Resource.Style.RtlOverlay_DialogWindowTitle_AppCompat;
+			global::AoLibs.Camera.Android.Resource.Style.RtlOverlay_Widget_AppCompat_ActionBar_TitleItem = global::AoLibs.Sample.Android.Resource.Style.RtlOverlay_Widget_AppCompat_ActionBar_TitleItem;
+			global::AoLibs.Camera.Android.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon = global::AoLibs.Sample.Android.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon;
+			global::AoLibs.Camera.Android.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem = global::AoLibs.Sample.Android.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem;
+			global::AoLibs.Camera.Android.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup = global::AoLibs.Sample.Android.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup;
+			global::AoLibs.Camera.Android.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text = global::AoLibs.Sample.Android.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text;
+			global::AoLibs.Camera.Android.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown = global::AoLibs.Sample.Android.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown;
+			global::AoLibs.Camera.Android.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1 = global::AoLibs.Sample.Android.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1;
+			global::AoLibs.Camera.Android.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2 = global::AoLibs.Sample.Android.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2;
+			global::AoLibs.Camera.Android.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Query = global::AoLibs.Sample.Android.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Query;
+			global::AoLibs.Camera.Android.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text = global::AoLibs.Sample.Android.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text;
+			global::AoLibs.Camera.Android.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon = global::AoLibs.Sample.Android.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon;
+			global::AoLibs.Camera.Android.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton = global::AoLibs.Sample.Android.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton;
+			global::AoLibs.Camera.Android.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = global::AoLibs.Sample.Android.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Body1 = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Body1;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Body2 = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Body2;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Button = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Button;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Caption = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Caption;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Display1 = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Display1;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Display2 = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Display2;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Display3 = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Display3;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Display4 = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Display4;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Headline = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Headline;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Inverse = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Large = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Large;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Large_Inverse = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Large_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Subtitle = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Subtitle;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Title = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Title;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Large;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Small;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Medium = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Medium;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Medium_Inverse = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Medium_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Menu = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Menu;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_SearchResult_Subtitle = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_SearchResult_Subtitle;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_SearchResult_Title = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_SearchResult_Title;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Small = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Small;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Small_Inverse = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Small_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Subhead = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Subhead;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Subhead_Inverse = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Subhead_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Title = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Title;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Title_Inverse = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Title_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Tooltip = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Tooltip;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Menu = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Menu;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Widget_Button = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Widget_Button;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Widget_Button_Borderless_Colored = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Widget_Button_Borderless_Colored;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Widget_Button_Colored = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Widget_Button_Colored;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Widget_Button_Inverse = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Widget_Button_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Widget_DropDownItem = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Widget_DropDownItem;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Header = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Header;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Large = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Large;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Small = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Small;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Widget_Switch = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Widget_Switch;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_Compat_Notification = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_Compat_Notification;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_Compat_Notification_Info = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_Compat_Notification_Info;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_Compat_Notification_Line2;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_Compat_Notification_Time = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_Compat_Notification_Time;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_Compat_Notification_Title = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_Compat_Notification_Title;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
+			global::AoLibs.Camera.Android.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title = global::AoLibs.Sample.Android.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title;
+			global::AoLibs.Camera.Android.Resource.Style.Theme_AppCompat = global::AoLibs.Sample.Android.Resource.Style.Theme_AppCompat;
+			global::AoLibs.Camera.Android.Resource.Style.Theme_AppCompat_CompactMenu = global::AoLibs.Sample.Android.Resource.Style.Theme_AppCompat_CompactMenu;
+			global::AoLibs.Camera.Android.Resource.Style.Theme_AppCompat_DayNight = global::AoLibs.Sample.Android.Resource.Style.Theme_AppCompat_DayNight;
+			global::AoLibs.Camera.Android.Resource.Style.Theme_AppCompat_DayNight_DarkActionBar = global::AoLibs.Sample.Android.Resource.Style.Theme_AppCompat_DayNight_DarkActionBar;
+			global::AoLibs.Camera.Android.Resource.Style.Theme_AppCompat_DayNight_Dialog = global::AoLibs.Sample.Android.Resource.Style.Theme_AppCompat_DayNight_Dialog;
+			global::AoLibs.Camera.Android.Resource.Style.Theme_AppCompat_DayNight_Dialog_Alert = global::AoLibs.Sample.Android.Resource.Style.Theme_AppCompat_DayNight_Dialog_Alert;
+			global::AoLibs.Camera.Android.Resource.Style.Theme_AppCompat_DayNight_Dialog_MinWidth = global::AoLibs.Sample.Android.Resource.Style.Theme_AppCompat_DayNight_Dialog_MinWidth;
+			global::AoLibs.Camera.Android.Resource.Style.Theme_AppCompat_DayNight_DialogWhenLarge = global::AoLibs.Sample.Android.Resource.Style.Theme_AppCompat_DayNight_DialogWhenLarge;
+			global::AoLibs.Camera.Android.Resource.Style.Theme_AppCompat_DayNight_NoActionBar = global::AoLibs.Sample.Android.Resource.Style.Theme_AppCompat_DayNight_NoActionBar;
+			global::AoLibs.Camera.Android.Resource.Style.Theme_AppCompat_Dialog = global::AoLibs.Sample.Android.Resource.Style.Theme_AppCompat_Dialog;
+			global::AoLibs.Camera.Android.Resource.Style.Theme_AppCompat_Dialog_Alert = global::AoLibs.Sample.Android.Resource.Style.Theme_AppCompat_Dialog_Alert;
+			global::AoLibs.Camera.Android.Resource.Style.Theme_AppCompat_Dialog_MinWidth = global::AoLibs.Sample.Android.Resource.Style.Theme_AppCompat_Dialog_MinWidth;
+			global::AoLibs.Camera.Android.Resource.Style.Theme_AppCompat_DialogWhenLarge = global::AoLibs.Sample.Android.Resource.Style.Theme_AppCompat_DialogWhenLarge;
+			global::AoLibs.Camera.Android.Resource.Style.Theme_AppCompat_Light = global::AoLibs.Sample.Android.Resource.Style.Theme_AppCompat_Light;
+			global::AoLibs.Camera.Android.Resource.Style.Theme_AppCompat_Light_DarkActionBar = global::AoLibs.Sample.Android.Resource.Style.Theme_AppCompat_Light_DarkActionBar;
+			global::AoLibs.Camera.Android.Resource.Style.Theme_AppCompat_Light_Dialog = global::AoLibs.Sample.Android.Resource.Style.Theme_AppCompat_Light_Dialog;
+			global::AoLibs.Camera.Android.Resource.Style.Theme_AppCompat_Light_Dialog_Alert = global::AoLibs.Sample.Android.Resource.Style.Theme_AppCompat_Light_Dialog_Alert;
+			global::AoLibs.Camera.Android.Resource.Style.Theme_AppCompat_Light_Dialog_MinWidth = global::AoLibs.Sample.Android.Resource.Style.Theme_AppCompat_Light_Dialog_MinWidth;
+			global::AoLibs.Camera.Android.Resource.Style.Theme_AppCompat_Light_DialogWhenLarge = global::AoLibs.Sample.Android.Resource.Style.Theme_AppCompat_Light_DialogWhenLarge;
+			global::AoLibs.Camera.Android.Resource.Style.Theme_AppCompat_Light_NoActionBar = global::AoLibs.Sample.Android.Resource.Style.Theme_AppCompat_Light_NoActionBar;
+			global::AoLibs.Camera.Android.Resource.Style.Theme_AppCompat_NoActionBar = global::AoLibs.Sample.Android.Resource.Style.Theme_AppCompat_NoActionBar;
+			global::AoLibs.Camera.Android.Resource.Style.ThemeOverlay_AppCompat = global::AoLibs.Sample.Android.Resource.Style.ThemeOverlay_AppCompat;
+			global::AoLibs.Camera.Android.Resource.Style.ThemeOverlay_AppCompat_ActionBar = global::AoLibs.Sample.Android.Resource.Style.ThemeOverlay_AppCompat_ActionBar;
+			global::AoLibs.Camera.Android.Resource.Style.ThemeOverlay_AppCompat_Dark = global::AoLibs.Sample.Android.Resource.Style.ThemeOverlay_AppCompat_Dark;
+			global::AoLibs.Camera.Android.Resource.Style.ThemeOverlay_AppCompat_Dark_ActionBar = global::AoLibs.Sample.Android.Resource.Style.ThemeOverlay_AppCompat_Dark_ActionBar;
+			global::AoLibs.Camera.Android.Resource.Style.ThemeOverlay_AppCompat_Dialog = global::AoLibs.Sample.Android.Resource.Style.ThemeOverlay_AppCompat_Dialog;
+			global::AoLibs.Camera.Android.Resource.Style.ThemeOverlay_AppCompat_Dialog_Alert = global::AoLibs.Sample.Android.Resource.Style.ThemeOverlay_AppCompat_Dialog_Alert;
+			global::AoLibs.Camera.Android.Resource.Style.ThemeOverlay_AppCompat_Light = global::AoLibs.Sample.Android.Resource.Style.ThemeOverlay_AppCompat_Light;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_ActionBar = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_ActionBar;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_ActionBar_Solid = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_ActionBar_Solid;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_ActionBar_TabBar = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_ActionBar_TabBar;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_ActionBar_TabText = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_ActionBar_TabText;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_ActionBar_TabView = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_ActionBar_TabView;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_ActionButton = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_ActionButton;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_ActionButton_CloseMode = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_ActionButton_CloseMode;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_ActionButton_Overflow = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_ActionButton_Overflow;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_ActionMode = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_ActionMode;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_ActivityChooserView = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_ActivityChooserView;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_AutoCompleteTextView = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_AutoCompleteTextView;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Button = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Button;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Button_Borderless = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Button_Borderless;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Button_Borderless_Colored = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Button_Borderless_Colored;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Button_ButtonBar_AlertDialog = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Button_ButtonBar_AlertDialog;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Button_Colored = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Button_Colored;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Button_Small = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Button_Small;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_ButtonBar = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_ButtonBar;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_ButtonBar_AlertDialog = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_ButtonBar_AlertDialog;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_CompoundButton_CheckBox = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_CompoundButton_CheckBox;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_CompoundButton_RadioButton = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_CompoundButton_RadioButton;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_CompoundButton_Switch = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_CompoundButton_Switch;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_DrawerArrowToggle = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_DrawerArrowToggle;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_DropDownItem_Spinner = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_DropDownItem_Spinner;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_EditText = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_EditText;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_ImageButton = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_ImageButton;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Light_ActionBar = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Light_ActionBar;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid_Inverse = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar_Inverse = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText_Inverse = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView_Inverse = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Light_ActionButton = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Light_ActionButton;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Light_ActionButton_CloseMode = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Light_ActionButton_CloseMode;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Light_ActionButton_Overflow = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Light_ActionButton_Overflow;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Light_ActionMode_Inverse = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Light_ActionMode_Inverse;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Light_ActivityChooserView = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Light_ActivityChooserView;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Light_AutoCompleteTextView = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Light_AutoCompleteTextView;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Light_DropDownItem_Spinner = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Light_DropDownItem_Spinner;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Light_ListPopupWindow = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Light_ListPopupWindow;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Light_ListView_DropDown = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Light_ListView_DropDown;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Light_PopupMenu = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Light_PopupMenu;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Light_PopupMenu_Overflow = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Light_PopupMenu_Overflow;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Light_SearchView = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Light_SearchView;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Light_Spinner_DropDown_ActionBar = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Light_Spinner_DropDown_ActionBar;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_ListMenuView = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_ListMenuView;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_ListPopupWindow = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_ListPopupWindow;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_ListView = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_ListView;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_ListView_DropDown = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_ListView_DropDown;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_ListView_Menu = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_ListView_Menu;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_PopupMenu = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_PopupMenu;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_PopupMenu_Overflow = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_PopupMenu_Overflow;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_PopupWindow = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_PopupWindow;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_ProgressBar = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_ProgressBar;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_ProgressBar_Horizontal = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_ProgressBar_Horizontal;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_RatingBar = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_RatingBar;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_RatingBar_Indicator = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_RatingBar_Indicator;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_RatingBar_Small = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_RatingBar_Small;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_SearchView = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_SearchView;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_SearchView_ActionBar = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_SearchView_ActionBar;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_SeekBar = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_SeekBar;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_SeekBar_Discrete = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_SeekBar_Discrete;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Spinner = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Spinner;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Spinner_DropDown = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Spinner_DropDown;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Spinner_DropDown_ActionBar = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Spinner_DropDown_ActionBar;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Spinner_Underlined = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Spinner_Underlined;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_TextView_SpinnerItem = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_TextView_SpinnerItem;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Toolbar = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Toolbar;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_AppCompat_Toolbar_Button_Navigation = global::AoLibs.Sample.Android.Resource.Style.Widget_AppCompat_Toolbar_Button_Navigation;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_Compat_NotificationActionContainer = global::AoLibs.Sample.Android.Resource.Style.Widget_Compat_NotificationActionContainer;
+			global::AoLibs.Camera.Android.Resource.Style.Widget_Compat_NotificationActionText = global::AoLibs.Sample.Android.Resource.Style.Widget_Compat_NotificationActionText;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_background = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_background;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_backgroundSplit = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_backgroundSplit;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_backgroundStacked = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_backgroundStacked;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_contentInsetEnd = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_contentInsetEnd;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_contentInsetEndWithActions = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_contentInsetEndWithActions;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_contentInsetLeft = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_contentInsetLeft;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_contentInsetRight = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_contentInsetRight;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_contentInsetStart = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_contentInsetStart;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_contentInsetStartWithNavigation = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_contentInsetStartWithNavigation;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_customNavigationLayout = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_customNavigationLayout;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_displayOptions = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_displayOptions;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_divider = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_divider;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_elevation = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_elevation;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_height = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_height;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_hideOnContentScroll = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_hideOnContentScroll;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_homeAsUpIndicator = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_homeAsUpIndicator;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_homeLayout = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_homeLayout;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_icon = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_icon;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_indeterminateProgressStyle = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_indeterminateProgressStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_itemPadding = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_itemPadding;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_logo = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_logo;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_navigationMode = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_navigationMode;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_popupTheme = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_popupTheme;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_progressBarPadding = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_progressBarPadding;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_progressBarStyle = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_progressBarStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_subtitle = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_subtitle;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_subtitleTextStyle = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_subtitleTextStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_title = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_title;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBar_titleTextStyle = global::AoLibs.Sample.Android.Resource.Styleable.ActionBar_titleTextStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBarLayout = global::AoLibs.Sample.Android.Resource.Styleable.ActionBarLayout;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionBarLayout_android_layout_gravity = global::AoLibs.Sample.Android.Resource.Styleable.ActionBarLayout_android_layout_gravity;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionMenuItemView = global::AoLibs.Sample.Android.Resource.Styleable.ActionMenuItemView;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionMenuItemView_android_minWidth = global::AoLibs.Sample.Android.Resource.Styleable.ActionMenuItemView_android_minWidth;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionMenuView = global::AoLibs.Sample.Android.Resource.Styleable.ActionMenuView;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionMode = global::AoLibs.Sample.Android.Resource.Styleable.ActionMode;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionMode_background = global::AoLibs.Sample.Android.Resource.Styleable.ActionMode_background;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionMode_backgroundSplit = global::AoLibs.Sample.Android.Resource.Styleable.ActionMode_backgroundSplit;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionMode_closeItemLayout = global::AoLibs.Sample.Android.Resource.Styleable.ActionMode_closeItemLayout;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionMode_height = global::AoLibs.Sample.Android.Resource.Styleable.ActionMode_height;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionMode_subtitleTextStyle = global::AoLibs.Sample.Android.Resource.Styleable.ActionMode_subtitleTextStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActionMode_titleTextStyle = global::AoLibs.Sample.Android.Resource.Styleable.ActionMode_titleTextStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActivityChooserView = global::AoLibs.Sample.Android.Resource.Styleable.ActivityChooserView;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable = global::AoLibs.Sample.Android.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable;
+			global::AoLibs.Camera.Android.Resource.Styleable.ActivityChooserView_initialActivityCount = global::AoLibs.Sample.Android.Resource.Styleable.ActivityChooserView_initialActivityCount;
+			global::AoLibs.Camera.Android.Resource.Styleable.AlertDialog = global::AoLibs.Sample.Android.Resource.Styleable.AlertDialog;
+			global::AoLibs.Camera.Android.Resource.Styleable.AlertDialog_android_layout = global::AoLibs.Sample.Android.Resource.Styleable.AlertDialog_android_layout;
+			global::AoLibs.Camera.Android.Resource.Styleable.AlertDialog_buttonPanelSideLayout = global::AoLibs.Sample.Android.Resource.Styleable.AlertDialog_buttonPanelSideLayout;
+			global::AoLibs.Camera.Android.Resource.Styleable.AlertDialog_listItemLayout = global::AoLibs.Sample.Android.Resource.Styleable.AlertDialog_listItemLayout;
+			global::AoLibs.Camera.Android.Resource.Styleable.AlertDialog_listLayout = global::AoLibs.Sample.Android.Resource.Styleable.AlertDialog_listLayout;
+			global::AoLibs.Camera.Android.Resource.Styleable.AlertDialog_multiChoiceItemLayout = global::AoLibs.Sample.Android.Resource.Styleable.AlertDialog_multiChoiceItemLayout;
+			global::AoLibs.Camera.Android.Resource.Styleable.AlertDialog_showTitle = global::AoLibs.Sample.Android.Resource.Styleable.AlertDialog_showTitle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AlertDialog_singleChoiceItemLayout = global::AoLibs.Sample.Android.Resource.Styleable.AlertDialog_singleChoiceItemLayout;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatImageView = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatImageView;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatImageView_android_src = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatImageView_android_src;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatImageView_srcCompat = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatImageView_srcCompat;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatImageView_tint = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatImageView_tint;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatImageView_tintMode = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatImageView_tintMode;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatSeekBar = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatSeekBar;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatSeekBar_android_thumb = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatSeekBar_android_thumb;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatSeekBar_tickMark = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatSeekBar_tickMark;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatSeekBar_tickMarkTint = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatSeekBar_tickMarkTint;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatSeekBar_tickMarkTintMode = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatSeekBar_tickMarkTintMode;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTextHelper = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTextHelper;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTextHelper_android_drawableBottom = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTextHelper_android_drawableBottom;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTextHelper_android_drawableEnd = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTextHelper_android_drawableEnd;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTextHelper_android_drawableLeft = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTextHelper_android_drawableLeft;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTextHelper_android_drawableRight = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTextHelper_android_drawableRight;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTextHelper_android_drawableStart = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTextHelper_android_drawableStart;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTextHelper_android_drawableTop = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTextHelper_android_drawableTop;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTextHelper_android_textAppearance = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTextHelper_android_textAppearance;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTextView = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTextView;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTextView_android_textAppearance = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTextView_android_textAppearance;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTextView_autoSizeMaxTextSize = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTextView_autoSizeMaxTextSize;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTextView_autoSizeMinTextSize = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTextView_autoSizeMinTextSize;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTextView_autoSizePresetSizes = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTextView_autoSizePresetSizes;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTextView_autoSizeStepGranularity = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTextView_autoSizeStepGranularity;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTextView_autoSizeTextType = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTextView_autoSizeTextType;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTextView_fontFamily = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTextView_fontFamily;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTextView_textAllCaps = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTextView_textAllCaps;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionBarDivider = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionBarDivider;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionBarItemBackground = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionBarItemBackground;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionBarPopupTheme = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionBarPopupTheme;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionBarSize = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionBarSize;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionBarSplitStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionBarSplitStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionBarStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionBarStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionBarTabBarStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionBarTabBarStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionBarTabStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionBarTabStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionBarTabTextStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionBarTabTextStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionBarTheme = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionBarTheme;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionBarWidgetTheme = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionBarWidgetTheme;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionButtonStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionButtonStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionDropDownStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionDropDownStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionMenuTextAppearance = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionMenuTextAppearance;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionMenuTextColor = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionMenuTextColor;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionModeBackground = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionModeBackground;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionModeCloseButtonStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionModeCloseButtonStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionModeCloseDrawable = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionModeCloseDrawable;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionModeCopyDrawable = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionModeCopyDrawable;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionModeCutDrawable = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionModeCutDrawable;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionModeFindDrawable = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionModeFindDrawable;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionModePasteDrawable = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionModePasteDrawable;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionModePopupWindowStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionModePopupWindowStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionModeSelectAllDrawable = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionModeSelectAllDrawable;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionModeShareDrawable = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionModeShareDrawable;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionModeSplitBackground = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionModeSplitBackground;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionModeStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionModeStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionModeWebSearchDrawable = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionModeWebSearchDrawable;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionOverflowButtonStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionOverflowButtonStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_actionOverflowMenuStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_actionOverflowMenuStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_activityChooserViewStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_activityChooserViewStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_alertDialogButtonGroupStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_alertDialogButtonGroupStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_alertDialogCenterButtons = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_alertDialogCenterButtons;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_alertDialogStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_alertDialogStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_alertDialogTheme = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_alertDialogTheme;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_android_windowAnimationStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_android_windowAnimationStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_android_windowIsFloating = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_android_windowIsFloating;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_autoCompleteTextViewStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_autoCompleteTextViewStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_borderlessButtonStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_borderlessButtonStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_buttonBarButtonStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_buttonBarButtonStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_buttonBarNegativeButtonStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_buttonBarNegativeButtonStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_buttonBarNeutralButtonStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_buttonBarNeutralButtonStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_buttonBarPositiveButtonStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_buttonBarPositiveButtonStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_buttonBarStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_buttonBarStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_buttonStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_buttonStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_buttonStyleSmall = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_buttonStyleSmall;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_checkboxStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_checkboxStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_checkedTextViewStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_checkedTextViewStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_colorAccent = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_colorAccent;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_colorBackgroundFloating = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_colorBackgroundFloating;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_colorButtonNormal = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_colorButtonNormal;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_colorControlActivated = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_colorControlActivated;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_colorControlHighlight = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_colorControlHighlight;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_colorControlNormal = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_colorControlNormal;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_colorError = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_colorError;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_colorPrimary = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_colorPrimary;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_colorPrimaryDark = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_colorPrimaryDark;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_colorSwitchThumbNormal = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_colorSwitchThumbNormal;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_controlBackground = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_controlBackground;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_dialogPreferredPadding = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_dialogPreferredPadding;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_dialogTheme = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_dialogTheme;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_dividerHorizontal = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_dividerHorizontal;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_dividerVertical = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_dividerVertical;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_dropDownListViewStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_dropDownListViewStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_dropdownListPreferredItemHeight = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_dropdownListPreferredItemHeight;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_editTextBackground = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_editTextBackground;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_editTextColor = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_editTextColor;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_editTextStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_editTextStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_homeAsUpIndicator = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_homeAsUpIndicator;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_imageButtonStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_imageButtonStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_listChoiceBackgroundIndicator = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_listChoiceBackgroundIndicator;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_listDividerAlertDialog = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_listDividerAlertDialog;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_listMenuViewStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_listMenuViewStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_listPopupWindowStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_listPopupWindowStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_listPreferredItemHeight = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_listPreferredItemHeight;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_listPreferredItemHeightLarge = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_listPreferredItemHeightLarge;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_listPreferredItemHeightSmall = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_listPreferredItemHeightSmall;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingLeft = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingLeft;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingRight = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingRight;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_panelBackground = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_panelBackground;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_panelMenuListTheme = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_panelMenuListTheme;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_panelMenuListWidth = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_panelMenuListWidth;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_popupMenuStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_popupMenuStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_popupWindowStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_popupWindowStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_radioButtonStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_radioButtonStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_ratingBarStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_ratingBarStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_ratingBarStyleIndicator = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_ratingBarStyleIndicator;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_ratingBarStyleSmall = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_ratingBarStyleSmall;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_searchViewStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_searchViewStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_seekBarStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_seekBarStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_selectableItemBackground = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_selectableItemBackground;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_selectableItemBackgroundBorderless = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_selectableItemBackgroundBorderless;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_spinnerDropDownItemStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_spinnerDropDownItemStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_spinnerStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_spinnerStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_switchStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_switchStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_textAppearanceLargePopupMenu = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_textAppearanceLargePopupMenu;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_textAppearanceListItem = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_textAppearanceListItem;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_textAppearanceListItemSecondary = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_textAppearanceListItemSecondary;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_textAppearanceListItemSmall = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_textAppearanceListItemSmall;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_textAppearancePopupMenuHeader = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_textAppearancePopupMenuHeader;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultSubtitle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultSubtitle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultTitle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultTitle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_textAppearanceSmallPopupMenu = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_textAppearanceSmallPopupMenu;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_textColorAlertDialogListItem = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_textColorAlertDialogListItem;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_textColorSearchUrl = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_textColorSearchUrl;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_toolbarNavigationButtonStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_toolbarNavigationButtonStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_toolbarStyle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_toolbarStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_tooltipForegroundColor = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_tooltipForegroundColor;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_tooltipFrameBackground = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_tooltipFrameBackground;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_windowActionBar = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_windowActionBar;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_windowActionBarOverlay = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_windowActionBarOverlay;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_windowActionModeOverlay = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_windowActionModeOverlay;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_windowFixedHeightMajor = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_windowFixedHeightMajor;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_windowFixedHeightMinor = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_windowFixedHeightMinor;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_windowFixedWidthMajor = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_windowFixedWidthMajor;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_windowFixedWidthMinor = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_windowFixedWidthMinor;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_windowMinWidthMajor = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_windowMinWidthMajor;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_windowMinWidthMinor = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_windowMinWidthMinor;
+			global::AoLibs.Camera.Android.Resource.Styleable.AppCompatTheme_windowNoTitle = global::AoLibs.Sample.Android.Resource.Styleable.AppCompatTheme_windowNoTitle;
+			global::AoLibs.Camera.Android.Resource.Styleable.ButtonBarLayout = global::AoLibs.Sample.Android.Resource.Styleable.ButtonBarLayout;
+			global::AoLibs.Camera.Android.Resource.Styleable.ButtonBarLayout_allowStacking = global::AoLibs.Sample.Android.Resource.Styleable.ButtonBarLayout_allowStacking;
+			global::AoLibs.Camera.Android.Resource.Styleable.ColorStateListItem = global::AoLibs.Sample.Android.Resource.Styleable.ColorStateListItem;
+			global::AoLibs.Camera.Android.Resource.Styleable.ColorStateListItem_alpha = global::AoLibs.Sample.Android.Resource.Styleable.ColorStateListItem_alpha;
+			global::AoLibs.Camera.Android.Resource.Styleable.ColorStateListItem_android_alpha = global::AoLibs.Sample.Android.Resource.Styleable.ColorStateListItem_android_alpha;
+			global::AoLibs.Camera.Android.Resource.Styleable.ColorStateListItem_android_color = global::AoLibs.Sample.Android.Resource.Styleable.ColorStateListItem_android_color;
+			global::AoLibs.Camera.Android.Resource.Styleable.CompoundButton = global::AoLibs.Sample.Android.Resource.Styleable.CompoundButton;
+			global::AoLibs.Camera.Android.Resource.Styleable.CompoundButton_android_button = global::AoLibs.Sample.Android.Resource.Styleable.CompoundButton_android_button;
+			global::AoLibs.Camera.Android.Resource.Styleable.CompoundButton_buttonTint = global::AoLibs.Sample.Android.Resource.Styleable.CompoundButton_buttonTint;
+			global::AoLibs.Camera.Android.Resource.Styleable.CompoundButton_buttonTintMode = global::AoLibs.Sample.Android.Resource.Styleable.CompoundButton_buttonTintMode;
+			global::AoLibs.Camera.Android.Resource.Styleable.DrawerArrowToggle = global::AoLibs.Sample.Android.Resource.Styleable.DrawerArrowToggle;
+			global::AoLibs.Camera.Android.Resource.Styleable.DrawerArrowToggle_arrowHeadLength = global::AoLibs.Sample.Android.Resource.Styleable.DrawerArrowToggle_arrowHeadLength;
+			global::AoLibs.Camera.Android.Resource.Styleable.DrawerArrowToggle_arrowShaftLength = global::AoLibs.Sample.Android.Resource.Styleable.DrawerArrowToggle_arrowShaftLength;
+			global::AoLibs.Camera.Android.Resource.Styleable.DrawerArrowToggle_barLength = global::AoLibs.Sample.Android.Resource.Styleable.DrawerArrowToggle_barLength;
+			global::AoLibs.Camera.Android.Resource.Styleable.DrawerArrowToggle_color = global::AoLibs.Sample.Android.Resource.Styleable.DrawerArrowToggle_color;
+			global::AoLibs.Camera.Android.Resource.Styleable.DrawerArrowToggle_drawableSize = global::AoLibs.Sample.Android.Resource.Styleable.DrawerArrowToggle_drawableSize;
+			global::AoLibs.Camera.Android.Resource.Styleable.DrawerArrowToggle_gapBetweenBars = global::AoLibs.Sample.Android.Resource.Styleable.DrawerArrowToggle_gapBetweenBars;
+			global::AoLibs.Camera.Android.Resource.Styleable.DrawerArrowToggle_spinBars = global::AoLibs.Sample.Android.Resource.Styleable.DrawerArrowToggle_spinBars;
+			global::AoLibs.Camera.Android.Resource.Styleable.DrawerArrowToggle_thickness = global::AoLibs.Sample.Android.Resource.Styleable.DrawerArrowToggle_thickness;
+			global::AoLibs.Camera.Android.Resource.Styleable.FontFamily = global::AoLibs.Sample.Android.Resource.Styleable.FontFamily;
+			global::AoLibs.Camera.Android.Resource.Styleable.FontFamily_fontProviderAuthority = global::AoLibs.Sample.Android.Resource.Styleable.FontFamily_fontProviderAuthority;
+			global::AoLibs.Camera.Android.Resource.Styleable.FontFamily_fontProviderCerts = global::AoLibs.Sample.Android.Resource.Styleable.FontFamily_fontProviderCerts;
+			global::AoLibs.Camera.Android.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::AoLibs.Sample.Android.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
+			global::AoLibs.Camera.Android.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::AoLibs.Sample.Android.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
+			global::AoLibs.Camera.Android.Resource.Styleable.FontFamily_fontProviderPackage = global::AoLibs.Sample.Android.Resource.Styleable.FontFamily_fontProviderPackage;
+			global::AoLibs.Camera.Android.Resource.Styleable.FontFamily_fontProviderQuery = global::AoLibs.Sample.Android.Resource.Styleable.FontFamily_fontProviderQuery;
+			global::AoLibs.Camera.Android.Resource.Styleable.FontFamilyFont = global::AoLibs.Sample.Android.Resource.Styleable.FontFamilyFont;
+			global::AoLibs.Camera.Android.Resource.Styleable.FontFamilyFont_android_font = global::AoLibs.Sample.Android.Resource.Styleable.FontFamilyFont_android_font;
+			global::AoLibs.Camera.Android.Resource.Styleable.FontFamilyFont_android_fontStyle = global::AoLibs.Sample.Android.Resource.Styleable.FontFamilyFont_android_fontStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.FontFamilyFont_android_fontWeight = global::AoLibs.Sample.Android.Resource.Styleable.FontFamilyFont_android_fontWeight;
+			global::AoLibs.Camera.Android.Resource.Styleable.FontFamilyFont_font = global::AoLibs.Sample.Android.Resource.Styleable.FontFamilyFont_font;
+			global::AoLibs.Camera.Android.Resource.Styleable.FontFamilyFont_fontStyle = global::AoLibs.Sample.Android.Resource.Styleable.FontFamilyFont_fontStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.FontFamilyFont_fontWeight = global::AoLibs.Sample.Android.Resource.Styleable.FontFamilyFont_fontWeight;
+			global::AoLibs.Camera.Android.Resource.Styleable.LinearLayoutCompat = global::AoLibs.Sample.Android.Resource.Styleable.LinearLayoutCompat;
+			global::AoLibs.Camera.Android.Resource.Styleable.LinearLayoutCompat_android_baselineAligned = global::AoLibs.Sample.Android.Resource.Styleable.LinearLayoutCompat_android_baselineAligned;
+			global::AoLibs.Camera.Android.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex = global::AoLibs.Sample.Android.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex;
+			global::AoLibs.Camera.Android.Resource.Styleable.LinearLayoutCompat_android_gravity = global::AoLibs.Sample.Android.Resource.Styleable.LinearLayoutCompat_android_gravity;
+			global::AoLibs.Camera.Android.Resource.Styleable.LinearLayoutCompat_android_orientation = global::AoLibs.Sample.Android.Resource.Styleable.LinearLayoutCompat_android_orientation;
+			global::AoLibs.Camera.Android.Resource.Styleable.LinearLayoutCompat_android_weightSum = global::AoLibs.Sample.Android.Resource.Styleable.LinearLayoutCompat_android_weightSum;
+			global::AoLibs.Camera.Android.Resource.Styleable.LinearLayoutCompat_divider = global::AoLibs.Sample.Android.Resource.Styleable.LinearLayoutCompat_divider;
+			global::AoLibs.Camera.Android.Resource.Styleable.LinearLayoutCompat_dividerPadding = global::AoLibs.Sample.Android.Resource.Styleable.LinearLayoutCompat_dividerPadding;
+			global::AoLibs.Camera.Android.Resource.Styleable.LinearLayoutCompat_measureWithLargestChild = global::AoLibs.Sample.Android.Resource.Styleable.LinearLayoutCompat_measureWithLargestChild;
+			global::AoLibs.Camera.Android.Resource.Styleable.LinearLayoutCompat_showDividers = global::AoLibs.Sample.Android.Resource.Styleable.LinearLayoutCompat_showDividers;
+			global::AoLibs.Camera.Android.Resource.Styleable.LinearLayoutCompat_Layout = global::AoLibs.Sample.Android.Resource.Styleable.LinearLayoutCompat_Layout;
+			global::AoLibs.Camera.Android.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_gravity = global::AoLibs.Sample.Android.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_gravity;
+			global::AoLibs.Camera.Android.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_height = global::AoLibs.Sample.Android.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_height;
+			global::AoLibs.Camera.Android.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_weight = global::AoLibs.Sample.Android.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_weight;
+			global::AoLibs.Camera.Android.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_width = global::AoLibs.Sample.Android.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_width;
+			global::AoLibs.Camera.Android.Resource.Styleable.ListPopupWindow = global::AoLibs.Sample.Android.Resource.Styleable.ListPopupWindow;
+			global::AoLibs.Camera.Android.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset = global::AoLibs.Sample.Android.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset;
+			global::AoLibs.Camera.Android.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset = global::AoLibs.Sample.Android.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuGroup = global::AoLibs.Sample.Android.Resource.Styleable.MenuGroup;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuGroup_android_checkableBehavior = global::AoLibs.Sample.Android.Resource.Styleable.MenuGroup_android_checkableBehavior;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuGroup_android_enabled = global::AoLibs.Sample.Android.Resource.Styleable.MenuGroup_android_enabled;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuGroup_android_id = global::AoLibs.Sample.Android.Resource.Styleable.MenuGroup_android_id;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuGroup_android_menuCategory = global::AoLibs.Sample.Android.Resource.Styleable.MenuGroup_android_menuCategory;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuGroup_android_orderInCategory = global::AoLibs.Sample.Android.Resource.Styleable.MenuGroup_android_orderInCategory;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuGroup_android_visible = global::AoLibs.Sample.Android.Resource.Styleable.MenuGroup_android_visible;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem_actionLayout = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem_actionLayout;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem_actionProviderClass = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem_actionProviderClass;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem_actionViewClass = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem_actionViewClass;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem_alphabeticModifiers = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem_alphabeticModifiers;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem_android_alphabeticShortcut = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem_android_alphabeticShortcut;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem_android_checkable = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem_android_checkable;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem_android_checked = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem_android_checked;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem_android_enabled = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem_android_enabled;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem_android_icon = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem_android_icon;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem_android_id = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem_android_id;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem_android_menuCategory = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem_android_menuCategory;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem_android_numericShortcut = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem_android_numericShortcut;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem_android_onClick = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem_android_onClick;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem_android_orderInCategory = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem_android_orderInCategory;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem_android_title = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem_android_title;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem_android_titleCondensed = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem_android_titleCondensed;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem_android_visible = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem_android_visible;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem_contentDescription = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem_contentDescription;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem_iconTint = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem_iconTint;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem_iconTintMode = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem_iconTintMode;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem_numericModifiers = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem_numericModifiers;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem_showAsAction = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem_showAsAction;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuItem_tooltipText = global::AoLibs.Sample.Android.Resource.Styleable.MenuItem_tooltipText;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuView = global::AoLibs.Sample.Android.Resource.Styleable.MenuView;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuView_android_headerBackground = global::AoLibs.Sample.Android.Resource.Styleable.MenuView_android_headerBackground;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuView_android_horizontalDivider = global::AoLibs.Sample.Android.Resource.Styleable.MenuView_android_horizontalDivider;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuView_android_itemBackground = global::AoLibs.Sample.Android.Resource.Styleable.MenuView_android_itemBackground;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuView_android_itemIconDisabledAlpha = global::AoLibs.Sample.Android.Resource.Styleable.MenuView_android_itemIconDisabledAlpha;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuView_android_itemTextAppearance = global::AoLibs.Sample.Android.Resource.Styleable.MenuView_android_itemTextAppearance;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuView_android_verticalDivider = global::AoLibs.Sample.Android.Resource.Styleable.MenuView_android_verticalDivider;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuView_android_windowAnimationStyle = global::AoLibs.Sample.Android.Resource.Styleable.MenuView_android_windowAnimationStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuView_preserveIconSpacing = global::AoLibs.Sample.Android.Resource.Styleable.MenuView_preserveIconSpacing;
+			global::AoLibs.Camera.Android.Resource.Styleable.MenuView_subMenuArrow = global::AoLibs.Sample.Android.Resource.Styleable.MenuView_subMenuArrow;
+			global::AoLibs.Camera.Android.Resource.Styleable.PopupWindow = global::AoLibs.Sample.Android.Resource.Styleable.PopupWindow;
+			global::AoLibs.Camera.Android.Resource.Styleable.PopupWindow_android_popupAnimationStyle = global::AoLibs.Sample.Android.Resource.Styleable.PopupWindow_android_popupAnimationStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.PopupWindow_android_popupBackground = global::AoLibs.Sample.Android.Resource.Styleable.PopupWindow_android_popupBackground;
+			global::AoLibs.Camera.Android.Resource.Styleable.PopupWindow_overlapAnchor = global::AoLibs.Sample.Android.Resource.Styleable.PopupWindow_overlapAnchor;
+			global::AoLibs.Camera.Android.Resource.Styleable.PopupWindowBackgroundState = global::AoLibs.Sample.Android.Resource.Styleable.PopupWindowBackgroundState;
+			global::AoLibs.Camera.Android.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor = global::AoLibs.Sample.Android.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor;
+			global::AoLibs.Camera.Android.Resource.Styleable.RecycleListView = global::AoLibs.Sample.Android.Resource.Styleable.RecycleListView;
+			global::AoLibs.Camera.Android.Resource.Styleable.RecycleListView_paddingBottomNoButtons = global::AoLibs.Sample.Android.Resource.Styleable.RecycleListView_paddingBottomNoButtons;
+			global::AoLibs.Camera.Android.Resource.Styleable.RecycleListView_paddingTopNoTitle = global::AoLibs.Sample.Android.Resource.Styleable.RecycleListView_paddingTopNoTitle;
+			global::AoLibs.Camera.Android.Resource.Styleable.SearchView = global::AoLibs.Sample.Android.Resource.Styleable.SearchView;
+			global::AoLibs.Camera.Android.Resource.Styleable.SearchView_android_focusable = global::AoLibs.Sample.Android.Resource.Styleable.SearchView_android_focusable;
+			global::AoLibs.Camera.Android.Resource.Styleable.SearchView_android_imeOptions = global::AoLibs.Sample.Android.Resource.Styleable.SearchView_android_imeOptions;
+			global::AoLibs.Camera.Android.Resource.Styleable.SearchView_android_inputType = global::AoLibs.Sample.Android.Resource.Styleable.SearchView_android_inputType;
+			global::AoLibs.Camera.Android.Resource.Styleable.SearchView_android_maxWidth = global::AoLibs.Sample.Android.Resource.Styleable.SearchView_android_maxWidth;
+			global::AoLibs.Camera.Android.Resource.Styleable.SearchView_closeIcon = global::AoLibs.Sample.Android.Resource.Styleable.SearchView_closeIcon;
+			global::AoLibs.Camera.Android.Resource.Styleable.SearchView_commitIcon = global::AoLibs.Sample.Android.Resource.Styleable.SearchView_commitIcon;
+			global::AoLibs.Camera.Android.Resource.Styleable.SearchView_defaultQueryHint = global::AoLibs.Sample.Android.Resource.Styleable.SearchView_defaultQueryHint;
+			global::AoLibs.Camera.Android.Resource.Styleable.SearchView_goIcon = global::AoLibs.Sample.Android.Resource.Styleable.SearchView_goIcon;
+			global::AoLibs.Camera.Android.Resource.Styleable.SearchView_iconifiedByDefault = global::AoLibs.Sample.Android.Resource.Styleable.SearchView_iconifiedByDefault;
+			global::AoLibs.Camera.Android.Resource.Styleable.SearchView_layout = global::AoLibs.Sample.Android.Resource.Styleable.SearchView_layout;
+			global::AoLibs.Camera.Android.Resource.Styleable.SearchView_queryBackground = global::AoLibs.Sample.Android.Resource.Styleable.SearchView_queryBackground;
+			global::AoLibs.Camera.Android.Resource.Styleable.SearchView_queryHint = global::AoLibs.Sample.Android.Resource.Styleable.SearchView_queryHint;
+			global::AoLibs.Camera.Android.Resource.Styleable.SearchView_searchHintIcon = global::AoLibs.Sample.Android.Resource.Styleable.SearchView_searchHintIcon;
+			global::AoLibs.Camera.Android.Resource.Styleable.SearchView_searchIcon = global::AoLibs.Sample.Android.Resource.Styleable.SearchView_searchIcon;
+			global::AoLibs.Camera.Android.Resource.Styleable.SearchView_submitBackground = global::AoLibs.Sample.Android.Resource.Styleable.SearchView_submitBackground;
+			global::AoLibs.Camera.Android.Resource.Styleable.SearchView_suggestionRowLayout = global::AoLibs.Sample.Android.Resource.Styleable.SearchView_suggestionRowLayout;
+			global::AoLibs.Camera.Android.Resource.Styleable.SearchView_voiceIcon = global::AoLibs.Sample.Android.Resource.Styleable.SearchView_voiceIcon;
+			global::AoLibs.Camera.Android.Resource.Styleable.Spinner = global::AoLibs.Sample.Android.Resource.Styleable.Spinner;
+			global::AoLibs.Camera.Android.Resource.Styleable.Spinner_android_dropDownWidth = global::AoLibs.Sample.Android.Resource.Styleable.Spinner_android_dropDownWidth;
+			global::AoLibs.Camera.Android.Resource.Styleable.Spinner_android_entries = global::AoLibs.Sample.Android.Resource.Styleable.Spinner_android_entries;
+			global::AoLibs.Camera.Android.Resource.Styleable.Spinner_android_popupBackground = global::AoLibs.Sample.Android.Resource.Styleable.Spinner_android_popupBackground;
+			global::AoLibs.Camera.Android.Resource.Styleable.Spinner_android_prompt = global::AoLibs.Sample.Android.Resource.Styleable.Spinner_android_prompt;
+			global::AoLibs.Camera.Android.Resource.Styleable.Spinner_popupTheme = global::AoLibs.Sample.Android.Resource.Styleable.Spinner_popupTheme;
+			global::AoLibs.Camera.Android.Resource.Styleable.SwitchCompat = global::AoLibs.Sample.Android.Resource.Styleable.SwitchCompat;
+			global::AoLibs.Camera.Android.Resource.Styleable.SwitchCompat_android_textOff = global::AoLibs.Sample.Android.Resource.Styleable.SwitchCompat_android_textOff;
+			global::AoLibs.Camera.Android.Resource.Styleable.SwitchCompat_android_textOn = global::AoLibs.Sample.Android.Resource.Styleable.SwitchCompat_android_textOn;
+			global::AoLibs.Camera.Android.Resource.Styleable.SwitchCompat_android_thumb = global::AoLibs.Sample.Android.Resource.Styleable.SwitchCompat_android_thumb;
+			global::AoLibs.Camera.Android.Resource.Styleable.SwitchCompat_showText = global::AoLibs.Sample.Android.Resource.Styleable.SwitchCompat_showText;
+			global::AoLibs.Camera.Android.Resource.Styleable.SwitchCompat_splitTrack = global::AoLibs.Sample.Android.Resource.Styleable.SwitchCompat_splitTrack;
+			global::AoLibs.Camera.Android.Resource.Styleable.SwitchCompat_switchMinWidth = global::AoLibs.Sample.Android.Resource.Styleable.SwitchCompat_switchMinWidth;
+			global::AoLibs.Camera.Android.Resource.Styleable.SwitchCompat_switchPadding = global::AoLibs.Sample.Android.Resource.Styleable.SwitchCompat_switchPadding;
+			global::AoLibs.Camera.Android.Resource.Styleable.SwitchCompat_switchTextAppearance = global::AoLibs.Sample.Android.Resource.Styleable.SwitchCompat_switchTextAppearance;
+			global::AoLibs.Camera.Android.Resource.Styleable.SwitchCompat_thumbTextPadding = global::AoLibs.Sample.Android.Resource.Styleable.SwitchCompat_thumbTextPadding;
+			global::AoLibs.Camera.Android.Resource.Styleable.SwitchCompat_thumbTint = global::AoLibs.Sample.Android.Resource.Styleable.SwitchCompat_thumbTint;
+			global::AoLibs.Camera.Android.Resource.Styleable.SwitchCompat_thumbTintMode = global::AoLibs.Sample.Android.Resource.Styleable.SwitchCompat_thumbTintMode;
+			global::AoLibs.Camera.Android.Resource.Styleable.SwitchCompat_track = global::AoLibs.Sample.Android.Resource.Styleable.SwitchCompat_track;
+			global::AoLibs.Camera.Android.Resource.Styleable.SwitchCompat_trackTint = global::AoLibs.Sample.Android.Resource.Styleable.SwitchCompat_trackTint;
+			global::AoLibs.Camera.Android.Resource.Styleable.SwitchCompat_trackTintMode = global::AoLibs.Sample.Android.Resource.Styleable.SwitchCompat_trackTintMode;
+			global::AoLibs.Camera.Android.Resource.Styleable.TextAppearance = global::AoLibs.Sample.Android.Resource.Styleable.TextAppearance;
+			global::AoLibs.Camera.Android.Resource.Styleable.TextAppearance_android_fontFamily = global::AoLibs.Sample.Android.Resource.Styleable.TextAppearance_android_fontFamily;
+			global::AoLibs.Camera.Android.Resource.Styleable.TextAppearance_android_shadowColor = global::AoLibs.Sample.Android.Resource.Styleable.TextAppearance_android_shadowColor;
+			global::AoLibs.Camera.Android.Resource.Styleable.TextAppearance_android_shadowDx = global::AoLibs.Sample.Android.Resource.Styleable.TextAppearance_android_shadowDx;
+			global::AoLibs.Camera.Android.Resource.Styleable.TextAppearance_android_shadowDy = global::AoLibs.Sample.Android.Resource.Styleable.TextAppearance_android_shadowDy;
+			global::AoLibs.Camera.Android.Resource.Styleable.TextAppearance_android_shadowRadius = global::AoLibs.Sample.Android.Resource.Styleable.TextAppearance_android_shadowRadius;
+			global::AoLibs.Camera.Android.Resource.Styleable.TextAppearance_android_textColor = global::AoLibs.Sample.Android.Resource.Styleable.TextAppearance_android_textColor;
+			global::AoLibs.Camera.Android.Resource.Styleable.TextAppearance_android_textColorHint = global::AoLibs.Sample.Android.Resource.Styleable.TextAppearance_android_textColorHint;
+			global::AoLibs.Camera.Android.Resource.Styleable.TextAppearance_android_textColorLink = global::AoLibs.Sample.Android.Resource.Styleable.TextAppearance_android_textColorLink;
+			global::AoLibs.Camera.Android.Resource.Styleable.TextAppearance_android_textSize = global::AoLibs.Sample.Android.Resource.Styleable.TextAppearance_android_textSize;
+			global::AoLibs.Camera.Android.Resource.Styleable.TextAppearance_android_textStyle = global::AoLibs.Sample.Android.Resource.Styleable.TextAppearance_android_textStyle;
+			global::AoLibs.Camera.Android.Resource.Styleable.TextAppearance_android_typeface = global::AoLibs.Sample.Android.Resource.Styleable.TextAppearance_android_typeface;
+			global::AoLibs.Camera.Android.Resource.Styleable.TextAppearance_fontFamily = global::AoLibs.Sample.Android.Resource.Styleable.TextAppearance_fontFamily;
+			global::AoLibs.Camera.Android.Resource.Styleable.TextAppearance_textAllCaps = global::AoLibs.Sample.Android.Resource.Styleable.TextAppearance_textAllCaps;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_android_gravity = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_android_gravity;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_android_minHeight = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_android_minHeight;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_buttonGravity = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_buttonGravity;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_collapseContentDescription = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_collapseContentDescription;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_collapseIcon = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_collapseIcon;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_contentInsetEnd = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_contentInsetEnd;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_contentInsetEndWithActions = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_contentInsetEndWithActions;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_contentInsetLeft = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_contentInsetLeft;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_contentInsetRight = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_contentInsetRight;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_contentInsetStart = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_contentInsetStart;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_contentInsetStartWithNavigation = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_contentInsetStartWithNavigation;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_logo = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_logo;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_logoDescription = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_logoDescription;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_maxButtonHeight = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_maxButtonHeight;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_navigationContentDescription = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_navigationContentDescription;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_navigationIcon = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_navigationIcon;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_popupTheme = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_popupTheme;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_subtitle = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_subtitle;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_subtitleTextAppearance = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_subtitleTextAppearance;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_subtitleTextColor = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_subtitleTextColor;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_title = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_title;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_titleMargin = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_titleMargin;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_titleMarginBottom = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_titleMarginBottom;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_titleMarginEnd = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_titleMarginEnd;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_titleMarginStart = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_titleMarginStart;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_titleMarginTop = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_titleMarginTop;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_titleMargins = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_titleMargins;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_titleTextAppearance = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_titleTextAppearance;
+			global::AoLibs.Camera.Android.Resource.Styleable.Toolbar_titleTextColor = global::AoLibs.Sample.Android.Resource.Styleable.Toolbar_titleTextColor;
+			global::AoLibs.Camera.Android.Resource.Styleable.View = global::AoLibs.Sample.Android.Resource.Styleable.View;
+			global::AoLibs.Camera.Android.Resource.Styleable.View_android_focusable = global::AoLibs.Sample.Android.Resource.Styleable.View_android_focusable;
+			global::AoLibs.Camera.Android.Resource.Styleable.View_android_theme = global::AoLibs.Sample.Android.Resource.Styleable.View_android_theme;
+			global::AoLibs.Camera.Android.Resource.Styleable.View_paddingEnd = global::AoLibs.Sample.Android.Resource.Styleable.View_paddingEnd;
+			global::AoLibs.Camera.Android.Resource.Styleable.View_paddingStart = global::AoLibs.Sample.Android.Resource.Styleable.View_paddingStart;
+			global::AoLibs.Camera.Android.Resource.Styleable.View_theme = global::AoLibs.Sample.Android.Resource.Styleable.View_theme;
+			global::AoLibs.Camera.Android.Resource.Styleable.ViewBackgroundHelper = global::AoLibs.Sample.Android.Resource.Styleable.ViewBackgroundHelper;
+			global::AoLibs.Camera.Android.Resource.Styleable.ViewBackgroundHelper_android_background = global::AoLibs.Sample.Android.Resource.Styleable.ViewBackgroundHelper_android_background;
+			global::AoLibs.Camera.Android.Resource.Styleable.ViewBackgroundHelper_backgroundTint = global::AoLibs.Sample.Android.Resource.Styleable.ViewBackgroundHelper_backgroundTint;
+			global::AoLibs.Camera.Android.Resource.Styleable.ViewBackgroundHelper_backgroundTintMode = global::AoLibs.Sample.Android.Resource.Styleable.ViewBackgroundHelper_backgroundTintMode;
+			global::AoLibs.Camera.Android.Resource.Styleable.ViewStubCompat = global::AoLibs.Sample.Android.Resource.Styleable.ViewStubCompat;
+			global::AoLibs.Camera.Android.Resource.Styleable.ViewStubCompat_android_id = global::AoLibs.Sample.Android.Resource.Styleable.ViewStubCompat_android_id;
+			global::AoLibs.Camera.Android.Resource.Styleable.ViewStubCompat_android_inflatedId = global::AoLibs.Sample.Android.Resource.Styleable.ViewStubCompat_android_inflatedId;
+			global::AoLibs.Camera.Android.Resource.Styleable.ViewStubCompat_android_layout = global::AoLibs.Sample.Android.Resource.Styleable.ViewStubCompat_android_layout;
 			global::AoLibs.Dialogs.Android.Resource.Animation.abc_fade_in = global::AoLibs.Sample.Android.Resource.Animation.abc_fade_in;
 			global::AoLibs.Dialogs.Android.Resource.Animation.abc_fade_out = global::AoLibs.Sample.Android.Resource.Animation.abc_fade_out;
 			global::AoLibs.Dialogs.Android.Resource.Animation.abc_grow_fade_in_from_bottom = global::AoLibs.Sample.Android.Resource.Animation.abc_grow_fade_in_from_bottom;
@@ -4645,41 +6131,47 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f090039
 			public const int ALT = 2131296313;
 			
-			// aapt resource value: 0x7f0900b9
-			public const int Button = 2131296441;
+			// aapt resource value: 0x7f09009e
+			public const int AutoFitTexture = 2131296414;
 			
-			// aapt resource value: 0x7f0900bb
-			public const int ButtonChoose = 2131296443;
-			
-			// aapt resource value: 0x7f0900be
-			public const int ButtonDialog = 2131296446;
-			
-			// aapt resource value: 0x7f0900bf
-			public const int ButtonDialogB = 2131296447;
-			
-			// aapt resource value: 0x7f0900c1
-			public const int ButtonGoBack = 2131296449;
-			
-			// aapt resource value: 0x7f0900c0
-			public const int ButtonNavigate = 2131296448;
-			
-			// aapt resource value: 0x7f0900c4
-			public const int ButtonNavigateA = 2131296452;
-			
-			// aapt resource value: 0x7f0900c5
-			public const int ButtonNavigateB = 2131296453;
-			
-			// aapt resource value: 0x7f0900c2
-			public const int ButtonNavigateC = 2131296450;
-			
-			// aapt resource value: 0x7f0900c3
-			public const int ButtonNavigateCNoBackstack = 2131296451;
-			
-			// aapt resource value: 0x7f0900bd
-			public const int ButtonReset = 2131296445;
+			// aapt resource value: 0x7f0900ba
+			public const int Button = 2131296442;
 			
 			// aapt resource value: 0x7f0900bc
-			public const int ButtonShow = 2131296444;
+			public const int ButtonChoose = 2131296444;
+			
+			// aapt resource value: 0x7f0900bf
+			public const int ButtonDialog = 2131296447;
+			
+			// aapt resource value: 0x7f0900c0
+			public const int ButtonDialogB = 2131296448;
+			
+			// aapt resource value: 0x7f0900c3
+			public const int ButtonGoBack = 2131296451;
+			
+			// aapt resource value: 0x7f0900c1
+			public const int ButtonNavigate = 2131296449;
+			
+			// aapt resource value: 0x7f0900c6
+			public const int ButtonNavigateA = 2131296454;
+			
+			// aapt resource value: 0x7f0900c7
+			public const int ButtonNavigateB = 2131296455;
+			
+			// aapt resource value: 0x7f0900c4
+			public const int ButtonNavigateC = 2131296452;
+			
+			// aapt resource value: 0x7f0900c5
+			public const int ButtonNavigateCNoBackstack = 2131296453;
+			
+			// aapt resource value: 0x7f0900c2
+			public const int ButtonNavigateCamera = 2131296450;
+			
+			// aapt resource value: 0x7f0900be
+			public const int ButtonReset = 2131296446;
+			
+			// aapt resource value: 0x7f0900bd
+			public const int ButtonShow = 2131296445;
 			
 			// aapt resource value: 0x7f09003a
 			public const int CTRL = 2131296314;
@@ -4690,8 +6182,8 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f09003c
 			public const int META = 2131296316;
 			
-			// aapt resource value: 0x7f0900ba
-			public const int MessageTextView = 2131296442;
+			// aapt resource value: 0x7f0900bb
+			public const int MessageTextView = 2131296443;
 			
 			// aapt resource value: 0x7f09009d
 			public const int RootView = 2131296413;
@@ -4702,8 +6194,8 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f09003e
 			public const int SYM = 2131296318;
 			
-			// aapt resource value: 0x7f0900b8
-			public const int TextView = 2131296440;
+			// aapt resource value: 0x7f0900b9
+			public const int TextView = 2131296441;
 			
 			// aapt resource value: 0x7f09008d
 			public const int action_bar = 2131296397;
@@ -4726,17 +6218,17 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f090069
 			public const int action_bar_title = 2131296361;
 			
-			// aapt resource value: 0x7f0900aa
-			public const int action_container = 2131296426;
+			// aapt resource value: 0x7f0900ab
+			public const int action_container = 2131296427;
 			
 			// aapt resource value: 0x7f09008e
 			public const int action_context_bar = 2131296398;
 			
-			// aapt resource value: 0x7f0900b5
-			public const int action_divider = 2131296437;
+			// aapt resource value: 0x7f0900b6
+			public const int action_divider = 2131296438;
 			
-			// aapt resource value: 0x7f0900ab
-			public const int action_image = 2131296427;
+			// aapt resource value: 0x7f0900ac
+			public const int action_image = 2131296428;
 			
 			// aapt resource value: 0x7f090003
 			public const int action_menu_divider = 2131296259;
@@ -4753,11 +6245,11 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f09006b
 			public const int action_mode_close_button = 2131296363;
 			
-			// aapt resource value: 0x7f0900ac
-			public const int action_text = 2131296428;
+			// aapt resource value: 0x7f0900ad
+			public const int action_text = 2131296429;
 			
-			// aapt resource value: 0x7f0900b6
-			public const int actions = 2131296438;
+			// aapt resource value: 0x7f0900b7
+			public const int actions = 2131296439;
 			
 			// aapt resource value: 0x7f09006c
 			public const int activity_chooser_view_content = 2131296364;
@@ -4804,8 +6296,8 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f090086
 			public const int checkbox = 2131296390;
 			
-			// aapt resource value: 0x7f0900b4
-			public const int chronometer = 2131296436;
+			// aapt resource value: 0x7f0900b5
+			public const int chronometer = 2131296437;
 			
 			// aapt resource value: 0x7f090061
 			public const int clip_horizontal = 2131296353;
@@ -4816,8 +6308,8 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f090040
 			public const int collapseActionView = 2131296320;
 			
-			// aapt resource value: 0x7f0900a0
-			public const int container = 2131296416;
+			// aapt resource value: 0x7f0900a1
+			public const int container = 2131296417;
 			
 			// aapt resource value: 0x7f090082
 			public const int content = 2131296386;
@@ -4825,8 +6317,8 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f090075
 			public const int contentPanel = 2131296373;
 			
-			// aapt resource value: 0x7f0900a1
-			public const int coordinator = 2131296417;
+			// aapt resource value: 0x7f0900a2
+			public const int coordinator = 2131296418;
 			
 			// aapt resource value: 0x7f09007c
 			public const int custom = 2131296380;
@@ -4840,20 +6332,20 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f09006f
 			public const int default_activity_button = 2131296367;
 			
-			// aapt resource value: 0x7f0900a3
-			public const int design_bottom_sheet = 2131296419;
+			// aapt resource value: 0x7f0900a4
+			public const int design_bottom_sheet = 2131296420;
+			
+			// aapt resource value: 0x7f0900a9
+			public const int design_menu_item_action_area = 2131296425;
 			
 			// aapt resource value: 0x7f0900a8
-			public const int design_menu_item_action_area = 2131296424;
+			public const int design_menu_item_action_area_stub = 2131296424;
 			
 			// aapt resource value: 0x7f0900a7
-			public const int design_menu_item_action_area_stub = 2131296423;
+			public const int design_menu_item_text = 2131296423;
 			
 			// aapt resource value: 0x7f0900a6
-			public const int design_menu_item_text = 2131296422;
-			
-			// aapt resource value: 0x7f0900a5
-			public const int design_navigation_view = 2131296421;
+			public const int design_navigation_view = 2131296422;
 			
 			// aapt resource value: 0x7f090027
 			public const int disableHome = 2131296295;
@@ -4912,8 +6404,8 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f090071
 			public const int icon = 2131296369;
 			
-			// aapt resource value: 0x7f0900b7
-			public const int icon_group = 2131296439;
+			// aapt resource value: 0x7f0900b8
+			public const int icon_group = 2131296440;
 			
 			// aapt resource value: 0x7f090041
 			public const int ifRoom = 2131296321;
@@ -4921,8 +6413,8 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f09006e
 			public const int image = 2131296366;
 			
-			// aapt resource value: 0x7f0900b0
-			public const int info = 2131296432;
+			// aapt resource value: 0x7f0900b1
+			public const int info = 2131296433;
 			
 			// aapt resource value: 0x7f090068
 			public const int italic = 2131296360;
@@ -4933,8 +6425,8 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f09004e
 			public const int labeled = 2131296334;
 			
-			// aapt resource value: 0x7f09009f
-			public const int largeLabel = 2131296415;
+			// aapt resource value: 0x7f0900a0
+			public const int largeLabel = 2131296416;
 			
 			// aapt resource value: 0x7f090054
 			public const int left = 2131296340;
@@ -4951,8 +6443,8 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f090070
 			public const int list_item = 2131296368;
 			
-			// aapt resource value: 0x7f0900c7
-			public const int masked = 2131296455;
+			// aapt resource value: 0x7f0900c9
+			public const int masked = 2131296457;
 			
 			// aapt resource value: 0x7f09009c
 			public const int message = 2131296412;
@@ -4972,8 +6464,8 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f09002f
 			public const int multiply = 2131296303;
 			
-			// aapt resource value: 0x7f0900a4
-			public const int navigation_header_container = 2131296420;
+			// aapt resource value: 0x7f0900a5
+			public const int navigation_header_container = 2131296421;
 			
 			// aapt resource value: 0x7f090042
 			public const int never = 2131296322;
@@ -4984,14 +6476,14 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f090025
 			public const int normal = 2131296293;
 			
-			// aapt resource value: 0x7f0900b2
-			public const int notification_background = 2131296434;
+			// aapt resource value: 0x7f0900b3
+			public const int notification_background = 2131296435;
+			
+			// aapt resource value: 0x7f0900af
+			public const int notification_main_column = 2131296431;
 			
 			// aapt resource value: 0x7f0900ae
-			public const int notification_main_column = 2131296430;
-			
-			// aapt resource value: 0x7f0900ad
-			public const int notification_main_column_container = 2131296429;
+			public const int notification_main_column_container = 2131296430;
 			
 			// aapt resource value: 0x7f090060
 			public const int outline = 2131296352;
@@ -5020,11 +6512,11 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f090055
 			public const int right = 2131296341;
 			
-			// aapt resource value: 0x7f0900b1
-			public const int right_icon = 2131296433;
+			// aapt resource value: 0x7f0900b2
+			public const int right_icon = 2131296434;
 			
-			// aapt resource value: 0x7f0900af
-			public const int right_side = 2131296431;
+			// aapt resource value: 0x7f0900b0
+			public const int right_side = 2131296432;
 			
 			// aapt resource value: 0x7f09000c
 			public const int save_image_matrix = 2131296268;
@@ -5101,8 +6593,8 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f09002c
 			public const int showTitle = 2131296300;
 			
-			// aapt resource value: 0x7f09009e
-			public const int smallLabel = 2131296414;
+			// aapt resource value: 0x7f09009f
+			public const int smallLabel = 2131296415;
 			
 			// aapt resource value: 0x7f090016
 			public const int snackbar_action = 2131296278;
@@ -5170,8 +6662,8 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f09005a
 			public const int textStart = 2131296346;
 			
-			// aapt resource value: 0x7f0900a9
-			public const int text_input_password_toggle = 2131296425;
+			// aapt resource value: 0x7f0900aa
+			public const int text_input_password_toggle = 2131296426;
 			
 			// aapt resource value: 0x7f090018
 			public const int textinput_counter = 2131296280;
@@ -5182,8 +6674,8 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f09001a
 			public const int textinput_helper_text = 2131296282;
 			
-			// aapt resource value: 0x7f0900b3
-			public const int time = 2131296435;
+			// aapt resource value: 0x7f0900b4
+			public const int time = 2131296436;
 			
 			// aapt resource value: 0x7f090023
 			public const int title = 2131296291;
@@ -5200,8 +6692,8 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f09007d
 			public const int topPanel = 2131296381;
 			
-			// aapt resource value: 0x7f0900a2
-			public const int touch_outside = 2131296418;
+			// aapt resource value: 0x7f0900a3
+			public const int touch_outside = 2131296419;
 			
 			// aapt resource value: 0x7f09000f
 			public const int transition_current_scene = 2131296271;
@@ -5233,8 +6725,8 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f09001b
 			public const int view_offset_helper = 2131296283;
 			
-			// aapt resource value: 0x7f0900c6
-			public const int visible = 2131296454;
+			// aapt resource value: 0x7f0900c8
+			public const int visible = 2131296456;
 			
 			// aapt resource value: 0x7f090043
 			public const int withText = 2131296323;
@@ -5426,97 +6918,100 @@ namespace AoLibs.Sample.Android
 			public const int activity_main = 2130968604;
 			
 			// aapt resource value: 0x7f04001d
-			public const int design_bottom_navigation_item = 2130968605;
+			public const int camera_page = 2130968605;
 			
 			// aapt resource value: 0x7f04001e
-			public const int design_bottom_sheet_dialog = 2130968606;
+			public const int design_bottom_navigation_item = 2130968606;
 			
 			// aapt resource value: 0x7f04001f
-			public const int design_layout_snackbar = 2130968607;
+			public const int design_bottom_sheet_dialog = 2130968607;
 			
 			// aapt resource value: 0x7f040020
-			public const int design_layout_snackbar_include = 2130968608;
+			public const int design_layout_snackbar = 2130968608;
 			
 			// aapt resource value: 0x7f040021
-			public const int design_layout_tab_icon = 2130968609;
+			public const int design_layout_snackbar_include = 2130968609;
 			
 			// aapt resource value: 0x7f040022
-			public const int design_layout_tab_text = 2130968610;
+			public const int design_layout_tab_icon = 2130968610;
 			
 			// aapt resource value: 0x7f040023
-			public const int design_menu_item_action_area = 2130968611;
+			public const int design_layout_tab_text = 2130968611;
 			
 			// aapt resource value: 0x7f040024
-			public const int design_navigation_item = 2130968612;
+			public const int design_menu_item_action_area = 2130968612;
 			
 			// aapt resource value: 0x7f040025
-			public const int design_navigation_item_header = 2130968613;
+			public const int design_navigation_item = 2130968613;
 			
 			// aapt resource value: 0x7f040026
-			public const int design_navigation_item_separator = 2130968614;
+			public const int design_navigation_item_header = 2130968614;
 			
 			// aapt resource value: 0x7f040027
-			public const int design_navigation_item_subheader = 2130968615;
+			public const int design_navigation_item_separator = 2130968615;
 			
 			// aapt resource value: 0x7f040028
-			public const int design_navigation_menu = 2130968616;
+			public const int design_navigation_item_subheader = 2130968616;
 			
 			// aapt resource value: 0x7f040029
-			public const int design_navigation_menu_item = 2130968617;
+			public const int design_navigation_menu = 2130968617;
 			
 			// aapt resource value: 0x7f04002a
-			public const int design_text_input_password_icon = 2130968618;
+			public const int design_navigation_menu_item = 2130968618;
 			
 			// aapt resource value: 0x7f04002b
-			public const int mtrl_layout_snackbar = 2130968619;
+			public const int design_text_input_password_icon = 2130968619;
 			
 			// aapt resource value: 0x7f04002c
-			public const int mtrl_layout_snackbar_include = 2130968620;
+			public const int mtrl_layout_snackbar = 2130968620;
 			
 			// aapt resource value: 0x7f04002d
-			public const int notification_action = 2130968621;
+			public const int mtrl_layout_snackbar_include = 2130968621;
 			
 			// aapt resource value: 0x7f04002e
-			public const int notification_action_tombstone = 2130968622;
+			public const int notification_action = 2130968622;
 			
 			// aapt resource value: 0x7f04002f
-			public const int notification_template_custom_big = 2130968623;
+			public const int notification_action_tombstone = 2130968623;
 			
 			// aapt resource value: 0x7f040030
-			public const int notification_template_icon_group = 2130968624;
+			public const int notification_template_custom_big = 2130968624;
 			
 			// aapt resource value: 0x7f040031
-			public const int notification_template_part_chronometer = 2130968625;
+			public const int notification_template_icon_group = 2130968625;
 			
 			// aapt resource value: 0x7f040032
-			public const int notification_template_part_time = 2130968626;
+			public const int notification_template_part_chronometer = 2130968626;
 			
 			// aapt resource value: 0x7f040033
-			public const int select_dialog_item_material = 2130968627;
+			public const int notification_template_part_time = 2130968627;
 			
 			// aapt resource value: 0x7f040034
-			public const int select_dialog_multichoice_material = 2130968628;
+			public const int select_dialog_item_material = 2130968628;
 			
 			// aapt resource value: 0x7f040035
-			public const int select_dialog_singlechoice_material = 2130968629;
+			public const int select_dialog_multichoice_material = 2130968629;
 			
 			// aapt resource value: 0x7f040036
-			public const int support_simple_spinner_dropdown_item = 2130968630;
+			public const int select_dialog_singlechoice_material = 2130968630;
 			
 			// aapt resource value: 0x7f040037
-			public const int test_dialog_a = 2130968631;
+			public const int support_simple_spinner_dropdown_item = 2130968631;
 			
 			// aapt resource value: 0x7f040038
-			public const int test_dialog_b = 2130968632;
+			public const int test_dialog_a = 2130968632;
 			
 			// aapt resource value: 0x7f040039
-			public const int test_page_a = 2130968633;
+			public const int test_dialog_b = 2130968633;
 			
 			// aapt resource value: 0x7f04003a
-			public const int test_page_b = 2130968634;
+			public const int test_page_a = 2130968634;
 			
 			// aapt resource value: 0x7f04003b
-			public const int test_page_c = 2130968635;
+			public const int test_page_b = 2130968635;
+			
+			// aapt resource value: 0x7f04003c
+			public const int test_page_c = 2130968636;
 			
 			static Layout()
 			{

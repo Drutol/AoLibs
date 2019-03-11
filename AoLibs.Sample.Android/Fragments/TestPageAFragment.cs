@@ -36,6 +36,7 @@ namespace AoLibs.Sample.Android.Fragments
             ButtonReset.SetOnClickCommand(ViewModel.ResetFanciness);
             ButtonDialog.SetOnClickCommand(ViewModel.ShowDialogCommand);
             ButtonDialogB.SetOnClickCommand(ViewModel.ShowDialogBCommand);
+            ButtonNavigateCamera.SetOnClickCommand(ViewModel.NavigateCameraCommand);
         }
 
         #region Views
@@ -46,6 +47,7 @@ namespace AoLibs.Sample.Android.Fragments
         private Button _buttonDialog;
         private Button _buttonDialogB;
         private Button _buttonNavigate;
+        private Button _buttonNavigateCamera;
 
         public Button ButtonChoose => _buttonChoose ?? (_buttonChoose = FindViewById<Button>(Resource.Id.ButtonChoose));
 
@@ -58,6 +60,8 @@ namespace AoLibs.Sample.Android.Fragments
         public Button ButtonDialogB => _buttonDialogB ?? (_buttonDialogB = FindViewById<Button>(Resource.Id.ButtonDialogB));
 
         public Button ButtonNavigate => _buttonNavigate ?? (_buttonNavigate = FindViewById<Button>(Resource.Id.ButtonNavigate));
+
+        public Button ButtonNavigateCamera => _buttonNavigateCamera ?? (_buttonNavigateCamera = FindViewById<Button>(Resource.Id.ButtonNavigateCamera));
 
         #endregion
     }

@@ -13,7 +13,10 @@ using Android.OS;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using AoLibs.Camera.Android.Enums;
 using AoLibs.Camera.Android.Views;
+using AoLibs.Utilities.Android.Listeners;
+using Java.IO;
 using Java.Lang;
 using Java.Util.Concurrent;
 using Double = Java.Lang.Double;
@@ -21,6 +24,7 @@ using Exception = Java.Lang.Exception;
 using Math = Java.Lang.Math;
 using Object = Java.Lang.Object;
 using Orientation = Android.Media.Orientation;
+using Path = System.IO.Path;
 using Semaphore = Java.Util.Concurrent.Semaphore;
 
 namespace AoLibs.Camera.Android
@@ -29,19 +33,12 @@ namespace AoLibs.Camera.Android
     {
         private readonly Activity _activity;
         private readonly AutoFitTextureView _autoFitTextureView;
+        private readonly FaceRectView _faceRectView;
+        public const string FocusRequestTag = "FocusRequestTag";
+        public event EventHandler<Face[]> OnNewFacesDetected;
 
-        private enum CameraState
-        {
-            Idle,
-            Preview,
-            WaitAf,
-            WaitAe,
-            TakePicture,
-            RecordVideo,
-            Closing
-        }
 
-        private new const string Tag = nameof(CameraController5000);
+        private const string Tag = nameof(CameraController5000);
         private const int MaxPreviewFps = 24;
 
         private static readonly Dictionary<int, int> DngOrientation = new Dictionary<int, int>
@@ -58,8 +55,8 @@ namespace AoLibs.Camera.Android
 
         private ImageSaver _imageSaver;
         private MediaRecorder mMediaRecorder;
-        private readonly CameraCaptureSession.CaptureCallback _sessionCaptureCallback;
-        private Handler _backgroundHandler;
+        public CameraCaptureSession.CaptureCallback _sessionCaptureCallback { get; private set; }
+        public Handler _backgroundHandler { get; private set; }
         private HandlerThread _backgroundHandlerThread;
         private DateTime _recordingStartTime;
         private SemaphoreSlim _textureReadySemaphore;
@@ -94,26 +91,37 @@ namespace AoLibs.Camera.Android
         private Size _videoSize;
         private Size _previewSize;
 
-        private CaptureRequest.Builder _previewBuilder;
+        public CameraState CurrentState { get; private set; } = CameraState.Idle;
+        public CameraCharacteristics CurrentCameraCharacteristics => _characteristics;
+
+        public CaptureRequest.Builder PreviewBuilder { get; private set; }
         private CaptureRequest.Builder _captureBuilder;
 
         private ImageReader _rawReader;
         private CameraDevice _CameraDevice;
         private CameraManager _CameraManager;
-        private CameraCaptureSession _CameraSession;
+        public CameraCaptureSession _CameraSession { get; private set; }
+        public CameraAdapter CameraAdapter { get; set; }
 
         private List<(Size videoSize, List<Range> fpsRanges)> _videoConfigurations = new List<(Size videoSize, List<Range> fpsRanges)>();
+        private string _currentTemporaryVideoFilePath;
+        private string _targetVideoPath;
 
-        public CameraController5000(Activity activity, AutoFitTextureView autoFitTextureView)
+        public CameraController5000(
+            Activity activity, 
+            AutoFitTextureView autoFitTextureView, 
+            FaceRectView faceRectView = null)
         {
             _activity = activity;
             _autoFitTextureView = autoFitTextureView;
+            _faceRectView = faceRectView;
+            CameraAdapter = new CameraAdapter(this);
         }
 
 
         #region Lifecycle
 
-        private CameraState CurrentState { get; set; } = CameraState.Idle;
+
 
         public void OnPause()
         {
@@ -130,7 +138,6 @@ namespace AoLibs.Camera.Android
 
         public void OnResume()
         {
-            RecreateTexture();
             var displayMetrics = new DisplayMetrics();
             _activity.WindowManager.DefaultDisplay.GetMetrics(displayMetrics);
             _dsiHeight = displayMetrics.HeightPixels;
@@ -210,8 +217,6 @@ namespace AoLibs.Camera.Android
                 {
                     return;
                 }
-
-                _CameraManager = (CameraManager) _activity.GetSystemService(Context.CameraService);
 
 
                 _cameraId = null;
@@ -311,24 +316,26 @@ namespace AoLibs.Camera.Android
                 if (orientation == global::Android.Content.Res.Orientation.Landscape)
                 {
                     _autoFitTextureView.SetAspectRatio(_previewSize.Width, _previewSize.Height);
-                    FaceRectView.SetAspectRatio(_previewSize.Width, _previewSize.Height);
+                    _faceRectView?.SetAspectRatio(_previewSize.Width, _previewSize.Height);
                 }
                 else
                 {
                     _autoFitTextureView.SetAspectRatio(_previewSize.Height, _previewSize.Width);
-                    FaceRectView.SetAspectRatio(_previewSize.Height, _previewSize.Width);
+                    _faceRectView?.SetAspectRatio(_previewSize.Height, _previewSize.Width);
                 }
 
                 // calculate transform matrix for face rect view
-                ConfigureFaceRectTransform();
-
+                if (_faceRectView != null)
+                {
+                    ConfigureFaceRectTransform();
+                }                
 
                 // Opening the camera device here
                 _CameraManager.OpenCamera(_cameraId, new CameraDeviceStateCallback(this), _backgroundHandler);
             }
             catch (CameraAccessException e)
             {
-                Log.Error(Tag, "Cannot open the camera.", e);
+                Log.Error(Tag, $"Cannot open the camera. ({nameof(OpenCamera)})", e);
             }
             catch (InterruptedException e)
             {
@@ -359,7 +366,7 @@ namespace AoLibs.Camera.Android
             }
             catch (CameraAccessException e)
             {
-                Log.Error(Tag, "Cannot access the camera.", e);
+                Log.Error(Tag, $"Cannot access the camera. ({nameof(CheckRequiredFeatures)})", e);
             }
         }
 
@@ -378,11 +385,15 @@ namespace AoLibs.Camera.Android
 
         private void InitCamera()
         {
+            _CameraManager = (CameraManager)_activity.GetSystemService(Context.CameraService);
             _autoFitTextureView.SurfaceTextureListener = new SurfaceTextureListener(this);
+        }
 
-            CameraSection.SetOnTouchListener(new OnTouchListener(e =>
+        public void RegisterViewForSetFocus(View v)
+        {
+            v.SetOnTouchListener(new OnTouchListener(e =>
             {
-                CameraAdapter.SetFocus(CameraSection, e);
+                CameraAdapter.SetFocus(v, e);
             }));
         }
 
@@ -457,19 +468,23 @@ namespace AoLibs.Camera.Android
                 //mProcessor.SetOutputSurface(surface);
 
                 // Creates CaptureRequest.Builder for preview with output target.
-                _previewBuilder = _CameraDevice.CreateCaptureRequest(CameraTemplate.Record);
+                PreviewBuilder = _CameraDevice.CreateCaptureRequest(CameraTemplate.Record);
 
                 //_previewBuilder.Set(CaptureRequest.ControlAeTargetFpsRange, Range.Create(MaxPreviewFps,MaxPreviewFps));
                 //_previewBuilder.Set(CaptureRequest.ControlAfMode, CameraMetadata.ControlAfModeContinuousPicture);
-                _previewBuilder.AddTarget(surface);
-                _previewBuilder.AddTarget(recSurface);
+                PreviewBuilder.AddTarget(surface);
+                PreviewBuilder.AddTarget(recSurface);
 
 
                 // Creates CaptureRequest.Builder for still capture with output target.
                 _captureBuilder = _CameraDevice.CreateCaptureRequest(CameraTemplate.StillCapture);
 
-                _previewBuilder.Set(CaptureRequest.StatisticsFaceDetectMode, (int)StatisticsFaceDetectMode.Simple);
-                _captureBuilder.Set(CaptureRequest.StatisticsFaceDetectMode, (int)StatisticsFaceDetectMode.Simple);
+                if (_faceRectView != null)
+                {
+                    PreviewBuilder.Set(CaptureRequest.StatisticsFaceDetectMode, (int)StatisticsFaceDetectMode.Simple);
+                    _captureBuilder.Set(CaptureRequest.StatisticsFaceDetectMode, (int)StatisticsFaceDetectMode.Simple);
+                }
+
 
                 // Creates a CameraCaptureSession here.
                 var outputSurfaces = new List<Surface> { surface, _jpegReader.Surface, recSurface };
@@ -478,9 +493,9 @@ namespace AoLibs.Camera.Android
                 _CameraDevice.CreateCaptureSession(outputSurfaces, new CaptureSessionStateCallback(this),
                     _backgroundHandler);
             }
-            catch (CameraAccessException)
+            catch (CameraAccessException e)
             {
-
+                Log.Error(Tag, $"Cannot access the camera. ({nameof(CreatePreviewSession)})", e);
             }
         }
 
@@ -526,7 +541,7 @@ namespace AoLibs.Camera.Android
             return optimalSize;
         }
 
-        private void StartPreview()
+        public void StartPreview()
         {
             if (_CameraSession == null) return;
 
@@ -534,14 +549,14 @@ namespace AoLibs.Camera.Android
             {
                 _CameraSession.StopRepeating();
                 // Starts displaying the preview.
-                _CameraSession.SetRepeatingRequest(_previewBuilder.Build(), _sessionCaptureCallback,
+                _CameraSession.SetRepeatingRequest(PreviewBuilder.Build(), _sessionCaptureCallback,
                     _backgroundHandler);
                 CurrentState = CameraState.Preview;
                 CameraAdapter.Init();
             }
-            catch (CameraAccessException)
+            catch (CameraAccessException e)
             {
-
+                Log.Error(Tag, $"Cannot access the camera. ({nameof(StartPreview)})", e);
             }
         }
 
@@ -604,23 +619,24 @@ namespace AoLibs.Camera.Android
                 result = ((int)_characteristics.Get(CameraCharacteristics.SensorOrientation) - degrees + 360) % 360;
             }
 
-            FaceRectView.SetTransform(_previewSize,
+            _faceRectView?.SetTransform(_previewSize,
                 (int)_characteristics.Get(CameraCharacteristics.LensFacing),
                 result, orientation);
         }
 
         private void ProcessFace(Face[] faces, Rect zoomRect)
         {
-            Activity.RunOnUiThread(() =>
+            _activity.RunOnUiThread(() =>
             {
-                FaceRectView.SetFaceRect(faces, zoomRect);
-                FaceRectView.Invalidate();
+                _faceRectView.SetFaceRect(faces, zoomRect);
+                _faceRectView.Invalidate();
+                OnNewFacesDetected?.Invoke(this, faces);
             });
         }
 
         #endregion
 
-        #region Recording
+        #region Picture
 
         private int GetJpegOrientation()
         {
@@ -663,7 +679,7 @@ namespace AoLibs.Camera.Android
             }
             catch (CameraAccessException e)
             {
-                Log.Error(Tag, "Cannot access the camera.", e);
+                Log.Error(Tag, $"Cannot access the camera. ({nameof(SetDefaultJpegSize)})", e);
             }
         }
 
@@ -675,15 +691,15 @@ namespace AoLibs.Camera.Android
                 _isAfTriggered = false;
 
                 // Set AF trigger to CaptureRequest.Builder
-                _previewBuilder.Set(CaptureRequest.ControlAfTrigger, (int)ControlAFTrigger.Start);
+                PreviewBuilder.Set(CaptureRequest.ControlAfTrigger, (int)ControlAFTrigger.Start);
 
                 // App should send AF triggered request for only a single capture.
-                _CameraSession.Capture(_previewBuilder.Build(), new CaptureSessionCallback(this), _backgroundHandler);
-                _previewBuilder.Set(CaptureRequest.ControlAfTrigger, (int)ControlAFTrigger.Idle);
+                _CameraSession.Capture(PreviewBuilder.Build(), new CaptureSessionCallback(this), _backgroundHandler);
+                PreviewBuilder.Set(CaptureRequest.ControlAfTrigger, (int)ControlAFTrigger.Idle);
             }
-            catch (CameraAccessException)
+            catch (CameraAccessException e)
             {
-
+                Log.Error(Tag, $"Cannot access the camera. ({nameof(LockAf)})", e);
             }
         }
 
@@ -711,9 +727,9 @@ namespace AoLibs.Camera.Android
 
                 CurrentState = CameraState.TakePicture;
             }
-            catch (CameraAccessException)
+            catch (CameraAccessException e)
             {
-
+                Log.Error(Tag, $"Cannot access the camera. ({nameof(TakePicture)})", e);
             }
         }
 
@@ -724,25 +740,24 @@ namespace AoLibs.Camera.Android
                 CurrentState = CameraState.WaitAe;
                 _isAeTriggered = false;
 
-                _previewBuilder.Set(CaptureRequest.ControlAePrecaptureTrigger, (int)ControlAEPrecaptureTrigger.Start);
-
+                PreviewBuilder.Set(CaptureRequest.ControlAePrecaptureTrigger, (int)ControlAEPrecaptureTrigger.Start);
 
                 // App should send AE triggered request for only a single capture.
-                _CameraSession.Capture(_previewBuilder.Build(), new CameraCaptureSessionCaptureCallback(this),
+                _CameraSession.Capture(PreviewBuilder.Build(), new CameraCaptureSessionCaptureCallback(this),
                     _backgroundHandler);
-                _previewBuilder.Set(CaptureRequest.ControlAePrecaptureTrigger, (int) ControlAEPrecaptureTrigger.Idle);
+                PreviewBuilder.Set(CaptureRequest.ControlAePrecaptureTrigger, (int) ControlAEPrecaptureTrigger.Idle);
             }
-            catch (CameraAccessException)
+            catch (CameraAccessException e)
             {
-
+                Log.Error(Tag, $"Cannot access the camera. ({nameof(TriggerAe)})", e);
             }
         }
 
         private void UnlockAf()
         {
             // If we send TRIGGER_CANCEL. Lens move to its default position. This results in bad user experience.
-            if ((int)_previewBuilder.Get(CaptureRequest.ControlAfMode) == (int)ControlAFMode.Auto ||
-                (int)_previewBuilder.Get(CaptureRequest.ControlAfMode) == (int)ControlAFMode.Macro)
+            if ((int)PreviewBuilder.Get(CaptureRequest.ControlAfMode) == (int)ControlAFMode.Auto ||
+                (int)PreviewBuilder.Get(CaptureRequest.ControlAfMode) == (int)ControlAFMode.Macro)
             {
                 CurrentState = CameraState.Preview;
                 return;
@@ -751,14 +766,14 @@ namespace AoLibs.Camera.Android
             // Triggers CONTROL_AF_TRIGGER_CANCEL to return to initial AF state.
             try
             {
-                _previewBuilder.Set(CaptureRequest.ControlAfTrigger, (int)ControlAFTrigger.Cancel);
-                _CameraSession.Capture(_previewBuilder.Build(), new CameraCaptureSessionCaptureCallbackForUnlockAf(this), 
+                PreviewBuilder.Set(CaptureRequest.ControlAfTrigger, (int)ControlAFTrigger.Cancel);
+                _CameraSession.Capture(PreviewBuilder.Build(), new CameraCaptureSessionCaptureCallbackForUnlockAf(this), 
                     _backgroundHandler);
-                _previewBuilder.Set(CaptureRequest.ControlAfTrigger, (int)ControlAFTrigger.Idle);
+                PreviewBuilder.Set(CaptureRequest.ControlAfTrigger, (int)ControlAFTrigger.Idle);
             }
-            catch (CameraAccessException)
+            catch (CameraAccessException e)
             {
-
+                Log.Error(Tag, $"Cannot access the camera. ({nameof(UnlockAf)})", e);
             }
         }
 
@@ -826,17 +841,17 @@ namespace AoLibs.Camera.Android
             public override void OnCaptureFailed(CameraCaptureSession p0, CaptureRequest p1, CaptureFailure p2)
             {
                 base.OnCaptureFailed(p0, p1, p2);
-                CameraAdapter.ManualFocusEngaged = false;
+                _parent.CameraAdapter.ManualFocusEngaged = false;
             }
 
             public override void OnCaptureCompleted(CameraCaptureSession session, CaptureRequest request,
                 TotalCaptureResult result)
             {
-                CameraAdapter.ManualFocusEngaged = false;
+                _parent.CameraAdapter.ManualFocusEngaged = false;
 
                 if (request.Tag?.ToString() == FocusRequestTag)
                 {
-                    _parent._previewBuilder.Set(CaptureRequest.ControlAfTrigger, null);
+                    _parent.PreviewBuilder.Set(CaptureRequest.ControlAfTrigger, null);
                     _parent.StartPreview();
                     return;
                 }
@@ -877,8 +892,7 @@ namespace AoLibs.Camera.Android
                                         (int) ControlAEMode.Off &&
                                         (int)_parent._characteristics.Get(
                                          CameraCharacteristics.InfoSupportedHardwareLevel) !=
-                                        (int) InfoSupportedHardwareLevel.Legacy
-)
+                                        (int) InfoSupportedHardwareLevel.Legacy)
                                         _parent.TriggerAe();
                                     else
                                         _parent.TakePicture();
@@ -927,8 +941,8 @@ namespace AoLibs.Camera.Android
             public void OnImageAvailable(ImageReader reader)
             {
                 if (_parent._imageFormat == ImageFormatType.Jpeg)
-                    _parent._imageSaver.Save(reader.AcquireNextImage(), "img" + ".jpg");
-                else _parent._imageSaver.Save(reader.AcquireNextImage(), "img" + ".dng");
+                    _parent._imageSaver.Save(reader.AcquireNextImage());
+                else _parent._imageSaver.Save(reader.AcquireNextImage());
             }
         }
 
@@ -999,7 +1013,7 @@ namespace AoLibs.Camera.Android
             }
 
             public override void OnCaptureCompleted(CameraCaptureSession p0, CaptureRequest p1,
-                STotalCaptureResult p2)
+                TotalCaptureResult p2)
             {
                 _parent._isAfTriggered = true;
             }
@@ -1129,8 +1143,9 @@ namespace AoLibs.Camera.Android
 
         #region Video
 
-        private void StartVideoRecording()
+        private void StartVideoRecording(string targetPath)
         {
+            _targetVideoPath = targetPath;
             CurrentState = CameraState.RecordVideo;
             mMediaRecorder.Start();
         }
@@ -1144,41 +1159,42 @@ namespace AoLibs.Camera.Android
             }
 
             mMediaRecorder = new MediaRecorder();
-            mMediaRecorder.SetAudioSource(AudioSource.Mic);
+            //mMediaRecorder.SetAudioSource(AudioSource.Mic);
             mMediaRecorder.SetVideoSource(VideoSource.Surface);
             mMediaRecorder.SetOutputFormat(OutputFormat.Mpeg4);
 
-            if (!string.IsNullOrEmpty(_currentVideoFilePath) &&
-                System.IO.File.Exists(_currentVideoFilePath))
+            if (!string.IsNullOrEmpty(_currentTemporaryVideoFilePath) &&
+                System.IO.File.Exists(_currentTemporaryVideoFilePath))
             {
-                System.IO.File.Delete(_currentVideoFilePath);
+                System.IO.File.Delete(_currentTemporaryVideoFilePath);
             }
-            _currentVideoFilePath = $"{(ResourceLocator.FileStorage as FileStorageAdapter).GetTempPath()}/{Guid.NewGuid()}.mp4";
-            mMediaRecorder.SetOutputFile(_currentVideoFilePath);
 
-            int bitrate = 384000;
+            _currentTemporaryVideoFilePath = Path.GetTempFileName();
+            mMediaRecorder.SetOutputFile(_currentTemporaryVideoFilePath);
+
+            int bitRate = 384000;
             if (_videoSize.Width * _videoSize.Height >= 1920 * 1080)
             {
-                bitrate = 14000000;
+                bitRate = 14000000;
             }
             else if (_videoSize.Width * _videoSize.Height >= 1280 * 720)
             {
-                bitrate = 9730000;
+                bitRate = 9730000;
             }
             else if (_videoSize.Width * _videoSize.Height >= 640 * 480)
             {
-                bitrate = 2500000;
+                bitRate = 2500000;
             }
             else if (_videoSize.Width * _videoSize.Height >= 320 * 240)
             {
-                bitrate = 622000;
+                bitRate = 622000;
             }
 
-            mMediaRecorder.SetVideoEncodingBitRate(bitrate);
+            mMediaRecorder.SetVideoEncodingBitRate(bitRate);
             mMediaRecorder.SetVideoFrameRate(MaxPreviewFps);
             mMediaRecorder.SetVideoSize(_previewSize.Width, _previewSize.Height);
             mMediaRecorder.SetVideoEncoder(VideoEncoder.H264);
-            mMediaRecorder.SetAudioEncoder(AudioEncoder.Aac);
+           // mMediaRecorder.SetAudioEncoder(AudioEncoder.Aac);
             mMediaRecorder.SetOrientationHint(GetJpegOrientation());
             mMediaRecorder.Prepare();
         }
@@ -1194,18 +1210,15 @@ namespace AoLibs.Camera.Android
                 _CameraSession.StopRepeating();
                 _CameraSession.AbortCaptures();
             }
-            catch (CameraAccessException)
+            catch (CameraAccessException e)
             {
-
+                Log.Error(Tag, $"Cannot access the camera. ({nameof(StopRecordingVideo)})", e);
             }
 
 
             // Stop recording
             mMediaRecorder.Stop();
-
-            var properPath = ResourceLocator.FileStorage.GetPathForVideoFile(_currentVideoEntry);
-            System.IO.File.Move(_currentVideoFilePath, properPath);
-            _currentVideoFileGuid = Guid.NewGuid();
+            System.IO.File.Move(_currentTemporaryVideoFilePath, _targetVideoPath);
             mMediaRecorder.Reset();
             CurrentState = CameraState.Preview;
             CreatePreviewSession();
@@ -1222,7 +1235,7 @@ namespace AoLibs.Camera.Android
                 _parent = parent;
             }
 
-            public void Save(Image image, string filename)
+            public void Save(Image image)
             {
                 var buffer = image.GetPlanes()[0].Buffer;
                 byte[] bytes = new byte[buffer.Remaining()];
@@ -1236,141 +1249,6 @@ namespace AoLibs.Camera.Android
                     image.Close();
                     _parent._photoTakingSemaphore.Release();
                 }
-
-
-
-                //        File dir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath() + "/Camera/");
-                //        if (!dir.exists()) dir.mkdirs();
-                //        final File file = new File(dir, filename);
-
-                //        if (image.getFormat() == ImageFormat.RAW_SENSOR)
-                //        {
-                //            CaptureResult result = null;
-                //            try
-                //            {
-                //                result = mCaptureResultQueue.take();
-                //            }
-                //            catch (InterruptedException e)
-                //            {
-                //                e.printStackTrace();
-                //            }
-
-                //            try
-                //            {
-                //                final SDngCreator dngCreator = new SDngCreator(mCharacteristics, result);
-                //                dngCreator.setOrientation(DNG_ORIENTATION.get(getJpegOrientation()));
-
-                //                new Handler(Looper.myLooper()).post(new Runnable() {
-                //                        @Override
-                //                        public void run()
-                //                {
-                //                    ByteBuffer buffer = image.getPlanes()[0].getBuffer();
-                //                    byte[] bytes = new byte[buffer.remaining()];
-                //                    buffer.get(bytes);
-                //                    FileOutputStream output = null;
-                //                    try
-                //                    {
-                //                        output = new FileOutputStream(file);
-                //                        dngCreator.writeImage(output, image);
-                //                    }
-                //                    catch (IOException e)
-                //                    {
-                //                        e.printStackTrace();
-                //                    }
-                //                    finally
-                //                    {
-                //                        image.close();
-                //                        dngCreator.close();
-                //                        if (null != output)
-                //                        {
-                //                            try
-                //                            {
-                //                                output.close();
-                //                            }
-                //                            catch (IOException e)
-                //                            {
-                //                                e.printStackTrace();
-                //                            }
-                //                        }
-                //                    }
-
-                //                    MediaScannerConnection.scanFile(Sample_Single.this,
-                //                            new String[] { file.getAbsolutePath() }, null,
-                //                            new MediaScannerConnection.OnScanCompletedListener()
-                //                            {
-                //                                        public void onScanCompleted(String path, Uri uri)
-                //                    {
-                //                        Log.i(TAG, "ExternalStorage Scanned " + path + "-> uri=" + uri);
-                //                    }
-                //                });
-
-                //                runOnUiThread(new Runnable() {
-                //                                @Override
-                //                                public void run()
-                //                {
-                //                    Toast.makeText(Sample_Single.this, "Saved: " + file.getName(), Toast.LENGTH_SHORT).show();
-                //                }
-                //            });
-                //        }
-                //    });
-                //                } catch (IllegalArgumentException e) {
-                //                    e.printStackTrace();
-                //                    showAlertDialog("Fail to save DNG file.", false);
-                //image.close();
-                //                    return;
-                //                }
-                //            } else {
-                //                new Handler(Looper.myLooper()).post(new Runnable()
-                //{
-                //    @Override
-                //                    public void run()
-                //    {
-                //        ByteBuffer buffer = image.getPlanes()[0].getBuffer();
-                //        byte[] bytes = new byte[buffer.remaining()];
-                //        buffer.get(bytes);
-                //        FileOutputStream output = null;
-                //        try
-                //        {
-                //            output = new FileOutputStream(file);
-                //            output.write(bytes);
-                //        }
-                //        catch (IOException e)
-                //        {
-                //            e.printStackTrace();
-                //        }
-                //        finally
-                //        {
-                //            image.close();
-                //            if (null != output)
-                //            {
-                //                try
-                //                {
-                //                    output.close();
-                //                }
-                //                catch (IOException e)
-                //                {
-                //                    e.printStackTrace();
-                //                }
-                //            }
-                //        }
-
-                //        MediaScannerConnection.scanFile(Sample_Single.this,
-                //                new String[] { file.getAbsolutePath() }, null,
-                //                new MediaScannerConnection.OnScanCompletedListener()
-                //                {
-                //                                    public void onScanCompleted(String path, Uri uri)
-                //        {
-                //            Log.i(TAG, "ExternalStorage Scanned " + path + "-> uri=" + uri);
-                //        }
-                //    });
-
-                //    runOnUiThread(new Runnable() {
-                //                            @Override
-                //                            public void run()
-                //    {
-                //        Toast.makeText(Sample_Single.this, "Saved: " + file.getName(), Toast.LENGTH_SHORT).show();
-                //    }
-                //});
             }
         }
     }

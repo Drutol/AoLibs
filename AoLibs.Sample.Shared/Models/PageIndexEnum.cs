@@ -4,6 +4,7 @@
     {
         PageA,
         PageB,
-        PageC
+        PageC,
+        PageCamera
     }
 }

@@ -18,6 +18,7 @@ namespace AoLibs.Sample.Shared.Statics
             builder.RegisterType<TestViewModelA>().SingleInstance();
             builder.RegisterType<TestViewModelB>().SingleInstance();
             builder.RegisterType<TestViewModelC>().SingleInstance();
+            builder.RegisterType<CameraViewModel>().SingleInstance();
 
             builder.RegisterType<TestDialogViewModelA>().SingleInstance();
             builder.RegisterType<TestDialogViewModelB>();
