@@ -177,14 +177,14 @@ namespace AoLibs.Camera.Android
                 halfTouchHeight * 2,
                 MeteringRectangle.MeteringWeightMax - 1);
 
-            _controller._CameraSession.StopRepeating();
+            _controller.CameraSession.StopRepeating();
             //first stop the existing repeating request
 
             //cancel any existing AF trigger (repeated touches, etc.)
             _controller.PreviewBuilder.Set(CaptureRequest.ControlAfTrigger, (int) ControlAFTrigger.Cancel);
             _controller.PreviewBuilder.Set(CaptureRequest.ControlAfMode, (int) ControlAFMode.Off);
-            _controller._CameraSession.Capture(_controller.PreviewBuilder.Build(), _controller._sessionCaptureCallback,
-                _controller._backgroundHandler);
+            _controller.CameraSession.Capture(_controller.PreviewBuilder.Build(), _controller.SessionCaptureCallback,
+                _controller.BackgroundHandler);
 
             //Now add a new AF trigger with focus region
             if (((int) (Integer) characteristics.Get(CameraCharacteristics.ControlMaxRegionsAf)) >= 1)
@@ -200,8 +200,8 @@ namespace AoLibs.Camera.Android
                 .FocusRequestTag); //we'll capture this later for resuming the preview
 
             //then we ask for a single request (not repeating!)
-            _controller._CameraSession.Capture(_controller.PreviewBuilder.Build(), _controller._sessionCaptureCallback,
-                _controller._backgroundHandler);
+            _controller.CameraSession.Capture(_controller.PreviewBuilder.Build(), _controller.SessionCaptureCallback,
+                _controller.BackgroundHandler);
             ManualFocusEngaged = true;
         }
 

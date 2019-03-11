@@ -26,7 +26,7 @@ namespace AoLibs.Sample.Android.Fragments
 
         protected override void InitBindings()
         {
-            _controller = new CameraController5000(Activity, AutoFitTexture);
+            _controller = new CameraController5000(Activity, AutoFitTexture, FaceRect);
             _controller.OnResume();
         }
 
@@ -49,7 +49,7 @@ namespace AoLibs.Sample.Android.Fragments
 
         public AutoFitTextureView AutoFitTexture => _autoFitTexture ?? (_autoFitTexture = FindViewById<AutoFitTextureView>(Resource.Id.AutoFitTexture));
 
-        //public FaceRectView FaceRect => _faceRect ?? (_faceRect = FindViewById<FaceRectView>(Resource.Id.FaceRect));
+        public FaceRectView FaceRect => _faceRect ?? (_faceRect = FindViewById<FaceRectView>(Resource.Id.FaceRect));
 
         #endregion
     }
