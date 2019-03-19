@@ -28,6 +28,9 @@ namespace AoLibs.Sample.Android.Fragments
         {
             _controller = new CameraController5000(Activity, AutoFitTexture, FaceRect);
             _controller.OnResume();
+
+            AutoFitTexture.Focusable = AutoFitTexture.Clickable = true;
+            _controller.RegisterViewForSetFocus(AutoFitTexture);
         }
 
         public override void OnPause()
