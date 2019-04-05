@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using AoLibs.Adapters.Core.Interfaces;
 using AoLibs.Dialogs.Core.Interfaces;
@@ -54,7 +55,7 @@ namespace AoLibs.Sample.Shared.ViewModels
                 }, () => UserResponse != null);
         }
 
-        public void NavigatedTo()
+        public async void NavigatedTo()
         {
             UserResponse = _appVariables.UserResponse.Value;
         }
@@ -93,6 +94,22 @@ namespace AoLibs.Sample.Shared.ViewModels
                 };
             }
         });
+
+        public RelayCommand InputFanciness =>
+            new RelayCommand(async () =>
+            {
+                var input = await _messageBoxProvider.ShowTextInputBoxAsync("Input Fanciness", "Your fancy thing.",
+                    "Fancy thing", "Ok", "Cancel");
+
+                if (input != null)
+                {
+                    UserResponse = new UserResponse
+                    {
+                        FancyThing = input,
+                        DateTime = DateTime.UtcNow,
+                    };
+                }
+            });
 
         public RelayCommand ResetFanciness =>
             new RelayCommand(() => { UserResponse = null; });

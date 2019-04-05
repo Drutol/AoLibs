@@ -5,6 +5,7 @@ using Android.Support.V7.App;
 using Android.Widget;
 using AoLibs.Adapters.Android;
 using AoLibs.Adapters.Android.Interfaces;
+using AoLibs.Adapters.Core;
 using AoLibs.Adapters.Core.Interfaces;
 using AoLibs.Dialogs.Android;
 using AoLibs.Dialogs.Core;
@@ -73,6 +74,7 @@ namespace AoLibs.Sample.Android.Activities
                 builder.RegisterType<ContextProvider>().As<IContextProvider>().SingleInstance();
                 builder.RegisterType<PhotoPickerAdapter>().As<IPhotoPickerAdapter>().SingleInstance();
                 builder.RegisterType<PhoneCallAdapter>().As<IPhoneCallAdapter>().SingleInstance();
+                builder.RegisterType<DataCache>().As<IDataCache>().SingleInstance();
 
                 builder.RegisterInstance(manager).As<INavigationManager<PageIndex>>();
                 builder.RegisterInstance(dialogManager).As<ICustomDialogsManager<DialogIndex>>();

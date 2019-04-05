@@ -11,6 +11,7 @@ namespace AoLibs.Adapters.Core
     {
         public abstract Task<bool> ShowMessageBoxWithInputAsync(string title, string content, string positiveText, string negativeText);
         public abstract Task ShowMessageBoxOkAsync(string title, string content, string neutralText);
+        public abstract Task<string> ShowTextInputBoxAsync(string title, string content, string hint, string positiveText, string neutralText);
 
         public abstract void ShowLoadingPopup(string title = null, string content = null);
         public abstract void HideLoadingDialog();

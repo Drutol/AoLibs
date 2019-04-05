@@ -21,5 +21,8 @@ namespace AoLibs.Sample.Shared.BL
 
         [Variable]
         public Holder<UserResponse> UserResponse { get; set; }
+
+        [Variable]
+        public Holder<List<UserResponse>> TestUserResponse { get; set; }
     }
 }

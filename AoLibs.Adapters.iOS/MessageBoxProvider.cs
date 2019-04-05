@@ -39,6 +39,11 @@ namespace AoLibs.Adapters.iOS
             await semaphore.WaitAsync();
         }
 
+        public override Task<string> ShowTextInputBoxAsync(string title, string content, string hint, string positiveText, string neutralText)
+        {
+            throw new NotImplementedException();
+        }
+
         public override void ShowLoadingPopup(string title, string content)
         {
             ShowLoadingPopupRequest?.Invoke(this, (title, content));
