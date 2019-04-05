@@ -260,6 +260,25 @@ namespace AoLibs.Adapters.Core
                 await _parent._asyncStorage.SetAsync(data, _propName, _attribute);
                 ValueChanged?.Invoke(this, _value);
             }
+
+            /// <summary>
+            /// Saves the value to the <see cref="ISyncStorage"/>.
+            /// Useful when the content of the stored object changes but the actual setter of <see cref="Holder{T}"/> is not called.
+            /// </summary>
+            public void Save()
+            {
+                if (!_attribute.MemoryOnly)
+                    _parent._syncStorage.SetValue(_value, _propName, _attribute);
+            }
+
+            /// <summary>
+            /// Updates currently stored value in memory to the newest found in <see cref="ISyncStorage"/>
+            /// </summary>
+            public void Update()
+            {
+                if (!_attribute.MemoryOnly)
+                    _parent._syncStorage.GetValue(ref _value, _propName, _attribute);
+            }
         }
 
         /// <summary>

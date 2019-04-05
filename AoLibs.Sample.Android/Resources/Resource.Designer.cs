@@ -4651,35 +4651,38 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f0900bb
 			public const int ButtonChoose = 2131296443;
 			
-			// aapt resource value: 0x7f0900be
-			public const int ButtonDialog = 2131296446;
-			
 			// aapt resource value: 0x7f0900bf
-			public const int ButtonDialogB = 2131296447;
-			
-			// aapt resource value: 0x7f0900c1
-			public const int ButtonGoBack = 2131296449;
+			public const int ButtonDialog = 2131296447;
 			
 			// aapt resource value: 0x7f0900c0
-			public const int ButtonNavigate = 2131296448;
-			
-			// aapt resource value: 0x7f0900c4
-			public const int ButtonNavigateA = 2131296452;
-			
-			// aapt resource value: 0x7f0900c5
-			public const int ButtonNavigateB = 2131296453;
+			public const int ButtonDialogB = 2131296448;
 			
 			// aapt resource value: 0x7f0900c2
-			public const int ButtonNavigateC = 2131296450;
-			
-			// aapt resource value: 0x7f0900c3
-			public const int ButtonNavigateCNoBackstack = 2131296451;
-			
-			// aapt resource value: 0x7f0900bd
-			public const int ButtonReset = 2131296445;
+			public const int ButtonGoBack = 2131296450;
 			
 			// aapt resource value: 0x7f0900bc
-			public const int ButtonShow = 2131296444;
+			public const int ButtonInput = 2131296444;
+			
+			// aapt resource value: 0x7f0900c1
+			public const int ButtonNavigate = 2131296449;
+			
+			// aapt resource value: 0x7f0900c5
+			public const int ButtonNavigateA = 2131296453;
+			
+			// aapt resource value: 0x7f0900c6
+			public const int ButtonNavigateB = 2131296454;
+			
+			// aapt resource value: 0x7f0900c3
+			public const int ButtonNavigateC = 2131296451;
+			
+			// aapt resource value: 0x7f0900c4
+			public const int ButtonNavigateCNoBackstack = 2131296452;
+			
+			// aapt resource value: 0x7f0900be
+			public const int ButtonReset = 2131296446;
+			
+			// aapt resource value: 0x7f0900bd
+			public const int ButtonShow = 2131296445;
 			
 			// aapt resource value: 0x7f09003a
 			public const int CTRL = 2131296314;
@@ -4951,8 +4954,8 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f090070
 			public const int list_item = 2131296368;
 			
-			// aapt resource value: 0x7f0900c7
-			public const int masked = 2131296455;
+			// aapt resource value: 0x7f0900c8
+			public const int masked = 2131296456;
 			
 			// aapt resource value: 0x7f09009c
 			public const int message = 2131296412;
@@ -5233,8 +5236,8 @@ namespace AoLibs.Sample.Android
 			// aapt resource value: 0x7f09001b
 			public const int view_offset_helper = 2131296283;
 			
-			// aapt resource value: 0x7f0900c6
-			public const int visible = 2131296454;
+			// aapt resource value: 0x7f0900c7
+			public const int visible = 2131296455;
 			
 			// aapt resource value: 0x7f090043
 			public const int withText = 2131296323;

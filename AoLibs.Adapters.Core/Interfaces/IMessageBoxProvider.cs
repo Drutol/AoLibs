@@ -30,14 +30,24 @@ namespace AoLibs.Adapters.Core.Interfaces
         Task ShowMessageBoxOkAsync(string title, string content, string neutralText);
 
         /// <summary>
-        /// Gets disposable wrapper on the loader lifetime so you can use it in using block convenintly.
+        /// Shows message dialog with text input.
+        /// </summary>
+        /// <param name="title">Title of the dialog.</param>
+        /// <param name="content">Content of the dialog.</param>
+        /// <param name="hint">Hint of the text input.</param>
+        /// <param name="positiveText">Content on the button representing YES response.</param>
+        /// <param name="neutralText">Content on the button representing CANCEL response.</param>
+        Task<string> ShowTextInputBoxAsync(string title, string content, string hint, string positiveText, string neutralText);
+
+        /// <summary>
+        /// Gets disposable wrapper on the loader lifetime so you can use it in using block conveniently.
         /// Invokes <see cref="ShowLoadingPopup"/> and <see cref="HideLoadingDialog"/>
         /// </summary>
         IDisposable LoaderLifetime { get; }
        
         /// <summary>
-        /// Provides disposable wrapper on the loader lifetime so you can use it in using block convenintly.
-        /// Invokes <see cref="ShowLoadingPopup"/> and <see cref="HideLoadingDialog"/>. Customizatble version of <see cref="LoaderLifetime"/>
+        /// Provides disposable wrapper on the loader lifetime so you can use it in using block conveniently.
+        /// Invokes <see cref="ShowLoadingPopup"/> and <see cref="HideLoadingDialog"/>. Customizable version of <see cref="LoaderLifetime"/>
         /// </summary>
         /// <param name="title">Title of the loader.</param>
         /// <param name="content">Content of the loader.</param>

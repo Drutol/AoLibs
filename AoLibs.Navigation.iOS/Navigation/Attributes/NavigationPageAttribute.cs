@@ -31,6 +31,17 @@ namespace AoLibs.Navigation.iOS.Navigation.Attributes
         {
             Page = page;
             PageProviderType = pageProvider;
+        }    
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NavigationPageAttribute"/> class.
+        /// </summary>
+        /// <param name="page">Object that will be casted to <see cref="int"/>.</param>
+        /// <param name="pageProvider">Indicates whether to use <see cref="CachedPageProvider{TPage}"/> or <see cref="OneshotPageProvider{TPage}"/> when creating page entries.</param>
+        public NavigationPageAttribute(object page, PageProvider pageProvider)
+        {
+            Page = (int)page;
+            PageProviderType = pageProvider;
         }
 
         /// <summary>
