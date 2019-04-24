@@ -14,7 +14,7 @@ namespace AoLibs.Utilities.Shared
     /// <typeparam name="T">The type of the items.</typeparam>
     public class SmartObservableCollection<T> : ObservableCollection<T>
     {
-        private volatile bool _isObserving;
+        private volatile bool _isObserving = true;
 
         private bool IsObserving
         {
