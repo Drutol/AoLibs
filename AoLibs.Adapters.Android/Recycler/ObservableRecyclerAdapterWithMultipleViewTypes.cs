@@ -127,7 +127,7 @@ namespace AoLibs.Adapters.Android.Recycler
             }
 
             /// <summary>
-            /// Do not try to assign to this propety. Exception will be thrown, use <see cref="SpecializedHolderFactory"/> instead.
+            /// Do not try to assign to this property. Exception will be thrown, use <see cref="SpecializedHolderFactory"/> instead.
             /// </summary>
             /// <inheritdoc />
             public HolderFactoryDelegate<THolder> HolderFactory
@@ -154,7 +154,7 @@ namespace AoLibs.Adapters.Android.Recycler
         /// <summary>
         /// Initializes a new instance of the <see cref="ObservableRecyclerAdapterWithMultipleViewTypes{TItemBase, THolder}"/> class.
         /// </summary>
-        /// <param name="templates">Disctionary of pairs defining how to display given typoe of item.</param>
+        /// <param name="templates">Dictionary of pairs defining how to display given type of item.</param>
         /// <param name="items">The collection of items to display.</param>
         public ObservableRecyclerAdapterWithMultipleViewTypes(
             Dictionary<Type, IItemEntry> templates,

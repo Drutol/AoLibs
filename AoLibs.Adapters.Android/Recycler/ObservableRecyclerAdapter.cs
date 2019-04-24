@@ -60,7 +60,7 @@ namespace AoLibs.Adapters.Android.Recycler
         /// </summary>
         /// <typeparam name="TSpecializedHolder">Concrete Type derived from <see cref="THolder"/></typeparam>
         /// <typeparam name="TSpecializedItem">Concrete Type derived from <see cref="TItem"/></typeparam>
-        /// <param name="item">Currrent item to bind.</param>
+        /// <param name="item">Current item to bind.</param>
         /// <param name="holder">View holder assigned with new item.</param>
         /// <param name="position">Position of the item on the list.</param>
         public delegate void SpecializedDataTemplateDelegate<in TSpecializedHolder, in TSpecializedItem>(
@@ -124,6 +124,28 @@ namespace AoLibs.Adapters.Android.Recycler
             ItemTemplate = itemTemplate;
 
             DataSource = items;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ObservableRecyclerAdapter{TItem, THolder}"/> class.
+        /// </summary>
+        /// <param name="items">Backing data for the adapter.</param>
+        /// <param name="dataTemplate">View binding definition.</param>
+        /// <param name="layoutResourceId">The id of the layout resource.</param>
+        /// <param name="inflater">Inflater to be used to inflate the view.</param>
+        /// <param name="holderFactory">If not assigned make sure your ViewHolder has public constructor with <see cref="View"/> argument.</param>
+        public ObservableRecyclerAdapter(
+            IList<TItem> items,
+            DataTemplateDelegate<THolder> dataTemplate,
+            LayoutInflater inflater,
+            int layoutResourceId,
+            HolderFactoryDelegate<THolder> holderFactory = null)
+            : this(
+                items,
+                dataTemplate,
+                type => inflater.Inflate(layoutResourceId, null),
+                holderFactory)
+        {
         }
 
         internal ObservableRecyclerAdapter()
