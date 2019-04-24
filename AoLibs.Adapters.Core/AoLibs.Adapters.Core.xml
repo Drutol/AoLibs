@@ -285,7 +285,7 @@
             additionally allows to streamline display of any loaders you may happen to have.
             </summary>
         </member>
-        <member name="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowMessageBoxWithInputAsync(System.String,System.String,System.String,System.String)">
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowMessageBoxWithInputAsync(System.String,System.String,System.String,System.String,AoLibs.Adapters.Core.Interfaces.INativeDialogStyle)">
             <summary>
             Shows dialog allowing user to make an action.
             </summary>
@@ -293,19 +293,21 @@
             <param name="content">Content of the dialog.</param>
             <param name="positiveText">Content on the button representing YES response.</param>
             <param name="negativeText">Content on the button representing NO response.</param>
+            <param name="dialogStyle">Additional parameter for dialog customization.</param>
             <returns>
             If user pressed YES then true else false.
             </returns>
         </member>
-        <member name="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowMessageBoxOkAsync(System.String,System.String,System.String)">
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowMessageBoxOkAsync(System.String,System.String,System.String,AoLibs.Adapters.Core.Interfaces.INativeDialogStyle)">
             <summary>
             Shows message box with only action being OK action.
             </summary>
             <param name="title">Title of the dialog.</param>
             <param name="content">Content of the dialog.</param>
             <param name="neutralText">Content on the button representing YES response.</param>
+            <param name="dialogStyle">Additional parameter for dialog customization.</param>
         </member>
-        <member name="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowTextInputBoxAsync(System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowTextInputBoxAsync(System.String,System.String,System.String,System.String,System.String,AoLibs.Adapters.Core.Interfaces.INativeDialogStyle)">
             <summary>
             Shows message dialog with text input.
             </summary>
@@ -314,27 +316,30 @@
             <param name="hint">Hint of the text input.</param>
             <param name="positiveText">Content on the button representing YES response.</param>
             <param name="neutralText">Content on the button representing CANCEL response.</param>
+            <param name="dialogStyle">Additional parameter for dialog customization.</param> 
         </member>
         <member name="P:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.LoaderLifetime">
             <summary>
             Gets disposable wrapper on the loader lifetime so you can use it in using block conveniently.
-            Invokes <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowLoadingPopup(System.String,System.String)"/> and <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.HideLoadingDialog"/>
+            Invokes <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowLoadingPopup(System.String,System.String,AoLibs.Adapters.Core.Interfaces.INativeLoadingDialogStyle)"/> and <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.HideLoadingDialog"/>
             </summary>
         </member>
-        <member name="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ObtainLoaderLifetime(System.String,System.String)">
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ObtainLoaderLifetime(System.String,System.String,AoLibs.Adapters.Core.Interfaces.INativeLoadingDialogStyle)">
             <summary>
             Provides disposable wrapper on the loader lifetime so you can use it in using block conveniently.
-            Invokes <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowLoadingPopup(System.String,System.String)"/> and <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.HideLoadingDialog"/>. Customizable version of <see cref="P:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.LoaderLifetime"/>
+            Invokes <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowLoadingPopup(System.String,System.String,AoLibs.Adapters.Core.Interfaces.INativeLoadingDialogStyle)"/> and <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.HideLoadingDialog"/>. Customizable version of <see cref="P:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.LoaderLifetime"/>
             </summary>
             <param name="title">Title of the loader.</param>
             <param name="content">Content of the loader.</param>
+            <param name="dialogStyle">Additional parameter for dialog customization.</param>
         </member>
-        <member name="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowLoadingPopup(System.String,System.String)">
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowLoadingPopup(System.String,System.String,AoLibs.Adapters.Core.Interfaces.INativeLoadingDialogStyle)">
             <summary>
             Informs the provider to send signal to present your custom loading dialog.
             </summary>
             <param name="title">Title of the loader.</param>
             <param name="content">Content of the loader.</param>
+            <param name="dialogStyle">Additional parameter for dialog customization.</param>
         </member>
         <member name="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.HideLoadingDialog">
             <summary>

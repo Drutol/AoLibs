@@ -160,8 +160,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AndroidCallbacklAsyncWrapperExtension.cs" />
+    <Compile Include="DialogStyles\PasswordInputDialogStyle.cs" />
     <Compile Include="Interfaces\IOnActivityEvent.cs" />
     <Compile Include="Interfaces\IOnNewIntentProvider.cs" />
+    <Compile Include="NativeDialogStyleBase.cs" />
     <Compile Include="PhoneCallAdapter.cs" />
     <Compile Include="ClipboardProvider.cs" />
     <Compile Include="DispatcherAdapter.cs" />

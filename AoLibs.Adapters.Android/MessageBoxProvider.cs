@@ -5,8 +5,11 @@ using Android.App;
 using Android.Content;
 using Android.Runtime;
 using Android.Support.Design.Widget;
+using Android.Views;
+using Android.Widget;
 using AoLibs.Adapters.Android.Interfaces;
 using AoLibs.Adapters.Core;
+using AoLibs.Adapters.Core.Interfaces;
 
 namespace AoLibs.Adapters.Android
 {
@@ -17,8 +20,9 @@ namespace AoLibs.Adapters.Android
     public class MessageBoxProvider : MessageBoxProviderBase
     {
         private readonly IContextProvider _contextProvider;
+        private AlertDialog _currentLoadingDialog;
 
-        public event EventHandler<(string title,string content)> ShowLoadingPopupRequest;
+        public event EventHandler<(string title, string content)> ShowLoadingPopupRequest;
         public event EventHandler HideLoadingPopupRequest;
 
         private class DialogDissmissListener : Java.Lang.Object, IDialogInterfaceOnDismissListener
@@ -56,7 +60,12 @@ namespace AoLibs.Adapters.Android
             _contextProvider = contextProvider;
         }
 
-        public override async Task<bool> ShowMessageBoxWithInputAsync(string title, string content, string positiveText, string negativeText)
+        public override async Task<bool> ShowMessageBoxWithInputAsync(
+            string title,
+            string content,
+            string positiveText,
+            string negativeText,
+            INativeDialogStyle nativeDialogStyle)
         {
             var sem = new SemaphoreSlim(0);
             bool res = false;
@@ -74,12 +83,17 @@ namespace AoLibs.Adapters.Android
             dialog.SetTitle(title);
             dialog.SetMessage(content);
             dialog.SetCancelable(false);
+            nativeDialogStyle?.SetStyle(dialog);
             dialog.Show();
             await sem.WaitAsync();
             return res;
         }
 
-        public override async Task ShowMessageBoxOkAsync(string title, string content, string neutralText)
+        public override async Task ShowMessageBoxOkAsync(
+            string title,
+            string content,
+            string neutralText,
+            INativeDialogStyle nativeDialogStyle)
         {
             var sem = new SemaphoreSlim(0);
             var dialog = new AlertDialog.Builder(_contextProvider.CurrentContext);
@@ -87,6 +101,7 @@ namespace AoLibs.Adapters.Android
             dialog.SetTitle(title);
             dialog.SetMessage(content);
             dialog.SetCancelable(false);
+            nativeDialogStyle?.SetStyle(dialog);
             dialog.Show();
             dialog.SetOnDismissListener(new DialogDissmissListener(() => sem.Release()));
             dialog.SetOnCancelListener(new DialogCancelListener(() => sem.Release()));
@@ -98,7 +113,8 @@ namespace AoLibs.Adapters.Android
             string content,
             string hint,
             string positiveText,
-            string neutralText)
+            string neutralText,
+            INativeDialogStyle nativeDialogStyle)
         {
             // prepare input
             var inputLayout = new TextInputLayout(_contextProvider.CurrentContext);
@@ -127,19 +143,55 @@ namespace AoLibs.Adapters.Android
             dialog.SetTitle(title);
             dialog.SetMessage(content);
             dialog.SetCancelable(false);
+            nativeDialogStyle?.SetStyle(dialog, inputLayout);
             dialog.Show();
             await sem.WaitAsync();
             return res;
         }
 
-        public override void ShowLoadingPopup(string title,string content)
+        public override void ShowLoadingPopup(
+            string title,
+            string content,
+            INativeLoadingDialogStyle nativeDialogStyle)
         {
-            ShowLoadingPopupRequest?.Invoke(this, (title,content));
+            _currentLoadingDialog?.Hide();
+
+            // use default when not specified
+            if (!(nativeDialogStyle?.UseDefault ?? true))
+            {
+                ShowLoadingPopupRequest?.Invoke(this, (title, content));
+                return;
+            }
+
+            var bottomMargin = title == null && content == null ? 16 : 32;
+
+            var layout = new FrameLayout(_contextProvider.CurrentContext);
+            var loadingView = new ProgressBar(_contextProvider.CurrentContext)
+            {
+                LayoutParameters = new FrameLayout.LayoutParams(
+                    ViewGroup.LayoutParams.WrapContent,
+                    ViewGroup.LayoutParams.WrapContent)
+                {
+                    Gravity = GravityFlags.Center,
+                    TopMargin = (int)(16 * Application.Context.Resources.DisplayMetrics.Density),
+                    BottomMargin = (int)(bottomMargin * Application.Context.Resources.DisplayMetrics.Density),
+                }
+            };
+            layout.AddView(loadingView);
+
+            var dialog = new AlertDialog.Builder(_contextProvider.CurrentContext);
+            dialog.SetView(layout);
+            dialog.SetTitle(title);
+            dialog.SetMessage(content);
+            dialog.SetCancelable(false);
+            nativeDialogStyle?.SetStyle(dialog, layout);
+            _currentLoadingDialog= dialog.Show();
         }
 
         public override void HideLoadingDialog()
         {
             HideLoadingPopupRequest?.Invoke(this, EventArgs.Empty);
+            _currentLoadingDialog?.Hide();
         }
     }
 }

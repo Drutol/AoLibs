@@ -9,16 +9,37 @@ namespace AoLibs.Adapters.Core
     /// </summary>
     public abstract class MessageBoxProviderBase : IMessageBoxProvider
     {
-        public abstract Task<bool> ShowMessageBoxWithInputAsync(string title, string content, string positiveText, string negativeText);
-        public abstract Task ShowMessageBoxOkAsync(string title, string content, string neutralText);
-        public abstract Task<string> ShowTextInputBoxAsync(string title, string content, string hint, string positiveText, string neutralText);
+        public abstract Task<bool> ShowMessageBoxWithInputAsync(
+            string title,
+            string content,
+            string positiveText,
+            string negativeText,
+            INativeDialogStyle nativeDialogStyle = null);
 
-        public abstract void ShowLoadingPopup(string title = null, string content = null);
+        public abstract Task ShowMessageBoxOkAsync(
+            string title,
+            string content,
+            string neutralText,
+            INativeDialogStyle nativeDialogStyle = null);
+
+        public abstract Task<string> ShowTextInputBoxAsync(
+            string title,
+            string content,
+            string hint,
+            string positiveText,
+            string neutralText,
+            INativeDialogStyle nativeDialogStyle = null);
+
+        public abstract void ShowLoadingPopup(
+            string title = null,
+            string content = null,
+            INativeLoadingDialogStyle nativeDialogStyle = null);
+
         public abstract void HideLoadingDialog();
 
         public IDisposable LoaderLifetime => new LoaderLifetimeManager(this);
-
-        public IDisposable ObtainLoaderLifetime(string title, string content) => new LoaderLifetimeManager(this,title,content);
+        public IDisposable ObtainLoaderLifetime(string title, string content, INativeLoadingDialogStyle nativeDialogStyle) =>
+            new LoaderLifetimeManager(this, title, content);
 
         private class LoaderLifetimeManager : IDisposable
         {
@@ -26,7 +47,8 @@ namespace AoLibs.Adapters.Core
 
             public LoaderLifetimeManager(MessageBoxProviderBase parent)
             {
-                _parent = parent;              
+                _parent = parent;
+                _parent.ShowLoadingPopup();
             }
 
             public LoaderLifetimeManager(MessageBoxProviderBase parent, string title, string content)

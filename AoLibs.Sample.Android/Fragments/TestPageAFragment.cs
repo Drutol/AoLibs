@@ -37,6 +37,7 @@ namespace AoLibs.Sample.Android.Fragments
             ButtonDialog.SetOnClickCommand(ViewModel.ShowDialogCommand);
             ButtonDialogB.SetOnClickCommand(ViewModel.ShowDialogBCommand);
             ButtonInput.SetOnClickCommand(ViewModel.InputFanciness);
+            FancyLoading.SetOnClickCommand(ViewModel.ShowLoadingDialogCommand);
         }
 
         #region Views
@@ -45,6 +46,7 @@ namespace AoLibs.Sample.Android.Fragments
         private Button _buttonInput;
         private Button _buttonShow;
         private Button _buttonReset;
+        private Button _fancyLoading;
         private Button _buttonDialog;
         private Button _buttonDialogB;
         private Button _buttonNavigate;
@@ -56,6 +58,8 @@ namespace AoLibs.Sample.Android.Fragments
         public Button ButtonShow => _buttonShow ?? (_buttonShow = FindViewById<Button>(Resource.Id.ButtonShow));
 
         public Button ButtonReset => _buttonReset ?? (_buttonReset = FindViewById<Button>(Resource.Id.ButtonReset));
+
+        public Button FancyLoading => _fancyLoading ?? (_fancyLoading = FindViewById<Button>(Resource.Id.FancyLoading));
 
         public Button ButtonDialog => _buttonDialog ?? (_buttonDialog = FindViewById<Button>(Resource.Id.ButtonDialog));
 

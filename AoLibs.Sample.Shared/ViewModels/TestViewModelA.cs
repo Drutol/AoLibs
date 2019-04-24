@@ -11,6 +11,7 @@ using AoLibs.Sample.Shared.BL;
 using AoLibs.Sample.Shared.Interfaces;
 using AoLibs.Sample.Shared.Models;
 using AoLibs.Sample.Shared.NavArgs;
+using AoLibs.Sample.Shared.Statics;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 
@@ -99,7 +100,7 @@ namespace AoLibs.Sample.Shared.ViewModels
             new RelayCommand(async () =>
             {
                 var input = await _messageBoxProvider.ShowTextInputBoxAsync("Input Fanciness", "Your fancy thing.",
-                    "Fancy thing", "Ok", "Cancel");
+                    "Fancy thing", "Ok", "Cancel", DialogStyles.PasswordDialogStyle);
 
                 if (input != null)
                 {
@@ -131,5 +132,13 @@ namespace AoLibs.Sample.Shared.ViewModels
                 _dialogsManager[DialogIndex.TestDialogB].Show(new DialogBNavArgs {Message = _dialogBShouldShowLongText ? _dialogBLongText : _dialogBShortText });
                 _dialogBShouldShowLongText = !_dialogBShouldShowLongText;
             });
+
+        public RelayCommand ShowLoadingDialogCommand => new RelayCommand(async () =>
+        {
+            using (_messageBoxProvider.ObtainLoaderLifetime("Fancy...", "...Loading"))
+            {
+                await Task.Delay(3000);
+            }
+        });
     }
 }

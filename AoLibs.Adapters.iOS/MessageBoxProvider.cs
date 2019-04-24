@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using AoLibs.Adapters.Core;
+using AoLibs.Adapters.Core.Interfaces;
 using UIKit;
 
 namespace AoLibs.Adapters.iOS
@@ -11,7 +12,12 @@ namespace AoLibs.Adapters.iOS
         public event EventHandler<(string title, string content)> ShowLoadingPopupRequest;
         public event EventHandler HideLoadingPopupRequest;
 
-        public override async Task<bool> ShowMessageBoxWithInputAsync(string title, string content, string positiveText, string negativeText)
+        public override async Task<bool> ShowMessageBoxWithInputAsync(
+            string title, 
+            string content, 
+            string positiveText, 
+            string negativeText,
+            INativeDialogStyle dialogStyle = null)
         {
             bool result = false;
             var semaphore = new SemaphoreSlim(0);
@@ -28,7 +34,11 @@ namespace AoLibs.Adapters.iOS
             return result;
         }
 
-        public override async Task ShowMessageBoxOkAsync(string title, string content, string neutralText)
+        public override async Task ShowMessageBoxOkAsync(
+            string title,
+            string content,
+            string neutralText,
+            INativeDialogStyle dialogStyle = null)
         {
             var alert = new UIAlertView(title, content, (IUIAlertViewDelegate)null, neutralText);
             var semaphore = new SemaphoreSlim(0);
@@ -39,12 +49,18 @@ namespace AoLibs.Adapters.iOS
             await semaphore.WaitAsync();
         }
 
-        public override Task<string> ShowTextInputBoxAsync(string title, string content, string hint, string positiveText, string neutralText)
+        public override Task<string> ShowTextInputBoxAsync(
+            string title,
+            string content,
+            string hint, 
+            string positiveText,
+            string neutralText,
+            INativeDialogStyle dialogStyle = null)
         {
             throw new NotImplementedException();
         }
 
-        public override void ShowLoadingPopup(string title, string content)
+        public override void ShowLoadingPopup(string title, string content, INativeLoadingDialogStyle dialogStyle)
         {
             ShowLoadingPopupRequest?.Invoke(this, (title, content));
         }

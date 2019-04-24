@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Widget;
 using AoLibs.Adapters.Android;
+using AoLibs.Adapters.Android.DialogStyles;
 using AoLibs.Adapters.Android.Interfaces;
 using AoLibs.Adapters.Core;
 using AoLibs.Adapters.Core.Interfaces;
@@ -79,6 +80,8 @@ namespace AoLibs.Sample.Android.Activities
                 builder.RegisterInstance(manager).As<INavigationManager<PageIndex>>();
                 builder.RegisterInstance(dialogManager).As<ICustomDialogsManager<DialogIndex>>();
             });
+
+            DialogStyles.PasswordDialogStyle = new PasswordInputDialogStyle();
 
             ViewModelLocator.MainViewModel.Initialize();
         }

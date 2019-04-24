@@ -56,6 +56,7 @@
     <Compile Include="DispatcherAdapter.cs" />
     <Compile Include="FileStorageProvider.cs" />
     <Compile Include="MessageBoxProvider.cs" />
+    <Compile Include="NativeDialogStyleBase.cs" />
     <Compile Include="PhoneCallAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SettingsProvider.cs" />
