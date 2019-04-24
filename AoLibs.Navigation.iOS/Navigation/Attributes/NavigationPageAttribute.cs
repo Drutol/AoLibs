@@ -27,7 +27,7 @@ namespace AoLibs.Navigation.iOS.Navigation.Attributes
         /// </summary>
         /// <param name="page">Integer value of your TPageIdentifier enum.</param>
         /// <param name="pageProvider">Indicates whether to use <see cref="CachedPageProvider{TPage}"/> or <see cref="OneshotPageProvider{TPage}"/> when creating page entries.</param>
-        public NavigationPageAttribute(int page, PageProvider pageProvider)
+        public NavigationPageAttribute(int page, PageProvider pageProvider = PageProvider.Cached)
         {
             Page = page;
             PageProviderType = pageProvider;
@@ -38,7 +38,7 @@ namespace AoLibs.Navigation.iOS.Navigation.Attributes
         /// </summary>
         /// <param name="page">Object that will be casted to <see cref="int"/>.</param>
         /// <param name="pageProvider">Indicates whether to use <see cref="CachedPageProvider{TPage}"/> or <see cref="OneshotPageProvider{TPage}"/> when creating page entries.</param>
-        public NavigationPageAttribute(object page, PageProvider pageProvider)
+        public NavigationPageAttribute(object page, PageProvider pageProvider = PageProvider.Cached)
         {
             Page = (int)page;
             PageProviderType = pageProvider;
