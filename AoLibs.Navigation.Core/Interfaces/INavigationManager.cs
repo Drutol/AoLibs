@@ -20,6 +20,11 @@ namespace AoLibs.Navigation.Core.Interfaces
         NaviagtionInterceptor<TPageIdentifier> Interceptor { get; set; }
 
         /// <summary>
+        /// Gets current page.
+        /// </summary>
+        TPageIdentifier CurrentPage { get; }
+
+        /// <summary>
         /// Navigates to page with <see cref="NavigationBackstackOption.AddToBackstack" /> option.
         /// </summary>
         /// <param name="page">Target page.</param>

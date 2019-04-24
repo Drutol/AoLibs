@@ -40,6 +40,11 @@ namespace AoLibs.Navigation.Core
         /// </summary>
         public NaviagtionInterceptor<TPageIdentifier> Interceptor { get; set; }
 
+        /// <summary>
+        /// Gets or sets current page.
+        /// </summary>
+        public TPageIdentifier CurrentPage { get; set; }
+
         protected NavigationManagerBase(
             Dictionary<TPageIdentifier, IPageProvider<TPage>> pageDefinitions,
             IStackResolver<TPage, TPageIdentifier> stackResolver = null)
@@ -64,6 +69,7 @@ namespace AoLibs.Navigation.Core
             if (Interceptor != null)
                 page = Interceptor(page);
             Navigated?.Invoke(this, page);
+            CurrentPage = page;
             ResolveStackManager(page).Navigate(page, args);
         }
 
@@ -72,6 +78,7 @@ namespace AoLibs.Navigation.Core
             if (Interceptor != null)
                 page = Interceptor(page);
             Navigated?.Invoke(this, page);
+            CurrentPage = page;
             ResolveStackManager(page).Navigate(page, backstackOption, args);
         }
 
@@ -89,14 +96,20 @@ namespace AoLibs.Navigation.Core
         {
             var result = _stackManagers.First().Value.GoBack(args);
             if (result.WentBack)
+            {
                 WentBack?.Invoke(this, result.TargetPage);
+                CurrentPage = result.TargetPage;
+            }
         }
 
         public void GoBack(TPageIdentifier stackIdentifier, object args = null)
         {
             var result = ResolveStackManager(stackIdentifier).GoBack(args);
             if (result.WentBack)
+            {
                 WentBack?.Invoke(this, result.TargetPage);
+                CurrentPage = result.TargetPage;
+            }
         }
 
         public void PopFromBackstack()
@@ -138,7 +151,10 @@ namespace AoLibs.Navigation.Core
         {
             var result = _stackManagers.First().Value.OnBackRequested();
             if (result.WentBack)
+            {
                 WentBack?.Invoke(this, result.TargetPage);
+                CurrentPage = result.TargetPage;
+            }
 
             return result.WentBack;
         }
@@ -147,7 +163,10 @@ namespace AoLibs.Navigation.Core
         {
             var result = ResolveStackManager(stackIdentifier).OnBackRequested();
             if (result.WentBack)
+            {
                 WentBack?.Invoke(this, result.TargetPage);
+                CurrentPage = result.TargetPage;
+            }
 
             return result.WentBack;
         }
