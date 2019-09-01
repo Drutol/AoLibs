@@ -94,7 +94,7 @@ namespace AoLibs.Navigation.Test
             _stackManager.Navigate(PageIndex.PageB);
             // Asset
             _pageA.VerifySet(page => page.NavigationArguments = navArg, Times.Once);
-            _pageB.VerifySet(page => page.NavigationArguments = null, Times.Never);
+            _pageB.VerifySet(page => page.NavigationArguments = null, Times.Once);
         }
 
         [Fact]
@@ -108,7 +108,7 @@ namespace AoLibs.Navigation.Test
             _stackManager.GoBack(navArg);
             // Asset
             _pageA.VerifySet(page => page.NavigationArguments = navArg, Times.Once);
-            _pageB.VerifySet(page => page.NavigationArguments = null, Times.Never);
+            _pageB.VerifySet(page => page.NavigationArguments = null, Times.Once);
             _navigationManager.Verify(manager =>
                 manager.NotifyPagePopped(It.Is<INavigationPage>(page => page == _pageB.Object)));
         }
