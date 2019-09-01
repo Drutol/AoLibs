@@ -32,6 +32,11 @@
             Gets or sets delegate to intercept navigation and change target page in advance.
             </summary>
         </member>
+        <member name="P:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.CurrentPage">
+            <summary>
+            Gets current page.
+            </summary>
+        </member>
         <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.Navigate(`0,System.Object)">
             <summary>
             Navigates to page with <see cref="F:AoLibs.Navigation.Core.NavigationBackstackOption.AddToBackstack" /> option.
@@ -226,6 +231,11 @@
         <member name="P:AoLibs.Navigation.Core.NavigationManagerBase`2.Interceptor">
             <summary>
             Gets or sets navigation interceptor.
+            </summary>
+        </member>
+        <member name="P:AoLibs.Navigation.Core.NavigationManagerBase`2.CurrentPage">
+            <summary>
+            Gets or sets current page.
             </summary>
         </member>
         <member name="T:AoLibs.Navigation.Core.PageProviders.CachedPageProvider`1">
