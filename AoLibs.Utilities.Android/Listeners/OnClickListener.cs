@@ -20,7 +20,7 @@ namespace AoLibs.Utilities.Android.Listeners
 
         public void OnClick(View v)
         {
-            if(_action != null)
+            if (_action != null)
                 _action.Invoke(v);
             else
                 _actionBasic.Invoke();
