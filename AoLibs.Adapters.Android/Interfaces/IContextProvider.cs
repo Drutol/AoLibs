@@ -1,4 +1,5 @@
 ﻿using Android.App;
+using Android.Content;
 
 namespace AoLibs.Adapters.Android.Interfaces
 {
@@ -8,8 +9,13 @@ namespace AoLibs.Adapters.Android.Interfaces
     public interface IContextProvider
     {
         /// <summary>
+        /// Gets current context.
+        /// </summary>
+        Context CurrentContext { get; }     
+
+        /// <summary>
         /// Gets current activity.
         /// </summary>
-        Activity CurrentContext { get; }
+        Activity CurrentActivity { get; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using Android.OS;
 using AoLibs.Adapters.Android.Interfaces;
 using AoLibs.Adapters.Core.Interfaces;
 
@@ -18,7 +19,7 @@ namespace AoLibs.Adapters.Android
 
         public void Run(Action action)
         {
-            _contextProvider.CurrentContext.RunOnUiThread(action);
+            new Handler(Looper.MainLooper).Post(action);
         }
     }
 }

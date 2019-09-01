@@ -346,6 +346,28 @@
             Informs the provider to send signal to hide your custom loading dialog.
             </summary>
         </member>
+        <member name="T:AoLibs.Adapters.Core.Interfaces.INativeDialogStyle">
+            <summary>
+            Interface for applying additional styles to native dialog objects.
+            </summary>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.INativeDialogStyle.SetStyle(System.Object,System.Object)">
+            <summary>
+            Called when additional configuration can occur.
+            </summary>
+            <param name="nativeDialog">Dialog object.</param>
+            <param name="contentView">Root content view contained within dialog.</param>
+        </member>
+        <member name="T:AoLibs.Adapters.Core.Interfaces.INativeLoadingDialogStyle">
+            <summary>
+            Specialized dialog style interface specifying whether to use default or custom implementation.
+            </summary>
+        </member>
+        <member name="P:AoLibs.Adapters.Core.Interfaces.INativeLoadingDialogStyle.UseDefault">
+            <summary>
+            Gets a value indicating whether to call event or bring default loading dialog.
+            </summary>
+        </member>
         <member name="T:AoLibs.Adapters.Core.Interfaces.IPhoneCallAdapter">
             <summary>
             Simple adapter allowing to call given number.

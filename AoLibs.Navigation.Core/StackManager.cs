@@ -39,8 +39,7 @@ namespace AoLibs.Navigation.Core
             // obtain new page and push naviagtion arguments
             var newFragment = _navigationManager.PageDefinitions[page].Page;
 
-            if (args != null)
-                newFragment.NavigationArguments = args;
+            newFragment.NavigationArguments = args;
 
             // do actual naviagtion
             if (addToBackstack || CurrentFragment == null)

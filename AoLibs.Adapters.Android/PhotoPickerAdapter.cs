@@ -33,7 +33,7 @@ namespace AoLibs.Adapters.Android
             intent.SetType("image/*");
             intent.SetAction(Intent.ActionGetContent);
             intent.SetFlags(ActivityFlags.GrantReadUriPermission);
-            _contextProvider.CurrentContext.StartActivityForResult(Intent.CreateChooser(intent, pickerTitle),TakePhotoRequestId);
+            _contextProvider.CurrentActivity.StartActivityForResult(Intent.CreateChooser(intent, pickerTitle),TakePhotoRequestId);
 
             var (_, _, data) = await _activityResultProvider.Await();
             
