@@ -171,6 +171,14 @@ namespace AoLibs.Navigation.Core
             return result.WentBack;
         }
 
+        protected void RenavigateCurrent()
+        {
+            foreach (var stackManager in _stackManagers)
+            {
+                stackManager.Value.RenavigateCurrent();
+            }
+        }
+
         public virtual void NotifyPagePopped(INavigationPage poppedPage)
         {
         }

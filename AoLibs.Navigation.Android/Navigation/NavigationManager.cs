@@ -17,9 +17,9 @@ namespace AoLibs.Navigation.Android.Navigation
     /// <typeparam name="TPageIdentifier">Page enum type.</typeparam>
     public class NavigationManager<TPageIdentifier> : NavigationManagerBase<NavigationFragmentBase, TPageIdentifier>
     {
-        private readonly FragmentManager _fragmentManager;
-        private readonly ViewGroup _rootFrame;
         private readonly Action<FragmentTransaction> _interceptTransaction;
+        private FragmentManager _fragmentManager;
+        private ViewGroup _rootFrame;
 
         /// <summary>
         /// Gets or sets a value indicating whether failed navigation should throw an exception.
@@ -113,6 +113,28 @@ namespace AoLibs.Navigation.Android.Navigation
             }
         }
 
+        /// <summary>
+        /// Applies new fragment manager and frame.
+        /// </summary>
+        /// <param name="fragmentManager">New fragment manager.</param>
+        /// <param name="rootFrame">New root frame.</param>
+        public void ChangeFragmentManager(FragmentManager fragmentManager, ViewGroup rootFrame)
+        {
+            _fragmentManager = fragmentManager;
+            _rootFrame = rootFrame;
+        }
+
+        /// <summary>
+        /// Applies new fragment manager and frame and restores current navigation page.
+        /// </summary>
+        /// <param name="fragmentManager">New fragment manager.</param>
+        /// <param name="rootFrame">New root frame.</param>
+        public void RestoreState(FragmentManager fragmentManager, ViewGroup rootFrame)
+        {
+            ChangeFragmentManager(fragmentManager, rootFrame);
+            RenavigateCurrent();
+        }
+
         public override void CommitPageTransaction(NavigationFragmentBase page)
         {
             try
@@ -127,7 +149,7 @@ namespace AoLibs.Navigation.Android.Navigation
             }
             catch (Exception e)
             {
-                Console.WriteLine($"There was an issue navigating to idndicated page, please ensure everyhting is set-up correctly. Exception: {e}");
+                Console.WriteLine($"There was an issue navigating to indicated page, please ensure everything is set-up correctly. Exception: {e}");
                 if (ThrowOnNavigationException)
                     throw e;
             }

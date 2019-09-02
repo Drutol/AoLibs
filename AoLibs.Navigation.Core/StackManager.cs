@@ -184,5 +184,10 @@ namespace AoLibs.Navigation.Core
             if (_stack.Count > 0 && _stack.Peek().Page.PageIdentifier.Equals(stackIdentifier))
                 _stack.Pop();
         }
+
+        public void RenavigateCurrent()
+        {
+            _navigationManager.CommitPageTransaction(CurrentFragment);
+        }
     }
 }

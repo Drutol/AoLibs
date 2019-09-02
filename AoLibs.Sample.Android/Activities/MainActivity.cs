@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Android.App;
+using Android.Content;
+using Android.Content.PM;
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Widget;
@@ -20,10 +22,13 @@ using Autofac;
 
 namespace AoLibs.Sample.Android.Activities
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true, LaunchMode = LaunchMode.SingleInstance)]
     public class MainActivity : AppCompatActivity
     {
+        private static bool _initialized;
         public static MainActivity Instance { get; set; }
+        private static NavigationManager<PageIndex> _manager;
+        private static CustomDialogsManager<DialogIndex> _dialogManager;
 
         public MainActivity()
         {
@@ -45,50 +50,61 @@ namespace AoLibs.Sample.Android.Activities
             ////    {PageIndex.PageB, new OneshotPageProvider<TestPageBFragment>()},
             ////};
 
-            var dialogDefinitions = new Dictionary<DialogIndex, ICustomDialogProvider>
+            if (!_initialized)
             {
-                {DialogIndex.TestDialogA, new OneshotCustomDialogProvider<TestDialogA>()},
-                {DialogIndex.TestDialogB, new OneshotCustomDialogProvider<TestDialogB>()}
-            };
+                var dialogDefinitions = new Dictionary<DialogIndex, ICustomDialogProvider>
+                {
+                    {DialogIndex.TestDialogA, new OneshotCustomDialogProvider<TestDialogA>()},
+                    {DialogIndex.TestDialogB, new OneshotCustomDialogProvider<TestDialogB>()}
+                };
 
-            var manager = new NavigationManager<PageIndex>(
-                SupportFragmentManager,
-                RootView, 
-                new ViewModelResolver());
+                _manager = new NavigationManager<PageIndex>(
+                    SupportFragmentManager,
+                    RootView,
+                    new ViewModelResolver());
 
-            var dialogManager = new CustomDialogsManager<DialogIndex>(
-                SupportFragmentManager,
-                dialogDefinitions,
-                new ViewModelResolver());
+                _dialogManager = new CustomDialogsManager<DialogIndex>(
+                    SupportFragmentManager,
+                    dialogDefinitions,
+                    new ViewModelResolver());
 
-            // usually you would do it in Application class but for showcase sake I will skip that
-            InitializationRoutines.Initialize(builder =>
+                // usually you would do it in Application class but for showcase sake I will skip that
+                InitializationRoutines.Initialize(builder =>
+                {
+                    builder.RegisterType<ClipboardProvider>().As<IClipboardProvider>().SingleInstance();
+                    builder.RegisterType<DispatcherAdapter>().As<IDispatcherAdapter>().SingleInstance();
+                    builder.RegisterType<FileStorageProvider>().As<IFileStorageProvider>().SingleInstance();
+                    builder.RegisterType<MessageBoxProvider>().As<IMessageBoxProvider>().SingleInstance();
+                    builder.RegisterType<SettingsProvider>().As<ISettingsProvider>().SingleInstance();
+                    builder.RegisterType<UriLauncherAdapter>().As<IUriLauncherAdapter>().SingleInstance();
+                    builder.RegisterType<VersionProvider>().As<IVersionProvider>().SingleInstance();
+                    builder.RegisterType<PickerAdapter>().As<IPickerAdapter>().SingleInstance();
+                    builder.RegisterType<ContextProvider>().As<IContextProvider>().SingleInstance();
+                    builder.RegisterType<PhotoPickerAdapter>().As<IPhotoPickerAdapter>().SingleInstance();
+                    builder.RegisterType<PhoneCallAdapter>().As<IPhoneCallAdapter>().SingleInstance();
+                    builder.RegisterType<DataCache>().As<IDataCache>().SingleInstance();
+
+                    builder.RegisterInstance(_manager).As<INavigationManager<PageIndex>>();
+                    builder.RegisterInstance(_dialogManager).As<ICustomDialogsManager<DialogIndex>>();
+                });
+
+                DialogStyles.PasswordDialogStyle = new PasswordInputDialogStyle();
+
+                ViewModelLocator.MainViewModel.Initialize();
+
+                _initialized = true;
+            }
+            else
             {
-                builder.RegisterType<ClipboardProvider>().As<IClipboardProvider>().SingleInstance();
-                builder.RegisterType<DispatcherAdapter>().As<IDispatcherAdapter>().SingleInstance();
-                builder.RegisterType<FileStorageProvider>().As<IFileStorageProvider>().SingleInstance();
-                builder.RegisterType<MessageBoxProvider>().As<IMessageBoxProvider>().SingleInstance();
-                builder.RegisterType<SettingsProvider>().As<ISettingsProvider>().SingleInstance();
-                builder.RegisterType<UriLauncherAdapter>().As<IUriLauncherAdapter>().SingleInstance();
-                builder.RegisterType<VersionProvider>().As<IVersionProvider>().SingleInstance();
-                builder.RegisterType<PickerAdapter>().As<IPickerAdapter>().SingleInstance();
-                builder.RegisterType<ContextProvider>().As<IContextProvider>().SingleInstance();
-                builder.RegisterType<PhotoPickerAdapter>().As<IPhotoPickerAdapter>().SingleInstance();
-                builder.RegisterType<PhoneCallAdapter>().As<IPhoneCallAdapter>().SingleInstance();
-                builder.RegisterType<DataCache>().As<IDataCache>().SingleInstance();
-
-                builder.RegisterInstance(manager).As<INavigationManager<PageIndex>>();
-                builder.RegisterInstance(dialogManager).As<ICustomDialogsManager<DialogIndex>>();
-            });
-
-            DialogStyles.PasswordDialogStyle = new PasswordInputDialogStyle();
-
-            ViewModelLocator.MainViewModel.Initialize();
+                _manager.RestoreState(SupportFragmentManager, RootView);
+                _dialogManager.ChangeFragmentManager(SupportFragmentManager);
+            }
         }
 
         private class ContextProvider : IContextProvider
         {
-            public Activity CurrentContext => Instance;
+            public Activity CurrentActivity => Instance;
+            Context IContextProvider.CurrentContext => Instance;
         }
 
         private class ViewModelResolver : IViewModelResolver, ICustomDialogViewModelResolver
@@ -109,7 +125,15 @@ namespace AoLibs.Sample.Android.Activities
                 }
             }
         }
-        
+
+        public override void OnBackPressed()
+        {
+            if (!_manager.OnBackRequested())
+            {
+                MoveTaskToBack(true);
+            }
+        }
+
         #region Views
 
         private FrameLayout _rootView;

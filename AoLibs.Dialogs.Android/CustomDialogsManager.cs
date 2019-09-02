@@ -28,5 +28,14 @@ namespace AoLibs.Dialogs.Android
             CustomDialogBase.ConfiguredFragmentManager = fragmentManager;
             CustomDialogBase.DialogsManager = this;
         }
+
+        /// <summary>
+        /// Applies new fragment manager.
+        /// </summary>
+        /// <param name="fragmentManager">New fragment manager.</param>
+        public void ChangeFragmentManager(FragmentManager fragmentManager)
+        {
+            CustomDialogBase.ConfiguredFragmentManager = fragmentManager;
+        }
     }
 }
