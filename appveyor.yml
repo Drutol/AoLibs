@@ -19,7 +19,7 @@
   - cmd: >-
       cd Build
   - cmd: >-
-      powershell .\build.ps1 -Verbosity diagnostic -ScriptArgs '-buildTarget="Publish-Packages"','-libVersion="0.6.5"'
+      powershell .\build.ps1 -Verbosity diagnostic -ScriptArgs '-buildTarget="Publish-Packages"','-libVersion="0.6.6"'
     
 -
   version: 0.6.{build}
