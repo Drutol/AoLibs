@@ -1,4 +1,5 @@
 ﻿using System;
+using Windows.System;
 using AoLibs.Adapters.Core.Interfaces;
 
 namespace AoLibs.Adapters.UWP
@@ -8,9 +9,9 @@ namespace AoLibs.Adapters.UWP
     /// </summary>
     public class UriLauncherAdapter : IUriLauncherAdapter
     {
-        public void LaunchUri(Uri uri)
+        public async void LaunchUri(Uri uri)
         {
-
+            await Launcher.LaunchUriAsync(uri);
         }
     }
 }

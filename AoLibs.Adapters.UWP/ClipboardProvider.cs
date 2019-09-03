@@ -1,4 +1,5 @@
 ﻿
+using Windows.ApplicationModel.DataTransfer;
 using AoLibs.Adapters.Core.Interfaces;
 
 namespace AoLibs.Adapters.UWP
@@ -10,7 +11,9 @@ namespace AoLibs.Adapters.UWP
     {
         public void SetText(string text)
         {
-
+            var dataPackage = new DataPackage();
+            dataPackage.SetText(text);
+            Clipboard.SetContent(dataPackage);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿
+using Windows.ApplicationModel.Calls;
 using AoLibs.Adapters.Core.Interfaces;
 
 namespace AoLibs.Adapters.UWP
@@ -10,7 +11,7 @@ namespace AoLibs.Adapters.UWP
     {
         public void Call(string telephoneNumber)
         {
-            throw new System.NotImplementedException();
+            PhoneCallManager.ShowPhoneCallUI(telephoneNumber, string.Empty);
         }
     }
 }

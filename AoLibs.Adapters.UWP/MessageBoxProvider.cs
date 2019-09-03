@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Windows.UI.Popups;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using AoLibs.Adapters.Core;
 using AoLibs.Adapters.Core.Interfaces;
 
@@ -14,33 +17,62 @@ namespace AoLibs.Adapters.UWP
         public event EventHandler<(string title, string content)> ShowLoadingPopupRequest;
         public event EventHandler HideLoadingPopupRequest;
 
-
-        public override Task<bool> ShowMessageBoxWithInputAsync(string title, string content, string positiveText, string negativeText,
+        public override async Task<bool> ShowMessageBoxWithInputAsync(
+            string title,
+            string content,
+            string positiveText,
+            string negativeText,
             INativeDialogStyle nativeDialogStyle = null)
         {
-            throw new NotImplementedException();
+            var messageDialog = new MessageDialog(content, title);
+            messageDialog.Commands.Add(new UICommand(positiveText){Id = 1});
+            messageDialog.Commands.Add(new UICommand(negativeText){Id = null});
+            var result = await messageDialog.ShowAsync();
+
+            return result.Id != null;
         }
 
-        public override Task ShowMessageBoxOkAsync(string title, string content, string neutralText,
+        public override async Task ShowMessageBoxOkAsync(string title, string content, string neutralText,
             INativeDialogStyle nativeDialogStyle = null)
         {
-            throw new NotImplementedException();
+            var messageDialog = new MessageDialog(content, title);
+            messageDialog.Commands.Add(new UICommand(neutralText));
+            await messageDialog.ShowAsync();
         }
 
-        public override Task<string> ShowTextInputBoxAsync(string title, string content, string hint, string positiveText, string neutralText,
+        public override async Task<string> ShowTextInputBoxAsync(string title, string content, string hint,
+            string positiveText, string neutralText,
             INativeDialogStyle nativeDialogStyle = null)
         {
-            throw new NotImplementedException();
+            var inputTextBox = new TextBox
+            {
+                AcceptsReturn = false,
+                PlaceholderText = hint,
+                VerticalAlignment = VerticalAlignment.Bottom
+            };
+            var dialog = new ContentDialog
+            {
+                Content = inputTextBox,
+                Title = title,
+                IsSecondaryButtonEnabled = true,
+                PrimaryButtonText = positiveText,
+                SecondaryButtonText = neutralText
+            };
+            if (await dialog.ShowAsync() == ContentDialogResult.Primary)
+                return inputTextBox.Text;
+
+            return null;
         }
 
-        public override void ShowLoadingPopup(string title = null, string content = null, INativeLoadingDialogStyle nativeDialogStyle = null)
+        public override void ShowLoadingPopup(string title = null, string content = null,
+            INativeLoadingDialogStyle nativeDialogStyle = null)
         {
-            throw new NotImplementedException();
+            ShowLoadingPopupRequest?.Invoke(this, (title,content));
         }
 
         public override void HideLoadingDialog()
         {
-            throw new NotImplementedException();
+            HideLoadingPopupRequest?.Invoke(this, EventArgs.Empty);
         }
     }
 }

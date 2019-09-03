@@ -1,4 +1,6 @@
 ﻿using System;
+using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
 using AoLibs.Adapters.Core.Interfaces;
 
 namespace AoLibs.Adapters.UWP
@@ -8,9 +10,11 @@ namespace AoLibs.Adapters.UWP
     /// </summary>
     public class DispatcherAdapter : IDispatcherAdapter
     {
-        public void Run(Action action)
+        public async void Run(Action action)
         {
-            throw new NotImplementedException();
+            var dispatcher = CoreApplication.MainView?.CoreWindow?.Dispatcher;
+            if(dispatcher != null)
+                await dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => action());
         }
     }
 }

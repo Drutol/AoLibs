@@ -1,4 +1,5 @@
-﻿using AoLibs.Adapters.Core.Interfaces;
+﻿using Windows.ApplicationModel;
+using AoLibs.Adapters.Core.Interfaces;
 
 namespace AoLibs.Adapters.UWP
 {
@@ -7,7 +8,18 @@ namespace AoLibs.Adapters.UWP
     /// </summary>
     public class VersionProvider : IVersionProvider
     {
-        public string Version { get; }
+        public string Version
+        {
+            get
+            {
+                var package = Package.Current;
+                var packageId = package.Id;
+                var version = packageId.Version;
+
+                return $"{version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
+            }
+        }
+
         public PlatformType Platform { get; } = PlatformType.UWP;
     }
 }

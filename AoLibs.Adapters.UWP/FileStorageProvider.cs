@@ -1,5 +1,9 @@
 ﻿using System;
+using System.IO;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using Windows.Storage;
+using Windows.Storage.Streams;
 using AoLibs.Adapters.Core.Interfaces;
 
 namespace AoLibs.Adapters.UWP
@@ -9,39 +13,71 @@ namespace AoLibs.Adapters.UWP
     /// </summary>
     public class FileStorageProvider : IFileStorageProvider
     {
-        public Task<string> ReadTextAsync(string path)
+        private StorageFolder _localFolder;
+
+        public FileStorageProvider()
         {
-            throw new NotImplementedException();
+            _localFolder = ApplicationData.Current.LocalFolder;
         }
 
-        public Task<byte[]> ReadBytesAsync(string path)
+
+        public async Task<string> ReadTextAsync(string path)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await FileIO.ReadTextAsync(await GetFile(path));
+            }
+            catch
+            {
+                return null;
+            }
+
         }
 
-        public void WriteText(string path, string text)
+        public async Task<byte[]> ReadBytesAsync(string path)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var buffer = await FileIO.ReadBufferAsync(await GetFile(path));
+
+                var bytes = new byte[buffer.Length];
+                buffer.CopyTo(bytes);
+                return bytes;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
-        public Task WriteTextAsync(string path, string text)
+        public async void WriteText(string path, string text)
         {
-            throw new NotImplementedException();
+            await WriteTextAsync(path, text);
         }
 
-        public void WriteBytes(string path, byte[] bytes)
+        public async Task WriteTextAsync(string path, string text)
         {
-            throw new NotImplementedException();
+            await FileIO.WriteTextAsync(await GetFile(path), text);
         }
 
-        public Task WriteBytesAsync(string path, byte[] bytes)
+        public async void WriteBytes(string path, byte[] bytes)
         {
-            throw new NotImplementedException();
+            await WriteBytesAsync(path, bytes);
         }
 
-        public void RemoveFile(string path)
+        public async Task WriteBytesAsync(string path, byte[] bytes)
         {
-            throw new NotImplementedException();
+            await FileIO.WriteBufferAsync(await GetFile(path), bytes.AsBuffer());
+        }
+
+        public async void RemoveFile(string path)
+        {
+            await (await GetFile(path)).DeleteAsync(StorageDeleteOption.PermanentDelete);
+        }
+
+        private async Task<IStorageFile> GetFile(string path)
+        {
+            return await StorageFile.GetFileFromPathAsync(Path.Combine(_localFolder.Path, path));
         }
     }
 }
