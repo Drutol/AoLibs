@@ -76,7 +76,6 @@ namespace AoLibs.Navigation.Core.PageProviders
 
         protected virtual void OnPageCreated(TPage page)
         {
-
         }
     }
 }
