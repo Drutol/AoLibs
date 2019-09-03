@@ -32,14 +32,14 @@ namespace AoLibs.Navigation.Android.Navigation
         /// <param name="fragmentManager">Fragment manager of main activity.</param>
         /// <param name="rootFrame">The view which will be used as the one being replaced with new Views</param>
         /// <param name="pageDefinitions">The dictionary defining pages.</param>
-        /// <param name="viewModelResolver">Class used to resolve ViewModels for pages derived from <see cref="FragmentBase{TViewModel}"/></param>
+        /// <param name="dependencyResolver">Class used to resolve ViewModels for pages derived from <see cref="FragmentBase{TViewModel}"/></param>
         /// <param name="stackResolver">Class allowing to differentiate to which stack given indentigier belongs.</param>
         /// <param name="interceptTransaction">Delegate allowing to modify <see cref="FragmentTransaction"/> before commiting.</param>
         public NavigationManager(
             FragmentManager fragmentManager,
             ViewGroup rootFrame,
             Dictionary<TPageIdentifier, IPageProvider<NavigationFragmentBase>> pageDefinitions,
-            IViewModelResolver viewModelResolver = null,
+            IDependencyResolver dependencyResolver = null,
             IStackResolver<NavigationFragmentBase, TPageIdentifier> stackResolver = null,
             Action<FragmentTransaction> interceptTransaction = null) 
             : base(pageDefinitions, stackResolver)
@@ -48,7 +48,7 @@ namespace AoLibs.Navigation.Android.Navigation
             _rootFrame = rootFrame;
             _interceptTransaction = interceptTransaction;
 
-            NavigationFragmentBase.ViewModelResolver = viewModelResolver;
+            NavigationFragmentBase.DependencyResolver = dependencyResolver;
         }
 
         /// <summary>
@@ -57,13 +57,13 @@ namespace AoLibs.Navigation.Android.Navigation
         /// </summary>
         /// <param name="fragmentManager">Fragment manager of main activity.</param>
         /// <param name="rootFrame">The view which will be used as the one being replaced with new Views</param>
-        /// <param name="viewModelResolver">Class used to resolve ViewModels for pages derived from <see cref="FragmentBase{TViewModel}"/></param>
+        /// <param name="dependencyResolver">Class used to resolve ViewModels for pages derived from <see cref="FragmentBase{TViewModel}"/></param>
         /// <param name="stackResolver">Class allowing to differentiate to which stack given indentigier belongs.</param>
         /// <param name="interceptTransaction">Delegate allowing to modify <see cref="FragmentTransaction"/> before commiting.</param>
         public NavigationManager(
             FragmentManager fragmentManager, 
             ViewGroup rootFrame,
-            IViewModelResolver viewModelResolver = null,
+            IDependencyResolver dependencyResolver = null,
             IStackResolver<NavigationFragmentBase, TPageIdentifier> stackResolver = null,
             Action<FragmentTransaction> interceptTransaction = null)
             : base(stackResolver)
@@ -72,7 +72,7 @@ namespace AoLibs.Navigation.Android.Navigation
             _rootFrame = rootFrame;
             _interceptTransaction = interceptTransaction;
 
-            NavigationFragmentBase.ViewModelResolver = viewModelResolver;
+            NavigationFragmentBase.DependencyResolver = dependencyResolver;
 
             var types = Assembly.GetCallingAssembly().GetTypes();
 

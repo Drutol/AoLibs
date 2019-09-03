@@ -22,6 +22,7 @@ namespace AoLibs.Navigation.Core.PageProviders
             {
                 var page = factory.Invoke();
                 page.PageIdentifier = PageIdentifier;
+                OnPageCreated(page);
                 return page;
             });
         }
@@ -36,6 +37,7 @@ namespace AoLibs.Navigation.Core.PageProviders
             {
                 var page = Activator.CreateInstance<TPage>();
                 page.PageIdentifier = PageIdentifier;
+                OnPageCreated(page);
                 return page;
             });
         }
@@ -61,5 +63,10 @@ namespace AoLibs.Navigation.Core.PageProviders
         /// Gets or sets TPageIdentifier hidden beyond <see cref="object"/>
         /// </summary>
         public object PageIdentifier { get; set; }
+
+        protected virtual void OnPageCreated(TPage page)
+        {
+
+        }
     }
 }

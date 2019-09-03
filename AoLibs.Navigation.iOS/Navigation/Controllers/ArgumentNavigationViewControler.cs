@@ -7,7 +7,7 @@ namespace AoLibs.Navigation.iOS.Navigation.Controllers
 {
     public class ArgumentNavigationViewControler : UIViewController, INavigationPage, INativeNavigationPage
     {
-        internal static IViewModelResolver ViewModelResolver { get; set; }
+        internal static IDependencyResolver DependencyResolver { get; set; }
 
         private event EventHandler NativeBackNavigation;
 
@@ -49,7 +49,7 @@ namespace AoLibs.Navigation.iOS.Navigation.Controllers
         protected virtual T Resolve<T>() 
             where T : class
         {
-            return ViewModelResolver?.Resolve<T>();
+            return DependencyResolver?.Resolve<T>();
         }
 
         public override void ViewWillDisappear(bool animated)

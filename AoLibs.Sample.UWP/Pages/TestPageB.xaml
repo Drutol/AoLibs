@@ -1,0 +1,22 @@
+﻿<local:TestPageBBase
+    x:Class="AoLibs.Sample.UWP.Pages.TestPageB"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AoLibs.Sample.UWP.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:AoLibs.Sample.Shared.ViewModels"
+    xmlns:pages="using:AoLibs.Navigation.UWP.Pages"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignInstance viewModels:TestViewModelB}"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Page B"/>
+            <Button Content="NavigateCCommand" Command="{Binding NavigateCCommand}"/>
+            <Button Content="NavigateCNoBackCommand" Command="{Binding NavigateCNoBackCommand}"/>
+            <Button Content="GoBackCommand" Command="{Binding GoBackCommand}"/>
+        </StackPanel>
+    </Grid>
+</local:TestPageBBase>

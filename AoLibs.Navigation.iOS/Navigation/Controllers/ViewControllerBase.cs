@@ -20,13 +20,13 @@ namespace AoLibs.Navigation.iOS.Navigation.Controllers
         protected ViewControllerBase(IntPtr handle) 
             : base(handle)
         {
-            ViewModel = ViewModelResolver?.Resolve<TViewModel>();
+            ViewModel = DependencyResolver?.Resolve<TViewModel>();
         }
 
         protected ViewControllerBase(string name, NSBundle p) 
             : base(name, p)
         {
-            ViewModel = ViewModelResolver?.Resolve<TViewModel>();
+            ViewModel = DependencyResolver?.Resolve<TViewModel>();
         }
     
         public override void ViewDidLoad()

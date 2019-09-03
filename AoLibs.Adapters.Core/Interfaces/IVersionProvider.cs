@@ -7,7 +7,8 @@
     public enum PlatformType
     {
         Android,
-        iOS
+        iOS,
+        UWP
     }
 #pragma warning restore SA1300 // Element must begin with upper-case letter
 

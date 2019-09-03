@@ -17,6 +17,17 @@
             <typeparam name="TPageIdentifier">Page enum type.</typeparam>
             <param name="targetPage">Page that is the target of navigation.</param>
         </member>
+        <member name="T:AoLibs.Navigation.Core.Interfaces.IDependencyResolver">
+            <summary>
+            Interface used to provide ViewModels for injection to actual <see cref="T:AoLibs.Navigation.Core.Interfaces.INavigationPage"/> instances.
+            </summary>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.IDependencyResolver.Resolve``1">
+            <summary>
+            Resolves for instance of <see cref="!:TDependency"/>
+            </summary>
+            <typeparam name="TDependency">ViewModel</typeparam>
+        </member>
         <member name="E:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.Navigated">
             <summary>
             Event for when navigation occurs. The argument is the destination page.
@@ -173,17 +184,6 @@
             </summary>
             <param name="tag">Tag associated with wanted stack.</param>
             <returns>Found stack</returns>
-        </member>
-        <member name="T:AoLibs.Navigation.Core.Interfaces.IViewModelResolver">
-            <summary>
-            Interface used to provide ViewModels for injection to actual <see cref="T:AoLibs.Navigation.Core.Interfaces.INavigationPage"/> instances.
-            </summary>
-        </member>
-        <member name="M:AoLibs.Navigation.Core.Interfaces.IViewModelResolver.Resolve``1">
-            <summary>
-            Resolves for instance of <see cref="!:TViewModel"/>
-            </summary>
-            <typeparam name="TViewModel">ViewModel</typeparam>
         </member>
         <member name="F:AoLibs.Navigation.Core.NavigationBackstackOption.AddToBackstack">
             <summary>

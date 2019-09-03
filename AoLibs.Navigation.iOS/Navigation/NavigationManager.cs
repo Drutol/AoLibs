@@ -33,19 +33,19 @@ namespace AoLibs.Navigation.iOS.Navigation
         /// </summary>
         /// <param name="navigationController">Root navigation controller.</param>
         /// <param name="pageDefinitions">The dictionary defining pages.</param>
-        /// <param name="viewModelResolver">Class used to resolve ViewModels for pages like <see cref="ViewControllerBase{TViewModel}"/> and <see cref="TabBarViewControllerBase{TViewModel}"/></param>
+        /// <param name="dependencyResolver">Class used to resolve ViewModels for pages like <see cref="ViewControllerBase{TViewModel}"/> and <see cref="TabBarViewControllerBase{TViewModel}"/></param>
         /// <param name="stackResolver">Class allowing to differentiate to which stack given indentigier belongs.</param>
         public NavigationManager(
             UINavigationController navigationController,
             Dictionary<TPageIdentifier, IPageProvider<INavigationPage>> pageDefinitions,
-            IViewModelResolver viewModelResolver,
+            IDependencyResolver dependencyResolver,
             IStackResolver<INavigationPage, TPageIdentifier> stackResolver = null)
             : base(pageDefinitions, stackResolver)
         {
             _navigationController = navigationController;
 
-            ArgumentNavigationViewControler.ViewModelResolver = viewModelResolver;
-            ArgumentNavigationTabBarViewController.ViewModelResolver = viewModelResolver;
+            ArgumentNavigationViewControler.DependencyResolver = dependencyResolver;
+            ArgumentNavigationTabBarViewController.DependencyResolver = dependencyResolver;
         }
 
         /// <summary>
@@ -53,18 +53,18 @@ namespace AoLibs.Navigation.iOS.Navigation
         /// To gather page definitions it searches for classes marked with <see cref="NavigationPageAttribute"/> from <see cref="Assembly.GetCallingAssembly"/>
         /// </summary>
         /// <param name="navigationController">Root navigation controller.</param>
-        /// <param name="viewModelResolver">Resolver to assign proper ViewModel instances.</param>
+        /// <param name="dependencyResolver">Resolver to assign proper ViewModel instances.</param>
         /// <param name="stackResolver">Class allowing to differentiate to which stack given indentigier belongs.</param>
         public NavigationManager(
             UINavigationController navigationController,
-            IViewModelResolver viewModelResolver,
+            IDependencyResolver dependencyResolver,
             IStackResolver<INavigationPage, TPageIdentifier> stackResolver = null)
             : base(stackResolver)
         {
             _navigationController = navigationController;
 
-            ArgumentNavigationViewControler.ViewModelResolver = viewModelResolver;
-            ArgumentNavigationTabBarViewController.ViewModelResolver = viewModelResolver;
+            ArgumentNavigationViewControler.DependencyResolver = dependencyResolver;
+            ArgumentNavigationTabBarViewController.DependencyResolver = dependencyResolver;
 
             var types = Assembly.GetCallingAssembly().GetTypes();
 

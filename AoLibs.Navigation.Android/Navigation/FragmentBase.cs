@@ -10,7 +10,7 @@
         public FragmentBase(bool hasNonTrackableBindings = false) 
             : base(hasNonTrackableBindings)
         {
-            ViewModel = ViewModelResolver?.Resolve<TViewModel>();
+            ViewModel = DependencyResolver?.Resolve<TViewModel>();
         }
 
         protected TViewModel ViewModel { get; }

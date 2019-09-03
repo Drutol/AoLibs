@@ -19,7 +19,7 @@ namespace AoLibs.Navigation.Android.Navigation
         /// Gets or sets the resolver.
         /// Allows <see cref="FragmentBase{TViewModel}"/> to resolve ViewModels automatically.
         /// </summary>
-        internal static IViewModelResolver ViewModelResolver { get; set; }
+        internal static IDependencyResolver DependencyResolver { get; set; }
 
         /// <summary>
         /// Specifies if bindings should be recreated if none have been added.
@@ -126,7 +126,7 @@ namespace AoLibs.Navigation.Android.Navigation
         protected virtual T Resolve<T>()
             where T : class
         {
-            return ViewModelResolver?.Resolve<T>();
+            return DependencyResolver?.Resolve<T>();
         }
     }
 }

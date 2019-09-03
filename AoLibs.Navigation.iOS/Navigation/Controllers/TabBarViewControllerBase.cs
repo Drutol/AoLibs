@@ -11,7 +11,7 @@ namespace AoLibs.Navigation.iOS.Navigation.Controllers
         public TabBarViewControllerBase(IntPtr handle) 
             : base(handle)
         {
-            ViewModel = ViewModelResolver?.Resolve<TViewModel>();
+            ViewModel = DependencyResolver?.Resolve<TViewModel>();
         }    
     }
 }

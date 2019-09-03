@@ -61,8 +61,8 @@ namespace AoLibs.Adapters.Android.Recycler
         }
 
         /// <summary>
-        /// Method called whenever need araises for the bindings to be defined.
-        /// Bindings should be registerred in <see cref="Bindings"/> collection.
+        /// Method called whenever need arises for the bindings to be defined.
+        /// Bindings should be registered in <see cref="Bindings"/> collection.
         /// </summary>
         protected abstract void SetBindings();
     }

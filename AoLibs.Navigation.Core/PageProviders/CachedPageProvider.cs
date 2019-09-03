@@ -40,6 +40,7 @@ namespace AoLibs.Navigation.Core.PageProviders
         public void ForceReinstantination()
         {
             Page = Factory();
+            OnPageCreated(Page);
             Page.PageIdentifier = PageIdentifier;
         }
 
@@ -59,6 +60,7 @@ namespace AoLibs.Navigation.Core.PageProviders
                 {
                     _page = Factory();
                     _page.PageIdentifier = PageIdentifier;
+                    OnPageCreated(_page);
                 }
 
                 return _page;
@@ -71,5 +73,10 @@ namespace AoLibs.Navigation.Core.PageProviders
         /// Gets or sets current TPageIdentifier hidden beyond <see cref="object"/>
         /// </summary>
         public object PageIdentifier { get; set; }
+
+        protected virtual void OnPageCreated(TPage page)
+        {
+
+        }
     }
 }

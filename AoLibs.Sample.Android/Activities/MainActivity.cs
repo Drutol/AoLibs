@@ -107,9 +107,9 @@ namespace AoLibs.Sample.Android.Activities
             Context IContextProvider.CurrentContext => Instance;
         }
 
-        private class ViewModelResolver : IViewModelResolver, ICustomDialogViewModelResolver
+        private class ViewModelResolver : IDependencyResolver, ICustomDialogViewModelResolver
         {
-            TViewModel IViewModelResolver.Resolve<TViewModel>()
+            TViewModel IDependencyResolver.Resolve<TViewModel>()
             {
                 using (var scope = ResourceLocator.ObtainScope())
                 {
