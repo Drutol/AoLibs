@@ -44,7 +44,7 @@ namespace AoLibs.Dialogs.iOS
         /// </summary>
         private void Initialize()
         {
-            ViewModel = CustomDialogViewModelResolver?.Resolve<TViewModel>();
+            ViewModel = CustomDialogDependencyResolver?.Resolve<TViewModel>();
 
             if (ViewModel != null)
             {

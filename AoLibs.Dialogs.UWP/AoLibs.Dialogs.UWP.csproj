@@ -120,7 +120,9 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CustomDialogBase.cs" />
     <Compile Include="CustomDialogsManager.cs" />
+    <Compile Include="Interfaces\IInternalDialogsManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\AoLibs.Dialogs.UWP.rd.xml" />
   </ItemGroup>

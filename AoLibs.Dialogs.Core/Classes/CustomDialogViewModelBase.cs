@@ -4,6 +4,7 @@ using GalaSoft.MvvmLight;
 
 [assembly: InternalsVisibleTo("AoLibs.Dialogs.Android")]
 [assembly: InternalsVisibleTo("AoLibs.Dialogs.iOS")]
+[assembly: InternalsVisibleTo("AoLibs.Dialogs.UWP")]
 namespace AoLibs.Dialogs.Core
 {
     /// <summary>

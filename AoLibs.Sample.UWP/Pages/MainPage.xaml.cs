@@ -13,12 +13,14 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using AoLibs.Dialogs.Android;
+using AoLibs.Dialogs.Core;
 using AoLibs.Dialogs.Core.Interfaces;
 using AoLibs.Navigation.Core.Interfaces;
 using AoLibs.Navigation.UWP;
 using AoLibs.Sample.Shared.Models;
 using AoLibs.Sample.Shared.Statics;
 using AoLibs.Sample.Shared.ViewModels;
+using AoLibs.Sample.UWP.Dialogs;
 using Autofac;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -35,12 +37,19 @@ namespace AoLibs.Sample.UWP
             this.InitializeComponent();
 
             App.NavigationManager = new NavigationManager<PageIndex>(RootFrame, new DependencyResolver());
-            App.DialogManager = new CustomDialogsManager<DialogIndex>(new Dictionary<DialogIndex, ICustomDialogProvider>());
+            App.DialogManager =
+                new CustomDialogsManager<DialogIndex>(
+                    new Dictionary<DialogIndex, ICustomDialogProvider>
+                    {
+                        {DialogIndex.TestDialogA, new OneshotCustomDialogProvider<TestDialogA>()},
+                        {DialogIndex.TestDialogB, new OneshotCustomDialogProvider<TestDialogB>()}
+                    },
+                    new DependencyResolver());
 
             ResourceLocator.ObtainScope().Resolve<MainViewModel>().Initialize();
         }
 
-        public class DependencyResolver : IDependencyResolver
+        public class DependencyResolver : IDependencyResolver, ICustomDialogDependencyResolver
         {
             public TDependency Resolve<TDependency>()
             {

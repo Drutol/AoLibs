@@ -1,29 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Android.Content;
-using Android.Content.Res;
-using Android.OS;
-using Android.Renderscripts;
-using Android.Support.V4.App;
-using Android.Views;
-using AoLibs.Dialogs.Android.Interfaces;
+using Windows.UI.Xaml.Controls;
 using AoLibs.Dialogs.Core;
 using AoLibs.Dialogs.Core.Interfaces;
-using GalaSoft.MvvmLight.Helpers;
-using Type = System.Type;
+using AoLibs.Dialogs.UWP.Interfaces;
 
-namespace AoLibs.Dialogs.Android
+namespace AoLibs.Dialogs.UWP
 {
-    /// <summary>
-    /// Base android implementation of <see cref="ICustomDialog"/>
-    /// </summary>
-    public abstract class CustomDialogBase : DialogFragment, ICustomDialogForViewModel
+    public abstract class CustomDialogBase : ContentDialog, ICustomDialogForViewModel
     {
         internal static ICustomDialogDependencyResolver CustomDialogDependencyResolver { get; set; }
-        internal static FragmentManager ConfiguredFragmentManager { get; set; }
         internal static IInternalDialogsManager DialogsManager { get; set; }
 
         /// <summary>
@@ -57,16 +47,6 @@ namespace AoLibs.Dialogs.Android
         private TaskCompletionSource<object> _resultCompletionSource;
 
         /// <summary>
-        /// Used to indicate whether this fragment went through whole initialization procedure.
-        /// </summary>
-        private bool _initialized;
-
-        /// <summary>
-        /// Method used to populate <see cref="Bindings"/> collection, called once when <see cref="RootView"/> is ready.
-        /// </summary>
-        protected abstract void InitBindings();
-
-        /// <summary>
         /// Callback when dialog has been dismissed.
         /// </summary>
         protected virtual void OnHidden()
@@ -85,13 +65,8 @@ namespace AoLibs.Dialogs.Android
         /// </summary>
         protected CustomDialogBase()
         {
-            FragmentTag = GetType().Name;
+            base.Closing += (sender, args) => HideInternal(false);
         }
-
-        /// <summary>
-        /// Gets tag used to identify fragments.
-        /// </summary>
-        private string FragmentTag { get; }
 
         /// <summary>
         /// Gets awaited type passed using <see cref="ICustomDialog.AwaitResult{TResult}"/>
@@ -99,44 +74,9 @@ namespace AoLibs.Dialogs.Android
         protected Type AwaitedResultType { get; private set; }
 
         /// <summary>
-        /// Gets of all bindings defined in dialog.
-        /// </summary>
-        protected List<Binding> Bindings { get; } = new List<Binding>();
-
-        /// <summary>
-        /// Gets root dialog view inflated from <see cref="LayoutResourceId"/>
-        /// </summary>
-        protected View RootView { get; private set; }
-
-        /// <summary>
         /// Gets or sets dialog config used when creating the dialog.
         /// </summary>
         protected CustomDialogConfig CustomDialogConfig { get; set; } = new CustomDialogConfig();
-
-        /// <summary>
-        /// Gets the layout Id.
-        /// Defines which resource Id use to inflate the view.
-        /// </summary>
-        protected abstract int LayoutResourceId { get; }
-
-        /// <summary>
-        /// Gets the current context.
-        /// </summary>
-        public sealed override Context Context
-        {
-            get
-            {
-                if (Build.VERSION.SdkInt < BuildVersionCodes.M)
-                    return Activity;
-                return base.Context;
-            }
-        }
-
-        /// <summary>
-        /// Gets application's Theme.
-        /// Just a shortcut to <see cref="Resources.Theme"/> contained in parent activity.
-        /// </summary>
-        public new Resources.Theme Theme => Activity.Theme;
 
         /// <summary>
         /// Gets or sets the parameter the dialog was called with.
@@ -147,13 +87,13 @@ namespace AoLibs.Dialogs.Android
         /// Shows the dialog with given parameter.
         /// </summary>
         /// <param name="parameter">Parameter which can be passed to dialog's ViewModel.</param>
-        public void Show(object parameter = null)
+        public async void Show(object parameter = null)
         {
             DialogsManager.CurrentlyDisplayedDialog = this;
             DialogWillShow?.Invoke(this, EventArgs.Empty);
 
             Parameter = parameter;
-            Show(ConfiguredFragmentManager, FragmentTag);
+            await base.ShowAsync(ContentDialogPlacement.Popup);
             OnShown();
             DialogShown?.Invoke(this, EventArgs.Empty);
         }
@@ -161,9 +101,9 @@ namespace AoLibs.Dialogs.Android
         /// <summary>
         /// Hides the dialog.
         /// </summary>
-        public void Hide()
+        public new void Hide()
         {
-            DismissAllowingStateLoss();
+            HideInternal(false);
         }
 
         /// <summary>
@@ -186,12 +126,12 @@ namespace AoLibs.Dialogs.Android
             return Task.CompletedTask;
         }
 
-        /// <inheritdoc />
-        public sealed override void DismissAllowingStateLoss()
+        internal void HideInternal(bool fromHidden)
         {
             DialogWillHide?.Invoke(this, EventArgs.Empty);
             CancelResult();
-            base.DismissAllowingStateLoss();
+            if(!fromHidden)
+             base.Hide();
             OnHidden();
             DialogHidden?.Invoke(this, EventArgs.Empty);
             DialogsManager.CurrentlyDisplayedDialog = null;
@@ -210,7 +150,7 @@ namespace AoLibs.Dialogs.Android
             try
             {
                 if (_resultCompletionSource != null)
-                    return (TResult) await _resultCompletionSource.Task;
+                    return (TResult)await _resultCompletionSource.Task;
 
                 Show();
                 AwaitedResultType = typeof(TResult);
@@ -218,7 +158,7 @@ namespace AoLibs.Dialogs.Android
                 _cts = CancellationTokenSource.CreateLinkedTokenSource(token);
                 using (token.Register(() => _resultCompletionSource.SetCanceled()))
                 {
-                    return (TResult) await _resultCompletionSource.Task;
+                    return (TResult)await _resultCompletionSource.Task;
                 }
             }
             finally
@@ -252,75 +192,25 @@ namespace AoLibs.Dialogs.Android
             _cts = null;
         }
 
-        /// <summary>
-        ///     Utility shorthand to FindViewById on current view.
-        /// </summary>
-        /// <param name="id">View Id.</param>
-        /// <typeparam name="T">The type od the View behind the Id.</typeparam>
-        protected T FindViewById<T>(int id)
-            where T : View
+        protected TViewModel ResolveViewModel<TViewModel>() where TViewModel : CustomDialogViewModelBase
         {
-            return RootView.FindViewById<T>(id);
-        }
- 
-        /// <inheritdoc />
-        public override void OnStart()
-        {
-            base.OnStart();
-            if (CustomDialogConfig != null &&
-                (CustomDialogConfig.StretchHorizontally || CustomDialogConfig.StretchVertically))
-            {
-#pragma warning disable SA1118 // Parameter must not span multiple lines
-                Dialog.Window.SetLayout(
-                    CustomDialogConfig.StretchHorizontally
-                        ? ViewGroup.LayoutParams.MatchParent
-                        : ViewGroup.LayoutParams.WrapContent,
-                    CustomDialogConfig.StretchVertically
-                        ? ViewGroup.LayoutParams.MatchParent
-                        : ViewGroup.LayoutParams.WrapContent);
-#pragma warning restore SA1118 // Parameter must not span multiple lines
-            }
-        }
+            var vm = CustomDialogDependencyResolver?.Resolve<TViewModel>();
 
-        /// <inheritdoc />
-        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-        {
-            if (RootView == null)
+            if (vm != null)
             {
-                RootView = inflater.Inflate(LayoutResourceId, container, false);
-
-                if (CustomDialogConfig != null)
-                {
-                    Cancelable = CustomDialogConfig.IsCancellable;
-                    Dialog.Window.SetGravity(GetGravityFromConfig(CustomDialogConfig.Gravity));
-                }
+                vm.Dialog = this;
+                DataContext = vm;
+                CustomDialogConfig = vm.CustomDialogConfig;
             }
 
-            // if bindings are present for this view we won't generate new ones, if it's first creation we have to do this anyway
-            if (!_initialized || !Bindings.Any())
-                InitBindings();
-
-            _initialized = true;
-
-            return RootView;
+            return vm;
         }
 
-        private GravityFlags GetGravityFromConfig(CustomDialogConfig.DialogGravity gravity)
+        protected TArgument ResolveArgument<TArgument>()
         {
-            var outputGravity = GravityFlags.NoGravity;
-
-            if ((gravity & CustomDialogConfig.DialogGravity.Bottom) == CustomDialogConfig.DialogGravity.Bottom)
-                outputGravity |= GravityFlags.Bottom;
-            if ((gravity & CustomDialogConfig.DialogGravity.Center) == CustomDialogConfig.DialogGravity.Center)
-                outputGravity |= GravityFlags.Center;
-            if ((gravity & CustomDialogConfig.DialogGravity.Left) == CustomDialogConfig.DialogGravity.Left)
-                outputGravity |= GravityFlags.Left;
-            if ((gravity & CustomDialogConfig.DialogGravity.Right) == CustomDialogConfig.DialogGravity.Right)
-                outputGravity |= GravityFlags.Right;
-            if ((gravity & CustomDialogConfig.DialogGravity.Top) == CustomDialogConfig.DialogGravity.Top)
-                outputGravity |= GravityFlags.Top;
-
-            return outputGravity;
+            if (Parameter is TArgument param)
+                return param;
+            return default;
         }
     }
 }

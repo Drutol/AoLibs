@@ -17,14 +17,14 @@ namespace AoLibs.Dialogs.Android
         /// </summary>
         /// <param name="fragmentManager">Application's fragment manager.</param>
         /// <param name="dialogsDictionary">Definitions matching TDialogIndex values with actual dialog providers.</param>
-        /// <param name="viewModelResolver">Optional argument for allowing automatic resolution of ViewModels in dialogs.</param>
+        /// <param name="dependencyResolver">Optional argument for allowing automatic resolution of ViewModels in dialogs.</param>
         public CustomDialogsManager(
             FragmentManager fragmentManager,
             Dictionary<TDialogIndex, ICustomDialogProvider> dialogsDictionary,
-            ICustomDialogViewModelResolver viewModelResolver = null)
+            ICustomDialogDependencyResolver dependencyResolver = null)
             : base(dialogsDictionary)
         {
-            CustomDialogBase.CustomDialogViewModelResolver = viewModelResolver;
+            CustomDialogBase.CustomDialogDependencyResolver = dependencyResolver;
             CustomDialogBase.ConfiguredFragmentManager = fragmentManager;
             CustomDialogBase.DialogsManager = this;
         }

@@ -240,6 +240,17 @@
             <typeparam name="TResult">Desired return type.</typeparam>
             <param name="token">Cancellation token.</param>
         </member>
+        <member name="T:AoLibs.Dialogs.Core.Interfaces.ICustomDialogDependencyResolver">
+            <summary>
+            Interface used to define component allowing to retrieve given ViewModel.
+            </summary>
+        </member>
+        <member name="M:AoLibs.Dialogs.Core.Interfaces.ICustomDialogDependencyResolver.Resolve``1">
+            <summary>
+            Resolves TDependency for given type.
+            </summary>
+            <typeparam name="TDependency">TDependency to resolve.</typeparam>
+        </member>
         <member name="T:AoLibs.Dialogs.Core.Interfaces.ICustomDialogForViewModel">
             <summary>
             Extended dialog interface for providing result oriented methods to ViewModel.
@@ -287,17 +298,6 @@
             Gets dialog associated with given argument.
             </summary>
             <param name="dialog">The dialog type to retrieve.</param>
-        </member>
-        <member name="T:AoLibs.Dialogs.Core.Interfaces.ICustomDialogViewModelResolver">
-            <summary>
-            Interface used to define component allowing to retrieve given ViewModel.
-            </summary>
-        </member>
-        <member name="M:AoLibs.Dialogs.Core.Interfaces.ICustomDialogViewModelResolver.Resolve``1">
-            <summary>
-            Resolves ViewModel for given type.
-            </summary>
-            <typeparam name="TViewModel">ViewModel type to resolve.</typeparam>
         </member>
         <member name="T:AoLibs.Dialogs.Core.Interfaces.ICustomViewModelDialog`1">
             <summary>

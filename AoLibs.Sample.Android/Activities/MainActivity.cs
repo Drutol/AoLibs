@@ -61,12 +61,12 @@ namespace AoLibs.Sample.Android.Activities
                 _manager = new NavigationManager<PageIndex>(
                     SupportFragmentManager,
                     RootView,
-                    new ViewModelResolver());
+                    new DependencyResolver());
 
                 _dialogManager = new CustomDialogsManager<DialogIndex>(
                     SupportFragmentManager,
                     dialogDefinitions,
-                    new ViewModelResolver());
+                    new DependencyResolver());
 
                 // usually you would do it in Application class but for showcase sake I will skip that
                 InitializationRoutines.Initialize(builder =>
@@ -107,7 +107,7 @@ namespace AoLibs.Sample.Android.Activities
             Context IContextProvider.CurrentContext => Instance;
         }
 
-        private class ViewModelResolver : IDependencyResolver, ICustomDialogViewModelResolver
+        private class DependencyResolver : IDependencyResolver, ICustomDialogDependencyResolver
         {
             TViewModel IDependencyResolver.Resolve<TViewModel>()
             {
@@ -117,7 +117,7 @@ namespace AoLibs.Sample.Android.Activities
                 }
             }
 
-            TViewModel ICustomDialogViewModelResolver.Resolve<TViewModel>() 
+            TViewModel ICustomDialogDependencyResolver.Resolve<TViewModel>() 
             {
                 using (var scope = ResourceLocator.ObtainScope())
                 {

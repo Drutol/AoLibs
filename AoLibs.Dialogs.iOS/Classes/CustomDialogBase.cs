@@ -20,7 +20,7 @@ namespace AoLibs.Dialogs.iOS
     /// </summary>
     public abstract class CustomDialogBase : UIViewController, ICustomDialogForViewModel
     {
-        internal static ICustomDialogViewModelResolver CustomDialogViewModelResolver { get; set; }
+        internal static ICustomDialogDependencyResolver CustomDialogDependencyResolver { get; set; }
         internal static UIViewController RootViewController { get; set; }
         internal static IInternalDialogsManager DialogsManager { get; set; }
 

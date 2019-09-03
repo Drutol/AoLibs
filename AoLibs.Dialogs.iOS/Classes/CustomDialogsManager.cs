@@ -21,15 +21,15 @@ namespace AoLibs.Dialogs.iOS
         /// </summary>
         /// <param name="rootNavigationController">Main navigation controller.</param>
         /// <param name="dialogsDictionary">Dialogs dictionary matching identifiers with their providers.</param>
-        /// <param name="viewModelResolver">Component capable of providing instances for given ViewModel type.</param>
+        /// <param name="dependencyResolver">Component capable of providing instances for given ViewModel type.</param>
         public CustomDialogsManager(
             UINavigationController rootNavigationController,
             Dictionary<TDialogIndex, ICustomDialogProvider> dialogsDictionary,
-            ICustomDialogViewModelResolver viewModelResolver) 
+            ICustomDialogDependencyResolver dependencyResolver) 
             : base(dialogsDictionary)
         {
             CustomDialogBase.RootViewController = rootNavigationController;
-            CustomDialogBase.CustomDialogViewModelResolver = viewModelResolver;
+            CustomDialogBase.CustomDialogDependencyResolver = dependencyResolver;
             CustomDialogBase.DialogsManager = this;
         }
     }

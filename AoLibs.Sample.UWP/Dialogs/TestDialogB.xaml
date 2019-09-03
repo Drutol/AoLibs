@@ -1,0 +1,23 @@
+﻿<uwp:CustomDialogBase
+    x:Class="AoLibs.Sample.UWP.Dialogs.TestDialogB"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AoLibs.Sample.UWP.Dialogs"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:dialogViewModels="using:AoLibs.Sample.Shared.DialogViewModels"
+    xmlns:uwp="using:AoLibs.Dialogs.UWP"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignInstance dialogViewModels:TestDialogViewModelB}"
+    Title="TITLE"
+    PrimaryButtonText="Button1"
+    SecondaryButtonText="Button2"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <Grid>
+
+        <TextBlock Text="{Binding Message}"/>
+
+    </Grid>
+</uwp:CustomDialogBase>

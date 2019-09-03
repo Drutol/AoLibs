@@ -21,7 +21,7 @@ namespace AoLibs.Dialogs.Android
         /// </summary>
         protected CustomViewModelDialogBase()
         {
-            ViewModel = CustomDialogViewModelResolver?.Resolve<TViewModel>();
+            ViewModel = CustomDialogDependencyResolver?.Resolve<TViewModel>();
 
             if (ViewModel != null)
             {
