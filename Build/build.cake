@@ -313,7 +313,7 @@ private void BuildUWP(string uwpPath)
 		if(target == PlatformTarget.Win32)
 			continue;
 		MSBuild(uwpPath, settings => {
-			settings.SetConfiguration("Release").SetPlatformTarget(target);
+			settings.SetConfiguration("Release").SetPlatformTarget(target);}
 		 //settings.ToolPath = @"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe";}
 		 );
 	}
