@@ -1,6 +1,6 @@
 -
   version: 0.6.{build}
-  image: Visual Studio 2019
+  image: Visual Studio 2017
 
   install: 
   - echo y | "C:\Program Files (x86)\Android\android-sdk\tools\android.bat" update sdk -u -a -t tools
@@ -23,7 +23,7 @@
     
 -
   version: 0.6.{build}
-  image: Visual Studio 2019
+  image: Visual Studio 2017
 
   install: 
   - echo y | "C:\Program Files (x86)\Android\android-sdk\tools\android.bat" update sdk -u -a -t tools
