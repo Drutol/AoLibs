@@ -159,6 +159,7 @@
     <Compile Include="StyleCopSuppressions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="AoLibs.Navigation.Android.nuspec" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

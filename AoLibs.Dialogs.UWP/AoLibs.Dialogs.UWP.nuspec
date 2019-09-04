@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>AoLibs.Dialogs.UWP</id>
+    <version>0.1.0</version>
+    <title>AoLibs.Dialogs.UWP</title>
+    <authors>Piotr Szymczak (Drutol)</authors>
+    <owners>Piotr Szymczak (Drutol)</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Set of UWP dialogs implementations.</description>
+    <releaseNotes>Initial release.</releaseNotes>
+    <dependencies>
+      <dependency id="AoLibs.Dialogs.Core" version="0.6" />
+    </dependencies>
+  </metadata>
+
+
+
+  <files>
+    <!-- WinMd and IntelliSense -->
+    <file src="bin\x86\Release\AoLibs.Dialogs.UWP.xml" target="lib\uap10.0" />
+
+    <!-- DLLs and resources -->
+    <file src="bin\ARM\Release\AoLibs.Dialogs.UWP.dll" target="runtimes\win10-arm\native" />
+    <file src="bin\ARM\Release\AoLibs.Dialogs.UWP.pri" target="runtimes\win10-arm\native" />
+    <file src="bin\ARM64\Release\AoLibs.Dialogs.UWP.dll" target="runtimes\win10-arm64\native" />
+    <file src="bin\ARM64\Release\AoLibs.Dialogs.UWP.pri" target="runtimes\win10-arm64\native" />
+    <file src="bin\x64\Release\AoLibs.Dialogs.UWP.dll" target="runtimes\win10-x64\native" />
+    <file src="bin\x64\Release\AoLibs.Dialogs.UWP.pri" target="runtimes\win10-x64\native" />
+    <file src="bin\x86\Release\AoLibs.Dialogs.UWP.dll" target="runtimes\win10-x86\native" />
+    <file src="bin\x86\Release\AoLibs.Dialogs.UWP.pri" target="runtimes\win10-x86\native" />
+
+  </files>
+</package>

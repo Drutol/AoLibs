@@ -71,6 +71,8 @@
     <Compile Include="Models\DialogAnimationConfig.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="AoLibs.Dialogs.iOS.csproj.DotSettings" />
+    <None Include="AoLibs.Dialogs.iOS.nuspec" />
     <None Include="packages.config" />
     <AdditionalFiles Include="stylecop.json" />
   </ItemGroup>

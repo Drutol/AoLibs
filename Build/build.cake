@@ -152,13 +152,14 @@ Task("Test-Adapters")
 /////////////////////////////////////
 
 Task("Pack-Navigation")
-	//.IsDependentOn("Build-Navigation")
+	.IsDependentOn("Restore-NuGet")
 	.Does(() =>
 	{
 		Pack(
 			androidNavigationProjectPath,
 			iOSNavigationProjectPath,
-			coreNavigationProjectPath
+			coreNavigationProjectPath,
+			uwpNavigationProjectPath
 		);
 	});
 
@@ -169,7 +170,8 @@ Task("Pack-Adapters")
 		Pack(
 			androidAdaptersProjectPath,
 			iOSAdaptersProjectPath,
-			coreAdaptersProjectPath
+			coreAdaptersProjectPath,
+			uwpAdaptersProjectPath
 		);
 	});
 
@@ -180,7 +182,8 @@ Task("Pack-Utilities")
 		Pack(
 			androidUtilitiesProjectPath,
 			iOSUtilitiesProjectPath,
-			sharedUtilitiesProjectPath
+			sharedUtilitiesProjectPath,
+			null
 		);
 	});
 
@@ -191,7 +194,8 @@ Task("Pack-Dialogs")
 		Pack(
 			androidDialogsProjectPath,
 			iOSDialogsProjectPath,
-			coreDialogsProjectPath
+			coreDialogsProjectPath,
+			uwpDialogsProjectPath
 		);
 	});
 
@@ -258,7 +262,7 @@ Task("Publish-Packages")
 // Utilities
 /////////////////////////////////////
 
-private void Pack(string pathAndroid,string pathiOS,string pathShared)
+private void Pack(string pathAndroid, string pathiOS, string pathShared, string pathUwp)
 {
 	NuGetPack(pathAndroid, new NuGetPackSettings() 
 	{
@@ -274,6 +278,18 @@ private void Pack(string pathAndroid,string pathiOS,string pathShared)
 			["Configuration"] = "Release"
 		}
 	});
+
+	if(pathUwp != null)
+	{
+		NuGetPack(pathUwp, new NuGetPackSettings() 
+		{
+			Version = version,
+			Properties = {
+				["Configuration"] = "Release"
+			}
+		});
+	}
+
 	DotNetCorePack(pathShared, new DotNetCorePackSettings()
 	{
 		ArgumentCustomization = (args) => 

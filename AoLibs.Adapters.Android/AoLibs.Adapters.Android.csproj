@@ -187,6 +187,7 @@
     <Compile Include="VersionProvider.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="AoLibs.Adapters.Android.nuspec" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <AdditionalFiles Include="stylecop.json" />

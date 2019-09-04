@@ -47,6 +47,7 @@
     <Compile Include="StyleCopSuppressions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="AoLibs.Utilities.iOS.nuspec" />
     <None Include="packages.config" />
     <AdditionalFiles Include="stylecop.json" />
   </ItemGroup>

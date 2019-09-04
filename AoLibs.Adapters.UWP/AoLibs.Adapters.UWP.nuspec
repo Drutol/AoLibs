@@ -14,8 +14,6 @@
     </dependencies>
   </metadata>
 
-
-
   <files>
     <!-- WinMd and IntelliSense -->
     <file src="bin\x86\Release\AoLibs.Adapters.UWP.xml" target="lib\uap10.0" />

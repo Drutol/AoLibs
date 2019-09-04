@@ -8,5 +8,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Implementation of iOS specific navigation unitlities.</description>
     <releaseNotes>Initial release.</releaseNotes>
+    <dependencies>
+      <dependency id="AoLibs.Navigation.Core" version="0.6" />
+    </dependencies>
   </metadata>
 </package>

@@ -8,5 +8,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Set of adapter classes for android.</description>
     <releaseNotes>Initial release.</releaseNotes>
+    <dependencies>
+      <dependency id="AoLibs.Adapters.Core" version="0.6" />
+    </dependencies>
   </metadata>
 </package>

@@ -59,6 +59,7 @@
     <Compile Include="StyleCopSuppressions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="AoLibs.Dialogs.Android.nuspec" />
     <None Include="Resources\AboutResources.txt" />
     <AdditionalFiles Include="stylecop.json" />
   </ItemGroup>
