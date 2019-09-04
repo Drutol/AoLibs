@@ -16,10 +16,12 @@ var solutionFile = File("../AoLibs.sln");
 var androidNavigationProjectPath = "../AoLibs.Navigation.Android/AoLibs.Navigation.Android.csproj";
 var coreNavigationProjectPath = "../AoLibs.Navigation.Core/AoLibs.Navigation.Core.csproj";
 var iOSNavigationProjectPath = "../AoLibs.Navigation.iOS/AoLibs.Navigation.iOS.csproj";
+var uwpNavigationProjectPath = "../AoLibs.Navigation.UWP/AoLibs.Navigation.UWP.csproj";
 
 var androidAdaptersProjectPath = "../AoLibs.Adapters.Android/AoLibs.Adapters.Android.csproj";
 var coreAdaptersProjectPath = "../AoLibs.Adapters.Core/AoLibs.Adapters.Core.csproj";
 var iOSAdaptersProjectPath = "../AoLibs.Adapters.iOS/AoLibs.Adapters.iOS.csproj";
+var uwpAdaptersProjectPath = "../AoLibs.Adapters.UWP/AoLibs.Adapters.UWP.csproj";
 
 var androidUtilitiesProjectPath = "../AoLibs.Utilities.Android/AoLibs.Utilities.Android.csproj";
 var sharedUtilitiesProjectPath = "../AoLibs.Utilities.Shared/AoLibs.Utilities.Shared.csproj";
@@ -28,6 +30,7 @@ var iOSUtilitiesProjectPath = "../AoLibs.Utilities.iOS/AoLibs.Utilities.iOS.cspr
 var androidDialogsProjectPath = "../AoLibs.Dialogs.Android/AoLibs.Dialogs.Android.csproj";
 var coreDialogsProjectPath = "../AoLibs.Dialogs.Core/AoLibs.Dialogs.Core.csproj";
 var iOSDialogsProjectPath = "../AoLibs.Dialogs.iOS/AoLibs.Dialogs.iOS.csproj";
+var uwpDialogsProjectPath = "../AoLibs.Dialogs.UWP/AoLibs.Dialogs.UWP.csproj";
 
 /////////////////////////////////////
 // Initial Setup
@@ -74,7 +77,8 @@ Task("Build-Navigation")
 		Build(
 			androidNavigationProjectPath,
 			iOSNavigationProjectPath,
-			coreNavigationProjectPath
+			coreNavigationProjectPath,
+			uwpNavigationProjectPath
 		);
 	});
 
@@ -90,7 +94,8 @@ Task("Build-Adapters")
 		Build(
 			androidAdaptersProjectPath,
 			iOSAdaptersProjectPath,
-			coreAdaptersProjectPath
+			coreAdaptersProjectPath,
+			uwpAdaptersProjectPath
 		);
 	});
 
@@ -101,7 +106,8 @@ Task("Build-Utilities")
 		Build(
 			androidUtilitiesProjectPath,
 			iOSUtilitiesProjectPath,
-			sharedUtilitiesProjectPath
+			sharedUtilitiesProjectPath,
+			null
 		);
 	});
 
@@ -112,7 +118,8 @@ Task("Build-Dialogs")
 		Build(
 			androidDialogsProjectPath,
 			iOSDialogsProjectPath,
-			coreDialogsProjectPath
+			coreDialogsProjectPath,
+			uwpDialogsProjectPath
 		);
 	});	
 
@@ -279,7 +286,7 @@ private void Pack(string pathAndroid,string pathiOS,string pathShared)
 	});
 }
 
-private void Build(string pathAndroid,string pathiOS,string pathShared)
+private void Build(string pathAndroid, string pathiOS, string pathShared, string pathUwp)
 {
 	DotNetCoreBuild(pathShared, new DotNetCoreBuildSettings
 		{
@@ -289,6 +296,15 @@ private void Build(string pathAndroid,string pathiOS,string pathShared)
 	MSBuild(pathiOS, settings => settings
 								.SetConfiguration("Release")
 								.SetMSBuildPlatform(MSBuildPlatform.x86));
+								
+	if (pathUwp != null)
+		BuildUWP(pathUwp);
+}
+
+private void BuildUWP(string uwpPath) 
+{
+	foreach(PlatformTarget target in Enum.GetValues(typeof(PlatformTarget)))
+		MSBuild(uwpPath, settings => settings.SetConfiguration("Release").SetPlatformTarget(target));
 }
 
 /////////////////////////////////////
