@@ -7,6 +7,7 @@
     <Company />
     <Product />
     <Description>Core logic for cross-platform naviagtion.</Description>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -14,11 +15,9 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <LangVersion>latest</LangVersion>
     <DocumentationFile>AoLibs.Navigation.Core.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <LangVersion>latest</LangVersion>
     <DocumentationFile>AoLibs.Navigation.Core.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
