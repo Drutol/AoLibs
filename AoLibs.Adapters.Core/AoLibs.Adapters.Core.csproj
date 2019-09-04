@@ -5,17 +5,16 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Piotr Szymczak (Drutol)</Authors>
     <Description>Set of adapter intrefaces for Xamarin projects.</Description>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup>
     <CodeAnalysisRuleSet Condition="'$(Configuration)' == 'Release'">../StyleCopEnforcerRuleSet.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <LangVersion>latest</LangVersion>
     <DocumentationFile>AoLibs.Adapters.Core.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <LangVersion>latest</LangVersion>
     <DocumentationFile>AoLibs.Adapters.Core.xml</DocumentationFile>
   </PropertyGroup>
 

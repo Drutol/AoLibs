@@ -8,11 +8,11 @@
     <Company />
     <Product />
     <Description>Core logic for cross-platform dialogs.</Description>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup>
     <CodeAnalysisRuleSet Condition="'$(Configuration)' == 'Release'">../StyleCopEnforcerRuleSet.ruleset</CodeAnalysisRuleSet>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
