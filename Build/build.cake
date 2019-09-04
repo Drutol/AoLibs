@@ -292,11 +292,16 @@ private void Build(string pathAndroid, string pathiOS, string pathShared, string
 		{
 			Configuration = "Release",
 		});
-	MSBuild(pathAndroid, settings => settings.SetConfiguration("Release"));
-	MSBuild(pathiOS, settings => settings
+	MSBuild(pathAndroid, settings => {
+		settings.SetConfiguration("Release");
+		//settings.ToolPath = @"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe";
+		});
+	MSBuild(pathiOS, settings => {settings
 								.SetConfiguration("Release")
-								.SetMSBuildPlatform(MSBuildPlatform.x86));
-								
+								.SetMSBuildPlatform(MSBuildPlatform.x86);
+									//settings.ToolPath = @"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe";
+									});
+
 	if (pathUwp != null)
 		BuildUWP(pathUwp);
 }
@@ -304,7 +309,14 @@ private void Build(string pathAndroid, string pathiOS, string pathShared, string
 private void BuildUWP(string uwpPath) 
 {
 	foreach(PlatformTarget target in Enum.GetValues(typeof(PlatformTarget)))
-		MSBuild(uwpPath, settings => settings.SetConfiguration("Release").SetPlatformTarget(target));
+	{
+		if(target == PlatformTarget.Win32)
+			continue;
+		MSBuild(uwpPath, settings => {
+			settings.SetConfiguration("Release").SetPlatformTarget(target);
+		 //settings.ToolPath = @"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe";}
+		 );
+	}
 }
 
 /////////////////////////////////////
