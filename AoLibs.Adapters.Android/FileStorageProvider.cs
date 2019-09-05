@@ -43,7 +43,7 @@ namespace AoLibs.Adapters.Android
                 var file = new File(ResolvePath(path));
                 var text = new StringBuilder();
 
-                using (BufferedReader br = new BufferedReader(new FileReader(file)))
+                using (var br = new BufferedReader(new FileReader(file)))
                 {
                     string line;
                     while ((line = await br.ReadLineAsync()) != null)
