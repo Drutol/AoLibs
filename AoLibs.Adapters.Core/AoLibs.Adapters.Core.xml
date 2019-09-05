@@ -131,6 +131,11 @@
             Utility class allowing to quickly store data within filesystem.
             </summary>
         </member>
+        <member name="P:AoLibs.Adapters.Core.DataCache.JsonSerializerSettings">
+            <summary>
+            Gets or sets json serializer settings used for data serialization.
+            </summary>
+        </member>
         <member name="M:AoLibs.Adapters.Core.DataCache.#ctor(AoLibs.Adapters.Core.Interfaces.IFileStorageProvider)">
             <summary>
             Initializes a new instance of the <see cref="T:AoLibs.Adapters.Core.DataCache"/> class.

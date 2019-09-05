@@ -21,23 +21,8 @@ namespace AoLibs.Navigation.Android.Navigation
         /// </summary>
         internal static IDependencyResolver DependencyResolver { get; set; }
 
-        /// <summary>
-        /// Specifies if bindings should be recreated if none have been added.
-        /// </summary>
-        private readonly bool _hasNonTrackableBindings;
-
-        /// <summary>
-        /// Used to indicate whether this fragment went through whole initialization procedure.
-        /// </summary>
-        private bool _initialized;
-
         protected List<Binding> Bindings { get; } = new List<Binding>();
         protected View RootView { get; private set; }
-
-        public NavigationFragmentBase(bool hasNonTrackableBindings = false)
-        {
-            _hasNonTrackableBindings = hasNonTrackableBindings;
-        }
 
         /// <inheritdoc />
         public object PageIdentifier { get; set; }
@@ -112,13 +97,12 @@ namespace AoLibs.Navigation.Android.Navigation
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-        {         
+        {
             if (RootView == null)
+            {
                 RootView = inflater.Inflate(LayoutResourceId, container, false);
-            if (!_initialized || (!Bindings.Any() && !_hasNonTrackableBindings)) // if bindings are present for this view we won't generate new ones, if it's first creation we have to do this anyway
                 InitBindings();
-
-            _initialized = true;
+            }
 
             return RootView;
         }

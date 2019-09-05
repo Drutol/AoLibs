@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using AoLibs.Adapters.Core.Excpetions;
@@ -13,6 +14,11 @@ namespace AoLibs.Adapters.Core
     /// </summary>
     public class DataCache : IDataCache
     {
+        /// <summary>
+        /// Gets or sets json serializer settings used for data serialization.
+        /// </summary>
+        public static JsonSerializerSettings JsonSerializerSettings { get; set; } = new JsonSerializerSettings();
+
         internal class TimedHolder<T>
         {
             public T Value { get; set; }
@@ -75,11 +81,17 @@ namespace AoLibs.Adapters.Core
         /// <param name="data">The data to store.</param>
         public async Task SaveDataAsync<T>(string path, T data)
         {
-            var json = JsonConvert.SerializeObject(new TimedHolder<T>
-            {
-                CreatedAt = DateTime.UtcNow,
-                Value = data
-            });
+            var json = JsonConvert.SerializeObject(
+                new TimedHolder<T>
+                {
+                    CreatedAt = DateTime.UtcNow,
+                    Value = data
+                },
+                JsonSerializerSettings);
+
+            if (data != null && json == null)
+                throw new Exception("Json serializer returned null json for non-null data.");
+
             await _fileStorageProvider.WriteTextAsync(path, json);
         }
 

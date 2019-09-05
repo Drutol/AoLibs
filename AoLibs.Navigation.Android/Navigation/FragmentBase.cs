@@ -7,8 +7,7 @@
     public abstract class FragmentBase<TViewModel> : NavigationFragmentBase 
         where TViewModel : class
     {
-        public FragmentBase(bool hasNonTrackableBindings = false) 
-            : base(hasNonTrackableBindings)
+        public FragmentBase()
         {
             ViewModel = DependencyResolver?.Resolve<TViewModel>();
         }
