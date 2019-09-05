@@ -331,6 +331,7 @@ private void BuildUWP(string uwpPath)
 	{
 		if(target != PlatformTarget.MSIL)
 			continue;
+
 		MSBuild(uwpPath, settings => 
 		{
 			settings.SetConfiguration("Release").SetPlatformTarget(target);
