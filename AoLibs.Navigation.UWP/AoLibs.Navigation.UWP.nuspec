@@ -17,8 +17,9 @@
 
 
   <files>
-    <!-- WinMd and IntelliSense -->
-    <file src="bin\x86\Release\AoLibs.Navigation.UWP.xml" target="lib\uap10.0" />
+    <!-- MSIL DLL and IntelliSense -->
+    <file src="bin\Release\AoLibs.Navigation.UWP.xml" target="lib\uap10.0" />
+    <file src="bin\Release\AoLibs.Navigation.UWP.dll" target="lib\uap10.0" />
 
     <!-- DLLs and resources -->
     <file src="bin\ARM\Release\AoLibs.Navigation.UWP.dll" target="runtimes\win10-arm\native" />
