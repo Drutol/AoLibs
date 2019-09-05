@@ -19,7 +19,7 @@
     <file src="bin\Release\AoLibs.Adapters.UWP.xml" target="lib\uap10.0" />
     <file src="bin\Release\AoLibs.Adapters.UWP.dll" target="lib\uap10.0" />
 
-    <!-- DLLs and resources -->
+    <!-- DLLs and resources --><!--
     <file src="bin\ARM\Release\AoLibs.Adapters.UWP.dll" target="runtimes\win10-arm\native" />
     <file src="bin\ARM\Release\AoLibs.Adapters.UWP.pri" target="runtimes\win10-arm\native" />
     <file src="bin\ARM64\Release\AoLibs.Adapters.UWP.dll" target="runtimes\win10-arm64\native" />
@@ -27,7 +27,7 @@
     <file src="bin\x64\Release\AoLibs.Adapters.UWP.dll" target="runtimes\win10-x64\native" />
     <file src="bin\x64\Release\AoLibs.Adapters.UWP.pri" target="runtimes\win10-x64\native" />
     <file src="bin\x86\Release\AoLibs.Adapters.UWP.dll" target="runtimes\win10-x86\native" />
-    <file src="bin\x86\Release\AoLibs.Adapters.UWP.pri" target="runtimes\win10-x86\native" />
+    <file src="bin\x86\Release\AoLibs.Adapters.UWP.pri" target="runtimes\win10-x86\native" />-->
 
   </files>
 </package>

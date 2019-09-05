@@ -329,7 +329,7 @@ private void BuildUWP(string uwpPath)
 {
 	foreach(PlatformTarget target in Enum.GetValues(typeof(PlatformTarget)))
 	{
-		if(target == PlatformTarget.Win32)
+		if(target != PlatformTarget.MSIL)
 			continue;
 		MSBuild(uwpPath, settings => 
 		{
