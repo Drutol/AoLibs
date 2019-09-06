@@ -74,18 +74,18 @@ namespace AoLibs.Navigation.Core
         {
             if (Interceptor != null)
                 page = Interceptor(page);
-            Navigated?.Invoke(this, page);
             CurrentPage = page;
             ResolveStackManager(page).Navigate(page, args);
+            Navigated?.Invoke(this, page);
         }
 
         public void Navigate(TPageIdentifier page, NavigationBackstackOption backstackOption, object args = null)
         {
             if (Interceptor != null)
                 page = Interceptor(page);
-            Navigated?.Invoke(this, page);
             CurrentPage = page;
             ResolveStackManager(page).Navigate(page, backstackOption, args);
+            Navigated?.Invoke(this, page);
         }
 
         public void AddActionToBackstack(Action action)
