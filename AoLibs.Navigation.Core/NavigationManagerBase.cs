@@ -156,6 +156,16 @@ namespace AoLibs.Navigation.Core
             ResolveStackManager(stackIdentifier).ClearBackStack();
         }
 
+        public void Reset()
+        {
+            _stackManagers.First().Value.Reset();
+        }
+
+        public void Reset(TPageIdentifier stackIdentifier)
+        {
+            ResolveStackManager(stackIdentifier).Reset();
+        }
+
         public void PopFromBackStackFromExternal(TPageIdentifier pageIdentifier)
         {
             ResolveStackManager(pageIdentifier).PopFromBackstackExternal(pageIdentifier);

@@ -36,12 +36,12 @@ namespace AoLibs.Navigation.Core
 
             _currentBackstackOption = null;
 
-            // obtain new page and push naviagtion arguments
+            // obtain new page and push navigation arguments
             var newFragment = _navigationManager.PageDefinitions[page].Page;
 
             newFragment.NavigationArguments = args;
 
-            // do actual naviagtion
+            // do actual navigation
             if (addToBackstack || CurrentFragment == null)
                 _navigationManager.NotifyPagePushed(newFragment);
             else
@@ -149,7 +149,14 @@ namespace AoLibs.Navigation.Core
         public void ClearBackStack()
         {
             _stack.Clear();
+            _currentBackstackOption = null;
             _navigationManager.NotifyStackCleared();
+        }
+
+        public void Reset()
+        {
+            ClearBackStack();
+            CurrentFragment = null;
         }
 
         public (bool WentBack, TPageIdentifier TargetPage) OnBackRequested()

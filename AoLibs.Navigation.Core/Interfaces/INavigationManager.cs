@@ -114,5 +114,18 @@ namespace AoLibs.Navigation.Core.Interfaces
         /// </summary>
         /// <param name="stackIdentifier">Stack identifier.</param>
         void ClearBackStack(TPageIdentifier stackIdentifier);
+        
+        /// <summary>
+        /// Clears whole main (first) backstack and clears current page instance.
+        /// Restores stack manager to initial state.
+        /// </summary>
+        void Reset();
+
+        /// <summary>
+        /// Clears whole indicated backstack and clears current page instance.
+        /// Restores stack manager to initial state.
+        /// </summary>
+        /// <param name="stackIdentifier">Stack identifier.</param>
+        void Reset(TPageIdentifier stackIdentifier);
     }
 }
