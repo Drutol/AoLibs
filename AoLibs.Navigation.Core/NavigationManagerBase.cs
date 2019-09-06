@@ -33,7 +33,13 @@ namespace AoLibs.Navigation.Core
         /// <summary>
         /// Event for when back navigation occurs.
         /// </summary>
-        public event EventHandler<TPageIdentifier> WentBack;
+        public event EventHandler<TPageIdentifier> WentBack;    
+        
+        /// <summary>
+        /// Event for when back navigation fails because of depleted backstack.
+        /// Argument is default when navigation failed for undefined stack when calling <see cref="GoBack(object)"/> for example.
+        /// </summary>
+        public event EventHandler<TPageIdentifier> FailedToGoBack;
 
         /// <summary>
         /// Gets or sets navigation interceptor.
@@ -100,6 +106,10 @@ namespace AoLibs.Navigation.Core
                 WentBack?.Invoke(this, result.TargetPage);
                 CurrentPage = result.TargetPage;
             }
+            else
+            {
+                FailedToGoBack?.Invoke(this, default);
+            }
         }
 
         public void GoBack(TPageIdentifier stackIdentifier, object args = null)
@@ -109,6 +119,10 @@ namespace AoLibs.Navigation.Core
             {
                 WentBack?.Invoke(this, result.TargetPage);
                 CurrentPage = result.TargetPage;
+            }
+            else
+            {
+                FailedToGoBack?.Invoke(this, stackIdentifier);
             }
         }
 
@@ -155,6 +169,10 @@ namespace AoLibs.Navigation.Core
                 WentBack?.Invoke(this, result.TargetPage);
                 CurrentPage = result.TargetPage;
             }
+            else
+            {
+                FailedToGoBack?.Invoke(this, default);
+            }
 
             return result.WentBack;
         }
@@ -166,6 +184,10 @@ namespace AoLibs.Navigation.Core
             {
                 WentBack?.Invoke(this, result.TargetPage);
                 CurrentPage = result.TargetPage;
+            }
+            else
+            {
+                FailedToGoBack?.Invoke(this, stackIdentifier);
             }
 
             return result.WentBack;
