@@ -49,6 +49,7 @@ namespace AoLibs.Sample.Shared.ViewModels
             ShowLastFanciedThingCommand = new RelayCommand(
                 async () =>
                 {
+                    var data = await _appVariables.UserResponse.GetAsync();
                     await _messageBoxProvider.ShowMessageBoxOkAsync(
                         "The thing you fancy!",
                         $"You fancied: {_appVariables.UserResponse.Value.FancyThing}\nAt {_appVariables.UserResponse.Value.DateTime}",
@@ -68,6 +69,7 @@ namespace AoLibs.Sample.Shared.ViewModels
             {
                 _userResponse = value;
                 _appVariables.UserResponse.Value = value;
+                _appVariables.UserResponse.SetAsync(value);
                 RaisePropertyChanged();
                 ShowLastFanciedThingCommand.RaiseCanExecuteChanged();
             }

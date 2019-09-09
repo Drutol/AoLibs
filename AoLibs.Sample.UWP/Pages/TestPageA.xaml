@@ -18,6 +18,8 @@
             <Button Content="Navigate" Command="{Binding NavigateSomewhereElseCommand}"/>
             <Button Content="Dialog A" Command="{Binding ShowDialogCommand}"/>
             <Button Content="Dialog B" Command="{Binding ShowDialogBCommand}"/>
+            <Button Content="Input Fanciness" Command="{Binding InputFanciness}"/>
+            <Button Content="Show Fanciness" Command="{Binding ShowLastFanciedThingCommand}"/>
         </StackPanel>
 
     </Grid>

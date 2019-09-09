@@ -19,7 +19,7 @@ namespace AoLibs.Sample.Shared.BL
         {
         }
 
-        [Variable]
+        [Variable(CustomKey = "Test/Teeest/Teeeeeest/Tes/UserResponse")]
         public Holder<UserResponse> UserResponse { get; set; }
 
         [Variable]

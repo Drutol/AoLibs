@@ -139,6 +139,19 @@
             </summary>
             <param name="stackIdentifier">Stack identifier.</param>
         </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.Reset">
+            <summary>
+            Clears whole main (first) backstack and clears current page instance.
+            Restores stack manager to initial state.
+            </summary>
+        </member>
+        <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.Reset(`0)">
+            <summary>
+            Clears whole indicated backstack and clears current page instance.
+            Restores stack manager to initial state.
+            </summary>
+            <param name="stackIdentifier">Stack identifier.</param>
+        </member>
         <member name="P:AoLibs.Navigation.Core.Interfaces.INavigationPage.PageIdentifier">
             <summary>
             Gets or sets TPageIdentifier.
@@ -226,6 +239,12 @@
         <member name="E:AoLibs.Navigation.Core.NavigationManagerBase`2.WentBack">
             <summary>
             Event for when back navigation occurs.
+            </summary>
+        </member>
+        <member name="E:AoLibs.Navigation.Core.NavigationManagerBase`2.FailedToGoBack">
+            <summary>
+            Event for when back navigation fails because of depleted backstack.
+            Argument is default when navigation failed for undefined stack when calling <see cref="M:AoLibs.Navigation.Core.NavigationManagerBase`2.GoBack(System.Object)"/> for example.
             </summary>
         </member>
         <member name="P:AoLibs.Navigation.Core.NavigationManagerBase`2.Interceptor">
