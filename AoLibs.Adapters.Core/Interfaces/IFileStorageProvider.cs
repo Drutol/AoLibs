@@ -52,5 +52,11 @@ namespace AoLibs.Adapters.Core.Interfaces
         /// </summary>
         /// <param name="path">Path to the file.</param>
         void RemoveFile(string path);
+
+        /// <summary>
+        /// Checking if file on provided <paramref name="path"/> exists.
+        /// </summary>
+        /// <param name="path">Path to the file.</param>
+        bool CheckIfFileExist(string path);
     }
 }
