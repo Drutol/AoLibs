@@ -57,6 +57,6 @@ namespace AoLibs.Adapters.Core.Interfaces
         /// Checking if file on provided <paramref name="path"/> exists.
         /// </summary>
         /// <param name="path">Path to the file.</param>
-        bool CheckIfFileExist(string path);
+        bool CheckIfFileExists(string path);
     }
 }
