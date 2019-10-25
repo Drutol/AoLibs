@@ -117,6 +117,19 @@ namespace AoLibs.Adapters.iOS
             File.Delete(ResolvePath(path));
         }
 
+        public bool CheckIfFileExist(string path)
+        {
+            path = EnsureFileCreated(path);
+            var dirPath = path;
+            if (dirPath.Contains('/'))
+            {
+                dirPath = path.Substring(0, path.LastIndexOf('/'));
+                dirPath = ResolvePath(dirPath);
+            }
+
+            return File.Exists(dirPath);
+        }
+
         private string EnsureFileCreated(string path)
         {
             var dirPath = path;
