@@ -127,6 +127,12 @@ namespace AoLibs.Adapters.Android
             file.Delete();
         }
 
+        public bool CheckIfFileExists(string path)
+        {
+            var file = new File(ResolvePath(path));
+            return file.Exists();
+        }
+
         private File EnsureFileCreated(string path)
         {
             var file = new File(ResolvePath(path));
