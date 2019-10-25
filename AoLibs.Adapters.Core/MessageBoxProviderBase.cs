@@ -33,12 +33,12 @@ namespace AoLibs.Adapters.Core
         public abstract void ShowLoadingPopup(
             string title = null,
             string content = null,
-            INativeLoadingDialogStyle nativeDialogStyle = null);
+            INativeDialogStyle nativeDialogStyle = null);
 
         public abstract void HideLoadingDialog();
 
         public IDisposable LoaderLifetime => new LoaderLifetimeManager(this);
-        public IDisposable ObtainLoaderLifetime(string title, string content, INativeLoadingDialogStyle nativeDialogStyle) =>
+        public IDisposable ObtainLoaderLifetime(string title, string content, INativeDialogStyle nativeDialogStyle) =>
             new LoaderLifetimeManager(this, title, content);
 
         private class LoaderLifetimeManager : IDisposable

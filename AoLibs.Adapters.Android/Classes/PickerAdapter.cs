@@ -24,10 +24,21 @@ namespace AoLibs.Adapters.Android
             _contextProvider = contextProvider;
         }
 
-        public async Task<int?> ShowItemsPicker(IEnumerable<string> items, int selectedIndex, string title, string cancelText, string okText)
+        public async Task<int?> ShowItemsPicker(
+            IEnumerable<string> items,
+            int selectedIndex,
+            string title,
+            string cancelText,
+            string okText,
+            INativeDialogStyle dialogStyle = null)
         {
+            var style = (INativeAndroidDialogStyle) dialogStyle;
+
             var semaphore = new SemaphoreSlim(0);
-            var builder = new AlertDialog.Builder(_contextProvider.CurrentContext);
+            var builder = style is null || style.ThemeResourceId == default
+                ? new AlertDialog.Builder(_contextProvider.CurrentContext)
+                : new AlertDialog.Builder(_contextProvider.CurrentContext, style.ThemeResourceId);
+
             int? selectedItem = selectedIndex;
             builder.SetTitle(title);
             builder.SetSingleChoiceItems(items.ToArray(), selectedIndex, (sender, args) =>
@@ -41,10 +52,11 @@ namespace AoLibs.Adapters.Android
             });
             builder.SetPositiveButton(okText, (sender, args) => semaphore.Release());
 
+            style?.SetStyle(builder);
             var dialog = builder.Create();
             dialog.SetCanceledOnTouchOutside(false);
             dialog.SetCancelable(false);
-            dialog.Show();
+            style?.SetStyle(dialog);
 
             await semaphore.WaitAsync();
             dialog.Dismiss();

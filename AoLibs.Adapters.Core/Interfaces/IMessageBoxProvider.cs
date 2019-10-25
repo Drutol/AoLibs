@@ -70,7 +70,7 @@ namespace AoLibs.Adapters.Core.Interfaces
         /// <param name="title">Title of the loader.</param>
         /// <param name="content">Content of the loader.</param>
         /// <param name="dialogStyle">Additional parameter for dialog customization.</param>
-        IDisposable ObtainLoaderLifetime(string title, string content, INativeLoadingDialogStyle dialogStyle = null);
+        IDisposable ObtainLoaderLifetime(string title, string content, INativeDialogStyle dialogStyle = null);
 
         /// <summary>
         /// Informs the provider to send signal to present your custom loading dialog.
@@ -78,7 +78,7 @@ namespace AoLibs.Adapters.Core.Interfaces
         /// <param name="title">Title of the loader.</param>
         /// <param name="content">Content of the loader.</param>
         /// <param name="dialogStyle">Additional parameter for dialog customization.</param>
-        void ShowLoadingPopup(string title = null, string content = null, INativeLoadingDialogStyle dialogStyle = null);
+        void ShowLoadingPopup(string title = null, string content = null, INativeDialogStyle dialogStyle = null);
 
         /// <summary>
         /// Informs the provider to send signal to hide your custom loading dialog.

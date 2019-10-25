@@ -23,6 +23,7 @@ namespace AoLibs.Adapters.UWP
             _localFolder = ApplicationData.Current.LocalFolder;
         }
 
+
         public async Task<string> ReadTextAsync(string path)
         {
             try
@@ -100,7 +101,7 @@ namespace AoLibs.Adapters.UWP
             }
             else
             {
-                return await StorageFile.GetFileFromPathAsync(absolutePath);
+                return await StorageFile.GetFileFromPathAsync(absolutePath.Replace('/', Path.DirectorySeparatorChar));
             }
         }
     }

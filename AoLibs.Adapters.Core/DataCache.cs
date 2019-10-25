@@ -49,7 +49,7 @@ namespace AoLibs.Adapters.Core
             try
             {
                 var json = await _fileStorageProvider.ReadTextAsync(path);
-                var holder = JsonConvert.DeserializeObject<TimedHolder<T>>(json);
+                var holder = JsonConvert.DeserializeObject<TimedHolder<T>>(json, JsonSerializerSettings);
 
                 if (expiration != null && DateTime.UtcNow - holder.CreatedAt > expiration)
                     throw new DataExpiredException($"Data stored in {path} is expired as per provided expiration time {expiration}");

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using AoLibs.Adapters.Android.Interfaces;
 using AoLibs.Adapters.Core;
 using AoLibs.Adapters.Core.Interfaces;
 using UIKit;
@@ -19,6 +20,8 @@ namespace AoLibs.Adapters.iOS
             string negativeText,
             INativeDialogStyle dialogStyle = null)
         {
+            var style = (INativeiOSDialogStyle) dialogStyle;
+
             bool result = false;
             var semaphore = new SemaphoreSlim(0);
             var alert = new UIAlertView(title, content, (IUIAlertViewDelegate)null, negativeText, positiveText);
@@ -29,6 +32,7 @@ namespace AoLibs.Adapters.iOS
                 semaphore.Release();
             };
             alert.Dismissed += (sender, args) => semaphore.Release();
+            style?.SetStyle(alert);
             alert.Show();
             await semaphore.WaitAsync();
             return result;
@@ -40,10 +44,13 @@ namespace AoLibs.Adapters.iOS
             string neutralText,
             INativeDialogStyle dialogStyle = null)
         {
+            var style = (INativeiOSDialogStyle) dialogStyle;
+
             var alert = new UIAlertView(title, content, (IUIAlertViewDelegate)null, neutralText);
             var semaphore = new SemaphoreSlim(0);
 
             alert.Dismissed += (sender, args) => semaphore.Release();
+            style?.SetStyle(alert);
             alert.Show();
 
             await semaphore.WaitAsync();
@@ -60,7 +67,7 @@ namespace AoLibs.Adapters.iOS
             throw new NotImplementedException();
         }
 
-        public override void ShowLoadingPopup(string title, string content, INativeLoadingDialogStyle dialogStyle)
+        public override void ShowLoadingPopup(string title, string content, INativeDialogStyle dialogStyle)
         {
             ShowLoadingPopupRequest?.Invoke(this, (title, content));
         }

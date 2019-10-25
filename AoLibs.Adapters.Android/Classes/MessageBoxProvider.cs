@@ -65,11 +65,16 @@ namespace AoLibs.Adapters.Android
             string content,
             string positiveText,
             string negativeText,
-            INativeDialogStyle nativeDialogStyle)
+            INativeDialogStyle nativeDialogStyle = null)
         {
+            var style = (INativeAndroidDialogStyle) nativeDialogStyle;
+
             var sem = new SemaphoreSlim(0);
             bool res = false;
-            var dialog = new AlertDialog.Builder(_contextProvider.CurrentContext);
+            var dialog = style is null || style.ThemeResourceId == default
+                ? new AlertDialog.Builder(_contextProvider.CurrentContext)
+                : new AlertDialog.Builder(_contextProvider.CurrentContext, style.ThemeResourceId);
+
             dialog.SetPositiveButton(positiveText, (sender, args) =>
             {
                 res = true;
@@ -83,8 +88,10 @@ namespace AoLibs.Adapters.Android
             dialog.SetTitle(title);
             dialog.SetMessage(content);
             dialog.SetCancelable(false);
-            nativeDialogStyle?.SetStyle(dialog);
-            dialog.Show();
+            style?.SetStyle(dialog);
+            var alertDialog = dialog.Show();
+            style?.SetStyle(alertDialog);
+
             await sem.WaitAsync();
             return res;
         }
@@ -93,16 +100,23 @@ namespace AoLibs.Adapters.Android
             string title,
             string content,
             string neutralText,
-            INativeDialogStyle nativeDialogStyle)
+            INativeDialogStyle nativeDialogStyle = null)
         {
+            var style = (INativeAndroidDialogStyle)nativeDialogStyle;
+
             var sem = new SemaphoreSlim(0);
-            var dialog = new AlertDialog.Builder(_contextProvider.CurrentContext);
+            var dialog = style is null || style.ThemeResourceId == default
+                ? new AlertDialog.Builder(_contextProvider.CurrentContext)
+                : new AlertDialog.Builder(_contextProvider.CurrentContext, style.ThemeResourceId);
+
             dialog.SetNeutralButton(neutralText, (sender, args) => { sem.Release(); });
             dialog.SetTitle(title);
             dialog.SetMessage(content);
             dialog.SetCancelable(false);
-            nativeDialogStyle?.SetStyle(dialog);
-            dialog.Show();
+            style?.SetStyle(dialog);
+            var alertDialog = dialog.Show();
+            style?.SetStyle(alertDialog);
+
             dialog.SetOnDismissListener(new DialogDissmissListener(() => sem.Release()));
             dialog.SetOnCancelListener(new DialogCancelListener(() => sem.Release()));
             await sem.WaitAsync();
@@ -114,8 +128,10 @@ namespace AoLibs.Adapters.Android
             string hint,
             string positiveText,
             string neutralText,
-            INativeDialogStyle nativeDialogStyle)
+            INativeDialogStyle nativeDialogStyle = null)
         {
+            var style = (INativeAndroidDialogStyle) nativeDialogStyle;
+
             // prepare input
             var inputLayout = new TextInputLayout(_contextProvider.CurrentContext);
             var input = new TextInputEditText(_contextProvider.CurrentContext) {Hint = hint};
@@ -128,7 +144,10 @@ namespace AoLibs.Adapters.Android
 
             var sem = new SemaphoreSlim(0);
             string res = null;
-            var dialog = new AlertDialog.Builder(_contextProvider.CurrentContext);
+            var dialog = style is null || style.ThemeResourceId == default
+                ? new AlertDialog.Builder(_contextProvider.CurrentContext)
+                : new AlertDialog.Builder(_contextProvider.CurrentContext, style.ThemeResourceId);
+
             dialog.SetPositiveButton(positiveText, (sender, args) =>
             {
                 res = input.Text;
@@ -143,8 +162,10 @@ namespace AoLibs.Adapters.Android
             dialog.SetTitle(title);
             dialog.SetMessage(content);
             dialog.SetCancelable(false);
-            nativeDialogStyle?.SetStyle(dialog, inputLayout);
-            dialog.Show();
+            style?.SetStyle(dialog, inputLayout);
+            var alertDialog = dialog.Show();
+            style?.SetStyle(alertDialog);
+
             await sem.WaitAsync();
             return res;
         }
@@ -152,12 +173,14 @@ namespace AoLibs.Adapters.Android
         public override void ShowLoadingPopup(
             string title,
             string content,
-            INativeLoadingDialogStyle nativeDialogStyle)
+            INativeDialogStyle nativeDialogStyle = null)
         {
+            var style = (INativeAndroidLoadingDialogStyle)nativeDialogStyle;
+
             _currentLoadingDialog?.Hide();
 
             // use default when not specified
-            if (!(nativeDialogStyle?.UseDefault ?? true))
+            if (!(style?.UseDefault ?? true))
             {
                 ShowLoadingPopupRequest?.Invoke(this, (title, content));
                 return;
@@ -179,13 +202,17 @@ namespace AoLibs.Adapters.Android
             };
             layout.AddView(loadingView);
 
-            var dialog = new AlertDialog.Builder(_contextProvider.CurrentContext);
+            var dialog = style is null || style.ThemeResourceId == default
+                ? new AlertDialog.Builder(_contextProvider.CurrentContext)
+                : new AlertDialog.Builder(_contextProvider.CurrentContext, style.ThemeResourceId);
+
             dialog.SetView(layout);
             dialog.SetTitle(title);
             dialog.SetMessage(content);
             dialog.SetCancelable(false);
-            nativeDialogStyle?.SetStyle(dialog, layout);
-            _currentLoadingDialog= dialog.Show();
+            style?.SetStyle(dialog, layout);
+            _currentLoadingDialog = dialog.Show();
+            style?.SetStyle(_currentLoadingDialog);
         }
 
         public override void HideLoadingDialog()

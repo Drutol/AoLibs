@@ -326,19 +326,19 @@
         <member name="P:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.LoaderLifetime">
             <summary>
             Gets disposable wrapper on the loader lifetime so you can use it in using block conveniently.
-            Invokes <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowLoadingPopup(System.String,System.String,AoLibs.Adapters.Core.Interfaces.INativeLoadingDialogStyle)"/> and <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.HideLoadingDialog"/>
+            Invokes <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowLoadingPopup(System.String,System.String,AoLibs.Adapters.Core.Interfaces.INativeDialogStyle)"/> and <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.HideLoadingDialog"/>
             </summary>
         </member>
-        <member name="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ObtainLoaderLifetime(System.String,System.String,AoLibs.Adapters.Core.Interfaces.INativeLoadingDialogStyle)">
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ObtainLoaderLifetime(System.String,System.String,AoLibs.Adapters.Core.Interfaces.INativeDialogStyle)">
             <summary>
             Provides disposable wrapper on the loader lifetime so you can use it in using block conveniently.
-            Invokes <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowLoadingPopup(System.String,System.String,AoLibs.Adapters.Core.Interfaces.INativeLoadingDialogStyle)"/> and <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.HideLoadingDialog"/>. Customizable version of <see cref="P:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.LoaderLifetime"/>
+            Invokes <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowLoadingPopup(System.String,System.String,AoLibs.Adapters.Core.Interfaces.INativeDialogStyle)"/> and <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.HideLoadingDialog"/>. Customizable version of <see cref="P:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.LoaderLifetime"/>
             </summary>
             <param name="title">Title of the loader.</param>
             <param name="content">Content of the loader.</param>
             <param name="dialogStyle">Additional parameter for dialog customization.</param>
         </member>
-        <member name="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowLoadingPopup(System.String,System.String,AoLibs.Adapters.Core.Interfaces.INativeLoadingDialogStyle)">
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowLoadingPopup(System.String,System.String,AoLibs.Adapters.Core.Interfaces.INativeDialogStyle)">
             <summary>
             Informs the provider to send signal to present your custom loading dialog.
             </summary>
@@ -354,23 +354,6 @@
         <member name="T:AoLibs.Adapters.Core.Interfaces.INativeDialogStyle">
             <summary>
             Interface for applying additional styles to native dialog objects.
-            </summary>
-        </member>
-        <member name="M:AoLibs.Adapters.Core.Interfaces.INativeDialogStyle.SetStyle(System.Object,System.Object)">
-            <summary>
-            Called when additional configuration can occur.
-            </summary>
-            <param name="nativeDialog">Dialog object.</param>
-            <param name="contentView">Root content view contained within dialog.</param>
-        </member>
-        <member name="T:AoLibs.Adapters.Core.Interfaces.INativeLoadingDialogStyle">
-            <summary>
-            Specialized dialog style interface specifying whether to use default or custom implementation.
-            </summary>
-        </member>
-        <member name="P:AoLibs.Adapters.Core.Interfaces.INativeLoadingDialogStyle.UseDefault">
-            <summary>
-            Gets a value indicating whether to call event or bring default loading dialog.
             </summary>
         </member>
         <member name="T:AoLibs.Adapters.Core.Interfaces.IPhoneCallAdapter">
@@ -389,7 +372,7 @@
             Class that presents system picker allowing user to choose from given collection of items.
             </summary>
         </member>
-        <member name="M:AoLibs.Adapters.Core.Interfaces.IPickerAdapter.ShowItemsPicker(System.Collections.Generic.IEnumerable{System.String},System.Int32,System.String,System.String,System.String)">
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IPickerAdapter.ShowItemsPicker(System.Collections.Generic.IEnumerable{System.String},System.Int32,System.String,System.String,System.String,AoLibs.Adapters.Core.Interfaces.INativeDialogStyle)">
             <summary>
             Allows user to pick one from given selection of items.
             </summary>
@@ -398,6 +381,7 @@
             <param name="title">Title of the picker.</param>
             <param name="cancelText">Text on cancel button.</param>
             <param name="okText">Text on ok button.</param>
+            <param name="dialogStyle">Additional parameter for dialog customization.</param>
             <returns>Returns index of selected item, if cancelled returens null.</returns>
         </member>
         <member name="M:AoLibs.Adapters.Core.Interfaces.IPickerAdapter.ShowDatePicker(System.DateTime,System.String,System.String)">

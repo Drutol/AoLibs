@@ -159,20 +159,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AndroidCallbacklAsyncWrapperExtension.cs" />
+    <Compile Include="Classes\AndroidCallbacklAsyncWrapperExtension.cs" />
     <Compile Include="DialogStyles\PasswordInputDialogStyle.cs" />
+    <Compile Include="Interfaces\INativeAndroidDialogStyle.cs" />
+    <Compile Include="Interfaces\INativeAndroidLoadingDialogStyle.cs" />
     <Compile Include="Interfaces\IOnActivityEvent.cs" />
     <Compile Include="Interfaces\IOnNewIntentProvider.cs" />
-    <Compile Include="NativeDialogStyleBase.cs" />
-    <Compile Include="PhoneCallAdapter.cs" />
-    <Compile Include="ClipboardProvider.cs" />
-    <Compile Include="DispatcherAdapter.cs" />
-    <Compile Include="FileStorageProvider.cs" />
+    <Compile Include="Classes\NativeDialogStyleBase.cs" />
+    <Compile Include="Classes\PhoneCallAdapter.cs" />
+    <Compile Include="Classes\ClipboardProvider.cs" />
+    <Compile Include="Classes\DispatcherAdapter.cs" />
+    <Compile Include="Classes\FileStorageProvider.cs" />
     <Compile Include="Interfaces\IContextProvider.cs" />
     <Compile Include="Interfaces\IOnActivityResultProvider.cs" />
-    <Compile Include="MessageBoxProvider.cs" />
-    <Compile Include="PhotoPickerAdapter.cs" />
-    <Compile Include="PickerAdapter.cs" />
+    <Compile Include="Classes\MessageBoxProvider.cs" />
+    <Compile Include="Classes\PhotoPickerAdapter.cs" />
+    <Compile Include="Classes\PickerAdapter.cs" />
     <Compile Include="Recycler\BindingViewHolderBase.cs" />
     <Compile Include="Recycler\BindingViewHolderNonGenericBase.cs" />
     <Compile Include="Recycler\ObservableRecyclerAdapter.cs" />
@@ -181,10 +183,10 @@
     <Compile Include="Recycler\ObservableRecyclerAdapterWithMultipleViewTypesAndFooter.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SettingsProvider.cs" />
+    <Compile Include="Classes\SettingsProvider.cs" />
     <Compile Include="StyleCopSuppressions.cs" />
-    <Compile Include="UriLauncherAdapter.cs" />
-    <Compile Include="VersionProvider.cs" />
+    <Compile Include="Classes\UriLauncherAdapter.cs" />
+    <Compile Include="Classes\VersionProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="AoLibs.Adapters.Android.nuspec" />
@@ -202,6 +204,7 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Annotations.28.0.0.1\build\monoandroid90\Xamarin.Android.Support.Annotations.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Annotations.28.0.0.1\build\monoandroid90\Xamarin.Android.Support.Annotations.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

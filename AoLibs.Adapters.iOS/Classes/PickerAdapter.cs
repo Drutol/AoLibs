@@ -9,12 +9,21 @@ namespace AoLibs.Adapters.iOS
 {
     public class PickerAdapter : IPickerAdapter
     {
-        public async Task<DateTime?> ShowDatePicker(DateTime startingDate, string okText, string cancelText = null)
+        public async Task<DateTime?> ShowDatePicker(
+            DateTime startingDate,
+            string okText,
+            string cancelText = null)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<int?> ShowItemsPicker(IEnumerable<string> items, int selectedIndex, string title, string cancelText, string okText)
+        public async Task<int?> ShowItemsPicker(
+            IEnumerable<string> items,
+            int selectedIndex,
+            string title,
+            string cancelText,
+            string okText,
+            INativeDialogStyle dialogStyle = null)
         {
             var semaphore = new SemaphoreSlim(0);
             int? returnValue = null;

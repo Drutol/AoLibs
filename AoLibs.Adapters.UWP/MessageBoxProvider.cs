@@ -64,8 +64,10 @@ namespace AoLibs.Adapters.UWP
             return null;
         }
 
-        public override void ShowLoadingPopup(string title = null, string content = null,
-            INativeLoadingDialogStyle nativeDialogStyle = null)
+        public override void ShowLoadingPopup(
+            string title = null,
+            string content = null,
+            INativeDialogStyle nativeDialogStyle = null)
         {
             ShowLoadingPopupRequest?.Invoke(this, (title,content));
         }

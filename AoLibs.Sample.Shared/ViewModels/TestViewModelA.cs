@@ -35,6 +35,7 @@ namespace AoLibs.Sample.Shared.ViewModels
             IEnumerable<ISomeFancyProvider> fancyProviders,
             IMessageBoxProvider messageBoxProvider,
             IPickerAdapter pickerAdapter,
+            IDataCache dataCache,
             INavigationManager<PageIndex> navigationManager,
             ICustomDialogsManager<DialogIndex> dialogsManager,
             AppVariables appVariables)

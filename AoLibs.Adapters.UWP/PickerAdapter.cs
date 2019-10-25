@@ -10,7 +10,8 @@ namespace AoLibs.Adapters.UWP
     /// </summary>
     public class PickerAdapter : IPickerAdapter
     {
-        public Task<int?> ShowItemsPicker(IEnumerable<string> items, int selectedIndex, string title, string cancelText, string okText)
+        public Task<int?> ShowItemsPicker(IEnumerable<string> items, int selectedIndex, string title, string cancelText, string okText,
+            INativeDialogStyle dialogStyle = null)
         {
             throw new NotImplementedException();
         }

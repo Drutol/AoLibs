@@ -9,11 +9,5 @@ namespace AoLibs.Adapters.Core.Interfaces
     /// </summary>
     public interface INativeDialogStyle
     {
-        /// <summary>
-        /// Called when additional configuration can occur.
-        /// </summary>
-        /// <param name="nativeDialog">Dialog object.</param>
-        /// <param name="contentView">Root content view contained within dialog.</param>
-        void SetStyle(object nativeDialog, object contentView = null);
     }
 }
