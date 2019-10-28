@@ -57,6 +57,7 @@ namespace AoLibs.Adapters.Android
             dialog.SetCanceledOnTouchOutside(false);
             dialog.SetCancelable(false);
             style?.SetStyle(dialog);
+            dialog.Show();
 
             await semaphore.WaitAsync();
             dialog.Dismiss();
