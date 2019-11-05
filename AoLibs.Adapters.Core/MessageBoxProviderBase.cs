@@ -39,7 +39,7 @@ namespace AoLibs.Adapters.Core
 
         public IDisposable LoaderLifetime => new LoaderLifetimeManager(this);
         public IDisposable ObtainLoaderLifetime(string title, string content, INativeDialogStyle nativeDialogStyle) =>
-            new LoaderLifetimeManager(this, title, content);
+            new LoaderLifetimeManager(this, title, content, nativeDialogStyle);
 
         private class LoaderLifetimeManager : IDisposable
         {
@@ -51,10 +51,14 @@ namespace AoLibs.Adapters.Core
                 _parent.ShowLoadingPopup();
             }
 
-            public LoaderLifetimeManager(MessageBoxProviderBase parent, string title, string content)
+            public LoaderLifetimeManager(
+                MessageBoxProviderBase parent,
+                string title,
+                string content,
+                INativeDialogStyle nativeDialogStyle)
             {
                 _parent = parent;
-                _parent.ShowLoadingPopup(title, content);
+                _parent.ShowLoadingPopup(title, content, nativeDialogStyle);
             }
 
             public void Dispose()
