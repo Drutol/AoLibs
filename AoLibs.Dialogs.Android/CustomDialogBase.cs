@@ -47,12 +47,12 @@ namespace AoLibs.Dialogs.Android
         public event EventHandler DialogWillHide;
 
         /// <summary>
-        /// Token source used to monitor <see cref="AwaitResult{TResult}"/> process.
+        /// Token source used to monitor <see cref="ShowAndAwaitResult{TResult}"/> process.
         /// </summary>
         private CancellationTokenSource _cts;
 
         /// <summary>
-        /// Completion source being the lifeline of <see cref="AwaitResult{TResult}"/> process.
+        /// Completion source being the lifeline of <see cref="ShowAndAwaitResult{TResult}"/> process.
         /// </summary>
         private TaskCompletionSource<object> _resultCompletionSource;
 
@@ -94,7 +94,7 @@ namespace AoLibs.Dialogs.Android
         private string FragmentTag { get; }
 
         /// <summary>
-        /// Gets awaited type passed using <see cref="ICustomDialog.AwaitResult{TResult}"/>
+        /// Gets awaited type passed using <see cref="ICustomDialog.ShowAndAwaitResult{TResult}"/>
         /// </summary>
         protected Type AwaitedResultType { get; private set; }
 
@@ -202,17 +202,18 @@ namespace AoLibs.Dialogs.Android
         /// The dialog can yield the result by using <see cref="SetResult"/> or <see cref="CancelResult"/> methods.
         /// </summary>
         /// <typeparam name="TResult">Awaited return type, it will be checked when dialog calls <see cref="Show"/></typeparam>
+        /// <param name="parameter">Parameter passed to the dialog.</param>
         /// <param name="token">Cancellation token.</param>
         /// <returns>Awaited result</returns>
         /// <exception cref="TaskCanceledException">Throws this exception when result gets cancelled by either <see cref="CancellationToken"/> or <see cref="CancelResult"/> method</exception>
-        public async Task<TResult> AwaitResult<TResult>(CancellationToken token = default)
+        public async Task<TResult> ShowAndAwaitResult<TResult>(object parameter = null, CancellationToken token = default)
         {
             try
             {
                 if (_resultCompletionSource != null)
                     return (TResult) await _resultCompletionSource.Task;
 
-                Show();
+                Show(parameter);
                 AwaitedResultType = typeof(TResult);
                 _resultCompletionSource = new TaskCompletionSource<object>();
                 _cts = CancellationTokenSource.CreateLinkedTokenSource(token);
@@ -231,7 +232,7 @@ namespace AoLibs.Dialogs.Android
 
         /// <summary>
         /// Sets dialog invocation result.
-        /// Completes the task awaited in <see cref="AwaitResult{TResult}"/>.
+        /// Completes the task awaited in <see cref="ShowAndAwaitResult{TResult}"/>.
         /// </summary>
         /// <param name="result">The object to return to the caller. It should be of <see cref="AwaitedResultType"/> type.</param>
         /// <exception cref="ArgumentException">Thrown when given result doesn't match <see cref="AwaitedResultType"/></exception>
@@ -244,7 +245,7 @@ namespace AoLibs.Dialogs.Android
         }
 
         /// <summary>
-        /// Cancels currently awaited <see cref="AwaitResult{TResult}"/> causing <see cref="TaskCanceledException"/>
+        /// Cancels currently awaited <see cref="ShowAndAwaitResult{TResult}"/> causing <see cref="TaskCanceledException"/>
         /// </summary>
         public void CancelResult()
         {

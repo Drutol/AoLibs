@@ -60,7 +60,8 @@ namespace AoLibs.Dialogs.Core.Interfaces
         /// Awaits dialog result.
         /// </summary>
         /// <typeparam name="TResult">Desired return type.</typeparam>
+        /// <param name="parameter">Parameter passed to the dialog.</param>
         /// <param name="token">Cancellation token.</param>
-        Task<TResult> AwaitResult<TResult>(CancellationToken token = default);
+        Task<TResult> ShowAndAwaitResult<TResult>(object parameter = null, CancellationToken token = default);
     }
 }

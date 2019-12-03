@@ -126,7 +126,7 @@ namespace AoLibs.Sample.Shared.ViewModels
         public RelayCommand ShowDialogCommand =>
             new RelayCommand(async () =>
             {
-                var result = await _dialogsManager[DialogIndex.TestDialogA].AwaitResult<int>();
+                var result = await _dialogsManager[DialogIndex.TestDialogA].ShowAndAwaitResult<int>();
             });
 
         public RelayCommand ShowDialogBCommand =>

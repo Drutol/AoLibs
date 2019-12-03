@@ -232,17 +232,18 @@ namespace AoLibs.Dialogs.iOS
         /// The dialog can yield the result by using <see cref="SetResult"/> or <see cref="CancelResult"/> methods.
         /// </summary>
         /// <typeparam name="TResult">Awaited return type, it will be checked when dialog calls <see cref="Show"/></typeparam>
+        /// <param name="parameter">Parameter passed to dialog.</param>
         /// <param name="token">Cancellation token.</param>
         /// <returns>Awaited result</returns>
         /// <exception cref="TaskCanceledException">Throws this exception when result gets cancelled by either <see cref="CancellationToken"/> or <see cref="CancelResult"/> method</exception>
-        public async Task<TResult> AwaitResult<TResult>(CancellationToken token = default)
+        public async Task<TResult> ShowAndAwaitResult<TResult>(object parameter = null, CancellationToken token = default)
         {
             try
             {
                 if (_resultCompletionSource != null)
                     return (TResult)await _resultCompletionSource.Task;
 
-                Show();
+                Show(parameter);
                 AwaitedResultType = typeof(TResult);
                 _resultCompletionSource = new TaskCompletionSource<object>();
                 _resultCancellationTokenSource = CancellationTokenSource.CreateLinkedTokenSource(token);
