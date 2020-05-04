@@ -78,6 +78,21 @@ namespace AoLibs.Adapters.UWP
             await (await GetFile(path, false)).DeleteAsync(StorageDeleteOption.PermanentDelete);
         }
 
+        public async Task<Stream> OpenFile(string path, FileMode mode)
+        {
+            return (await (await GetFile(path, false)).OpenAsync(FileAccessMode.ReadWrite)).AsStream();
+        }
+
+        public async Task<Stream> CreateFile(string path)
+        {
+            return (await (await GetFile(path, true)).OpenAsync(FileAccessMode.ReadWrite)).AsStream();
+        }
+
+        public async Task<string> ResolveLocalPath(string path)
+        {
+            return (await GetFile(path, false)).Path;
+        }
+
         private async Task<IStorageFile> GetFile(string path, bool create)
         {
             path += Extension;

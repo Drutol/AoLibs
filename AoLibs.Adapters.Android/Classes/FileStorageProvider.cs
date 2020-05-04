@@ -127,6 +127,21 @@ namespace AoLibs.Adapters.Android
             file.Delete();
         }
 
+        public Task<Stream> OpenFile(string path, FileMode mode)
+        {
+            return Task.FromResult<Stream>(System.IO.File.Open(ResolvePath(path), mode));
+        }
+
+        public Task<Stream> CreateFile(string path)
+        {
+            return Task.FromResult<Stream>(System.IO.File.Create(ResolvePath(path)));
+        }
+
+        public Task<string> ResolveLocalPath(string path)
+        {
+            return Task.FromResult(ResolvePath(path));
+        }
+
         private File EnsureFileCreated(string path)
         {
             var file = new File(ResolvePath(path));

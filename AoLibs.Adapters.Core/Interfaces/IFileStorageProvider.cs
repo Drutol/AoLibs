@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.IO;
+using System.Threading.Tasks;
 
 namespace AoLibs.Adapters.Core.Interfaces
 {
@@ -52,5 +53,24 @@ namespace AoLibs.Adapters.Core.Interfaces
         /// </summary>
         /// <param name="path">Path to the file.</param>
         void RemoveFile(string path);
+
+        /// <summary>
+        /// Opens file with specified mode.
+        /// </summary>
+        /// <param name="path">Path to the file.</param>
+        /// <param name="mode">Mode to open the file with.</param>
+        Task<Stream> OpenFile(string path, FileMode mode);
+
+        /// <summary>
+        /// Creates new file and open stream to it.
+        /// </summary>
+        /// <param name="path">Path to the file.</param>
+        Task<Stream> CreateFile(string path);
+
+        /// <summary>
+        /// Resolves local path used by the provider.
+        /// </summary>
+        /// <param name="path">Path to the file.</param>
+        Task<string> ResolveLocalPath(string path);
     }
 }
