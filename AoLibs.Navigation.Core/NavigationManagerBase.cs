@@ -23,6 +23,8 @@ namespace AoLibs.Navigation.Core
 
         public Dictionary<TPageIdentifier, IPageProvider<TPage>> PageDefinitions { get; }
 
+        public bool ReturnsPageInstanceAfterNavigation { get; protected set; }
+
         public abstract void CommitPageTransaction(TPage page);
 
         /// <summary>
@@ -229,6 +231,11 @@ namespace AoLibs.Navigation.Core
 
         public virtual void NotifyPagePushedWithoutBackstack(TPage page)
         {
+        }
+
+        public virtual TPage CommitPageTransaction(Type pageType)
+        {
+            throw new NotImplementedException();
         }
 
         private StackManager<TPage, TPageIdentifier> ResolveStackManager(TPageIdentifier pageIdentifier)

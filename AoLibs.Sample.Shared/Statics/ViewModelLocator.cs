@@ -16,7 +16,7 @@ namespace AoLibs.Sample.Shared.Statics
             builder.RegisterBuildCallback(BuildCallback);
 
             builder.RegisterType<TestViewModelA>().SingleInstance();
-            builder.RegisterType<TestViewModelB>().SingleInstance();
+            builder.RegisterType<TestViewModelB>();
             builder.RegisterType<TestViewModelC>().SingleInstance();
 
             builder.RegisterType<TestDialogViewModelA>().SingleInstance();

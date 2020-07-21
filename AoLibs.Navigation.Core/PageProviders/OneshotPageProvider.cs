@@ -55,9 +55,15 @@ namespace AoLibs.Navigation.Core.PageProviders
         public Type PageType { get; } = typeof(TPage);
 
         /// <summary>
-        /// Gets instance of held page.
+        /// Gets or sets instance of held page.
         /// </summary>
-        public TPage Page => Factory.Invoke();
+        public TPage Page
+        {
+            get => Factory.Invoke();
+            set
+            {
+            }
+        }
 
         /// <summary>
         /// Gets or sets TPageIdentifier hidden beyond <see cref="object"/>

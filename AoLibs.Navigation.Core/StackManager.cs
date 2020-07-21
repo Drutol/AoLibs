@@ -36,17 +36,39 @@ namespace AoLibs.Navigation.Core
 
             _currentBackstackOption = null;
 
+            TPage newFragment = null;
             // obtain new page and push navigation arguments
-            var newFragment = _navigationManager.PageDefinitions[page].Page;
+            if (_navigationManager.ReturnsPageInstanceAfterNavigation)
+            {
+                // UWP case, we can't tell it to navigate to created instance, it has to create its own instance
+                newFragment = _navigationManager.CommitPageTransaction(_navigationManager.PageDefinitions[page].PageType);
 
-            newFragment.NavigationArguments = args;
+                // notify if needed usually only iOS case but for consistency sake
+                if (addToBackstack || CurrentFragment == null)
+                    _navigationManager.NotifyPagePushed(newFragment);
+                else
+                    _navigationManager.NotifyPagePushedWithoutBackstack(newFragment);
 
-            // do actual navigation
-            if (addToBackstack || CurrentFragment == null)
-                _navigationManager.NotifyPagePushed(newFragment);
+                newFragment.NavigationArguments = args;
+                newFragment.PageIdentifier = page;
+
+                // Could be passed to cache the value if needed but this raises casting issues due to covariant generic type
+                // _navigationManager.PageDefinitions[page].Page = newFragment;
+            }
             else
-                _navigationManager.NotifyPagePushedWithoutBackstack(newFragment);
-            _navigationManager.CommitPageTransaction(newFragment);
+            {
+                newFragment = _navigationManager.PageDefinitions[page].Page;
+
+                newFragment.NavigationArguments = args;
+
+                // do actual navigation
+                if (addToBackstack || CurrentFragment == null)
+                    _navigationManager.NotifyPagePushed(newFragment);
+                else
+                    _navigationManager.NotifyPagePushedWithoutBackstack(newFragment);
+
+                _navigationManager.CommitPageTransaction(newFragment);
+            }
 
             // if there was previous page notify about navigating from
             CurrentFragment?.NavigatedFrom();

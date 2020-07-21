@@ -327,7 +327,7 @@
         </member>
         <member name="P:AoLibs.Navigation.Core.PageProviders.OneshotPageProvider`1.Page">
             <summary>
-            Gets instance of held page.
+            Gets or sets instance of held page.
             </summary>
         </member>
         <member name="P:AoLibs.Navigation.Core.PageProviders.OneshotPageProvider`1.PageIdentifier">

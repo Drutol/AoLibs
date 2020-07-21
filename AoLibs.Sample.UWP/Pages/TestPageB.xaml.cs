@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using AoLibs.Navigation.UWP.Attributes;
 using AoLibs.Navigation.UWP.Pages;
 using AoLibs.Sample.Shared.Models;
+using AoLibs.Sample.Shared.NavArgs;
 using AoLibs.Sample.Shared.ViewModels;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -31,6 +32,11 @@ namespace AoLibs.Sample.UWP.Pages
         public TestPageB()
         {
             this.InitializeComponent();
+        }
+
+        public override void NavigatedTo()
+        {
+            ViewModel.NavigatedTo((PageBNavArgs)NavigationArguments);
         }
     }
 }

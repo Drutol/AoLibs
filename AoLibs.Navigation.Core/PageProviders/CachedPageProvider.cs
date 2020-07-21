@@ -66,7 +66,7 @@ namespace AoLibs.Navigation.Core.PageProviders
                 return _page;
             }
 
-            protected set => _page = value;
+            set => _page = value;
         }
 
         /// <summary>

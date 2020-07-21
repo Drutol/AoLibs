@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace AoLibs.Navigation.Core.Interfaces
 {
@@ -6,7 +7,9 @@ namespace AoLibs.Navigation.Core.Interfaces
         where TPage : INavigationPage
     {
         Dictionary<TPageIdentifier, IPageProvider<TPage>> PageDefinitions { get; }
+        bool ReturnsPageInstanceAfterNavigation { get; }
         void CommitPageTransaction(TPage page);
+        TPage CommitPageTransaction(Type pageType);
 
         void NotifyPagePopped(INavigationPage targetPage);
         void NotifyPagesPopped(IEnumerable<TPage> pages);

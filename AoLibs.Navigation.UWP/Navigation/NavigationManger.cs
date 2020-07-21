@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 using AoLibs.Navigation.Core;
 using AoLibs.Navigation.Core.Interfaces;
 using AoLibs.Navigation.UWP.Attributes;
@@ -35,6 +36,7 @@ namespace AoLibs.Navigation.UWP
             _rootFrame = rootFrame;
 
             NavigationPageBase.DependencyResolver = dependencyResolver;
+            ReturnsPageInstanceAfterNavigation = true;
         }
 
         /// <summary>
@@ -53,6 +55,7 @@ namespace AoLibs.Navigation.UWP
             _rootFrame = rootFrame;
 
             NavigationPageBase.DependencyResolver = dependencyResolver;
+            ReturnsPageInstanceAfterNavigation = true;
 
             var types = Assembly.GetCallingAssembly().GetTypes();
 
@@ -81,9 +84,10 @@ namespace AoLibs.Navigation.UWP
 
                 IPageProvider<NavigationPageBase> ObtainProviderFromType(Type providerType)
                 {
-                    return (IPageProvider<NavigationPageBase>)providerType.MakeGenericType(type)
+                    var p = providerType.MakeGenericType(type)
                         .GetConstructor(new Type[] { })
                         .Invoke(null);
+                    return (IPageProvider<NavigationPageBase>) p;
                 }
             }
 
@@ -96,6 +100,22 @@ namespace AoLibs.Navigation.UWP
         public override void CommitPageTransaction(NavigationPageBase page)
         {
             _rootFrame.Navigate(page.GetType());
+        }
+
+        public override NavigationPageBase CommitPageTransaction(Type pageType)
+        {
+            NavigationPageBase actualPage = null;
+            _rootFrame.Navigated += RootFrameOnNavigated;
+            _rootFrame.Navigate(pageType);
+
+            void RootFrameOnNavigated(object sender, NavigationEventArgs e)
+            {
+                actualPage = (NavigationPageBase) e.Content;
+            }
+
+            _rootFrame.Navigated -= RootFrameOnNavigated;
+
+            return actualPage;
         }
     }
 }
