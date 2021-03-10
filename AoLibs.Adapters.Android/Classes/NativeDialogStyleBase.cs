@@ -15,7 +15,7 @@ using AoLibs.Adapters.Core.Interfaces;
 namespace AoLibs.Adapters.Android
 {
     /// <summary>
-    /// Utility class implementing <see cref="INativeAndroidDialogStyle"/>
+    /// Utility class implementing <see cref="INativeAndroidDialogStyle"/>.
     /// </summary>
     public abstract class NativeDialogStyleBase : INativeAndroidDialogStyle
     {

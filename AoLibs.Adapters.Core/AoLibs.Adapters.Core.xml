@@ -50,7 +50,7 @@
         </member>
         <member name="T:AoLibs.Adapters.Core.AppVariablesBase.HolderBase">
             <summary>
-            Base utility class for <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.Holder`1"/>
+            Base utility class for <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.Holder`1"/>.
             </summary>
         </member>
         <member name="T:AoLibs.Adapters.Core.AppVariablesBase.Holder`1">
@@ -67,27 +67,27 @@
         </member>
         <member name="M:AoLibs.Adapters.Core.AppVariablesBase.Holder`1.Reset">
             <summary>
-            Clears both memory storage and <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.ISyncStorage"/>
+            Clears both memory storage and <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.ISyncStorage"/>.
             </summary>
         </member>
         <member name="M:AoLibs.Adapters.Core.AppVariablesBase.Holder`1.ResetAsync">
             <summary>
-            Clears both memory storage and <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.IAsyncStorage"/>
+            Clears both memory storage and <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.IAsyncStorage"/>.
             </summary>
         </member>
         <member name="P:AoLibs.Adapters.Core.AppVariablesBase.Holder`1.Value">
             <summary>
-            Gets or sets value using <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.ISyncStorage"/>
+            Gets or sets value using <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.ISyncStorage"/>.
             </summary>
         </member>
         <member name="M:AoLibs.Adapters.Core.AppVariablesBase.Holder`1.GetAsync">
             <summary>
-            Reads value using <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.IAsyncStorage"/>
+            Reads value using <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.IAsyncStorage"/>.
             </summary>
         </member>
         <member name="M:AoLibs.Adapters.Core.AppVariablesBase.Holder`1.SetAsync(`0)">
             <summary>
-            Writes value using <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.IAsyncStorage"/>
+            Writes value using <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.IAsyncStorage"/>.
             </summary>
             <param name="data">Data to save.</param>
         </member>
@@ -99,20 +99,20 @@
         </member>
         <member name="M:AoLibs.Adapters.Core.AppVariablesBase.Holder`1.Update">
             <summary>
-            Updates currently stored value in memory to the newest found in <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.ISyncStorage"/>
+            Updates currently stored value in memory to the newest found in <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.ISyncStorage"/>.
             </summary>
         </member>
         <member name="M:AoLibs.Adapters.Core.AppVariablesBase.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:AoLibs.Adapters.Core.AppVariablesBase"/> class.
-            Initializes all properties marked with <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.VariableAttribute"/>
+            Initializes all properties marked with <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.VariableAttribute"/>.
             </summary>
         </member>
         <member name="M:AoLibs.Adapters.Core.AppVariablesBase.#ctor(AoLibs.Adapters.Core.Interfaces.ISettingsProvider,AoLibs.Adapters.Core.Interfaces.IDataCache)">
             <summary>
             Initializes a new instance of the <see cref="T:AoLibs.Adapters.Core.AppVariablesBase"/> class.
             Initialize with default <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.ISyncStorage"/> where <see cref="T:AoLibs.Adapters.Core.Interfaces.ISettingsProvider"/> is underlying storage layer.
-            Async methods of <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.Holder`1"/> will be unavailable and throw <see cref="T:System.InvalidOperationException"/>
+            Async methods of <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.Holder`1"/> will be unavailable and throw <see cref="T:System.InvalidOperationException"/>.
             </summary>
             <param name="settingsProvider">Settings provider.</param>
             <param name="dataCache">Data cache.</param>
@@ -121,9 +121,9 @@
             <summary>
             Initializes a new instance of the <see cref="T:AoLibs.Adapters.Core.AppVariablesBase"/> class.
             Initialize with custom implementations of <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.ISyncStorage"/> and optionally <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.IAsyncStorage"/>.
-            Not providing <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.IAsyncStorage"/> will result in <see cref="T:System.InvalidOperationException"/> when accessing async methods of <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.Holder`1"/>
+            Not providing <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.IAsyncStorage"/> will result in <see cref="T:System.InvalidOperationException"/> when accessing async methods of <see cref="T:AoLibs.Adapters.Core.AppVariablesBase.Holder`1"/>.
             </summary>
-            <param name="syncStorage">Synchronous storage used when calling <see cref="P:AoLibs.Adapters.Core.AppVariablesBase.Holder`1.Value"/></param>
+            <param name="syncStorage">Synchronous storage used when calling <see cref="P:AoLibs.Adapters.Core.AppVariablesBase.Holder`1.Value"/>.</param>
             <param name="asyncStorage">Asynchronous storage.</param>
         </member>
         <member name="T:AoLibs.Adapters.Core.DataCache">
@@ -284,6 +284,25 @@
             </summary>
             <param name="path">Path to the file.</param>
         </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IFileStorageProvider.OpenFile(System.String,System.IO.FileMode)">
+            <summary>
+            Opens file with specified mode.
+            </summary>
+            <param name="path">Path to the file.</param>
+            <param name="mode">Mode to open the file with.</param>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IFileStorageProvider.CreateFile(System.String)">
+            <summary>
+            Creates new file and open stream to it.
+            </summary>
+            <param name="path">Path to the file.</param>
+        </member>
+        <member name="M:AoLibs.Adapters.Core.Interfaces.IFileStorageProvider.ResolveLocalPath(System.String)">
+            <summary>
+            Resolves local path used by the provider.
+            </summary>
+            <param name="path">Path to the file.</param>
+        </member>
         <member name="T:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider">
             <summary>
             Provides functionality of presenting message boxes,
@@ -326,13 +345,13 @@
         <member name="P:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.LoaderLifetime">
             <summary>
             Gets disposable wrapper on the loader lifetime so you can use it in using block conveniently.
-            Invokes <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowLoadingPopup(System.String,System.String,AoLibs.Adapters.Core.Interfaces.INativeDialogStyle)"/> and <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.HideLoadingDialog"/>
+            Invokes <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowLoadingPopup(System.String,System.String,AoLibs.Adapters.Core.Interfaces.INativeDialogStyle)"/> and <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.HideLoadingDialog"/>.
             </summary>
         </member>
         <member name="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ObtainLoaderLifetime(System.String,System.String,AoLibs.Adapters.Core.Interfaces.INativeDialogStyle)">
             <summary>
             Provides disposable wrapper on the loader lifetime so you can use it in using block conveniently.
-            Invokes <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowLoadingPopup(System.String,System.String,AoLibs.Adapters.Core.Interfaces.INativeDialogStyle)"/> and <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.HideLoadingDialog"/>. Customizable version of <see cref="P:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.LoaderLifetime"/>
+            Invokes <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.ShowLoadingPopup(System.String,System.String,AoLibs.Adapters.Core.Interfaces.INativeDialogStyle)"/> and <see cref="M:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.HideLoadingDialog"/>. Customizable version of <see cref="P:AoLibs.Adapters.Core.Interfaces.IMessageBoxProvider.LoaderLifetime"/>.
             </summary>
             <param name="title">Title of the loader.</param>
             <param name="content">Content of the loader.</param>
@@ -395,7 +414,7 @@
         </member>
         <member name="T:AoLibs.Adapters.Core.Interfaces.ISettingsProvider">
             <summary>
-            Provides simple facade over underlying <see cref="!:PreferenceManager"/>
+            Provides simple facade over underlying <see cref="!:PreferenceManager"/>.
             </summary>
         </member>
         <member name="T:AoLibs.Adapters.Core.Interfaces.IUriLauncherAdapter">

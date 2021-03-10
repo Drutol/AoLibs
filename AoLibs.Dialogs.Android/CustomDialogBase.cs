@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Renderscripts;
 using Android.Support.V4.App;
 using Android.Views;
+using AndroidX.Fragment.App;
 using AoLibs.Dialogs.Android.Interfaces;
 using AoLibs.Dialogs.Core;
 using AoLibs.Dialogs.Core.Interfaces;
@@ -18,7 +19,7 @@ using Type = System.Type;
 namespace AoLibs.Dialogs.Android
 {
     /// <summary>
-    /// Base android implementation of <see cref="ICustomDialog"/>
+    /// Base android implementation of <see cref="ICustomDialog"/>.
     /// </summary>
     public abstract class CustomDialogBase : DialogFragment, ICustomDialogForViewModel
     {
@@ -94,7 +95,7 @@ namespace AoLibs.Dialogs.Android
         private string FragmentTag { get; }
 
         /// <summary>
-        /// Gets awaited type passed using <see cref="ICustomDialog.ShowAndAwaitResult{TResult}"/>
+        /// Gets awaited type passed using <see cref="ICustomDialog.ShowAndAwaitResult{TResult}"/>.
         /// </summary>
         protected Type AwaitedResultType { get; private set; }
 
@@ -104,7 +105,7 @@ namespace AoLibs.Dialogs.Android
         protected List<Binding> Bindings { get; } = new List<Binding>();
 
         /// <summary>
-        /// Gets root dialog view inflated from <see cref="LayoutResourceId"/>
+        /// Gets root dialog view inflated from <see cref="LayoutResourceId"/>.
         /// </summary>
         protected View RootView { get; private set; }
 
@@ -201,11 +202,11 @@ namespace AoLibs.Dialogs.Android
         /// Allows to await certain result from dialog.
         /// The dialog can yield the result by using <see cref="SetResult"/> or <see cref="CancelResult"/> methods.
         /// </summary>
-        /// <typeparam name="TResult">Awaited return type, it will be checked when dialog calls <see cref="Show"/></typeparam>
+        /// <typeparam name="TResult">Awaited return type, it will be checked when dialog calls <see cref="Show"/>.</typeparam>
         /// <param name="parameter">Parameter passed to the dialog.</param>
         /// <param name="token">Cancellation token.</param>
-        /// <returns>Awaited result</returns>
-        /// <exception cref="TaskCanceledException">Throws this exception when result gets cancelled by either <see cref="CancellationToken"/> or <see cref="CancelResult"/> method</exception>
+        /// <returns>Awaited result.</returns>
+        /// <exception cref="TaskCanceledException">Throws this exception when result gets cancelled by either <see cref="CancellationToken"/> or <see cref="CancelResult"/> method.</exception>
         public async Task<TResult> ShowAndAwaitResult<TResult>(object parameter = null, CancellationToken token = default)
         {
             try
@@ -235,7 +236,7 @@ namespace AoLibs.Dialogs.Android
         /// Completes the task awaited in <see cref="ShowAndAwaitResult{TResult}"/>.
         /// </summary>
         /// <param name="result">The object to return to the caller. It should be of <see cref="AwaitedResultType"/> type.</param>
-        /// <exception cref="ArgumentException">Thrown when given result doesn't match <see cref="AwaitedResultType"/></exception>
+        /// <exception cref="ArgumentException">Thrown when given result doesn't match <see cref="AwaitedResultType"/>.</exception>
         public void SetResult(object result)
         {
             if (AwaitedResultType != result.GetType())
@@ -245,7 +246,7 @@ namespace AoLibs.Dialogs.Android
         }
 
         /// <summary>
-        /// Cancels currently awaited <see cref="ShowAndAwaitResult{TResult}"/> causing <see cref="TaskCanceledException"/>
+        /// Cancels currently awaited <see cref="ShowAndAwaitResult{TResult}"/> causing <see cref="TaskCanceledException"/>.
         /// </summary>
         public void CancelResult()
         {

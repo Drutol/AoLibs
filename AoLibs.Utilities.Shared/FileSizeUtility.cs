@@ -8,7 +8,7 @@ namespace AoLibs.Utilities.Shared
 
         /// <summary>
         /// Converts byte count to nice formatted string with using one of following suffixes:
-        /// "B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"
+        /// "B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB".
         /// </summary>
         /// <param name="value">Number of bytes.</param>
         public static string GetHumanReadableBytesLength(long value)

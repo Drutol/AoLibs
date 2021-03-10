@@ -4,7 +4,7 @@ using AoLibs.Dialogs.Core.Interfaces;
 namespace AoLibs.Dialogs.Core
 {
     /// <summary>
-    /// Base implementation of <see cref="ICustomDialogsManager{TDialogIndex}"/>
+    /// Base implementation of <see cref="ICustomDialogsManager{TDialogIndex}"/>.
     /// </summary>
     /// <typeparam name="TDialogIndex">Enum defining dialog pages.</typeparam>
     public abstract class CustomDialogsManagerBase<TDialogIndex> : ICustomDialogsManager<TDialogIndex>

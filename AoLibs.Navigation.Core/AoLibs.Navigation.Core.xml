@@ -6,7 +6,7 @@
     <members>
         <member name="T:AoLibs.Navigation.Core.BackstackEntry`1">
             <summary>
-            Represents an item in navigation backstack. It can be either <see cref="T:System.Action"/> or <see cref="!:TPage"/>
+            Represents an item in navigation backstack. It can be either <see cref="T:System.Action"/> or <see cref="!:TPage"/>.
             </summary>
             <typeparam name="TPage">Type of page on target platform.</typeparam>
         </member>
@@ -24,9 +24,9 @@
         </member>
         <member name="M:AoLibs.Navigation.Core.Interfaces.IDependencyResolver.Resolve``1">
             <summary>
-            Resolves for instance of <see cref="!:TDependency"/>
+            Resolves for instance of <see cref="!:TDependency"/>.
             </summary>
-            <typeparam name="TDependency">ViewModel</typeparam>
+            <typeparam name="TDependency">ViewModel.</typeparam>
         </member>
         <member name="E:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.Navigated">
             <summary>
@@ -130,7 +130,7 @@
         </member>
         <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.ClearBackStack">
             <summary>
-            Clears whole main (first) backstack
+            Clears whole main (first) backstack.
             </summary>
         </member>
         <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.ClearBackStack(`0)">
@@ -186,17 +186,17 @@
         </member>
         <member name="M:AoLibs.Navigation.Core.Interfaces.IStackResolver`2.ResolveStackForIdentifier(`1)">
             <summary>
-            Resolves stack for given <see cref="!:TPageIdentifier"/>
+            Resolves stack for given <see cref="!:TPageIdentifier"/>.
             </summary>
             <param name="identifier">Page related to desired stack.</param>
-            <returns>Found stack</returns>
+            <returns>Found stack.</returns>
         </member>
         <member name="M:AoLibs.Navigation.Core.Interfaces.IStackResolver`2.ResolveStackForTag(System.Enum)">
             <summary>
-            Resolves stack for given <see cref="T:System.Enum"/> which should be <see cref="!:TPageIdentifier"/>
+            Resolves stack for given <see cref="T:System.Enum"/> which should be <see cref="!:TPageIdentifier"/>.
             </summary>
             <param name="tag">Tag associated with wanted stack.</param>
-            <returns>Found stack</returns>
+            <returns>Found stack.</returns>
         </member>
         <member name="F:AoLibs.Navigation.Core.NavigationBackstackOption.AddToBackstack">
             <summary>
@@ -294,7 +294,7 @@
         </member>
         <member name="P:AoLibs.Navigation.Core.PageProviders.CachedPageProvider`1.PageIdentifier">
             <summary>
-            Gets or sets current TPageIdentifier hidden beyond <see cref="T:System.Object"/>
+            Gets or sets current TPageIdentifier hidden beyond <see cref="T:System.Object"/>.
             </summary>
         </member>
         <member name="T:AoLibs.Navigation.Core.PageProviders.OneshotPageProvider`1">
@@ -332,7 +332,7 @@
         </member>
         <member name="P:AoLibs.Navigation.Core.PageProviders.OneshotPageProvider`1.PageIdentifier">
             <summary>
-            Gets or sets TPageIdentifier hidden beyond <see cref="T:System.Object"/>
+            Gets or sets TPageIdentifier hidden beyond <see cref="T:System.Object"/>.
             </summary>
         </member>
         <member name="T:AoLibs.Navigation.Core.TaggedStack`1">

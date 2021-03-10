@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
+using AndroidX.Fragment.App;
 using AoLibs.Dialogs.Android.Interfaces;
 using AoLibs.Dialogs.Core;
 using AoLibs.Dialogs.Core.Interfaces;
-using FragmentManager = Android.Support.V4.App.FragmentManager;
 
 namespace AoLibs.Dialogs.Android
 {
     /// <summary>
-    /// Default Android implementation of <see cref="CustomDialogsManagerBase{TDialogIndex}"/>
+    /// Default Android implementation of <see cref="CustomDialogsManagerBase{TDialogIndex}"/>.
     /// </summary>
     /// <typeparam name="TDialogIndex">Type of enum that is used to identify the dialogs.</typeparam>
     public class CustomDialogsManager<TDialogIndex> : CustomDialogsManagerBase<TDialogIndex>, IInternalDialogsManager

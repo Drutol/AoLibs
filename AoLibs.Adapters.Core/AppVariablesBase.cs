@@ -139,7 +139,7 @@ namespace AoLibs.Adapters.Core
         }
 
         /// <summary>
-        /// Base utility class for <see cref="Holder{T}"/>
+        /// Base utility class for <see cref="Holder{T}"/>.
         /// </summary>
         public class HolderBase
         {
@@ -179,7 +179,7 @@ namespace AoLibs.Adapters.Core
             }
 
             /// <summary>
-            /// Clears both memory storage and <see cref="ISyncStorage"/>
+            /// Clears both memory storage and <see cref="ISyncStorage"/>.
             /// </summary>
             public void Reset()
             {
@@ -189,7 +189,7 @@ namespace AoLibs.Adapters.Core
             }
 
             /// <summary>
-            /// Clears both memory storage and <see cref="IAsyncStorage"/>
+            /// Clears both memory storage and <see cref="IAsyncStorage"/>.
             /// </summary>
             public async Task ResetAsync()
             {
@@ -199,7 +199,7 @@ namespace AoLibs.Adapters.Core
             }
 
             /// <summary>
-            /// Gets or sets value using <see cref="ISyncStorage"/>
+            /// Gets or sets value using <see cref="ISyncStorage"/>.
             /// </summary>
             public T Value
             {
@@ -221,7 +221,7 @@ namespace AoLibs.Adapters.Core
             }
 
             /// <summary>
-            /// Reads value using <see cref="IAsyncStorage"/>
+            /// Reads value using <see cref="IAsyncStorage"/>.
             /// </summary>
             public Task<T> GetAsync()
             {
@@ -240,7 +240,7 @@ namespace AoLibs.Adapters.Core
             }
 
             /// <summary>
-            /// Writes value using <see cref="IAsyncStorage"/>
+            /// Writes value using <see cref="IAsyncStorage"/>.
             /// </summary>
             /// <param name="data">Data to save.</param>
             public async Task SetAsync(T data)
@@ -272,7 +272,7 @@ namespace AoLibs.Adapters.Core
             }
 
             /// <summary>
-            /// Updates currently stored value in memory to the newest found in <see cref="ISyncStorage"/>
+            /// Updates currently stored value in memory to the newest found in <see cref="ISyncStorage"/>.
             /// </summary>
             public void Update()
             {
@@ -283,7 +283,7 @@ namespace AoLibs.Adapters.Core
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AppVariablesBase"/> class.
-        /// Initializes all properties marked with <see cref="VariableAttribute"/>
+        /// Initializes all properties marked with <see cref="VariableAttribute"/>.
         /// </summary>
         private AppVariablesBase()
         {
@@ -325,7 +325,7 @@ namespace AoLibs.Adapters.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="AppVariablesBase"/> class.
         /// Initialize with default <see cref="ISyncStorage"/> where <see cref="ISettingsProvider"/> is underlying storage layer.
-        /// Async methods of <see cref="Holder{T}"/> will be unavailable and throw <see cref="InvalidOperationException"/>
+        /// Async methods of <see cref="Holder{T}"/> will be unavailable and throw <see cref="InvalidOperationException"/>.
         /// </summary>
         /// <param name="settingsProvider">Settings provider.</param>
         /// <param name="dataCache">Data cache.</param>
@@ -340,9 +340,9 @@ namespace AoLibs.Adapters.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="AppVariablesBase"/> class.
         /// Initialize with custom implementations of <see cref="ISyncStorage"/> and optionally <see cref="IAsyncStorage"/>.
-        /// Not providing <see cref="IAsyncStorage"/> will result in <see cref="InvalidOperationException"/> when accessing async methods of <see cref="Holder{T}"/>
+        /// Not providing <see cref="IAsyncStorage"/> will result in <see cref="InvalidOperationException"/> when accessing async methods of <see cref="Holder{T}"/>.
         /// </summary>
-        /// <param name="syncStorage">Synchronous storage used when calling <see cref="Holder{T}.Value"/></param>
+        /// <param name="syncStorage">Synchronous storage used when calling <see cref="Holder{T}.Value"/>.</param>
         /// <param name="asyncStorage">Asynchronous storage.</param>
         protected AppVariablesBase(ISyncStorage syncStorage, IAsyncStorage asyncStorage = null)
         {

@@ -11,17 +11,17 @@ namespace AoLibs.Navigation.Core.Interfaces
         where TPage : class
     {
         /// <summary>
-        /// Resolves stack for given <see cref="TPageIdentifier"/>
+        /// Resolves stack for given <see cref="TPageIdentifier"/>.
         /// </summary>
         /// <param name="identifier">Page related to desired stack.</param>
-        /// <returns>Found stack</returns>
+        /// <returns>Found stack.</returns>
         TaggedStack<BackstackEntry<TPage>> ResolveStackForIdentifier(TPageIdentifier identifier);
         
         /// <summary>
-        /// Resolves stack for given <see cref="Enum"/> which should be <see cref="TPageIdentifier"/>
+        /// Resolves stack for given <see cref="Enum"/> which should be <see cref="TPageIdentifier"/>.
         /// </summary>
         /// <param name="tag">Tag associated with wanted stack.</param>
-        /// <returns>Found stack</returns>
+        /// <returns>Found stack.</returns>
         TaggedStack<BackstackEntry<TPage>> ResolveStackForTag(Enum tag);
     }
 }

@@ -59,13 +59,13 @@ namespace AoLibs.Adapters.Core.Interfaces
 
         /// <summary>
         /// Gets disposable wrapper on the loader lifetime so you can use it in using block conveniently.
-        /// Invokes <see cref="ShowLoadingPopup"/> and <see cref="HideLoadingDialog"/>
+        /// Invokes <see cref="ShowLoadingPopup"/> and <see cref="HideLoadingDialog"/>.
         /// </summary>
         IDisposable LoaderLifetime { get; }
 
         /// <summary>
         /// Provides disposable wrapper on the loader lifetime so you can use it in using block conveniently.
-        /// Invokes <see cref="ShowLoadingPopup"/> and <see cref="HideLoadingDialog"/>. Customizable version of <see cref="LoaderLifetime"/>
+        /// Invokes <see cref="ShowLoadingPopup"/> and <see cref="HideLoadingDialog"/>. Customizable version of <see cref="LoaderLifetime"/>.
         /// </summary>
         /// <param name="title">Title of the loader.</param>
         /// <param name="content">Content of the loader.</param>

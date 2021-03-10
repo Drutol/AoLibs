@@ -1,7 +1,7 @@
 ﻿namespace AoLibs.Adapters.Core.Interfaces
 {
     /// <summary>
-    /// Provides simple facade over underlying <see cref="PreferenceManager"/>
+    /// Provides simple facade over underlying <see cref="PreferenceManager"/>.
     /// </summary>
     public interface ISettingsProvider
     {

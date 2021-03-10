@@ -9,7 +9,7 @@ namespace AoLibs.Sample.Shared.Statics
 {
     public static class ViewModelLocator
     {
-        private static IContainer _container;
+        private static ILifetimeScope _container;
 
         internal static void RegisterViewModels(this ContainerBuilder builder)
         {
@@ -25,7 +25,7 @@ namespace AoLibs.Sample.Shared.Statics
             builder.RegisterType<MainViewModel>().SingleInstance();
         }
 
-        private static void BuildCallback(IContainer obj)
+        private static void BuildCallback(ILifetimeScope obj)
         {
             _container = obj;
         }

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Reflection;
-using Android.Support.V7.Widget;
 using Android.Views;
+using AndroidX.RecyclerView.Widget;
 using Object = Java.Lang.Object;
 
 namespace AoLibs.Adapters.Android.Recycler
@@ -56,10 +56,10 @@ namespace AoLibs.Adapters.Android.Recycler
 
         /// <summary>
         /// Special delegate that specifies more concrete types for <see cref="TItem"/> and <see cref="THolder"/> generic types.
-        /// Used by <see cref="ObservableRecyclerAdapterWithMultipleViewTypes{TItemBase,THolder}.SpecializedItemEntry{TSpecializedItem,TSpecializedHolder}"/>
+        /// Used by <see cref="ObservableRecyclerAdapterWithMultipleViewTypes{TItemBase,THolder}.SpecializedItemEntry{TSpecializedItem,TSpecializedHolder}"/>.
         /// </summary>
-        /// <typeparam name="TSpecializedHolder">Concrete Type derived from <see cref="THolder"/></typeparam>
-        /// <typeparam name="TSpecializedItem">Concrete Type derived from <see cref="TItem"/></typeparam>
+        /// <typeparam name="TSpecializedHolder">Concrete Type derived from <see cref="THolder"/>.</typeparam>
+        /// <typeparam name="TSpecializedItem">Concrete Type derived from <see cref="TItem"/>.</typeparam>
         /// <param name="item">Current item to bind.</param>
         /// <param name="holder">View holder assigned with new item.</param>
         /// <param name="position">Position of the item on the list.</param>
@@ -217,7 +217,7 @@ namespace AoLibs.Adapters.Android.Recycler
         }
 
         /// <summary>
-        /// Detaches bindings from <see cref="BindingViewHolderBase{T}"/>
+        /// Detaches bindings from <see cref="BindingViewHolderBase{T}"/>.
         /// </summary>
         /// <param name="holder">The recycled view.</param>
         public override void OnViewRecycled(Object holder)
@@ -260,9 +260,10 @@ namespace AoLibs.Adapters.Android.Recycler
                     {
                         NotifyItemInserted(e.NewStartingIndex + i);
                     }
-                }
 
                     break;
+                }
+
                 case NotifyCollectionChangedAction.Remove:
                 {
                     var count = e.OldItems.Count;
@@ -270,9 +271,10 @@ namespace AoLibs.Adapters.Android.Recycler
                     {
                         NotifyItemRemoved(e.OldStartingIndex + i);
                     }
-                }
 
                     break;
+                }
+
                 default:
                     NotifyDataSetChanged();
                     break;

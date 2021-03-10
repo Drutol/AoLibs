@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Android.Runtime;
-using Android.Support.V7.Widget;
 using Android.Views;
+using AndroidX.RecyclerView.Widget;
 
 namespace AoLibs.Adapters.Android.Recycler
 {
@@ -45,7 +45,7 @@ namespace AoLibs.Adapters.Android.Recycler
         }
 
         /// <summary>
-        /// Simple implementation of <see cref="IItemEntry"/>
+        /// Simple implementation of <see cref="IItemEntry"/>.
         /// </summary>
         public class ItemEntry : IItemEntry
         {
@@ -83,7 +83,7 @@ namespace AoLibs.Adapters.Android.Recycler
 
         /// <summary>
         /// Implementation of <see cref="IItemEntry"/> that alows to specify concrete types for <see cref="TItemBase"/> and <see cref="THolder"/>.
-        /// This way we are avoiding manual casting in the delegate methods such as <see cref="DataTemplateDelegate{THolder}"/>
+        /// This way we are avoiding manual casting in the delegate methods such as <see cref="DataTemplateDelegate{THolder}"/>.
         /// </summary>
         /// <typeparam name="TSpecializedItem">Concrete Type of the model.</typeparam>
         /// <typeparam name="TSpecializedHolder">Concrete type of the holder.</typeparam>

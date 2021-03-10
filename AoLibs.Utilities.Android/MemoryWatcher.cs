@@ -13,10 +13,10 @@ namespace AoLibs.Utilities.Android
     public class MemoryWatcher
     {
         /// <summary>
-        /// Gets and initializes new <see cref="MemoryWatcher"/>
+        /// Gets and initializes new <see cref="MemoryWatcher"/>.
         /// </summary>
         /// <value>
-        /// And initializes new <see cref="MemoryWatcher"/>
+        /// And initializes new <see cref="MemoryWatcher"/>.
         /// </value>
         public static MemoryWatcher Watcher { get; } = new MemoryWatcher();
 

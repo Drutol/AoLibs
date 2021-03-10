@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using Android.App;
+using Android.Arch.Core.Executor;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
-using Android.Support.V7.App;
 using Android.Widget;
+using AndroidX.AppCompat.App;
 using AoLibs.Adapters.Android;
 using AoLibs.Adapters.Android.DialogStyles;
 using AoLibs.Adapters.Android.Interfaces;

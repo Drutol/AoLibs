@@ -94,7 +94,7 @@ namespace AoLibs.Adapters.Android
             return selectedDate;
         }
 
-       private class ListenableDatePickerDialog : DatePickerDialog
+        private class ListenableDatePickerDialog : DatePickerDialog
         {
             public Action<(int year, int monthOfYear, int dayOfMonth)> Callback { get; set; }
 

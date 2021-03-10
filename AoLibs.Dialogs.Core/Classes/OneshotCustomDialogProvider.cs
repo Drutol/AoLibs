@@ -6,7 +6,7 @@ namespace AoLibs.Dialogs.Core
     /// <summary>
     /// Dialog provider always returning new dialog instance.
     /// </summary>
-    /// <typeparam name="TDialog">Dialog type</typeparam>
+    /// <typeparam name="TDialog">Dialog type.</typeparam>
     public class OneshotCustomDialogProvider<TDialog> : ICustomDialogProvider 
         where TDialog : ICustomDialog
     {

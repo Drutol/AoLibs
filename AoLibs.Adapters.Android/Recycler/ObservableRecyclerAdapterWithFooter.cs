@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using Android.Support.V7.Widget;
 using Android.Views;
+using AndroidX.RecyclerView.Widget;
 
 namespace AoLibs.Adapters.Android.Recycler
 {

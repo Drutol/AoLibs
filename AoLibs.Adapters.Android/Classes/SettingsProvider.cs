@@ -7,7 +7,7 @@ using AoLibs.Adapters.Core.Interfaces;
 namespace AoLibs.Adapters.Android
 {
     /// <summary>
-    /// Provides simple facade over underlying <see cref="PreferenceManager"/>
+    /// Provides simple facade over underlying <see cref="PreferenceManager"/>.
     /// </summary>
     public class SettingsProvider : ISettingsProvider
     {

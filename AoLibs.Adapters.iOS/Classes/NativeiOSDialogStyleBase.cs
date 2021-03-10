@@ -10,7 +10,7 @@ using UIKit;
 namespace AoLibs.Adapters.iOS
 {
     /// <summary>
-    /// Utility class implementing <see cref="INativeiOSDialogStyle"/>
+    /// Utility class implementing <see cref="INativeiOSDialogStyle"/>.
     /// </summary>
     public abstract class NativeiOSDialogStyleBase : INativeiOSDialogStyle
     {

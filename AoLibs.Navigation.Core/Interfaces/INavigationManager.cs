@@ -105,7 +105,7 @@ namespace AoLibs.Navigation.Core.Interfaces
         bool OnBackRequested(TPageIdentifier stackIdentifier);
 
         /// <summary>
-        /// Clears whole main (first) backstack
+        /// Clears whole main (first) backstack.
         /// </summary>
         void ClearBackStack();
 

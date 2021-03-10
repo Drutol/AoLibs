@@ -33,7 +33,7 @@ namespace AoLibs.Navigation.iOS.Navigation
         /// </summary>
         /// <param name="navigationController">Root navigation controller.</param>
         /// <param name="pageDefinitions">The dictionary defining pages.</param>
-        /// <param name="dependencyResolver">Class used to resolve ViewModels for pages like <see cref="ViewControllerBase{TViewModel}"/> and <see cref="TabBarViewControllerBase{TViewModel}"/></param>
+        /// <param name="dependencyResolver">Class used to resolve ViewModels for pages like <see cref="ViewControllerBase{TViewModel}"/> and <see cref="TabBarViewControllerBase{TViewModel}"/>.</param>
         /// <param name="stackResolver">Class allowing to differentiate to which stack given indentigier belongs.</param>
         public NavigationManager(
             UINavigationController navigationController,
@@ -50,7 +50,7 @@ namespace AoLibs.Navigation.iOS.Navigation
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NavigationManager{TPageIdentifier}"/> class.
-        /// To gather page definitions it searches for classes marked with <see cref="NavigationPageAttribute"/> from <see cref="Assembly.GetCallingAssembly"/>
+        /// To gather page definitions it searches for classes marked with <see cref="NavigationPageAttribute"/> from <see cref="Assembly.GetCallingAssembly"/>.
         /// </summary>
         /// <param name="navigationController">Root navigation controller.</param>
         /// <param name="dependencyResolver">Resolver to assign proper ViewModel instances.</param>

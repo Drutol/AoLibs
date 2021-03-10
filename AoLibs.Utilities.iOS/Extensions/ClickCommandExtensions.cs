@@ -12,7 +12,7 @@ namespace AoLibs.Utilities.iOS.Extensions
         /// <summary>
         ///     Sets <see cref="UIGestureRecognizer" /> or <see cref="UIControl.TouchUpInside"/> executing given <see cref="command" />.
         ///     Additionally hooks to <see cref="ICommand.CanExecuteChanged" /> and alters
-        ///     <see cref="UIView.UserInteractionEnabled" /> according to <see cref="ICommand.CanExecute" />
+        ///     <see cref="UIView.UserInteractionEnabled" /> according to <see cref="ICommand.CanExecute" />.
         /// </summary>
         /// <param name="view">The view.</param>
         /// <param name="command">Command to bind to the button.</param>
@@ -27,7 +27,7 @@ namespace AoLibs.Utilities.iOS.Extensions
         /// <summary>
         ///     Sets <see cref="UIGestureRecognizer" /> or <see cref="UIControl.TouchUpInside"/> executing given <see cref="command" />.
         ///     Additionally hooks to <see cref="ICommand.CanExecuteChanged" /> and allows to easily alter the View with
-        ///     <see cref="onCanExecuteChanged" />
+        ///     <see cref="onCanExecuteChanged" />.
         /// </summary>
         /// <param name="view">The view.</param>
         /// <param name="command">Command to bind to the button.</param>
@@ -46,11 +46,11 @@ namespace AoLibs.Utilities.iOS.Extensions
         /// <summary>
         ///     Sets <see cref="UIGestureRecognizer" /> or <see cref="UIControl.TouchUpInside"/> executing given <see cref="command" /> with argument <see cref="arg" />.
         ///     Additionally hooks to <see cref="ICommand.CanExecuteChanged" /> and alters
-        ///     <see cref="UIView.UserInteractionEnabled" /> according to <see cref="ICommand.CanExecute" />
+        ///     <see cref="UIView.UserInteractionEnabled" /> according to <see cref="ICommand.CanExecute" />.
         /// </summary>
         /// <param name="view">The view.</param>
         /// <param name="command">Command to bind to the button.</param>
-        /// <param name="arg">Argument to pass to the <see cref="ICommand.Execute" /></param>
+        /// <param name="arg">Argument to pass to the <see cref="ICommand.Execute" />.</param>
         public static void SetOnClickCommand(this UIView view, ICommand command, object arg)
         {
             if (view is UIControl control)
@@ -62,11 +62,11 @@ namespace AoLibs.Utilities.iOS.Extensions
         /// <summary>
         ///     Sets <see cref="UIGestureRecognizer" /> or <see cref="UIControl.TouchUpInside"/> executing given <see cref="command" /> with argument <see cref="arg" />.
         ///     Additionally hooks to <see cref="ICommand.CanExecuteChanged" /> and allows to easily alter the View with
-        ///     <see cref="onCanExecuteChanged" />
+        ///     <see cref="onCanExecuteChanged" />.
         /// </summary>
         /// <param name="view">The view.</param>
         /// <param name="command">Command to bind to the button.</param>
-        /// <param name="arg">Argument to pass to the <see cref="ICommand.Execute" /></param>
+        /// <param name="arg">Argument to pass to the <see cref="ICommand.Execute" />.</param>
         /// <param name="onCanExecuteChanged">Delegate allowing custom modification of the view.</param>
         public static void SetOnClickCommand(
             this UIView view,

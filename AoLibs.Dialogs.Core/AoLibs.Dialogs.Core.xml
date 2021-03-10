@@ -55,7 +55,7 @@
         </member>
         <member name="T:AoLibs.Dialogs.Core.CustomDialogsManagerBase`1">
             <summary>
-            Base implementation of <see cref="T:AoLibs.Dialogs.Core.Interfaces.ICustomDialogsManager`1"/>
+            Base implementation of <see cref="T:AoLibs.Dialogs.Core.Interfaces.ICustomDialogsManager`1"/>.
             </summary>
             <typeparam name="TDialogIndex">Enum defining dialog pages.</typeparam>
         </member>
@@ -135,14 +135,14 @@
             <summary>
             Initializes a new instance of the <see cref="T:AoLibs.Dialogs.Core.DialogMargins"/> class.
             </summary>
-            <param name="margin">The margin for all four directions</param>
+            <param name="margin">The margin for all four directions.</param>
         </member>
         <member name="M:AoLibs.Dialogs.Core.DialogMargins.#ctor(System.Int32,System.Int32)">
             <summary>
             Initializes a new instance of the <see cref="T:AoLibs.Dialogs.Core.DialogMargins"/> class.
             </summary>
-            <param name="horizontal">Margin for left and right sides</param>
-            <param name="vertical">Margin for top and bottom sides</param>
+            <param name="horizontal">Margin for left and right sides.</param>
+            <param name="vertical">Margin for top and bottom sides.</param>
         </member>
         <member name="M:AoLibs.Dialogs.Core.DialogMargins.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
@@ -157,7 +157,7 @@
             <summary>
             Dialog provider always returning new dialog instance.
             </summary>
-            <typeparam name="TDialog">Dialog type</typeparam>
+            <typeparam name="TDialog">Dialog type.</typeparam>
         </member>
         <member name="P:AoLibs.Dialogs.Core.OneshotCustomDialogProvider`1.Factory">
             <summary>
@@ -233,11 +233,12 @@
             Hides the dialog asynchronously.
             </summary>
         </member>
-        <member name="M:AoLibs.Dialogs.Core.Interfaces.ICustomDialog.AwaitResult``1(System.Threading.CancellationToken)">
+        <member name="M:AoLibs.Dialogs.Core.Interfaces.ICustomDialog.ShowAndAwaitResult``1(System.Object,System.Threading.CancellationToken)">
             <summary>
             Awaits dialog result.
             </summary>
             <typeparam name="TResult">Desired return type.</typeparam>
+            <param name="parameter">Parameter passed to the dialog.</param>
             <param name="token">Cancellation token.</param>
         </member>
         <member name="T:AoLibs.Dialogs.Core.Interfaces.ICustomDialogDependencyResolver">
@@ -301,7 +302,7 @@
         </member>
         <member name="T:AoLibs.Dialogs.Core.Interfaces.ICustomViewModelDialog`1">
             <summary>
-            Dialog with ViewModel
+            Dialog with ViewModel.
             </summary>
             <typeparam name="TViewModel">The type of ViewModel.</typeparam>
         </member>

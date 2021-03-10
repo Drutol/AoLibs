@@ -6,7 +6,7 @@ namespace AoLibs.Utilities.Android
     public static class AndroidUtilities
     {
         /// <summary>
-        /// Reads the contants of <see cref="JavaObjectWrapper{TObj}"/>
+        /// Reads the contants of <see cref="JavaObjectWrapper{TObj}"/>.
         /// </summary>
         /// <param name="obj">Wrapper to extract the data from.</param>
         /// <typeparam name="TObj">Object that is contained by the wrpper.</typeparam>

@@ -9,7 +9,7 @@ namespace AoLibs.Dialogs.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="DialogMargins"/> class.
         /// </summary>
-        /// <param name="margin">The margin for all four directions</param>
+        /// <param name="margin">The margin for all four directions.</param>
         public DialogMargins(int margin)
         {
             Left = margin;
@@ -21,8 +21,8 @@ namespace AoLibs.Dialogs.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="DialogMargins"/> class.
         /// </summary>
-        /// <param name="horizontal">Margin for left and right sides</param>
-        /// <param name="vertical">Margin for top and bottom sides</param>
+        /// <param name="horizontal">Margin for left and right sides.</param>
+        /// <param name="vertical">Margin for top and bottom sides.</param>
         public DialogMargins(int horizontal, int vertical)
         {
             Left = horizontal;

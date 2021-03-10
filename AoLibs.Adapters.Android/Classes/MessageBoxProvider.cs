@@ -3,13 +3,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
-using Android.Runtime;
-using Android.Support.Design.Widget;
 using Android.Views;
 using Android.Widget;
 using AoLibs.Adapters.Android.Interfaces;
 using AoLibs.Adapters.Core;
 using AoLibs.Adapters.Core.Interfaces;
+using Google.Android.Material.TextField;
 
 namespace AoLibs.Adapters.Android
 {

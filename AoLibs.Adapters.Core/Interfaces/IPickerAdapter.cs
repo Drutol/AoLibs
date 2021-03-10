@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+#pragma warning disable SA1305 // Field names should not use Hungarian notation
 namespace AoLibs.Adapters.Core.Interfaces
 {
     /// <summary>

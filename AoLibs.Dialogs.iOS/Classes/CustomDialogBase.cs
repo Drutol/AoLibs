@@ -60,17 +60,17 @@ namespace AoLibs.Dialogs.iOS
         protected Type AwaitedResultType { get; private set; }
 
         /// <summary>
-        /// Gets a value indicating how dialog presentation and dismissal should be animated
+        /// Gets a value indicating how dialog presentation and dismissal should be animated.
         /// </summary>
         public virtual DialogAnimationConfig AnimationConfig { get; } = new DialogAnimationConfig();
 
         /// <summary>
-        /// Gets a value indicating how the dialog's background should look
+        /// Gets a value indicating how the dialog's background should look.
         /// </summary>
         public virtual DialogBackgroundConfig BackgroundConfig { get; } = new DialogBackgroundConfig();
 
         /// <summary>
-        /// Gets or sets a value indicating dialog's margins size
+        /// Gets or sets a value indicating dialog's margins size.
         /// </summary>
         public virtual DialogMargins Margins { get; set; } = new DialogMargins(15);
 
@@ -231,11 +231,11 @@ namespace AoLibs.Dialogs.iOS
         /// Allows to await certain result from dialog.
         /// The dialog can yield the result by using <see cref="SetResult"/> or <see cref="CancelResult"/> methods.
         /// </summary>
-        /// <typeparam name="TResult">Awaited return type, it will be checked when dialog calls <see cref="Show"/></typeparam>
+        /// <typeparam name="TResult">Awaited return type, it will be checked when dialog calls <see cref="Show"/>.</typeparam>
         /// <param name="parameter">Parameter passed to dialog.</param>
         /// <param name="token">Cancellation token.</param>
-        /// <returns>Awaited result</returns>
-        /// <exception cref="TaskCanceledException">Throws this exception when result gets cancelled by either <see cref="CancellationToken"/> or <see cref="CancelResult"/> method</exception>
+        /// <returns>Awaited result.</returns>
+        /// <exception cref="TaskCanceledException">Throws this exception when result gets cancelled by either <see cref="CancellationToken"/> or <see cref="CancelResult"/> method.</exception>
         public async Task<TResult> ShowAndAwaitResult<TResult>(object parameter = null, CancellationToken token = default)
         {
             try
@@ -265,7 +265,7 @@ namespace AoLibs.Dialogs.iOS
         /// Completes the task awaited in <see cref="AwaitResult{TResult}"/>.
         /// </summary>
         /// <param name="result">The object to return to the caller. It should be of <see cref="AwaitedResultType"/> type.</param>
-        /// <exception cref="ArgumentException">Thrown when given result doesn't match <see cref="AwaitedResultType"/></exception>
+        /// <exception cref="ArgumentException">Thrown when given result doesn't match <see cref="AwaitedResultType"/>.</exception>
         public void SetResult(object result)
         {
             if (AwaitedResultType != result.GetType())
@@ -275,7 +275,7 @@ namespace AoLibs.Dialogs.iOS
         }
 
         /// <summary>
-        /// Cancels currently awaited <see cref="AwaitResult{TResult}"/> causing <see cref="TaskCanceledException"/>
+        /// Cancels currently awaited <see cref="AwaitResult{TResult}"/> causing <see cref="TaskCanceledException"/>.
         /// </summary>
         public void CancelResult()
         {

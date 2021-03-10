@@ -11,7 +11,7 @@ namespace AoLibs.Sample.Shared.Statics
 {
     public static class ResourceLocator
     {
-        private static IContainer _container;
+        private static ILifetimeScope _scope;
 
         internal static void RegisterResources(this ContainerBuilder builder)
         {
@@ -24,14 +24,14 @@ namespace AoLibs.Sample.Shared.Statics
                 .SingleInstance();
         }
 
-        private static void BuildCallback(IContainer obj)
+        private static void BuildCallback(ILifetimeScope obj)
         {
-            _container = obj;
+            _scope = obj;
         }
 
         public static ILifetimeScope ObtainScope()
         {
-            return _container.BeginLifetimeScope();
+            return _scope.BeginLifetimeScope();
         }
     }
 }

@@ -66,7 +66,7 @@ namespace AoLibs.Navigation.Core.PageProviders
         }
 
         /// <summary>
-        /// Gets or sets TPageIdentifier hidden beyond <see cref="object"/>
+        /// Gets or sets TPageIdentifier hidden beyond <see cref="object"/>.
         /// </summary>
         public object PageIdentifier { get; set; }
 

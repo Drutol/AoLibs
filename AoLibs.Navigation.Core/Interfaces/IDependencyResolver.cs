@@ -6,9 +6,9 @@
     public interface IDependencyResolver
     {
         /// <summary>
-        /// Resolves for instance of <see cref="TDependency"/>
+        /// Resolves for instance of <see cref="TDependency"/>.
         /// </summary>
-        /// <typeparam name="TDependency">ViewModel</typeparam>
+        /// <typeparam name="TDependency">ViewModel.</typeparam>
         TDependency Resolve<TDependency>();
     }
 }

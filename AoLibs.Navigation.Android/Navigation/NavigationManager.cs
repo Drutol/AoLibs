@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Reflection;
 using Android.Views;
+using AndroidX.Fragment.App;
 using AoLibs.Navigation.Android.Navigation.Attributes;
 using AoLibs.Navigation.Core;
 using AoLibs.Navigation.Core.Interfaces;
 using AoLibs.Navigation.Core.PageProviders;
-using FragmentManager = Android.Support.V4.App.FragmentManager;
-using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 
 namespace AoLibs.Navigation.Android.Navigation
 {
@@ -30,9 +29,9 @@ namespace AoLibs.Navigation.Android.Navigation
         /// Initializes a new instance of the <see cref="NavigationManager{TPageIdentifier}"/> class.
         /// </summary>
         /// <param name="fragmentManager">Fragment manager of main activity.</param>
-        /// <param name="rootFrame">The view which will be used as the one being replaced with new Views</param>
+        /// <param name="rootFrame">The view which will be used as the one being replaced with new Views.</param>
         /// <param name="pageDefinitions">The dictionary defining pages.</param>
-        /// <param name="dependencyResolver">Class used to resolve ViewModels for pages derived from <see cref="FragmentBase{TViewModel}"/></param>
+        /// <param name="dependencyResolver">Class used to resolve ViewModels for pages derived from <see cref="FragmentBase{TViewModel}"/>.</param>
         /// <param name="stackResolver">Class allowing to differentiate to which stack given indentigier belongs.</param>
         /// <param name="interceptTransaction">Delegate allowing to modify <see cref="FragmentTransaction"/> before commiting.</param>
         public NavigationManager(
@@ -53,11 +52,11 @@ namespace AoLibs.Navigation.Android.Navigation
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NavigationManager{TPageIdentifier}"/> class.
-        /// To gather page definitions it searches for classes marked with <see cref="NavigationPageAttribute"/> from <see cref="Assembly.GetCallingAssembly"/>
+        /// To gather page definitions it searches for classes marked with <see cref="NavigationPageAttribute"/> from <see cref="Assembly.GetCallingAssembly"/>.
         /// </summary>
         /// <param name="fragmentManager">Fragment manager of main activity.</param>
-        /// <param name="rootFrame">The view which will be used as the one being replaced with new Views</param>
-        /// <param name="dependencyResolver">Class used to resolve ViewModels for pages derived from <see cref="FragmentBase{TViewModel}"/></param>
+        /// <param name="rootFrame">The view which will be used as the one being replaced with new Views.</param>
+        /// <param name="dependencyResolver">Class used to resolve ViewModels for pages derived from <see cref="FragmentBase{TViewModel}"/>.</param>
         /// <param name="stackResolver">Class allowing to differentiate to which stack given indentigier belongs.</param>
         /// <param name="interceptTransaction">Delegate allowing to modify <see cref="FragmentTransaction"/> before commiting.</param>
         public NavigationManager(
