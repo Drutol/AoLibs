@@ -20,6 +20,7 @@ namespace AoLibs.Adapters.iOS
             string negativeText,
             INativeDialogStyle dialogStyle = null)
         {
+            dialogStyle ??= DefaultDialogStyles.PasswordInputDialogStyle;
             var style = (INativeiOSDialogStyle) dialogStyle;
 
             bool result = false;
@@ -44,6 +45,7 @@ namespace AoLibs.Adapters.iOS
             string neutralText,
             INativeDialogStyle dialogStyle = null)
         {
+            dialogStyle ??= DefaultDialogStyles.DialogStyle;
             var style = (INativeiOSDialogStyle) dialogStyle;
 
             var alert = new UIAlertView(title, content, (IUIAlertViewDelegate)null, neutralText);

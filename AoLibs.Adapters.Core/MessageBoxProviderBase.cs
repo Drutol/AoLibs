@@ -38,8 +38,12 @@ namespace AoLibs.Adapters.Core
         public abstract void HideLoadingDialog();
 
         public IDisposable LoaderLifetime => new LoaderLifetimeManager(this);
+
         public IDisposable ObtainLoaderLifetime(string title, string content, INativeDialogStyle nativeDialogStyle) =>
-            new LoaderLifetimeManager(this, title, content, nativeDialogStyle);
+            new LoaderLifetimeManager(this, title, content, nativeDialogStyle);      
+        
+        public IDisposable ObtainLoaderLifetime(INativeDialogStyle nativeDialogStyle) =>
+            new LoaderLifetimeManager(this, null, null, nativeDialogStyle);
 
         private class LoaderLifetimeManager : IDisposable
         {
@@ -57,6 +61,7 @@ namespace AoLibs.Adapters.Core
                 string content,
                 INativeDialogStyle nativeDialogStyle)
             {
+                nativeDialogStyle ??= DefaultDialogStyles.LoadingDialogStyle;
                 _parent = parent;
                 _parent.ShowLoadingPopup(title, content, nativeDialogStyle);
             }

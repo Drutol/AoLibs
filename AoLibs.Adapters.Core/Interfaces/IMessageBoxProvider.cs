@@ -73,6 +73,13 @@ namespace AoLibs.Adapters.Core.Interfaces
         IDisposable ObtainLoaderLifetime(string title, string content, INativeDialogStyle dialogStyle = null);
 
         /// <summary>
+        /// Provides disposable wrapper on the loader lifetime so you can use it in using block conveniently.
+        /// Invokes <see cref="ShowLoadingPopup"/> and <see cref="HideLoadingDialog"/>. Customizable version of <see cref="LoaderLifetime"/>.
+        /// </summary>
+        /// <param name="dialogStyle">Additional parameter for dialog customization.</param>
+        IDisposable ObtainLoaderLifetime(INativeDialogStyle dialogStyle);
+
+        /// <summary>
         /// Informs the provider to send signal to present your custom loading dialog.
         /// </summary>
         /// <param name="title">Title of the loader.</param>

@@ -66,6 +66,7 @@ namespace AoLibs.Adapters.Android
             string negativeText,
             INativeDialogStyle nativeDialogStyle = null)
         {
+            nativeDialogStyle ??= DefaultDialogStyles.PasswordInputDialogStyle;
             var style = (INativeAndroidDialogStyle) nativeDialogStyle;
 
             var sem = new SemaphoreSlim(0);
@@ -84,6 +85,7 @@ namespace AoLibs.Adapters.Android
                 res = false;
                 sem.Release();
             });
+
             dialog.SetTitle(title);
             dialog.SetMessage(content);
             dialog.SetCancelable(false);
@@ -101,6 +103,7 @@ namespace AoLibs.Adapters.Android
             string neutralText,
             INativeDialogStyle nativeDialogStyle = null)
         {
+            nativeDialogStyle ??= DefaultDialogStyles.DialogStyle;
             var style = (INativeAndroidDialogStyle)nativeDialogStyle;
 
             var sem = new SemaphoreSlim(0);
@@ -129,6 +132,7 @@ namespace AoLibs.Adapters.Android
             string neutralText,
             INativeDialogStyle nativeDialogStyle = null)
         {
+            nativeDialogStyle ??= DefaultDialogStyles.PasswordInputDialogStyle;
             var style = (INativeAndroidDialogStyle) nativeDialogStyle;
 
             // prepare input
@@ -174,6 +178,7 @@ namespace AoLibs.Adapters.Android
             string content,
             INativeDialogStyle nativeDialogStyle = null)
         {
+            nativeDialogStyle ??= DefaultDialogStyles.LoadingDialogStyle;
             var style = (INativeAndroidLoadingDialogStyle)nativeDialogStyle;
 
             _currentLoadingDialog?.Hide();
