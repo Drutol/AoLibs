@@ -231,7 +231,11 @@ Task("Gather-Packages")
 	.Does(() => 
 	{
 		if(DirectoryExists($"publish/{version}"))
-			DeleteDirectory($"publish/{version}", true);
+			DeleteDirectory($"publish/{version}", new DeleteDirectorySettings 
+			{
+				Force = true,
+				Recursive = true,
+			});
 
 		CreateDirectory($"publish/{version}");
 		MoveFiles("*.nupkg", $"publish/{version}/");
