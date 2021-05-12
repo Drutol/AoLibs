@@ -114,7 +114,12 @@ namespace AoLibs.Navigation.Core.Interfaces
         /// </summary>
         /// <param name="stackIdentifier">Stack identifier.</param>
         void ClearBackStack(TPageIdentifier stackIdentifier);
-        
+
+        /// <summary>
+        /// Reinstantiates all registered pages, useful during app theme switching
+        /// </summary>
+        void ForceReinstantiationForAllPages();
+
         /// <summary>
         /// Clears whole main (first) backstack and clears current page instance.
         /// Restores stack manager to initial state.

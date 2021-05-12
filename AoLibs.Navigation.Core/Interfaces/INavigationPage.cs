@@ -1,8 +1,9 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 
 namespace AoLibs.Navigation.Core.Interfaces
 {
-    public interface INavigationPage
+    public interface INavigationPage : IDisposable
     {        
         /// <summary>
         /// Gets or sets TPageIdentifier.
