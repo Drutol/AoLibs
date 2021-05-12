@@ -141,7 +141,7 @@
         </member>
         <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.ForceReinstantiationForAllPages">
             <summary>
-            Reinstantiates all registered pages, useful during app theme switching
+            Reinstantiates all registered pages, useful during app theme switching.
             </summary>
         </member>
         <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.Reset">

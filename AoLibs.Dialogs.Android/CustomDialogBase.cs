@@ -174,7 +174,7 @@ namespace AoLibs.Dialogs.Android
         public Task ShowAsync(object parameter = null)
         {
             Parameter = parameter;
-            Show();
+            Show(parameter);
             return Task.CompletedTask;
         }
 

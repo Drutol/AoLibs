@@ -116,7 +116,7 @@ namespace AoLibs.Navigation.Core.Interfaces
         void ClearBackStack(TPageIdentifier stackIdentifier);
 
         /// <summary>
-        /// Reinstantiates all registered pages, useful during app theme switching
+        /// Reinstantiates all registered pages, useful during app theme switching.
         /// </summary>
         void ForceReinstantiationForAllPages();
 

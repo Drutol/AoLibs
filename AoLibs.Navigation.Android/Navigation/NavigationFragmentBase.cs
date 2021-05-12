@@ -106,6 +106,7 @@ namespace AoLibs.Navigation.Android.Navigation
 
             return RootView;
         }
+
         protected override void Dispose(bool disposing)
         {
             foreach (var b in Bindings)

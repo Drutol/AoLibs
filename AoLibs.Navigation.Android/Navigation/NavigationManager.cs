@@ -32,7 +32,7 @@ namespace AoLibs.Navigation.Android.Navigation
         /// <param name="rootFrame">The view which will be used as the one being replaced with new Views.</param>
         /// <param name="pageDefinitions">The dictionary defining pages.</param>
         /// <param name="dependencyResolver">Class used to resolve ViewModels for pages derived from <see cref="FragmentBase{TViewModel}"/>.</param>
-        /// <param name="stackResolver">Class allowing to differentiate to which stack given indentigier belongs.</param>
+        /// <param name="stackResolver">Class allowing to differentiate to which stack given identifier belongs.</param>
         /// <param name="interceptTransaction">Delegate allowing to modify <see cref="FragmentTransaction"/> before commiting.</param>
         public NavigationManager(
             FragmentManager fragmentManager,
@@ -57,7 +57,7 @@ namespace AoLibs.Navigation.Android.Navigation
         /// <param name="fragmentManager">Fragment manager of main activity.</param>
         /// <param name="rootFrame">The view which will be used as the one being replaced with new Views.</param>
         /// <param name="dependencyResolver">Class used to resolve ViewModels for pages derived from <see cref="FragmentBase{TViewModel}"/>.</param>
-        /// <param name="stackResolver">Class allowing to differentiate to which stack given indentigier belongs.</param>
+        /// <param name="stackResolver">Class allowing to differentiate to which stack given identifier belongs.</param>
         /// <param name="interceptTransaction">Delegate allowing to modify <see cref="FragmentTransaction"/> before commiting.</param>
         public NavigationManager(
             FragmentManager fragmentManager, 
