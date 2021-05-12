@@ -158,6 +158,14 @@ namespace AoLibs.Navigation.Core
             ResolveStackManager(stackIdentifier).ClearBackStack();
         }
 
+        public void ForceReinstantiationForAllPages()
+        {
+            foreach (var page in PageDefinitions)
+            {
+                page.Value.ForceReinstantination();
+            }
+        }
+
         public void Reset()
         {
             _stackManagers.First().Value.Reset();
