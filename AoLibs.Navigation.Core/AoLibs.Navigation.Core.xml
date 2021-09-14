@@ -139,11 +139,6 @@
             </summary>
             <param name="stackIdentifier">Stack identifier.</param>
         </member>
-        <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.ForceReinstantiationForAllPages">
-            <summary>
-            Reinstantiates all registered pages, useful during app theme switching
-            </summary>
-        </member>
         <member name="M:AoLibs.Navigation.Core.Interfaces.INavigationManager`1.Reset">
             <summary>
             Clears whole main (first) backstack and clears current page instance.

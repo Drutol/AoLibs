@@ -39,7 +39,6 @@ namespace AoLibs.Navigation.Core.PageProviders
         /// </summary>
         public void ForceReinstantination()
         {
-            Page.Dispose();
             Page = Factory();
             OnPageCreated(Page);
             Page.PageIdentifier = PageIdentifier;
