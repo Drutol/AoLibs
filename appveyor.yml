@@ -20,7 +20,7 @@
   - cmd: >-
       cd Build
   - cmd: >-
-      dotnet cake .\build.cake --buildTarget=Publish-Packages --libVersion=0.7.0 
+      dotnet cake .\build.cake --buildTarget=Publish-Packages --libVersion=0.7.1 
     
 -
   version: 0.7.{build}

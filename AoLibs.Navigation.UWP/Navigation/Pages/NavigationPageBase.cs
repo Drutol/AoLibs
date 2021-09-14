@@ -32,5 +32,10 @@ namespace AoLibs.Navigation.UWP.Pages
         public virtual void NavigatedFrom()
         {
         }
+
+        public void Dispose()
+        {
+            
+        }
     }
 }

@@ -107,6 +107,14 @@ namespace AoLibs.Navigation.Android.Navigation
             return RootView;
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            foreach (var b in Bindings)
+                b.Detach();
+
+            base.Dispose(disposing);
+        }
+
         protected virtual T Resolve<T>()
             where T : class
         {
