@@ -1,5 +1,5 @@
-#addin "Cake.FileHelpers"
-#addin "Cake.Xamarin"
+#addin nuget:https://api.nuget.org/v3/index.json?package=Cake.FileHelpers&version=3.2.1
+#addin nuget:https://api.nuget.org/v3/index.json?package=Cake.Xamarin&version=3.0.2
 #tool "nuget:?package=xunit.runner.console"
 
 // Arguments
