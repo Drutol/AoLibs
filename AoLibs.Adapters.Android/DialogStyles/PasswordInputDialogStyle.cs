@@ -23,8 +23,15 @@ namespace AoLibs.Adapters.Android.DialogStyles
     {
         public override void SetStyle(AlertDialog.Builder dialogBuilder, View contentView = null)
         {
-            var child = (contentView as TextInputLayout).GetChildAt(0) as ViewGroup;
-            (child.GetChildAt(0) as TextInputEditText).InputType = InputTypes.ClassText | InputTypes.TextVariationPassword;
+            try
+            {
+                var child = (contentView as TextInputLayout).GetChildAt(0) as ViewGroup;
+                (child.GetChildAt(0) as TextInputEditText).InputType = InputTypes.ClassText | InputTypes.TextVariationPassword;
+            }
+            catch (Exception e)
+            {
+                // different layout
+            }
         }
     }
 }

@@ -181,7 +181,7 @@ namespace AoLibs.Adapters.Android
             nativeDialogStyle ??= DefaultDialogStyles.LoadingDialogStyle;
             var style = (INativeAndroidLoadingDialogStyle)nativeDialogStyle;
 
-            _currentLoadingDialog?.Hide();
+            _currentLoadingDialog?.Dismiss();
 
             // use default when not specified
             if (!(style?.UseDefault ?? true))
@@ -222,7 +222,7 @@ namespace AoLibs.Adapters.Android
         public override void HideLoadingDialog()
         {
             HideLoadingPopupRequest?.Invoke(this, EventArgs.Empty);
-            _currentLoadingDialog?.Hide();
+            _currentLoadingDialog?.Dismiss();
         }
     }
 }
