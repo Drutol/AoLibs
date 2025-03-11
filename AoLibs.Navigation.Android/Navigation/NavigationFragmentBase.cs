@@ -4,7 +4,6 @@ using Android.Content;
 using Android.Content.Res;
 using Android.OS;
 using Android.Views;
-using AndroidX.Fragment.App;
 using AoLibs.Navigation.Core.Interfaces;
 using GalaSoft.MvvmLight.Helpers;
 

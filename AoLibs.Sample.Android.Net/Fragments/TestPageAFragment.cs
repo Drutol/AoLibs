@@ -1,0 +1,60 @@
+﻿using AoLibs.Navigation.Android.Navigation;
+using AoLibs.Navigation.Android.Navigation.Attributes;
+using AoLibs.Sample.Shared.Models;
+using AoLibs.Sample.Shared.ViewModels;
+using AoLibs.Utilities.Android;
+
+namespace AoLibs.Sample.Android.Net.Fragments
+{
+    [NavigationPage((int) PageIndex.PageA, NavigationPageAttribute.PageProvider.Cached)]
+    public class TestPageAFragment : FragmentBase<TestViewModelA>
+    {
+        public override int LayoutResourceId { get; } = Utilities.Android.Resource.Layout.test_page_a;
+
+        public override void NavigatedTo()
+        {
+            ViewModel.NavigatedTo();
+        }
+
+        protected override void InitBindings()
+        {
+            ButtonChoose.SetOnClickCommand(ViewModel.AskUserAboutFancyThingsCommand);
+            ButtonShow.SetOnClickCommand(ViewModel.ShowLastFanciedThingCommand);
+            ButtonNavigate.SetOnClickCommand(ViewModel.NavigateSomewhereElseCommand);
+            ButtonReset.SetOnClickCommand(ViewModel.ResetFanciness);
+            ButtonDialog.SetOnClickCommand(ViewModel.ShowDialogCommand);
+            ButtonDialogB.SetOnClickCommand(ViewModel.ShowDialogBCommand);
+            ButtonInput.SetOnClickCommand(ViewModel.InputFanciness);
+            FancyLoading.SetOnClickCommand(ViewModel.ShowLoadingDialogCommand);
+        }
+
+        #region Views
+
+        private Button _buttonChoose;
+        private Button _buttonInput;
+        private Button _buttonShow;
+        private Button _buttonReset;
+        private Button _fancyLoading;
+        private Button _buttonDialog;
+        private Button _buttonDialogB;
+        private Button _buttonNavigate;
+
+        public Button ButtonChoose => _buttonChoose ?? (_buttonChoose = FindViewById<Button>(Utilities.Android.Resource.Id.ButtonChoose));
+
+        public Button ButtonInput => _buttonInput ?? (_buttonInput = FindViewById<Button>(Utilities.Android.Resource.Id.ButtonInput));
+
+        public Button ButtonShow => _buttonShow ?? (_buttonShow = FindViewById<Button>(Utilities.Android.Resource.Id.ButtonShow));
+
+        public Button ButtonReset => _buttonReset ?? (_buttonReset = FindViewById<Button>(Utilities.Android.Resource.Id.ButtonReset));
+
+        public Button FancyLoading => _fancyLoading ?? (_fancyLoading = FindViewById<Button>(Utilities.Android.Resource.Id.FancyLoading));
+
+        public Button ButtonDialog => _buttonDialog ?? (_buttonDialog = FindViewById<Button>(Utilities.Android.Resource.Id.ButtonDialog));
+
+        public Button ButtonDialogB => _buttonDialogB ?? (_buttonDialogB = FindViewById<Button>(Utilities.Android.Resource.Id.ButtonDialogB));
+
+        public Button ButtonNavigate => _buttonNavigate ?? (_buttonNavigate = FindViewById<Button>(Utilities.Android.Resource.Id.ButtonNavigate));
+
+        #endregion
+    }
+}

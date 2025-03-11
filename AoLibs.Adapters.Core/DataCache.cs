@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using System.Text.Json;
 using System.Threading.Tasks;
 using AoLibs.Adapters.Core.Excpetions;
 using AoLibs.Adapters.Core.Interfaces;
-using Newtonsoft.Json;
 
 [assembly: InternalsVisibleTo("AoLibs.Adapters.Test")]
 namespace AoLibs.Adapters.Core
@@ -17,7 +17,7 @@ namespace AoLibs.Adapters.Core
         /// <summary>
         /// Gets or sets json serializer settings used for data serialization.
         /// </summary>
-        public static JsonSerializerSettings JsonSerializerSettings { get; set; } = new JsonSerializerSettings();
+        public static JsonSerializerOptions JsonSerializerOptions { get; set; } = new JsonSerializerOptions();
 
         internal class TimedHolder<T>
         {
@@ -49,7 +49,7 @@ namespace AoLibs.Adapters.Core
             try
             {
                 var json = await _fileStorageProvider.ReadTextAsync(path);
-                var holder = JsonConvert.DeserializeObject<TimedHolder<T>>(json, JsonSerializerSettings);
+                var holder = JsonSerializer.Deserialize<TimedHolder<T>>(json, JsonSerializerOptions);
 
                 if (expiration != null && DateTime.UtcNow - holder.CreatedAt > expiration)
                     throw new DataExpiredException($"Data stored in {path} is expired as per provided expiration time {expiration}");
@@ -81,13 +81,13 @@ namespace AoLibs.Adapters.Core
         /// <param name="data">The data to store.</param>
         public async Task SaveDataAsync<T>(string path, T data)
         {
-            var json = JsonConvert.SerializeObject(
+            var json = JsonSerializer.Serialize(
                 new TimedHolder<T>
                 {
                     CreatedAt = DateTime.UtcNow,
                     Value = data
                 },
-                JsonSerializerSettings);
+                JsonSerializerOptions);
 
             if (data != null && json == null)
                 throw new Exception("Json serializer returned null json for non-null data.");

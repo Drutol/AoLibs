@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Text.Json;
 using System.Threading.Tasks;
 using AoLibs.Adapters.Core.Excpetions;
 using AoLibs.Adapters.Core.Interfaces;
-using Newtonsoft.Json;
-
 namespace AoLibs.Adapters.Core
 {
     /// <summary>
@@ -82,14 +81,14 @@ namespace AoLibs.Adapters.Core
                 if (cached == null)
                     return;
 
-                local = JsonConvert.DeserializeObject<T>(cached);
+                local = JsonSerializer.Deserialize<T>(cached);
             }
 
             public void SetValue<T>(T value, string prop, VariableAttribute attr)
             {
                 _settingsProvider.SetString(
                     prop,
-                    value == null ? null : JsonConvert.SerializeObject(value));
+                    value == null ? null : JsonSerializer.Serialize(value));
             }
         }
 

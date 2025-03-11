@@ -7,7 +7,7 @@
   - echo y | "C:\Program Files (x86)\Android\android-sdk\tools\android.bat" update sdk -u -a -t platform-tools
   - echo y | "C:\Program Files (x86)\Android\android-sdk\tools\android.bat" update sdk -u -a -t build-tools-29.0.3
   - echo y | "C:\Program Files (x86)\Android\android-sdk\tools\android.bat" update sdk -u -a -t android-29
-  - dotnet tool install Cake.Tool --global --version 1.1.0
+  - dotnet tool install Cake.Tool --global --version 5.0.0
 
   branches:
     only:
@@ -20,7 +20,7 @@
   - cmd: >-
       cd Build
   - cmd: >-
-      dotnet cake .\build.cake --buildTarget=Publish-Packages --libVersion=0.7.2 --settings_skippackageversioncheck=true 
+      dotnet cake .\build.cake --buildTarget=Publish-Packages --libVersion=0.8.0 --settings_skippackageversioncheck=true 
     
 -
   version: 0.7.{build}

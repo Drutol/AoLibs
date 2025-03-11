@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using AndroidX.Fragment.App;
 using AoLibs.Dialogs.Android.Interfaces;
 using AoLibs.Dialogs.Core;
 using AoLibs.Dialogs.Core.Interfaces;

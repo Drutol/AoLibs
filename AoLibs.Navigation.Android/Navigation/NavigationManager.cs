@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Reflection;
 using Android.Views;
-using AndroidX.Fragment.App;
 using AoLibs.Navigation.Android.Navigation.Attributes;
 using AoLibs.Navigation.Core;
 using AoLibs.Navigation.Core.Interfaces;

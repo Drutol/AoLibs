@@ -131,7 +131,7 @@
             Utility class allowing to quickly store data within filesystem.
             </summary>
         </member>
-        <member name="P:AoLibs.Adapters.Core.DataCache.JsonSerializerSettings">
+        <member name="P:AoLibs.Adapters.Core.DataCache.JsonSerializerOptions">
             <summary>
             Gets or sets json serializer settings used for data serialization.
             </summary>

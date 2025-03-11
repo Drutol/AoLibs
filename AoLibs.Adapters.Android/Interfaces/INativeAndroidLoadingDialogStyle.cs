@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using AoLibs.Adapters.Android.Interfaces;
-
-namespace AoLibs.Adapters.Core.Interfaces
+﻿namespace AoLibs.Adapters.Android.Interfaces
 {
     /// <summary>
     /// Specialized dialog style interface specifying whether to use default or custom implementation.

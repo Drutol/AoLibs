@@ -58,20 +58,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dialogs\TestDialogA.cs" />
-    <Compile Include="Dialogs\TestDialogB.cs" />
-    <Compile Include="Fragments\TestPageAFragment.cs" />
-    <Compile Include="Fragments\TestPageBFragment.cs" />
-    <Compile Include="Fragments\TestPageCFragment.cs" />
-    <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StyleCopSuppressions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
-    <None Include="Assets\AboutAssets.txt" />
     <AdditionalFiles Include="stylecop.json" />
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,5 @@
 #addin nuget:https://api.nuget.org/v3/index.json?package=Cake.FileHelpers&version=3.2.1
-#addin nuget:https://api.nuget.org/v3/index.json?package=Cake.Xamarin&version=3.0.2
+// #addin nuget:https://api.nuget.org/v3/index.json?package=Cake.Xamarin&version=3.0.2
 #tool "nuget:?package=xunit.runner.console"
 
 // Arguments
@@ -9,7 +9,6 @@ var version = Argument<string>("libVersion", null);
 
 // Directories&Files
 var solutionFile = File("../AoLibs.sln");
-
 
 // Variables
 
@@ -58,7 +57,7 @@ Task("Restore-NuGet")
 	.IsDependentOn("Clean")
 	.Does(() =>
 	{
-		NuGetRestore(solutionFile);
+		DotNetRestore(solutionFile);
 	});
 
 /////////////////////////////////////
@@ -69,7 +68,7 @@ Task("Build-Navigation")
 	.IsDependentOn("Restore-NuGet")
 	.Does(() =>
 	{
-		DotNetCoreBuild("../AoLibs.Navigation.Test/AoLibs.Navigation.Test.csproj", new DotNetCoreBuildSettings
+		DotNetBuild("../AoLibs.Navigation.Test/AoLibs.Navigation.Test.csproj", new DotNetBuildSettings
 		{
 			Configuration = "Release",
 		});
@@ -86,7 +85,7 @@ Task("Build-Adapters")
 	.IsDependentOn("Restore-NuGet")
 	.Does(() =>
 	{
-		DotNetCoreBuild("../AoLibs.Adapters.Test/AoLibs.Adapters.Test.csproj", new DotNetCoreBuildSettings
+		DotNetBuild("../AoLibs.Adapters.Test/AoLibs.Adapters.Test.csproj", new DotNetBuildSettings
 		{
 			Configuration = "Release",
 		});
@@ -131,7 +130,7 @@ Task("Test-Navigation")
 	.IsDependentOn("Build-Navigation")
 	.Does(() =>
 	{
-		DotNetCoreTest("../AoLibs.Navigation.Test/AoLibs.Navigation.Test.csproj", new DotNetCoreTestSettings
+		DotNetTest("../AoLibs.Navigation.Test/AoLibs.Navigation.Test.csproj", new DotNetTestSettings
 		{
 			Configuration = "Release",
 		});
@@ -141,7 +140,7 @@ Task("Test-Adapters")
 	.IsDependentOn("Build-Adapters")
 	.Does(() =>
 	{
-		DotNetCoreTest("../AoLibs.Adapters.Test/AoLibs.Adapters.Test.csproj", new DotNetCoreTestSettings
+		DotNetTest("../AoLibs.Adapters.Test/AoLibs.Adapters.Test.csproj", new DotNetTestSettings
 		{
 			Configuration = "Release",
 		});
@@ -253,7 +252,7 @@ Task("Publish-Packages")
 	{	
 		foreach(var file in GetFiles($"publish/{version}/*.nupkg"))
 		{
-			DotNetCoreNuGetPush(file.FullPath ,new DotNetCoreNuGetPushSettings()
+			DotNetNuGetPush(file.FullPath ,new DotNetNuGetPushSettings()
 			{
 				ApiKey = EnvironmentVariable("NuGetApiKey"),
 				Source = EnvironmentVariable("NuGetFeed"),
@@ -268,33 +267,42 @@ Task("Publish-Packages")
 
 private void Pack(string pathAndroid, string pathiOS, string pathShared, string pathUwp)
 {
-	NuGetPack(pathAndroid, new NuGetPackSettings() 
+	DotNetPack(pathAndroid, new DotNetPackSettings() 
 	{
-		Version = version,
-		Properties = {
-			["Configuration"] = "Release"
-		}
-	});
-	NuGetPack(pathiOS, new NuGetPackSettings() 
-	{
-		Version = version,
-		Properties = {
-			["Configuration"] = "Release"
-		}
-	});
-
-	if(pathUwp != null)
-	{
-		NuGetPack(pathUwp, new NuGetPackSettings() 
+		ArgumentCustomization = (args) => 
 		{
-			Version = version,
-			Properties = {
-				["Configuration"] = "Release"
-			}
-		});
-	}
+			return args.Append($"/p:Version={version}");
+		},
+		NoBuild = true,
+		IncludeSymbols = true,
+		Configuration = "Release"
+	});
+// 	DotNetPack(pathiOS, new DotNetPackSettings() 
+// 	{
+// 		ArgumentCustomization = (args) => 
+// 		{
+// 			return args.Append($"/p:Version={version}");
+// 		},
+// 		NoBuild = true,
+// 		IncludeSymbols = true,
+// 		Configuration = "Release"
+// 	});
+// 
+// 	if(pathUwp != null)
+// 	{
+// 		DotNetPack(pathUwp, new DotNetPackSettings() 
+// 		{
+// 		ArgumentCustomization = (args) => 
+// 		{
+// 			return args.Append($"/p:Version={version}");
+// 		},
+// 		NoBuild = true,
+// 		IncludeSymbols = true,
+// 		Configuration = "Release"
+// 		});
+// 	}
 
-	DotNetCorePack(pathShared, new DotNetCorePackSettings()
+	DotNetPack(pathShared, new DotNetPackSettings()
 	{
 		ArgumentCustomization = (args) => 
 		{
@@ -308,25 +316,30 @@ private void Pack(string pathAndroid, string pathiOS, string pathShared, string 
 
 private void Build(string pathAndroid, string pathiOS, string pathShared, string pathUwp)
 {
-	DotNetCoreBuild(pathShared, new DotNetCoreBuildSettings
+	DotNetBuild(pathShared, new DotNetBuildSettings
+		{
+			Configuration = "Release",
+		});
+			
+	DotNetBuild(pathAndroid, new DotNetBuildSettings
 		{
 			Configuration = "Release",
 		});
 		
-	MSBuild(pathAndroid, settings => 
-	{
-		settings.SetConfiguration("Release");
-	});
+// 	MSBuild(pathAndroid, settings => 
+// 	{
+// 		settings.SetConfiguration("Release");
+// 	});
 
-	MSBuild(pathiOS, settings => 
-	{
-		settings
-		.SetConfiguration("Release")
-		.SetMSBuildPlatform(MSBuildPlatform.x86);							
-	});
-
-	if (pathUwp != null)
-		BuildUWP(pathUwp);
+// 	MSBuild(pathiOS, settings => 
+// 	{
+// 		settings
+// 		.SetConfiguration("Release")
+// 		.SetMSBuildPlatform(MSBuildPlatform.x86);							
+// 	});
+// 
+// 	if (pathUwp != null)
+// 		BuildUWP(pathUwp);
 }
 
 private void BuildUWP(string uwpPath) 
