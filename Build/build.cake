@@ -239,9 +239,13 @@ Task("Gather-Packages")
 		CreateDirectory($"publish/{version}");
 		MoveFiles("*.nupkg", $"publish/{version}/");
 		MoveFiles("../AoLibs.Adapters.Core/bin/Release/**/*.nupkg", $"publish/{version}/");
+		MoveFiles("../AoLibs.Adapters.Android/bin/Release/**/*.nupkg", $"publish/{version}/");
 		MoveFiles("../AoLibs.Navigation.Core/bin/Release/**/*.nupkg", $"publish/{version}/");
+		MoveFiles("../AoLibs.Navigation.Android/bin/Release/**/*.nupkg", $"publish/{version}/");
 		MoveFiles("../AoLibs.Utilities.Shared/bin/Release/**/*.nupkg", $"publish/{version}/");
+		MoveFiles("../AoLibs.Utilities.Android/bin/Release/**/*.nupkg", $"publish/{version}/");
 		MoveFiles("../AoLibs.Dialogs.Core/bin/Release/**/*.nupkg", $"publish/{version}/");
+		MoveFiles("../AoLibs.Dialogs.Android/bin/Release/**/*.nupkg", $"publish/{version}/");
 	});
 
 
@@ -252,6 +256,9 @@ Task("Publish-Packages")
 	{	
 		foreach(var file in GetFiles($"publish/{version}/*.nupkg"))
 		{
+		    if(!file.FullPath.Contains(version))
+		        continue;
+		        
 			DotNetNuGetPush(file.FullPath ,new DotNetNuGetPushSettings()
 			{
 				ApiKey = EnvironmentVariable("NuGetApiKey"),
