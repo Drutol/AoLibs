@@ -58,12 +58,12 @@ namespace AoLibs.Sample.Android.Net.Activities
                 };
 
                 _manager = new NavigationManager<PageIndex>(
-                    FragmentManager,
+                    SupportFragmentManager,
                     RootView,
                     new DependencyResolver());
 
                 _dialogManager = new CustomDialogsManager<DialogIndex>(
-                    FragmentManager,
+                    SupportFragmentManager,
                     dialogDefinitions,
                     new DependencyResolver());
 
@@ -95,8 +95,8 @@ namespace AoLibs.Sample.Android.Net.Activities
             }
             else
             {
-                _manager.RestoreState(FragmentManager, RootView);
-                _dialogManager.ChangeFragmentManager(FragmentManager);
+                _manager.RestoreState(SupportFragmentManager, RootView);
+                _dialogManager.ChangeFragmentManager(SupportFragmentManager);
             }
         }
 

@@ -13,6 +13,9 @@ using AoLibs.Dialogs.Core;
 using AoLibs.Dialogs.Core.Interfaces;
 using GalaSoft.MvvmLight.Helpers;
 using Type = System.Type;
+using AndroidX.Fragment.App;
+using DialogFragment = AndroidX.Fragment.App.DialogFragment;
+using FragmentManager = AndroidX.Fragment.App.FragmentManager;
 
 namespace AoLibs.Dialogs.Android
 {

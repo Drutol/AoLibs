@@ -2,6 +2,8 @@
 using AoLibs.Dialogs.Android.Interfaces;
 using AoLibs.Dialogs.Core;
 using AoLibs.Dialogs.Core.Interfaces;
+using AndroidX.Fragment.App;
+using FragmentManager = AndroidX.Fragment.App.FragmentManager;
 
 namespace AoLibs.Dialogs.Android
 {

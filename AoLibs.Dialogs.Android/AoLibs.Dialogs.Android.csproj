@@ -16,4 +16,7 @@
     <ItemGroup>
       <ProjectReference Include="..\AoLibs.Dialogs.Core\AoLibs.Dialogs.Core.csproj" />
     </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Xamarin.AndroidX.Fragment" Version="1.8.6" />
+    </ItemGroup>
 </Project>

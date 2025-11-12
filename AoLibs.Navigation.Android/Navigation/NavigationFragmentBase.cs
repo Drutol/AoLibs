@@ -6,6 +6,8 @@ using Android.OS;
 using Android.Views;
 using AoLibs.Navigation.Core.Interfaces;
 using GalaSoft.MvvmLight.Helpers;
+using AndroidX.Fragment.App;
+using Fragment = AndroidX.Fragment.App.Fragment;
 
 namespace AoLibs.Navigation.Android.Navigation
 {

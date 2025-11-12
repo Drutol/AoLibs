@@ -6,6 +6,9 @@ using AoLibs.Navigation.Android.Navigation.Attributes;
 using AoLibs.Navigation.Core;
 using AoLibs.Navigation.Core.Interfaces;
 using AoLibs.Navigation.Core.PageProviders;
+using AndroidX.Fragment.App;
+using FragmentManager = AndroidX.Fragment.App.FragmentManager;
+using FragmentTransaction = AndroidX.Fragment.App.FragmentTransaction;
 
 namespace AoLibs.Navigation.Android.Navigation
 {

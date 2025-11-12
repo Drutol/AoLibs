@@ -263,6 +263,7 @@ Task("Publish-Packages")
 			{
 				ApiKey = EnvironmentVariable("NuGetApiKey"),
 				Source = EnvironmentVariable("NuGetFeed"),
+			    SkipDuplicate = true
 			});
 		}
 	});

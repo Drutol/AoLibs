@@ -16,5 +16,8 @@
   <ItemGroup>
     <ProjectReference Include="..\AoLibs.Navigation.Core\AoLibs.Navigation.Core.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.AndroidX.Fragment" Version="1.8.6" />
+  </ItemGroup>
 
 </Project>
